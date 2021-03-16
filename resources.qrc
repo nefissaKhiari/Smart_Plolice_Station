@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/resources">
+        <file>images/add.png</file>
+        <file>images/background.PNG</file>
+        <file>images/close.png</file>
+        <file>images/confirm.png</file>
+        <file>images/edit.png</file>
+        <file>images/trash.png</file>
+        <file>images/icon.png</file>
+        <file>images/auto.png</file>
+        <file>images/objectif.png</file>
+        <file>images/back-arrow.png</file>
+    </qresource>
+</RCC>

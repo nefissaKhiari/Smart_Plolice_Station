@@ -68,7 +68,7 @@ bool Citoyen::supprimer(int id)
 QSqlQueryModel* Citoyen::afficher()
 {
     QSqlQueryModel* model=new QSqlQueryModel();
-          model->setQuery("SELECT * FROM citoyens");
+          model->setQuery("SELECT * FROM citoyens ");
           model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
           model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
           model->setHeaderData(3, Qt::Horizontal, QObject::tr("date_Naiss"));
@@ -102,3 +102,5 @@ bool Citoyen::modifier() {
     query.bindValue(8, etat_civil);
     return query.exec();
 }
+
+

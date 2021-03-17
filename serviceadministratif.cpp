@@ -13,6 +13,7 @@ ServiceAdministratif::ServiceAdministratif(QWidget *parent)
     ui->stackedWidget->setCurrentIndex(0);
     ui->T_Citoyens->setModel(C.afficher());
     ui->CB_IDCitoyen->setModel(C.listId());
+
 }
 
 ServiceAdministratif::~ServiceAdministratif()

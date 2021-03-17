@@ -15,7 +15,7 @@ private:
     QString mail;
 public:
     Intervenant();
-    Intervenant(QString, QString, QString, QString, QString);
+    Intervenant(int, QString, QString, QString, QString, QString);
 
     void setCin(int);
     int getCin();

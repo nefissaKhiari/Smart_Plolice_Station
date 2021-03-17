@@ -18,5 +18,6 @@
         <file>Images/edit-property.png</file>
         <file>Images/live-chat.png</file>
         <file>Images/trend.png</file>
+        <file>Images/search.png</file>
     </qresource>
 </RCC>

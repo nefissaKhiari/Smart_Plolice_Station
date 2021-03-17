@@ -60,6 +60,7 @@ void AffairesJuridiques::on_B_ModifierIntervenant_clicked()
     qry.bindValue(0, cin_string);
     if(qry.exec()) {
         while(qry.next()) {
+            ui->LE_MCinIntervenant->setText(qry.value(0).toString());
             ui->LE_MNomIntervenant->setText(qry.value(1).toString());
             ui->LE_MPrenomIntervenant->setText(qry.value(2).toString());
             ui->LE_MNationaliteIntervenant->setText(qry.value(3).toString());
@@ -74,6 +75,8 @@ void AffairesJuridiques::on_B_AAnnulerIntervenant_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
 
+    ui->LE_ACinIntervenant->setText("");
+    ui->LE_ANomIntervenant->setText("");
     ui->LE_ANationaliteIntervenant->setText("");
     ui->LE_APrenomIntervenant->setText("");
     ui->LE_ANationaliteIntervenant->setText("");
@@ -85,6 +88,8 @@ void AffairesJuridiques::on_B_MAnuulerIntervenant_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
 
+    ui->LE_MCinIntervenant->setText("");
+    ui->LE_MNomIntervenant->setText("");
     ui->LE_MNationaliteIntervenant->setText("");
     ui->LE_MPrenomIntervenant->setText("");
     ui->LE_MNationaliteIntervenant->setText("");
@@ -128,17 +133,20 @@ void AffairesJuridiques::on_B_AConfirmerIntervenant_clicked()
 {
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout du l'intervenant?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
+        int cin = ui->LE_ACinIntervenant->text().toInt();
         QString nom = ui->LE_ANomIntervenant->text();
         QString prenom = ui->LE_APrenomIntervenant->text();
         QString nationalite = ui->LE_ANationaliteIntervenant->text();
         QString localisation = ui->LE_ALocalIntervenant->text();
         QString mail = ui->LE_AMailIntervenant->text();
-        Intervenant intervenant(nom, prenom, nationalite, localisation, mail);
+        Intervenant intervenant(cin, nom, prenom, nationalite, localisation, mail);
         if(intervenant.ajouter()) {
             ui->CB_IDIntervenant->setModel(intervenant.listCin());
             ui->T_Intervenants->setModel(intervenant.afficher());
             ui->stackedWidget->setCurrentIndex(1);
 
+            ui->LE_ACinIntervenant->setText("");
+            ui->LE_ANomIntervenant->setText("");
             ui->LE_ANationaliteIntervenant->setText("");
             ui->LE_APrenomIntervenant->setText("");
             ui->LE_ANationaliteIntervenant->setText("");

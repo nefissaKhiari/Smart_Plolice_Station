@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -264,19 +264,6 @@ QPushButton:hover{
         <normaloff>:/Recources/Images/back-arrow.png</normaloff>:/Recources/Images/back-arrow.png</iconset>
       </property>
      </widget>
-     <widget class="QLineEdit" name="LE_recherche">
-      <property name="geometry">
-       <rect>
-        <x>174</x>
-        <y>110</y>
-        <width>141</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="placeholderText">
-       <string>Recherche...</string>
-      </property>
-     </widget>
      <widget class="QFrame" name="frame">
       <property name="geometry">
        <rect>
@@ -295,37 +282,23 @@ QPushButton:hover{
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QPushButton" name="B_Statistics">
-       <property name="geometry">
-        <rect>
-         <x>580</x>
-         <y>20</y>
-         <width>151</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string> Statistics</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Recources.qrc">
-         <normaloff>:/Recources/Images/trend.png</normaloff>:/Recources/Images/trend.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>23</width>
-         <height>23</height>
-        </size>
-       </property>
-      </widget>
       <widget class="QPushButton" name="B_Trier">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>20</y>
+         <x>630</x>
+         <y>24</y>
          <width>101</width>
          <height>31</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background: white;
+}
+
+QPushButton:hover {
+	background: #BEBEBE;
+}</string>
        </property>
        <property name="text">
         <string>Trier</string>
@@ -365,30 +338,51 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         <number>117</number>
        </attribute>
       </widget>
-     </widget>
-     <widget class="QLabel" name="L_Recherche">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>110</y>
-        <width>151</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>century gothic</family>
-        <pointsize>-1</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background: transparent;</string>
-      </property>
-      <property name="text">
-       <string>Recherche :</string>
-      </property>
+      <widget class="QPushButton" name="B_Trier_2">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>24</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background: white;
+}
+
+QPushButton:hover {
+	background: #BEBEBE;
+}</string>
+       </property>
+       <property name="text">
+        <string>Chercher</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Recources.qrc">
+         <normaloff>:/Recources/Images/search.png</normaloff>:/Recources/Images/search.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="LE_recherche">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>201</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>Recherche...</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QFrame" name="frame_2">
       <property name="geometry">
@@ -528,7 +522,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
      <widget class="QToolButton" name="toolButton">
       <property name="geometry">
        <rect>
-        <x>320</x>
+        <x>420</x>
         <y>100</y>
         <width>121</width>
         <height>121</height>
@@ -571,13 +565,35 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        </size>
       </property>
      </widget>
+     <widget class="QPushButton" name="B_Statistics">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>120</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string> Statistics</string>
+      </property>
+      <property name="icon">
+       <iconset resource="Recources.qrc">
+        <normaloff>:/Recources/Images/trend.png</normaloff>:/Recources/Images/trend.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>23</width>
+        <height>23</height>
+       </size>
+      </property>
+     </widget>
      <zorder>frame</zorder>
      <zorder>B_BackToGestions</zorder>
-     <zorder>LE_recherche</zorder>
-     <zorder>L_Recherche</zorder>
      <zorder>frame_2</zorder>
      <zorder>toolButton</zorder>
      <zorder>B_Statistics_2</zorder>
+     <zorder>B_Statistics</zorder>
     </widget>
     <widget class="QWidget" name="Ajouter_intervenant">
      <widget class="QToolButton" name="toolButton_3">
@@ -652,7 +668,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>170</y>
+         <y>190</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -668,7 +684,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>220</y>
+         <y>240</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -684,8 +700,8 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>270</y>
-         <width>121</width>
+         <y>290</y>
+         <width>131</width>
          <height>31</height>
         </rect>
        </property>
@@ -700,7 +716,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>320</y>
+         <y>340</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -716,7 +732,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>370</y>
+         <y>390</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -732,7 +748,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>170</y>
+         <y>190</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -745,7 +761,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>220</y>
+         <y>240</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -758,7 +774,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>270</y>
+         <y>290</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -771,7 +787,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>320</y>
+         <y>340</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -784,7 +800,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>370</y>
+         <y>390</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -871,6 +887,35 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         </size>
        </property>
       </widget>
+      <widget class="QLabel" name="L_ACinIntervenant">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>140</y>
+         <width>121</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string>CIN :</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="LE_ACinIntervenant">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>140</y>
+         <width>351</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>CIN...</string>
+       </property>
+      </widget>
      </widget>
      <zorder>frame_4</zorder>
      <zorder>toolButton_3</zorder>
@@ -948,7 +993,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>170</y>
+         <y>190</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -964,7 +1009,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>220</y>
+         <y>240</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -980,7 +1025,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>270</y>
+         <y>290</y>
          <width>131</width>
          <height>31</height>
         </rect>
@@ -996,7 +1041,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>320</y>
+         <y>340</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -1012,7 +1057,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>370</y>
+         <y>390</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -1028,7 +1073,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>170</y>
+         <y>190</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1041,7 +1086,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>220</y>
+         <y>240</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1054,7 +1099,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>270</y>
+         <y>290</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1067,7 +1112,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>320</y>
+         <y>340</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1080,7 +1125,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>370</y>
+         <y>390</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1159,6 +1204,38 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
          <width>30</width>
          <height>30</height>
         </size>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_MCinIntervenant">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>140</y>
+         <width>121</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string>CIN :</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="LE_MCinIntervenant">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>140</y>
+         <width>351</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>CIN...</string>
        </property>
       </widget>
      </widget>

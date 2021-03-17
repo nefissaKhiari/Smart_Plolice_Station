@@ -7,8 +7,8 @@ Intervenant::Intervenant() {
     CIN=0;  nom="";  prenom="";  nationalite="";  localisation="";  mail="";
 }
 
-Intervenant::Intervenant(QString nom, QString prenom, QString nationalite, QString localisation, QString mail){
-    this->nom=nom;  this->prenom=prenom;  this->nationalite=nationalite;  this->localisation=localisation;  this->mail=mail;
+Intervenant::Intervenant(int CIN, QString nom, QString prenom, QString nationalite, QString localisation, QString mail){
+    this->CIN=CIN;  this->nom=nom;  this->prenom=prenom;  this->nationalite=nationalite;  this->localisation=localisation;  this->mail=mail;
 }
 
 void Intervenant::setCin(int CIN) { this->CIN=CIN; }
@@ -32,12 +32,13 @@ QString Intervenant::getMail() { return mail; }
 bool Intervenant::ajouter() {
     QSqlQuery query;
     QString cin_string = QString::number(CIN);
-    query.prepare("INSERT INTO intervenant (nom, prenom, nationalite, localisation, mail)" "VALUES (:nom, :prenom, :nationalite, :localisation, :mail)");
-    query.bindValue(0, nom);
-    query.bindValue(1, prenom);
-    query.bindValue(2, nationalite);
-    query.bindValue(3, localisation);
-    query.bindValue(4, mail);
+    query.prepare("INSERT INTO intervenant (cin, nom, prenom, nationalite, localisation, mail)" "VALUES (:cin, :nom, :prenom, :nationalite, :localisation, :mail)");
+    query.bindValue(0, cin_string);
+    query.bindValue(1, nom);
+    query.bindValue(2, prenom);
+    query.bindValue(3, nationalite);
+    query.bindValue(4, localisation);
+    query.bindValue(5, mail);
     return query.exec();
 }
 

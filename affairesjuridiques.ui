@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -110,6 +110,9 @@ QPushButton:hover{
         <width>141</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="text">
        <string> Menu</string>
@@ -146,6 +149,9 @@ QPushButton:hover{
          <height>51</height>
         </rect>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string>Gestion des Intervenants</string>
        </property>
@@ -158,6 +164,9 @@ QPushButton:hover{
          <width>321</width>
          <height>51</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true"/>
@@ -256,6 +265,9 @@ QPushButton:hover{
         <height>41</height>
        </rect>
       </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
       <property name="text">
        <string> Gestion des affaires juridiques</string>
       </property>
@@ -290,6 +302,9 @@ QPushButton:hover{
          <width>101</width>
          <height>31</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
@@ -346,6 +361,9 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
          <width>141</width>
          <height>31</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
@@ -451,6 +469,9 @@ QPushButton:hover {
          <height>41</height>
         </rect>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string> Ajouter un intervenant</string>
        </property>
@@ -469,7 +490,64 @@ QPushButton:hover {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background: white;</string>
+        <string notr="true">QComboBox {
+  border: 1px solid red;
+  border-radius: 4px;
+  background: white;
+}
+
+QComboBox QAbstractItemView {
+  border: 1px solid black;
+  border-radius: 0;
+  background-color: white;
+  selection-background-color:#305068;
+}
+
+QComboBox QAbstractItemView:hover {
+  background-color: white;
+  color: #F0F0F0;
+}
+
+QComboBox QAbstractItemView:selected {
+  background: #1464A0;
+  color: #32414B;
+}
+
+QComboBox QAbstractItemView:alternate {
+  background: #19232D;
+}
+
+QComboBox:disabled {
+  background-color: #19232D;
+  color: #787878;
+}
+
+QComboBox:hover {
+  border: 1px solid #148CD2;
+}
+
+QComboBox:focus {
+  border: 1px solid #1464A0;
+}
+
+QComboBox:on {
+  selection-background-color: #1464A0;
+}
+
+QComboBox::item:checked {
+  font-weight: bold;
+}
+
+QComboBox::item:selected {
+  border: 0px solid transparent;
+}
+
+QComboBox::drop-down {
+  subcontrol-origin: padding;
+  subcontrol-position: top right;
+  width: 12px;
+  border-left: 1px solid #32414B;
+}</string>
        </property>
       </widget>
       <widget class="QPushButton" name="B_ModifierIntervenant">
@@ -480,6 +558,9 @@ QPushButton:hover {
          <width>151</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="text">
         <string>Modifier</string>
@@ -503,6 +584,9 @@ QPushButton:hover {
          <width>151</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="text">
         <string>Supprimer</string>
@@ -551,6 +635,9 @@ QPushButton:hover {
         <height>51</height>
        </rect>
       </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
       <property name="text">
        <string> CHAT</string>
       </property>
@@ -573,6 +660,9 @@ QPushButton:hover {
         <width>151</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="text">
        <string> Statistics</string>
@@ -821,6 +911,9 @@ QPushButton:hover {
          <height>41</height>
         </rect>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string> Ajouter</string>
        </property>
@@ -843,6 +936,9 @@ QPushButton:hover {
          <width>161</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true"/>
@@ -1143,6 +1239,9 @@ QPushButton:hover {
          <height>41</height>
         </rect>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string> Modifier</string>
        </property>
@@ -1165,6 +1264,9 @@ QPushButton:hover {
          <width>161</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="text">
         <string> Annuler</string>
@@ -1315,6 +1417,9 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         <height>41</height>
        </rect>
       </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
       <property name="text">
        <string> Gestion des affaires juridiques</string>
       </property>
@@ -1390,6 +1495,9 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
          <height>41</height>
         </rect>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string> Ajouter un affaire</string>
        </property>
@@ -1408,7 +1516,64 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background: white;</string>
+        <string notr="true">QComboBox {
+  border: 1px solid red;
+  border-radius: 4px;
+  background: white;
+}
+
+QComboBox QAbstractItemView {
+  border: 1px solid black;
+  border-radius: 0;
+  background-color: white;
+  selection-background-color:#305068;
+}
+
+QComboBox QAbstractItemView:hover {
+  background-color: white;
+  color: #F0F0F0;
+}
+
+QComboBox QAbstractItemView:selected {
+  background: #1464A0;
+  color: #32414B;
+}
+
+QComboBox QAbstractItemView:alternate {
+  background: #19232D;
+}
+
+QComboBox:disabled {
+  background-color: #19232D;
+  color: #787878;
+}
+
+QComboBox:hover {
+  border: 1px solid #148CD2;
+}
+
+QComboBox:focus {
+  border: 1px solid #1464A0;
+}
+
+QComboBox:on {
+  selection-background-color: #1464A0;
+}
+
+QComboBox::item:checked {
+  font-weight: bold;
+}
+
+QComboBox::item:selected {
+  border: 0px solid transparent;
+}
+
+QComboBox::drop-down {
+  subcontrol-origin: padding;
+  subcontrol-position: top right;
+  width: 12px;
+  border-left: 1px solid #32414B;
+}</string>
        </property>
       </widget>
       <widget class="QPushButton" name="B_ModifierAffaire">
@@ -1419,6 +1584,9 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
          <width>151</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="text">
         <string>Modifier</string>
@@ -1442,6 +1610,9 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
          <width>151</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="text">
         <string>Supprimer</string>
@@ -1624,6 +1795,9 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
          <height>41</height>
         </rect>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string> Ajouter</string>
        </property>
@@ -1646,6 +1820,9 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
          <width>161</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="text">
         <string> Annuler</string>
@@ -1862,6 +2039,9 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
          <height>41</height>
         </rect>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="text">
         <string> Modifier</string>
        </property>
@@ -1884,6 +2064,9 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
          <width>161</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="text">
         <string> Annuler</string>

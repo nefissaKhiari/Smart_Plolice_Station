@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/Ressources">
+        <file>image/add.png</file>
+        <file>image/add-property.png</file>
+        <file>image/add-user.png</file>
+        <file>image/ascending-sort.png</file>
+        <file>image/back-arrow.png</file>
+        <file>image/background.PNG</file>
+        <file>image/close.png</file>
+        <file>image/confirm.png</file>
+        <file>image/edit.png</file>
+        <file>image/edit-property.png</file>
+        <file>image/edit-user.gif</file>
+        <file>image/gavel.png</file>
+        <file>image/icon.png</file>
+        <file>image/judge.png</file>
+        <file>image/live-chat.png</file>
+        <file>image/pdf-file.png</file>
+        <file>image/trash.png</file>
+        <file>image/trend.png</file>
+        <file>image/support.png</file>
+        <file>image/systeme-de-population.png</file>
+        <file>image/person-silhouette.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,96 @@
+#include "etudiant.h"
+#include <QSqlQuery>
+#include <QDebug>
+#include <QObject>
+
+Etudiant::Etudiant()
+{
+    id=0;    nom="";    prenom="";
+}
+
+Etudiant::Etudiant(int id, QString nom, QString prenom) {
+    this->id=id;    this->nom=nom;    this->prenom=prenom;
+}
+
+int Etudiant::getId() {
+    return id;
+}
+
+void Etudiant::setId(int id) {
+    this->id=id;
+}
+
+QString Etudiant::getNom() {
+    return nom;
+}
+
+void Etudiant::setNom(QString nom) {
+    this->nom=nom;
+}
+
+QString Etudiant::getPrenom() {
+    return  prenom;
+}
+
+void Etudiant::setPrenom(QString prenom) {
+    this->prenom=prenom;
+}
+
+bool Etudiant::ajouter() {
+    QSqlQuery query;
+    QString id_string = QString::number(id);
+    query.prepare("INSERT INTO etudiant (id, nom, prenom)" "VALUES (:id, :nom, :prenom)");
+    query.bindValue(0, id_string);
+    query.bindValue(1, nom);
+    query.bindValue(2, prenom);
+    return query.exec();
+}
+
+QSqlQueryModel* Etudiant::afficher() {
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery("SELECT * FROM etudiant");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
+    return model;
+}
+
+QSqlQueryModel* Etudiant::listId() {
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery("SELECT id FROM etudiant");
+    return model;
+}
+
+bool Etudiant::supprimer(int id) {
+    QSqlQuery query;
+    QString id_string = QString::number(id);
+    query.prepare("delete from etudiant where id=:id");
+    query.bindValue(0, id);
+    return query.exec();
+}
+
+bool Etudiant::modifier() {
+    QSqlQuery query;
+    QString id_string = QString::number(id);
+    query.prepare("UPDATE etudiant set nom=:nom, prenom=:prenom where id=:id");
+    query.bindValue(2, id_string);
+    query.bindValue(0, nom);
+    query.bindValue(1, prenom);
+    return query.exec();
+
+    /*  --------------------- OR LIKE THIS
+    QSqlQuery query;
+    QString id_string = QString::number(id);
+    query.prepare("UPDATE etudiant set nom='"+nom+"', prenom='"+prenom+"' where id='"+id_string+"'");
+    return query.exec();
+    ---------------------  */
+}
+
+QSqlQueryModel* Etudiant::afficherById(int id) {
+    QSqlQuery query;
+    QString id_string = QString::number(id);
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery("SELECT * FROM etudiant where id=:id");
+    query.bindValue(0, id_string);
+    return model;
+}

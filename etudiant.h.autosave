@@ -1,0 +1,30 @@
+#ifndef ETUDIANT_H
+#define ETUDIANT_H
+
+#include <QString>
+#include <QSqlQueryModel>
+
+class Etudiant
+{
+private:
+    int id;
+    QString nom, prenom;
+
+public:
+    Etudiant();
+    Etudiant(int, QString, QString);
+    int getId();
+    void setId(int);
+    QString getNom();
+    void setNom(QString);
+    QString getPrenom();
+    void setPrenom(QString);
+    bool ajouter();
+    bool supprimer(int);
+    bool modifier();
+    QSqlQueryModel* afficher();
+    QSqlQueryModel* afficherById(int);
+    QSqlQueryModel* listId();
+};
+
+#endif // ETUDIANT_H

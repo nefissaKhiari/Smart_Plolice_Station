@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -279,8 +279,8 @@ QPushButton:hover{
      <widget class="QFrame" name="frame">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>160</y>
+        <x>20</x>
+        <y>170</y>
         <width>741</width>
         <height>531</height>
        </rect>
@@ -294,48 +294,13 @@ QPushButton:hover{
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QPushButton" name="B_Trier">
-       <property name="geometry">
-        <rect>
-         <x>630</x>
-         <y>24</y>
-         <width>101</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-	background: white;
-}
-
-QPushButton:hover {
-	background: #BEBEBE;
-}</string>
-       </property>
-       <property name="text">
-        <string>Trier</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Recources.qrc">
-         <normaloff>:/Recources/Images/ascending-sort.png</normaloff>:/Recources/Images/ascending-sort.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>18</width>
-         <height>18</height>
-        </size>
-       </property>
-      </widget>
       <widget class="QTableView" name="T_Intervenants">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>80</y>
+         <y>90</y>
          <width>721</width>
-         <height>431</height>
+         <height>421</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -353,62 +318,14 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         <number>117</number>
        </attribute>
       </widget>
-      <widget class="QPushButton" name="B_Trier_2">
-       <property name="geometry">
-        <rect>
-         <x>220</x>
-         <y>24</y>
-         <width>141</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-	background: white;
-}
-
-QPushButton:hover {
-	background: #BEBEBE;
-}</string>
-       </property>
-       <property name="text">
-        <string>Chercher</string>
-       </property>
-       <property name="icon">
-        <iconset resource="Recources.qrc">
-         <normaloff>:/Recources/Images/search.png</normaloff>:/Recources/Images/search.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>25</width>
-         <height>25</height>
-        </size>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="LE_recherche">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>20</y>
-         <width>201</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>Recherche...</string>
-       </property>
-      </widget>
      </widget>
      <widget class="QFrame" name="frame_2">
       <property name="geometry">
        <rect>
-        <x>760</x>
-        <y>230</y>
+        <x>770</x>
+        <y>170</y>
         <width>461</width>
-        <height>391</height>
+        <height>211</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -424,7 +341,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>143</x>
-         <y>20</y>
+         <y>0</y>
          <width>171</width>
          <height>61</height>
         </rect>
@@ -448,7 +365,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>150</y>
+         <y>60</y>
          <width>191</width>
          <height>31</height>
         </rect>
@@ -463,9 +380,9 @@ QPushButton:hover {
       <widget class="QPushButton" name="B_AjouterIntervenant">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>300</y>
-         <width>331</width>
+         <x>60</x>
+         <y>150</y>
+         <width>341</width>
          <height>41</height>
         </rect>
        </property>
@@ -484,7 +401,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>150</y>
+         <y>60</y>
          <width>191</width>
          <height>31</height>
         </rect>
@@ -553,8 +470,8 @@ QComboBox::drop-down {
       <widget class="QPushButton" name="B_ModifierIntervenant">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>210</y>
+         <x>60</x>
+         <y>100</y>
          <width>151</width>
          <height>41</height>
         </rect>
@@ -580,7 +497,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>250</x>
-         <y>210</y>
+         <y>100</y>
          <width>151</width>
          <height>41</height>
         </rect>
@@ -603,60 +520,11 @@ QComboBox::drop-down {
        </property>
       </widget>
      </widget>
-     <widget class="QToolButton" name="toolButton">
-      <property name="geometry">
-       <rect>
-        <x>420</x>
-        <y>100</y>
-        <width>121</width>
-        <height>121</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="Recources.qrc">
-        <normaloff>:/Recources/Images/judge.png</normaloff>:/Recources/Images/judge.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>64</width>
-        <height>64</height>
-       </size>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="B_Statistics_2">
-      <property name="geometry">
-       <rect>
-        <x>880</x>
-        <y>640</y>
-        <width>241</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="text">
-       <string> CHAT</string>
-      </property>
-      <property name="icon">
-       <iconset resource="Recources.qrc">
-        <normaloff>:/Recources/Images/live-chat.png</normaloff>:/Recources/Images/live-chat.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>30</width>
-        <height>30</height>
-       </size>
-      </property>
-     </widget>
      <widget class="QPushButton" name="B_Statistics">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>120</y>
+        <x>20</x>
+        <y>130</y>
         <width>151</width>
         <height>31</height>
        </rect>
@@ -678,12 +546,312 @@ QComboBox::drop-down {
        </size>
       </property>
      </widget>
+     <widget class="QToolButton" name="toolButton">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>110</y>
+        <width>121</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="Recources.qrc">
+        <normaloff>:/Recources/Images/judge.png</normaloff>:/Recources/Images/judge.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>64</width>
+        <height>64</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_10">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>390</y>
+        <width>461</width>
+        <height>311</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="L_ConfigIntervenant_3">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>0</y>
+         <width>181</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>century gothic</family>
+         <pointsize>-1</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
+       <property name="text">
+        <string>Table</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_CB_Tri">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>60</y>
+         <width>231</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string>Trier le tableau par :</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="CB_TriIntervenant">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>100</y>
+         <width>221</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QComboBox {
+  border: 1px solid red;
+  border-radius: 4px;
+  background: white;
+}
+
+QComboBox QAbstractItemView {
+  border: 1px solid black;
+  border-radius: 0;
+  background-color: white;
+  selection-background-color:#305068;
+}
+
+QComboBox QAbstractItemView:hover {
+  background-color: white;
+  color: #F0F0F0;
+}
+
+QComboBox QAbstractItemView:selected {
+  background: #1464A0;
+  color: #32414B;
+}
+
+QComboBox QAbstractItemView:alternate {
+  background: #19232D;
+}
+
+QComboBox:disabled {
+  background-color: #19232D;
+  color: #787878;
+}
+
+QComboBox:hover {
+  border: 1px solid #148CD2;
+}
+
+QComboBox:focus {
+  border: 1px solid #1464A0;
+}
+
+QComboBox:on {
+  selection-background-color: #1464A0;
+}
+
+QComboBox::item:checked {
+  font-weight: bold;
+}
+
+QComboBox::item:selected {
+  border: 0px solid transparent;
+}
+
+QComboBox::drop-down {
+  subcontrol-origin: padding;
+  subcontrol-position: top right;
+  width: 12px;
+  border-left: 1px solid #32414B;
+}</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="B_Trier">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>92</y>
+         <width>131</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background: white;
+}
+
+QPushButton:hover {
+	background: #BEBEBE;
+}</string>
+       </property>
+       <property name="text">
+        <string>Trier</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Recources.qrc">
+         <normaloff>:/Recources/Images/ascending-sort.png</normaloff>:/Recources/Images/ascending-sort.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>18</width>
+         <height>18</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="LE_ChercherNom">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>200</y>
+         <width>201</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>Nom...</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="B_Recherche">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>250</y>
+         <width>161</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background: white;
+}
+
+QPushButton:hover {
+	background: #BEBEBE;
+}</string>
+       </property>
+       <property name="text">
+        <string>Chercher</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Recources.qrc">
+         <normaloff>:/Recources/Images/search.png</normaloff>:/Recources/Images/search.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_CB_Recherche">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>170</y>
+         <width>271</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string>Chercher le tableau par :</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="LE_ChercherPrenom">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>250</y>
+         <width>201</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>Prenom...</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="B_Chat">
+      <property name="geometry">
+       <rect>
+        <x>1010</x>
+        <y>100</y>
+        <width>221</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="text">
+       <string> Chat</string>
+      </property>
+      <property name="icon">
+       <iconset resource="Recources.qrc">
+        <normaloff>:/Recources/Images/live-chat.png</normaloff>:/Recources/Images/live-chat.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
+      </property>
+     </widget>
      <zorder>frame</zorder>
      <zorder>B_BackToGestions</zorder>
      <zorder>frame_2</zorder>
-     <zorder>toolButton</zorder>
-     <zorder>B_Statistics_2</zorder>
      <zorder>B_Statistics</zorder>
+     <zorder>toolButton</zorder>
+     <zorder>frame_10</zorder>
+     <zorder>B_Chat</zorder>
     </widget>
     <widget class="QWidget" name="Ajouter_intervenant">
      <widget class="QToolButton" name="toolButton_3">

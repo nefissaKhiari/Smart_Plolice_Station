@@ -19,11 +19,13 @@ SOURCES += \
     citoyen.cpp \
     connection.cpp \
     main.cpp \
+    service.cpp \
     serviceadministratif.cpp
 
 HEADERS += \
     citoyen.h \
     connection.h \
+    service.h \
     serviceadministratif.h
 
 FORMS += \

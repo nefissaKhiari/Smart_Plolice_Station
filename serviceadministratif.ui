@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -1821,7 +1821,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="Affaires">
+    <widget class="QWidget" name="Services">
      <widget class="QFrame" name="frame_6">
       <property name="geometry">
        <rect>
@@ -1840,7 +1840,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QTableView" name="T_Affaire">
+      <widget class="QTableView" name="T_Service">
        <property name="geometry">
         <rect>
          <x>14</x>
@@ -1850,8 +1850,12 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background: white;
-border-radius: 0px;</string>
+        <string notr="true">QTableView {border: 2px solid red;text-align: top;padding: 4px;border-radius: 7px;border-bottom-left-radius: 7px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee );width: 15px;selection-background-color:QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #FF0000, stop: 1 #FF5F5F,stop: 0.5 #FEAAAA,stop: 1 #eee);selection-color: black;}
+QTableView::item:focus{selection-background-color: red;}
+QScrollBar:vertical{ width: 20px; background: none; /* only these sort effect about width ...*/}
+QScrollBar::handle:vertical{ border: 3px solid #5E749C;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee ); width: 25px; min-height: 20px; max-height: 25px; /*these sort no effect*/ }
+QScrollBar::add-page:vertical {border: 3px solid red;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  red; /* adding width: xx px; sorting no effect .. why? */}
+QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  green; /* adding width: xx px; sorting no effect .. why? */ }</string>
        </property>
        <attribute name="horizontalHeaderDefaultSectionSize">
         <number>138</number>
@@ -1871,8 +1875,8 @@ border-radius: 0px;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>:/Recources/Images/gavel.png</normaloff>:/Recources/Images/gavel.png</iconset>
+       <iconset resource="Ressources.qrc">
+        <normaloff>:/Ressources/image/support.png</normaloff>:/Ressources/image/support.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -1886,16 +1890,16 @@ border-radius: 0px;</string>
        <rect>
         <x>30</x>
         <y>20</y>
-        <width>371</width>
+        <width>261</width>
         <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string> Gestion des affaires juridiques</string>
+       <string> Gestion des Services</string>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>:/Recources/Images/back-arrow.png</normaloff>:/Recources/Images/back-arrow.png</iconset>
+       <iconset resource="Ressources.qrc">
+        <normaloff>:/Ressources/image/back-arrow.png</normaloff>:/Ressources/image/back-arrow.png</iconset>
       </property>
      </widget>
      <widget class="QFrame" name="frame_7">
@@ -1956,7 +1960,7 @@ border-radius: 0px;</string>
         <string>Sélectionner l'ID :</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="B_AjouterAffaire">
+      <widget class="QPushButton" name="B_AjouterService">
        <property name="geometry">
         <rect>
          <x>70</x>
@@ -1966,14 +1970,14 @@ border-radius: 0px;</string>
         </rect>
        </property>
        <property name="text">
-        <string> Ajouter un affaire</string>
+        <string> Ajouter un service</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/Recources/Images/add.png</normaloff>:/Recources/Images/add.png</iconset>
+        <iconset resource="Ressources.qrc">
+         <normaloff>:/Ressources/image/add.png</normaloff>:/Ressources/image/add.png</iconset>
        </property>
       </widget>
-      <widget class="QComboBox" name="CB_IDAffaire">
+      <widget class="QComboBox" name="CB_IDService">
        <property name="geometry">
         <rect>
          <x>240</x>
@@ -1986,7 +1990,7 @@ border-radius: 0px;</string>
         <string notr="true">background: white;</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="B_ModifierAffaire">
+      <widget class="QPushButton" name="B_ModifierService">
        <property name="geometry">
         <rect>
          <x>70</x>
@@ -1999,8 +2003,8 @@ border-radius: 0px;</string>
         <string>Modifier</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/Recources/Images/edit.png</normaloff>:/Recources/Images/edit.png</iconset>
+        <iconset resource="Ressources.qrc">
+         <normaloff>:/Ressources/image/edit.png</normaloff>:/Ressources/image/edit.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -2009,7 +2013,7 @@ border-radius: 0px;</string>
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="B_SupprimerAffaire">
+      <widget class="QPushButton" name="B_SupprimerService">
        <property name="geometry">
         <rect>
          <x>250</x>
@@ -2022,8 +2026,8 @@ border-radius: 0px;</string>
         <string>Supprimer</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/Recources/Images/trash.png</normaloff>:/Recources/Images/trash.png</iconset>
+        <iconset resource="Ressources.qrc">
+         <normaloff>:/Ressources/image/trash.png</normaloff>:/Ressources/image/trash.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -2031,6 +2035,2246 @@ border-radius: 0px;</string>
          <height>23</height>
         </size>
        </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Profile_Service">
+     <widget class="QStackedWidget" name="stackedWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>320</y>
+        <width>1250</width>
+        <height>711</height>
+       </rect>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::TabFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QStackedWidget{
+	background:url(:/Ressources/image/background.PNG);
+}
+
+QPushButton{
+	font-size: 24px;
+	background: red;
+	border-radius: 10px;
+}
+
+QPushButton:hover{
+	background: #ff9999;
+}</string>
+      </property>
+      <property name="currentIndex">
+       <number>6</number>
+      </property>
+      <widget class="QWidget" name="Gestions_2">
+       <widget class="QPushButton" name="B_BackToMenu_2">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>20</y>
+          <width>141</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string> Menu</string>
+        </property>
+        <property name="icon">
+         <iconset resource="Ressources.qrc">
+          <normaloff>:/Ressources/image/back-arrow.png</normaloff>:/Ressources/image/back-arrow.png</iconset>
+        </property>
+       </widget>
+       <widget class="QFrame" name="frame_11">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>200</y>
+          <width>701</width>
+          <height>381</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QPushButton" name="B_GestionCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>120</y>
+           <width>321</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Gestion des Citoyens</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="B_GestioService_2">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>240</y>
+           <width>321</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Gestion des Services</string>
+         </property>
+        </widget>
+        <widget class="QToolButton" name="toolButton_16">
+         <property name="geometry">
+          <rect>
+           <x>490</x>
+           <y>112</y>
+           <width>61</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border-radius:30px;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="Ressources.qrc">
+           <normaloff>:/Ressources/image/systeme-de-population.png</normaloff>:/Ressources/image/systeme-de-population.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QToolButton" name="toolButton_17">
+         <property name="geometry">
+          <rect>
+           <x>490</x>
+           <y>235</y>
+           <width>61</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border-radius:30px;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="Ressources.qrc">
+           <normaloff>:/Ressources/image/support.png</normaloff>:/Ressources/image/support.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QToolButton" name="toolButton_18">
+        <property name="geometry">
+         <rect>
+          <x>570</x>
+          <y>140</y>
+          <width>121</width>
+          <height>121</height>
+         </rect>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::TabFocus</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="Ressources.qrc">
+          <normaloff>:/Ressources/image/icon.png</normaloff>:/Ressources/image/icon.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>62</width>
+          <height>62</height>
+         </size>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Citoyens_2">
+       <widget class="QPushButton" name="B_BackToGestions_3">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>20</y>
+          <width>281</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string> Gestion des Citoyens</string>
+        </property>
+        <property name="icon">
+         <iconset resource="Ressources.qrc">
+          <normaloff>:/Ressources/image/back-arrow.png</normaloff>:/Ressources/image/back-arrow.png</iconset>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="LE_recherche_2">
+        <property name="geometry">
+         <rect>
+          <x>174</x>
+          <y>110</y>
+          <width>141</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>Recherche...</string>
+        </property>
+       </widget>
+       <widget class="QFrame" name="frame_12">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>160</y>
+          <width>741</width>
+          <height>531</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QPushButton" name="B_Trier_2">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>20</y>
+           <width>141</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Trier</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Ressources.qrc">
+           <normaloff>:/Ressources/image/ascending-sort.png</normaloff>:/Ressources/image/ascending-sort.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>18</width>
+           <height>18</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QTableView" name="T_Citoyens_2">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>80</y>
+           <width>721</width>
+           <height>431</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTableView {border: 2px solid red;text-align: top;padding: 4px;border-radius: 7px;border-bottom-left-radius: 7px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee );width: 15px;selection-background-color:QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #FF0000, stop: 1 #FF5F5F,stop: 0.5 #FEAAAA,stop: 1 #eee);selection-color: black;}
+QTableView::item:focus{selection-background-color: red;}
+QScrollBar:vertical{ width: 20px; background: none; /* only these sort effect about width ...*/}
+QScrollBar::handle:vertical{ border: 3px solid #5E749C;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee ); width: 25px; min-height: 20px; max-height: 25px; /*these sort no effect*/ }
+QScrollBar::add-page:vertical {border: 3px solid red;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  red; /* adding width: xx px; sorting no effect .. why? */}
+QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  green; /* adding width: xx px; sorting no effect .. why? */ }</string>
+         </property>
+         <attribute name="horizontalHeaderCascadingSectionResizes">
+          <bool>false</bool>
+         </attribute>
+         <attribute name="horizontalHeaderDefaultSectionSize">
+          <number>117</number>
+         </attribute>
+        </widget>
+       </widget>
+       <widget class="QLabel" name="L_Recherche_2">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>110</y>
+          <width>151</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>century gothic</family>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background: transparent;</string>
+        </property>
+        <property name="text">
+         <string>Recherche :</string>
+        </property>
+       </widget>
+       <widget class="QFrame" name="frame_13">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>230</y>
+          <width>461</width>
+          <height>391</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="L_ConfigCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>143</x>
+           <y>20</y>
+           <width>171</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>century gothic</family>
+           <pointsize>-1</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Configuration</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_CB_ID_2">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>150</y>
+           <width>191</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Sélectionner l'ID :</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="B_AjouterCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>300</y>
+           <width>331</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string> Ajouter un citoyen</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Ressources.qrc">
+           <normaloff>:/Ressources/image/add.png</normaloff>:/Ressources/image/add.png</iconset>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="CB_IDCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>240</x>
+           <y>150</y>
+           <width>191</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: white;</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="B_AccederProfil_2">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>210</y>
+           <width>331</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Accéder au Profile</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Ressources.qrc">
+           <normaloff>:/Ressources/image/person-silhouette.png</normaloff>:/Ressources/image/person-silhouette.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>23</width>
+           <height>23</height>
+          </size>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QToolButton" name="toolButton_19">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>100</y>
+          <width>121</width>
+          <height>121</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="Ressources.qrc">
+          <normaloff>:/Ressources/image/systeme-de-population.png</normaloff>:/Ressources/image/systeme-de-population.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Ajouter_Citoyen_2">
+       <widget class="QToolButton" name="toolButton_20">
+        <property name="geometry">
+         <rect>
+          <x>570</x>
+          <y>40</y>
+          <width>121</width>
+          <height>121</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="Ressources.qrc">
+          <normaloff>:/Ressources/image/systeme-de-population.png</normaloff>:/Ressources/image/systeme-de-population.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QFrame" name="frame_14">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>100</y>
+          <width>1211</width>
+          <height>531</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="L_AjouterCitoyen_4">
+         <property name="geometry">
+          <rect>
+           <x>500</x>
+           <y>70</y>
+           <width>281</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>century gothic</family>
+           <pointsize>-1</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Ajouter un Citoyen</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_ANomCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>170</y>
+           <width>121</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Nom :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_APrenomCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>220</y>
+           <width>121</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Prenom :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_ADateNaissCit_2">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>270</y>
+           <width>131</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Date_Naiss :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_ALieuNaissCit_2">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>320</y>
+           <width>141</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Lieu_Naiss :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_AMailCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>370</y>
+           <width>141</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Mail :</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_ANomCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>170</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Nom...</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_APrenomCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>220</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Prenom...</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_ADateNaissCit_2">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>270</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Date_Naiss...</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_ALieuNaissCit_2">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>320</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Lieu_Naiss...</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_AMailCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>370</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>Mail...</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="B_AConfirmerCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>670</x>
+           <y>450</y>
+           <width>161</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string> Ajouter</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Ressources.qrc">
+           <normaloff>:/Ressources/image/confirm.png</normaloff>:/Ressources/image/confirm.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="B_AAnnulerCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>410</x>
+           <y>450</y>
+           <width>161</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string> Annuler</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Ressources.qrc">
+           <normaloff>:/Ressources/image/close.png</normaloff>:/Ressources/image/close.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QToolButton" name="toolButton_21">
+         <property name="geometry">
+          <rect>
+           <x>170</x>
+           <y>70</y>
+           <width>61</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/Recources/Images/add-user.png</normaloff>:/Recources/Images/add-user.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_AAdresseCit_2">
+         <property name="geometry">
+          <rect>
+           <x>660</x>
+           <y>170</y>
+           <width>121</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Adresse :</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_AProfessionCit_2">
+         <property name="geometry">
+          <rect>
+           <x>830</x>
+           <y>270</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Prefession...</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_AAdresseCit_2">
+         <property name="geometry">
+          <rect>
+           <x>830</x>
+           <y>170</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Adresse...</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_ANomPereCit_2">
+         <property name="geometry">
+          <rect>
+           <x>660</x>
+           <y>220</y>
+           <width>151</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Nom du Père :</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_ANomPereCit_2">
+         <property name="geometry">
+          <rect>
+           <x>830</x>
+           <y>220</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>NomPere...</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_AProfessionCit_2">
+         <property name="geometry">
+          <rect>
+           <x>660</x>
+           <y>270</y>
+           <width>131</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Profession :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_AEtatCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>660</x>
+           <y>320</y>
+           <width>141</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Etat Civil :</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_AEtatCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>830</x>
+           <y>320</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Etat Civil...</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Modifier_Citoyen_2">
+       <widget class="QToolButton" name="toolButton_22">
+        <property name="geometry">
+         <rect>
+          <x>570</x>
+          <y>60</y>
+          <width>121</width>
+          <height>121</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="Ressources.qrc">
+          <normaloff>:/Ressources/image/systeme-de-population.png</normaloff>:/Ressources/image/systeme-de-population.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QFrame" name="frame_15">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>120</y>
+          <width>1211</width>
+          <height>531</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="L_AjouterCitoyen_5">
+         <property name="geometry">
+          <rect>
+           <x>510</x>
+           <y>70</y>
+           <width>281</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>century gothic</family>
+           <pointsize>-1</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Modifier un Citoyen</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_MNomCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>170</y>
+           <width>121</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Nom :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_MPrenomCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>220</y>
+           <width>121</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Prenom :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_MDateNaissCit_2">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>270</y>
+           <width>131</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Date_Naiss :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_MLieuNaissCit_2">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>320</y>
+           <width>141</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Lieu_Naiss :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_MMailCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>370</y>
+           <width>141</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Mail :</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_MNomCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>170</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Nom...</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_MPrenomCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>220</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Prenom...</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_MDateNaissCit_3">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>270</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Date_Naiss...</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_MLieuNaissCit_2">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>320</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Lieu_Naiss...</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_MMailCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>370</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>Mail...</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="B_MConfirmerCitoyen_3">
+         <property name="geometry">
+          <rect>
+           <x>670</x>
+           <y>450</y>
+           <width>171</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Confirmer</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Ressources.qrc">
+           <normaloff>:/Ressources/image/confirm.png</normaloff>:/Ressources/image/confirm.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="B_MAnnulerCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>410</x>
+           <y>450</y>
+           <width>161</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string> Annuler</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Ressources.qrc">
+           <normaloff>:/Ressources/image/close.png</normaloff>:/Ressources/image/close.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QToolButton" name="toolButton_23">
+         <property name="geometry">
+          <rect>
+           <x>170</x>
+           <y>70</y>
+           <width>61</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/Recources/Images/add-user.png</normaloff>:/Recources/Images/add-user.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_MAdresseCit_2">
+         <property name="geometry">
+          <rect>
+           <x>660</x>
+           <y>170</y>
+           <width>121</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Adresse :</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_MProfessionCit_2">
+         <property name="geometry">
+          <rect>
+           <x>830</x>
+           <y>270</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Prefession...</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_MAdresseCit_2">
+         <property name="geometry">
+          <rect>
+           <x>830</x>
+           <y>170</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Adresse...</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_MNomPereCit_2">
+         <property name="geometry">
+          <rect>
+           <x>660</x>
+           <y>220</y>
+           <width>151</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Nom du Père :</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_MNomPereCit_2">
+         <property name="geometry">
+          <rect>
+           <x>830</x>
+           <y>220</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>NomPere...</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_MProfessionCit_2">
+         <property name="geometry">
+          <rect>
+           <x>660</x>
+           <y>270</y>
+           <width>131</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Profession :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_MEtatCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>660</x>
+           <y>320</y>
+           <width>141</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Etat Civil :</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_MEtatCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>830</x>
+           <y>320</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Etat Civil...</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Profile_Citoyen_2">
+       <widget class="QFrame" name="frame_16">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>130</y>
+          <width>1211</width>
+          <height>531</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="L_AjouterCitoyen_6">
+         <property name="geometry">
+          <rect>
+           <x>500</x>
+           <y>70</y>
+           <width>281</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>century gothic</family>
+           <pointsize>-1</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>  Profile de Citoyen</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_PNomCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>170</y>
+           <width>121</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Nom :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_PPrenomCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>220</y>
+           <width>121</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Prenom :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_PDateNaissCit_2">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>270</y>
+           <width>131</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Date_Naiss :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_PLieuNaissCit_2">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>320</y>
+           <width>141</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Lieu_Naiss :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_PMailCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>370</y>
+           <width>141</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Mail :</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_PNomCitoyen_2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>170</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Nom...</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_PPrenomCitoyen_2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>220</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Prenom...</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_PDateNaissCit_2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>270</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Date_Naiss...</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_PLieuNaissCit_2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>320</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Lieu_Naiss...</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_PMailCitoyen_2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>370</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>Mail...</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="B_MConfirmerCitoyen_4">
+         <property name="geometry">
+          <rect>
+           <x>680</x>
+           <y>460</y>
+           <width>191</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Modifier</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Ressources.qrc">
+           <normaloff>:/Ressources/image/edit.png</normaloff>:/Ressources/image/edit.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="B_SupprimerCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>400</x>
+           <y>460</y>
+           <width>181</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Supprimer</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Ressources.qrc">
+           <normaloff>:/Ressources/image/trash.png</normaloff>:/Ressources/image/trash.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QToolButton" name="toolButton_24">
+         <property name="geometry">
+          <rect>
+           <x>170</x>
+           <y>70</y>
+           <width>61</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/Recources/Images/add-user.png</normaloff>:/Recources/Images/add-user.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_PAdresseCit_2">
+         <property name="geometry">
+          <rect>
+           <x>660</x>
+           <y>170</y>
+           <width>121</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Adresse :</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_PProfessionCit_2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>830</x>
+           <y>270</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Prefession...</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_PAdresseCit_2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>830</x>
+           <y>170</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Adresse...</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_PNomPereCit_2">
+         <property name="geometry">
+          <rect>
+           <x>660</x>
+           <y>220</y>
+           <width>151</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Nom du Père :</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_PNomPereCit_2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>830</x>
+           <y>220</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>NomPere...</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_PProfessionCit_2">
+         <property name="geometry">
+          <rect>
+           <x>660</x>
+           <y>270</y>
+           <width>131</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Profession :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_PEtatCitoyen_2">
+         <property name="geometry">
+          <rect>
+           <x>660</x>
+           <y>320</y>
+           <width>141</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Etat Civil :</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_PEtatCitoyen_2">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>830</x>
+           <y>320</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Etat Civil...</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="B_EnvoyeMail_2">
+         <property name="geometry">
+          <rect>
+           <x>620</x>
+           <y>370</y>
+           <width>191</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: Grey;
+
+</string>
+         </property>
+         <property name="text">
+          <string>Envoyer Mail</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Ressources.qrc">
+           <normaloff>:/Ressources/image/edit.png</normaloff>:/Ressources/image/edit.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QToolButton" name="toolButton_25">
+        <property name="geometry">
+         <rect>
+          <x>570</x>
+          <y>70</y>
+          <width>121</width>
+          <height>121</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="Ressources.qrc">
+          <normaloff>:/Ressources/image/systeme-de-population.png</normaloff>:/Ressources/image/systeme-de-population.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="B_returnCitoyen_2">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>171</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Citoyen</string>
+        </property>
+        <property name="icon">
+         <iconset resource="Ressources.qrc">
+          <normaloff>:/Ressources/image/back-arrow.png</normaloff>:/Ressources/image/back-arrow.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Affaires_2">
+       <widget class="QFrame" name="frame_17">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>160</y>
+          <width>741</width>
+          <height>531</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QTableView" name="T_Affaire_2">
+         <property name="geometry">
+          <rect>
+           <x>14</x>
+           <y>90</y>
+           <width>711</width>
+           <height>421</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTableView {border: 2px solid red;text-align: top;padding: 4px;border-radius: 7px;border-bottom-left-radius: 7px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee );width: 15px;selection-background-color:QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #FF0000, stop: 1 #FF5F5F,stop: 0.5 #FEAAAA,stop: 1 #eee);selection-color: black;}
+QTableView::item:focus{selection-background-color: red;}
+QScrollBar:vertical{ width: 20px; background: none; /* only these sort effect about width ...*/}
+QScrollBar::handle:vertical{ border: 3px solid #5E749C;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee ); width: 25px; min-height: 20px; max-height: 25px; /*these sort no effect*/ }
+QScrollBar::add-page:vertical {border: 3px solid red;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  red; /* adding width: xx px; sorting no effect .. why? */}
+QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  green; /* adding width: xx px; sorting no effect .. why? */ }</string>
+         </property>
+         <attribute name="horizontalHeaderDefaultSectionSize">
+          <number>138</number>
+         </attribute>
+        </widget>
+       </widget>
+       <widget class="QToolButton" name="toolButton_26">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>100</y>
+          <width>121</width>
+          <height>121</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="Ressources.qrc">
+          <normaloff>:/Ressources/image/support.png</normaloff>:/Ressources/image/support.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="B_BackToGestions_4">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>20</y>
+          <width>261</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string> Gestion des Services</string>
+        </property>
+        <property name="icon">
+         <iconset resource="Ressources.qrc">
+          <normaloff>:/Ressources/image/back-arrow.png</normaloff>:/Ressources/image/back-arrow.png</iconset>
+        </property>
+       </widget>
+       <widget class="QFrame" name="frame_18">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>230</y>
+          <width>461</width>
+          <height>391</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="L_ConfigAffaire_2">
+         <property name="geometry">
+          <rect>
+           <x>143</x>
+           <y>20</y>
+           <width>171</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>century gothic</family>
+           <pointsize>-1</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Configuration</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_IDAffaire_2">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>150</y>
+           <width>191</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Sélectionner l'ID :</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="B_AjouterAffaire_3">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>320</y>
+           <width>331</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string> Ajouter un service</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Ressources.qrc">
+           <normaloff>:/Ressources/image/add.png</normaloff>:/Ressources/image/add.png</iconset>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="CB_IDAffaire_2">
+         <property name="geometry">
+          <rect>
+           <x>240</x>
+           <y>150</y>
+           <width>191</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: white;</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="B_ModifierAffaire_2">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>210</y>
+           <width>151</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Modifier</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Ressources.qrc">
+           <normaloff>:/Ressources/image/edit.png</normaloff>:/Ressources/image/edit.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>23</width>
+           <height>23</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="B_SupprimerAffaire_2">
+         <property name="geometry">
+          <rect>
+           <x>250</x>
+           <y>210</y>
+           <width>151</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Supprimer</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Ressources.qrc">
+           <normaloff>:/Ressources/image/trash.png</normaloff>:/Ressources/image/trash.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>23</width>
+           <height>23</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="B_AjouterAffaire_4">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>270</y>
+           <width>331</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Accéder au Service</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Ressources.qrc">
+           <normaloff>:/Ressources/image/support.png</normaloff>:/Ressources/image/support.png</iconset>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Ajouter_affaire_2"/>
+      <widget class="QWidget" name="Modifier_affaire_2">
+       <widget class="QFrame" name="frame_20">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>100</y>
+          <width>641</width>
+          <height>581</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="L_ModifierAffaire_2">
+         <property name="geometry">
+          <rect>
+           <x>220</x>
+           <y>70</y>
+           <width>281</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>century gothic</family>
+           <pointsize>-1</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Modifier un Service</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_MTypeAffaire_2">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>170</y>
+           <width>121</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Type :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_MDateAffaire_2">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>220</y>
+           <width>121</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Durée :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_MLocalAffaire_2">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>270</y>
+           <width>151</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Papiers Necess:</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_MTypeAffaire_2">
+         <property name="geometry">
+          <rect>
+           <x>240</x>
+           <y>170</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Type...</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_MDateAffaire_2">
+         <property name="geometry">
+          <rect>
+           <x>240</x>
+           <y>220</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Durée...</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_MLocalAffaire_2">
+         <property name="geometry">
+          <rect>
+           <x>240</x>
+           <y>270</y>
+           <width>351</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="placeholderText">
+          <string>Papiers necessaires...</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="B_MConfirmerAffaire_2">
+         <property name="geometry">
+          <rect>
+           <x>350</x>
+           <y>500</y>
+           <width>161</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string> Modifier</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Ressources.qrc">
+           <normaloff>:/Ressources/image/confirm.png</normaloff>:/Ressources/image/confirm.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="B_MAnnulerAffaire_2">
+         <property name="geometry">
+          <rect>
+           <x>140</x>
+           <y>500</y>
+           <width>161</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string> Annuler</string>
+         </property>
+         <property name="icon">
+          <iconset resource="Ressources.qrc">
+           <normaloff>:/Ressources/image/close.png</normaloff>:/Ressources/image/close.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QToolButton" name="toolButton_29">
+         <property name="geometry">
+          <rect>
+           <x>180</x>
+           <y>71</y>
+           <width>61</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/Recources/Images/edit-property.png</normaloff>:/Recources/Images/edit-property.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>35</width>
+           <height>35</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QLabel" name="L_MDescAffaire_2">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>320</y>
+           <width>151</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Description :</string>
+         </property>
+        </widget>
+        <widget class="QTextEdit" name="TE_MDescAffaire_2">
+         <property name="geometry">
+          <rect>
+           <x>90</x>
+           <y>360</y>
+           <width>481</width>
+           <height>121</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="placeholderText">
+          <string>Description...</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QToolButton" name="toolButton_30">
+        <property name="geometry">
+         <rect>
+          <x>550</x>
+          <y>40</y>
+          <width>121</width>
+          <height>121</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="Ressources.qrc">
+          <normaloff>:/Ressources/image/support.png</normaloff>:/Ressources/image/support.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>
@@ -2051,8 +4295,8 @@ border-radius: 0px;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>:/Recources/Images/gavel.png</normaloff>:/Recources/Images/gavel.png</iconset>
+       <iconset resource="Ressources.qrc">
+        <normaloff>:/Ressources/image/support.png</normaloff>:/Ressources/image/support.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2100,10 +4344,10 @@ border-radius: 0px;</string>
         <string notr="true">background: transparent;</string>
        </property>
        <property name="text">
-        <string>Ajouter un Affaire</string>
+        <string>Ajouter un Service</string>
        </property>
       </widget>
-      <widget class="QLabel" name="L_ATypeAffaire">
+      <widget class="QLabel" name="L_ATypeService">
        <property name="geometry">
         <rect>
          <x>70</x>
@@ -2119,7 +4363,7 @@ border-radius: 0px;</string>
         <string>Type :</string>
        </property>
       </widget>
-      <widget class="QLabel" name="L_ADateAffaire">
+      <widget class="QLabel" name="L_ADureeService">
        <property name="geometry">
         <rect>
          <x>70</x>
@@ -2132,15 +4376,15 @@ border-radius: 0px;</string>
         <string notr="true">background: transparent;</string>
        </property>
        <property name="text">
-        <string>Date :</string>
+        <string>Durée :  </string>
        </property>
       </widget>
-      <widget class="QLabel" name="L_ALocalAffaire">
+      <widget class="QLabel" name="L_APapierService">
        <property name="geometry">
         <rect>
          <x>70</x>
          <y>270</y>
-         <width>151</width>
+         <width>161</width>
          <height>31</height>
         </rect>
        </property>
@@ -2148,10 +4392,10 @@ border-radius: 0px;</string>
         <string notr="true">background: transparent;</string>
        </property>
        <property name="text">
-        <string>Localisation :</string>
+        <string>Papiers necess:</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="LE_ATypeAffaire">
+      <widget class="QLineEdit" name="LE_ATypeService">
        <property name="geometry">
         <rect>
          <x>240</x>
@@ -2164,7 +4408,7 @@ border-radius: 0px;</string>
         <string>Type...</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="LE_ADateAffaire">
+      <widget class="QLineEdit" name="LE_ADureeService">
        <property name="geometry">
         <rect>
          <x>240</x>
@@ -2173,11 +4417,14 @@ border-radius: 0px;</string>
          <height>31</height>
         </rect>
        </property>
+       <property name="text">
+        <string/>
+       </property>
        <property name="placeholderText">
-        <string>Date...</string>
+        <string>Durée...</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="LE_ALocalAffaire">
+      <widget class="QLineEdit" name="LE_APapierService">
        <property name="geometry">
         <rect>
          <x>240</x>
@@ -2186,11 +4433,14 @@ border-radius: 0px;</string>
          <height>31</height>
         </rect>
        </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
        <property name="placeholderText">
-        <string>Localisation...</string>
+        <string>Papiers necessaires...</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="B_AConfirmerAffaire">
+      <widget class="QPushButton" name="B_AConfirmerService">
        <property name="geometry">
         <rect>
          <x>350</x>
@@ -2203,8 +4453,8 @@ border-radius: 0px;</string>
         <string> Ajouter</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/Recources/Images/confirm.png</normaloff>:/Recources/Images/confirm.png</iconset>
+        <iconset resource="Ressources.qrc">
+         <normaloff>:/Ressources/image/confirm.png</normaloff>:/Ressources/image/confirm.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -2213,7 +4463,7 @@ border-radius: 0px;</string>
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="B_AAnnulerAffaire">
+      <widget class="QPushButton" name="B_AAnnulerService">
        <property name="geometry">
         <rect>
          <x>140</x>
@@ -2226,8 +4476,8 @@ border-radius: 0px;</string>
         <string> Annuler</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/Recources/Images/close.png</normaloff>:/Recources/Images/close.png</iconset>
+        <iconset resource="Ressources.qrc">
+         <normaloff>:/Ressources/image/close.png</normaloff>:/Ressources/image/close.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -2262,7 +4512,7 @@ border-radius: 0px;</string>
         </size>
        </property>
       </widget>
-      <widget class="QLabel" name="L_ADescAffaire">
+      <widget class="QLabel" name="L_ADescService">
        <property name="geometry">
         <rect>
          <x>70</x>
@@ -2278,7 +4528,7 @@ border-radius: 0px;</string>
         <string>Description :</string>
        </property>
       </widget>
-      <widget class="QTextEdit" name="TE_ADescAffaire">
+      <widget class="QTextEdit" name="TE_ADescService">
        <property name="geometry">
         <rect>
          <x>90</x>
@@ -2320,7 +4570,7 @@ border-radius: 0px;</string>
       <widget class="QLabel" name="L_ModifierAffaire">
        <property name="geometry">
         <rect>
-         <x>230</x>
+         <x>220</x>
          <y>70</y>
          <width>281</width>
          <height>41</height>
@@ -2338,10 +4588,10 @@ border-radius: 0px;</string>
         <string notr="true">background: transparent;</string>
        </property>
        <property name="text">
-        <string>Modifier un Affaire</string>
+        <string>Modifier un Service</string>
        </property>
       </widget>
-      <widget class="QLabel" name="L_MTypeAffaire">
+      <widget class="QLabel" name="L_MTypeService">
        <property name="geometry">
         <rect>
          <x>70</x>
@@ -2357,7 +4607,7 @@ border-radius: 0px;</string>
         <string>Type :</string>
        </property>
       </widget>
-      <widget class="QLabel" name="L_MDateAffaire">
+      <widget class="QLabel" name="L_MDureeService">
        <property name="geometry">
         <rect>
          <x>70</x>
@@ -2370,10 +4620,10 @@ border-radius: 0px;</string>
         <string notr="true">background: transparent;</string>
        </property>
        <property name="text">
-        <string>Date :</string>
+        <string>Durée :</string>
        </property>
       </widget>
-      <widget class="QLabel" name="L_MLocalAffaire">
+      <widget class="QLabel" name="L_MPapierService">
        <property name="geometry">
         <rect>
          <x>70</x>
@@ -2386,10 +4636,10 @@ border-radius: 0px;</string>
         <string notr="true">background: transparent;</string>
        </property>
        <property name="text">
-        <string>Localisation :</string>
+        <string>Papiers Necess:</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="LE_MTypeAffaire">
+      <widget class="QLineEdit" name="LE_MTypeService">
        <property name="geometry">
         <rect>
          <x>240</x>
@@ -2402,7 +4652,7 @@ border-radius: 0px;</string>
         <string>Type...</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="LE_MDateAffaire">
+      <widget class="QLineEdit" name="LE_MDureeService">
        <property name="geometry">
         <rect>
          <x>240</x>
@@ -2412,10 +4662,10 @@ border-radius: 0px;</string>
         </rect>
        </property>
        <property name="placeholderText">
-        <string>Date...</string>
+        <string>Durée...</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="LE_MLocalAffaire">
+      <widget class="QLineEdit" name="LE_MPapierService">
        <property name="geometry">
         <rect>
          <x>240</x>
@@ -2425,10 +4675,10 @@ border-radius: 0px;</string>
         </rect>
        </property>
        <property name="placeholderText">
-        <string>Localisation...</string>
+        <string>Papiers necessaires...</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="B_MConfirmerAffaire">
+      <widget class="QPushButton" name="B_MConfirmerService">
        <property name="geometry">
         <rect>
          <x>350</x>
@@ -2441,8 +4691,8 @@ border-radius: 0px;</string>
         <string> Modifier</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/Recources/Images/confirm.png</normaloff>:/Recources/Images/confirm.png</iconset>
+        <iconset resource="Ressources.qrc">
+         <normaloff>:/Ressources/image/confirm.png</normaloff>:/Ressources/image/confirm.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -2451,7 +4701,7 @@ border-radius: 0px;</string>
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="B_MAnnulerAffaire">
+      <widget class="QPushButton" name="B_MAnnulerService">
        <property name="geometry">
         <rect>
          <x>140</x>
@@ -2464,8 +4714,8 @@ border-radius: 0px;</string>
         <string> Annuler</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/Recources/Images/close.png</normaloff>:/Recources/Images/close.png</iconset>
+        <iconset resource="Ressources.qrc">
+         <normaloff>:/Ressources/image/close.png</normaloff>:/Ressources/image/close.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -2500,7 +4750,7 @@ border-radius: 0px;</string>
         </size>
        </property>
       </widget>
-      <widget class="QLabel" name="L_MDescAffaire">
+      <widget class="QLabel" name="L_MDescService">
        <property name="geometry">
         <rect>
          <x>70</x>
@@ -2516,7 +4766,7 @@ border-radius: 0px;</string>
         <string>Description :</string>
        </property>
       </widget>
-      <widget class="QTextEdit" name="TE_MDescAffaire">
+      <widget class="QTextEdit" name="TE_MDescService">
        <property name="geometry">
         <rect>
          <x>90</x>
@@ -2549,8 +4799,8 @@ border-radius: 0px;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>:/Recources/Images/gavel.png</normaloff>:/Recources/Images/gavel.png</iconset>
+       <iconset resource="Ressources.qrc">
+        <normaloff>:/Ressources/image/support.png</normaloff>:/Ressources/image/support.png</iconset>
       </property>
       <property name="iconSize">
        <size>

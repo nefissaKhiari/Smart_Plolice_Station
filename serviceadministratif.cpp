@@ -13,6 +13,8 @@ ServiceAdministratif::ServiceAdministratif(QWidget *parent)
     ui->stackedWidget->setCurrentIndex(0);
     ui->T_Citoyens->setModel(C.afficher());
     ui->CB_IDCitoyen->setModel(C.listId());
+    ui->T_Service ->setModel(S.afficher());
+    ui->CB_IDService->setModel(S.listId());
 
 }
 
@@ -197,5 +199,126 @@ void ServiceAdministratif::on_B_AConfirmerCitoyen_clicked()
     else {
         QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
     }
+    }
+}
+
+void ServiceAdministratif::on_B_BackToGestions_2_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(0);
+}
+
+void ServiceAdministratif::on_B_GestioService_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(5);
+}
+
+void ServiceAdministratif::on_B_AjouterService_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(7);
+}
+
+
+
+void ServiceAdministratif::on_B_ModifierService_clicked()
+{
+    QSqlQuery qry;
+    QString id_string = QString::number(ui->CB_IDService->currentText().toInt());
+    qry.prepare("SELECT * FROM services where id=:id");
+    qry.bindValue(0, id_string);
+    if(qry.exec()) {
+        while(qry.next()) {
+            ui->LE_MTypeService->setText(qry.value(1).toString());
+            ui->LE_MDureeService->setText(qry.value(2).toString());
+            ui->LE_MPapierService->setText(qry.value(3).toString());
+            ui->TE_MDescService->setText(qry.value(4).toString());
+
+        }
+    }
+    ui->stackedWidget->setCurrentIndex(8);
+}
+
+
+
+
+
+void ServiceAdministratif::on_B_AConfirmerService_clicked()
+{
+    QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout du service?", QMessageBox::Yes | QMessageBox::No);
+    if(reply == QMessageBox::Yes) {
+        QString type = ui->LE_ATypeService->text();
+        QString duree = ui->LE_ADureeService->text();
+        QString papiers_necess = ui->LE_APapierService->text();
+        QString description = ui->TE_ADescService->toPlainText();
+
+    Service S(type,duree,papiers_necess,description);
+    if(S.ajouter()) {
+        ui->T_Service ->setModel(S.afficher());
+        ui->CB_IDService ->setModel(S.listId());
+        ui->stackedWidget->setCurrentIndex(5);
+
+        ui->LE_ATypeService ->setText("");
+        ui->LE_ADureeService ->setText("");
+        ui->LE_APapierService->setText("");
+        ui->TE_ADescService->setText("");
+
+    }
+    else {
+        QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
+    }
+    }
+}
+
+void ServiceAdministratif::on_B_AAnnulerService_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(5);
+}
+
+
+void ServiceAdministratif::on_B_MAnnulerService_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(5);
+}
+
+void ServiceAdministratif::on_B_MConfirmerService_clicked()
+{
+    QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la modification", "Confirmer la modification du service?", QMessageBox::Yes | QMessageBox::No);
+    if(reply == QMessageBox::Yes) {
+        Service S;
+        S.setid(ui->CB_IDService ->currentText().toInt());
+        S.settype(ui->LE_MTypeService ->text());
+        S.setduree(ui->LE_MDureeService ->text());
+        S.setpapiersnecess(ui->LE_MPapierService ->text());
+        S.setdescription(ui->TE_ADescService->toPlainText());
+
+
+        if(S.modifier()) {
+            ui->T_Service->setModel(S.afficher());
+            ui->CB_IDService->setModel(S.listId());
+            ui->stackedWidget->setCurrentIndex(5);
+            ui->LE_ATypeService->setText("");
+            ui->LE_ADureeService->setText("");
+            ui->LE_APapierService->setText("");
+            ui->TE_ADescService->setText("");
+        }
+        else {
+            QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("La modification a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
+        }
+    }
+}
+
+void ServiceAdministratif::on_B_SupprimerService_clicked()
+{
+    QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression du service?", QMessageBox::Yes | QMessageBox::No);
+    if(reply == QMessageBox::Yes) {
+        S.setid(ui->CB_IDService->currentText().toInt());
+        if(S.supprimer(S.getid())) {
+            qDebug() << "Suppression Complet";
+            ui->T_Service->setModel(S.afficher());
+            ui->CB_IDService->setModel(S.listId());
+        }
+        else {
+            QMessageBox::critical(nullptr, QObject::tr("Nope"),
+                        QObject::tr("Suppression a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
+        }
     }
 }

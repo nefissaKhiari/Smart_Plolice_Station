@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "citoyen.h"
+#include "service.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ServiceAdministratif; }
@@ -41,8 +42,29 @@ private slots:
 
     void on_B_AConfirmerCitoyen_clicked();
 
+    void on_B_BackToGestions_2_clicked();
+
+    void on_B_GestioService_clicked();
+
+    void on_B_AjouterService_clicked();
+
+    void on_B_ModifierService_clicked();
+
+    void on_B_AConfirmerService_clicked();
+
+    void on_B_AAnnulerService_clicked();
+
+    void on_B_MAnnulerService_clicked();
+
+    void on_B_MConfirmerService_clicked();
+
+    void on_B_SupprimerService_clicked();
+
+    void on_TE_ADescService_copyAvailable(bool b);
+
 private:
     Ui::ServiceAdministratif *ui;
     Citoyen C;
+     Service S;
 };
 #endif // SERVICEADMINISTRATIF_H

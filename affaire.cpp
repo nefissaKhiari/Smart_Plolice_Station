@@ -5,11 +5,11 @@
 
 
 Affaire::Affaire() {
-    id=0;   type="";    localisation="";    date="";    description="";
+    id=0;   type="";    localisation="";    date="";    description="";    intervenant=0;
 }
 
-Affaire::Affaire(QString type, QString localisation, QString date, QString description) {
-    this->type=type;    this->localisation=localisation;    this->date=date;    this->description=description;
+Affaire::Affaire(QString type, QString localisation, QString date, QString description, int intervenant) {
+    this->type=type;    this->localisation=localisation;    this->date=date;    this->description=description;     this->intervenant=intervenant;
 }
 
 void Affaire::setId(int id) { this->id=id; }
@@ -27,13 +27,18 @@ QString Affaire::getDate() { return date; }
 void Affaire::setDescription(QString description) { this->description=description; }
 QString Affaire::getDescription() { return description; }
 
+void Affaire::setIntervenant(int intervenant) { this->intervenant=intervenant; }
+int Affaire::getIntervenant() { return intervenant; }
+
 bool Affaire::ajouter() {
     QSqlQuery query;
-    query.prepare("INSERT INTO affaires (type, localisation, description, datea)" "VALUES (:type, :localisation, :description, :datea)");
+    QString int_string = QString::number(intervenant);
+    query.prepare("INSERT INTO affaires (type, localisation, description, datea, cin_intervenant)" "VALUES (:type, :localisation, :description, :datea, :cin_intervenant)");
     query.bindValue(0, type);
     query.bindValue(1, localisation);
     query.bindValue(2, description);
     query.bindValue(3, date);
+    query.bindValue(4, int_string);
     return query.exec();
 }
 
@@ -64,6 +69,7 @@ QSqlQueryModel* Affaire::afficher() {
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("Localisation"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("Description"));
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Date"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("Intervenant"));
     return model;
 }
 

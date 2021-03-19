@@ -49,6 +49,7 @@ void AffairesJuridiques::on_B_BackToGestions_2_clicked()
 
 void AffairesJuridiques::on_B_AjouterAffaire_clicked()
 {
+    ui->CB_ACinIntAffaire->setModel(intervenant.listCin());
     ui->stackedWidget->setCurrentIndex(5);
 }
 
@@ -98,7 +99,7 @@ void AffairesJuridiques::on_B_MAnuulerIntervenant_clicked()
 }
 
 void AffairesJuridiques::on_B_ModifierAffaire_clicked()
-{
+{  
     QSqlQuery qry;
     QString id_string = QString::number(ui->CB_IDAffaire->currentText().toInt());
     qry.prepare("SELECT * FROM affaires where id=:id");
@@ -109,8 +110,10 @@ void AffairesJuridiques::on_B_ModifierAffaire_clicked()
             ui->LE_MLocalAffaire->setText(qry.value(2).toString());
             ui->TE_MDescAffaire->setText(qry.value(3).toString());
             ui->LE_MDateAffaire->setText(qry.value(4).toString());
+            ui->LE_MCinIntAffaire->setText(qry.value(5).toString());
         }
     }
+    ui->CB_ACinIntAffaire->setModel(intervenant.listCin());
     ui->stackedWidget->setCurrentIndex(6);
 }
 
@@ -209,11 +212,12 @@ void AffairesJuridiques::on_B_AConfirmerAffaire_clicked()
 {
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout du l'affaire?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
+        int intervenant = ui->CB_ACinIntAffaire->currentText().toInt();
         QString type = ui->LE_ATypeAffaire->text();
         QString localisation = ui->LE_ALocalAffaire->text();
         QString description = ui->TE_ADescAffaire->toPlainText();
         QString date = ui->LE_ADateAffaire->text();
-        Affaire affaire(type, localisation, date, description);
+        Affaire affaire(type, localisation, date, description, intervenant);
         if(affaire.ajouter()) {
             ui->T_Affaire->setModel(affaire.afficher());
             ui->CB_IDAffaire->setModel(affaire.listId());

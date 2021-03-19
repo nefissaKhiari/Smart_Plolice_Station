@@ -12,9 +12,10 @@ private:
     QString localisation;
     QString date;
     QString description;
+    int intervenant;
 public:
     Affaire();
-    Affaire(QString, QString, QString, QString);
+    Affaire(QString, QString, QString, QString, int);
 
     void setId(int);
     int getId();
@@ -30,6 +31,9 @@ public:
 
     void setDescription(QString);
     QString getDescription();
+
+    void setIntervenant(int);
+    int getIntervenant();
 
     bool ajouter();
     bool modifier();

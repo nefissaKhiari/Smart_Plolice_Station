@@ -40,8 +40,12 @@ public:
     bool supprimer(int);
 
     QSqlQueryModel* afficher();
-    QSqlQueryModel* afficherByCin(int);
     QSqlQueryModel* listCin();
+
+    QSqlQueryModel* Trier(QString);
+    QSqlQueryModel* RechercheCin();
+    QSqlQueryModel* RechercheNom();
+    QSqlQueryModel* RecherchePrenom();
 
 };
 

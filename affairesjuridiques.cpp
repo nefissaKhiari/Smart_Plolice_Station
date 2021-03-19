@@ -275,3 +275,14 @@ void AffairesJuridiques::on_B_MConfirmerAffaire_clicked()
         }
     }
 }
+
+void AffairesJuridiques::on_B_ResetTableIntervenant_clicked()
+{
+    ui->T_Intervenants->setModel(intervenant.afficher());
+}
+
+void AffairesJuridiques::on_B_Trier_clicked()
+{
+    QString Tri = ui->CB_TriIntervenant->currentText();
+    ui->T_Intervenants->setModel(intervenant.Trier(Tri));
+}

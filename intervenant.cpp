@@ -74,6 +74,23 @@ QSqlQueryModel* Intervenant::afficher() {
     return model;
 }
 
+QSqlQueryModel* Intervenant::Trier(QString tri) {
+    QSqlQueryModel* model = new QSqlQueryModel();
+    if(tri=="Nom") {
+        model->setQuery("SELECT * FROM intervenant ORDER BY nom ASC");
+    }
+    else if(tri=="Prenom") {
+        model->setQuery("SELECT * FROM intervenant ORDER BY prenom ASC");
+    }
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Nationalité"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Localisation"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("Mail"));
+    return model;
+}
+
 QSqlQueryModel* Intervenant::listCin() {
     QSqlQueryModel* model = new QSqlQueryModel();
     model->setQuery("SELECT cin FROM intervenant");

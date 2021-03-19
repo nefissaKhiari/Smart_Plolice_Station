@@ -54,6 +54,10 @@ private slots:
 
     void on_B_MConfirmerAffaire_clicked();
 
+    void on_B_ResetTableIntervenant_clicked();
+
+    void on_B_Trier_clicked();
+
 private:
     Ui::AffairesJuridiques *ui;
     Intervenant intervenant;

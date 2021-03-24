@@ -278,6 +278,8 @@ void AffairesJuridiques::on_B_MConfirmerAffaire_clicked()
 
 void AffairesJuridiques::on_B_ResetTableIntervenant_clicked()
 {
+    ui->LE_ChercherNom->setText("");
+    ui->LE_ChercherPrenom->setText("");
     ui->T_Intervenants->setModel(intervenant.afficher());
 }
 
@@ -285,4 +287,22 @@ void AffairesJuridiques::on_B_Trier_clicked()
 {
     QString Tri = ui->CB_TriIntervenant->currentText();
     ui->T_Intervenants->setModel(intervenant.Trier(Tri));
+}
+
+void AffairesJuridiques::on_B_Recherche_clicked()
+{
+    QString cinn = ui->LE_ChercherNom->text();
+    QString prenom = ui->LE_ChercherPrenom->text();
+    if((cinn != "") && (prenom != "")) {
+        QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("Il faut Chercher avec le Nom OU le Prenom.\n" "Cliquer Ok."), QMessageBox::Ok);
+    }
+    else if((cinn == "") && (prenom == "")) {
+        QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("Il faut Chercher avec le Nom OU le Prenom.\n" "Cliquer Ok."), QMessageBox::Ok);
+    }
+    else if(cinn != ""){
+        ui->T_Intervenants->setModel(intervenant.ChercherC(cinn));
+    }
+    else if(prenom != ""){
+        ui->T_Intervenants->setModel(intervenant.ChercherP(prenom));
+    }
 }

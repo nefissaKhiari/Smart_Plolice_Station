@@ -58,6 +58,8 @@ private slots:
 
     void on_B_Trier_clicked();
 
+    void on_B_Recherche_clicked();
+
 private:
     Ui::AffairesJuridiques *ui;
     Intervenant intervenant;

@@ -44,8 +44,8 @@ public:
 
     QSqlQueryModel* Trier(QString);
     QSqlQueryModel* RechercheCin();
-    QSqlQueryModel* RechercheNom();
-    QSqlQueryModel* RecherchePrenom();
+    QSqlQueryModel* ChercherP(QString);
+    QSqlQueryModel* ChercherC(QString);
 
 };
 

@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/ressource">
+        <file>image/add.png</file>
+        <file>image/ascending-sort.png</file>
+        <file>image/back-arrow.png</file>
+        <file>image/background.PNG</file>
+        <file>image/close.png</file>
+        <file>image/confirm.png</file>
+        <file>image/edit.png</file>
+        <file>image/police-walkie-talkie.png</file>
+        <file>image/tools.png</file>
+        <file>image/trash.png</file>
+        <file>image/search.png</file>
+        <file>image/icon.png</file>
+    </qresource>
+</RCC>

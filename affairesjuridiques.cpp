@@ -207,8 +207,8 @@ void AffairesJuridiques::on_B_MConfirmerIntervenant_clicked()
             ui->T_Intervenants->setModel(intervenant.afficher());
             ui->stackedWidget->setCurrentIndex(1);
 
-            ui->LE_APrenomIntervenant->setText("");
-            ui->LE_ALocalIntervenant->setText("");
+            ui->LE_MPrenomIntervenant->setText("");
+            ui->LE_MLocalIntervenant->setText("");
             ui->LE_AMailIntervenant->setText("");
         }
         else {
@@ -368,6 +368,23 @@ void AffairesJuridiques::on_B_Statistics_clicked()
     series->append("Algerienne", Ag);
     series->append("Libanaise", Lb);
     series->append("Autres...", Autres);
+
+    QPieSlice *tn = series->slices().at(0);
+    QPieSlice *fr = series->slices().at(1);
+    QPieSlice *ag = series->slices().at(2);
+    QPieSlice *lb = series->slices().at(3);
+    QPieSlice *autres = series->slices().at(4);
+    tn->setLabelVisible(true);
+    tn->setBrush(Qt::red);
+    fr->setLabelVisible(true);
+    fr->setBrush(Qt::blue);
+    ag->setLabelVisible(true);
+    ag->setBrush(Qt::green);
+    lb->setLabelVisible(true);
+    lb->setPen(QPen(Qt::green, 1));
+    lb->setBrush(Qt::white);
+    autres->setLabelVisible(true);
+    fr->setBrush(Qt::darkBlue);
 
     QChart *chart = new QChart();
     chart->addSeries(series);

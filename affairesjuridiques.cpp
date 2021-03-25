@@ -368,6 +368,8 @@ void AffairesJuridiques::on_B_Statistics_clicked()
     series->append("Algerienne", Ag);
     series->append("Libanaise", Lb);
     series->append("Autres...", Autres);
+    series->setHoleSize(0.5);
+    series->setPieSize(0.8);
 
     QPieSlice *tn = series->slices().at(0);
     QPieSlice *fr = series->slices().at(1);

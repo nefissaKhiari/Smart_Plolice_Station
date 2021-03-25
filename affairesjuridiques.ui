@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -2665,8 +2665,8 @@ QComboBox::drop-down {
      <widget class="QFrame" name="F_Statistic">
       <property name="geometry">
        <rect>
-        <x>310</x>
-        <y>140</y>
+        <x>320</x>
+        <y>170</y>
         <width>641</width>
         <height>481</height>
        </rect>

@@ -4,6 +4,9 @@
 #include "intervenant.h"
 #include "affaire.h"
 #include <QMainWindow>
+#include <QtCharts>
+#include <QChartView>
+#include <QPieSeries>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class AffairesJuridiques; }
@@ -59,6 +62,10 @@ private slots:
     void on_B_Trier_clicked();
 
     void on_B_Recherche_clicked();
+
+    void on_B_Statistics_clicked();
+
+    void on_B_BackToGestions_3_clicked();
 
 private:
     Ui::AffairesJuridiques *ui;

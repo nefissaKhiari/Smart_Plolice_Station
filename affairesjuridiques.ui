@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -998,7 +998,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>290</y>
+         <y>390</y>
          <width>131</width>
          <height>31</height>
         </rect>
@@ -1014,7 +1014,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>340</y>
+         <y>290</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -1030,7 +1030,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>390</y>
+         <y>340</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -1068,24 +1068,11 @@ QPushButton:hover {
         <string>Prenom...</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="LE_ANationaliteIntervenant">
-       <property name="geometry">
-        <rect>
-         <x>240</x>
-         <y>290</y>
-         <width>351</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>Nationalite...</string>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="LE_ALocalIntervenant">
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>340</y>
+         <y>290</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1098,7 +1085,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>390</y>
+         <y>340</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1220,6 +1207,101 @@ QPushButton:hover {
         <string>CIN...</string>
        </property>
       </widget>
+      <widget class="QComboBox" name="CB_ANationaliteIntervenant">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>390</y>
+         <width>191</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QComboBox {
+  border: 1px solid red;
+  border-radius: 4px;
+  background: white;
+}
+
+QComboBox QAbstractItemView {
+  border: 1px solid black;
+  border-radius: 0;
+  background-color: white;
+  selection-background-color:#305068;
+}
+
+QComboBox QAbstractItemView:hover {
+  background-color: white;
+  color: #F0F0F0;
+}
+
+QComboBox QAbstractItemView:selected {
+  background: #1464A0;
+  color: #32414B;
+}
+
+QComboBox QAbstractItemView:alternate {
+  background: #19232D;
+}
+
+QComboBox:disabled {
+  background-color: #19232D;
+  color: #787878;
+}
+
+QComboBox:hover {
+  border: 1px solid #148CD2;
+}
+
+QComboBox:focus {
+  border: 1px solid #1464A0;
+}
+
+QComboBox:on {
+  selection-background-color: #1464A0;
+}
+
+QComboBox::item:checked {
+  font-weight: bold;
+}
+
+QComboBox::item:selected {
+  border: 0px solid transparent;
+}
+
+QComboBox::drop-down {
+  subcontrol-origin: padding;
+  subcontrol-position: top right;
+  width: 12px;
+  border-left: 1px solid #32414B;
+}</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Tunisienne</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Francaise</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Algerienne</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Libanaise</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Autres...</string>
+        </property>
+       </item>
+      </widget>
      </widget>
      <zorder>frame_4</zorder>
      <zorder>toolButton_3</zorder>
@@ -1329,7 +1411,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>290</y>
+         <y>390</y>
          <width>131</width>
          <height>31</height>
         </rect>
@@ -1345,7 +1427,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>340</y>
+         <y>290</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -1361,7 +1443,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>390</y>
+         <y>340</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -1399,24 +1481,11 @@ QPushButton:hover {
         <string>Prenom...</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="LE_MNationaliteIntervenant">
-       <property name="geometry">
-        <rect>
-         <x>240</x>
-         <y>290</y>
-         <width>351</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>Nationalite...</string>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="LE_MLocalIntervenant">
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>340</y>
+         <y>290</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1429,7 +1498,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>390</y>
+         <y>340</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1547,6 +1616,101 @@ QPushButton:hover {
        <property name="placeholderText">
         <string>CIN...</string>
        </property>
+      </widget>
+      <widget class="QComboBox" name="CB_MNationaliteIntervenant">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>390</y>
+         <width>191</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QComboBox {
+  border: 1px solid red;
+  border-radius: 4px;
+  background: white;
+}
+
+QComboBox QAbstractItemView {
+  border: 1px solid black;
+  border-radius: 0;
+  background-color: white;
+  selection-background-color:#305068;
+}
+
+QComboBox QAbstractItemView:hover {
+  background-color: white;
+  color: #F0F0F0;
+}
+
+QComboBox QAbstractItemView:selected {
+  background: #1464A0;
+  color: #32414B;
+}
+
+QComboBox QAbstractItemView:alternate {
+  background: #19232D;
+}
+
+QComboBox:disabled {
+  background-color: #19232D;
+  color: #787878;
+}
+
+QComboBox:hover {
+  border: 1px solid #148CD2;
+}
+
+QComboBox:focus {
+  border: 1px solid #1464A0;
+}
+
+QComboBox:on {
+  selection-background-color: #1464A0;
+}
+
+QComboBox::item:checked {
+  font-weight: bold;
+}
+
+QComboBox::item:selected {
+  border: 0px solid transparent;
+}
+
+QComboBox::drop-down {
+  subcontrol-origin: padding;
+  subcontrol-position: top right;
+  width: 12px;
+  border-left: 1px solid #32414B;
+}</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Tunisienne</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Francaise</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Algerienne</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Libanaise</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Autres...</string>
+        </property>
+       </item>
       </widget>
      </widget>
      <zorder>frame_5</zorder>
@@ -2494,6 +2658,39 @@ QComboBox::drop-down {
         <width>64</width>
         <height>64</height>
        </size>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Statistics">
+     <widget class="QFrame" name="F_Statistic">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>140</y>
+        <width>641</width>
+        <height>481</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout"/>
+     </widget>
+     <widget class="QPushButton" name="B_BackToGestions_3">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>20</y>
+        <width>331</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="text">
+       <string> Gestion des Intervenants</string>
+      </property>
+      <property name="icon">
+       <iconset resource="Recources.qrc">
+        <normaloff>:/Recources/Images/back-arrow.png</normaloff>:/Recources/Images/back-arrow.png</iconset>
       </property>
      </widget>
     </widget>

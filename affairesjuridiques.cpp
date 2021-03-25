@@ -64,7 +64,23 @@ void AffairesJuridiques::on_B_ModifierIntervenant_clicked()
             ui->LE_MCinIntervenant->setText(qry.value(0).toString());
             ui->LE_MNomIntervenant->setText(qry.value(1).toString());
             ui->LE_MPrenomIntervenant->setText(qry.value(2).toString());
-            ui->LE_MNationaliteIntervenant->setText(qry.value(3).toString());
+            ui->CB_ANationaliteIntervenant->setCurrentText(qry.value(3).toString());
+            QString Nat = qry.value(3).toString();
+            if(Nat == "Tunisienne") {
+                ui->CB_MNationaliteIntervenant->setCurrentText("Tunisienne");
+            }
+            else if(Nat == "Algerienne") {
+                ui->CB_MNationaliteIntervenant->setCurrentText("Algerienne");
+            }
+            else if(Nat == "Francaise") {
+                ui->CB_MNationaliteIntervenant->setCurrentText("Francaise");
+            }
+            else if(Nat == "Libanaise") {
+                ui->CB_MNationaliteIntervenant->setCurrentText("Libanaise");
+            }
+            else if(Nat == "Autres...") {
+                ui->CB_MNationaliteIntervenant->setCurrentText("Autres...");
+            }
             ui->LE_MLocalIntervenant->setText(qry.value(4).toString());
             ui->LE_MMailIntervenant->setText(qry.value(5).toString());
         }
@@ -78,9 +94,7 @@ void AffairesJuridiques::on_B_AAnnulerIntervenant_clicked()
 
     ui->LE_ACinIntervenant->setText("");
     ui->LE_ANomIntervenant->setText("");
-    ui->LE_ANationaliteIntervenant->setText("");
     ui->LE_APrenomIntervenant->setText("");
-    ui->LE_ANationaliteIntervenant->setText("");
     ui->LE_ALocalIntervenant->setText("");
     ui->LE_AMailIntervenant->setText("");
 }
@@ -91,9 +105,7 @@ void AffairesJuridiques::on_B_MAnuulerIntervenant_clicked()
 
     ui->LE_MCinIntervenant->setText("");
     ui->LE_MNomIntervenant->setText("");
-    ui->LE_MNationaliteIntervenant->setText("");
     ui->LE_MPrenomIntervenant->setText("");
-    ui->LE_MNationaliteIntervenant->setText("");
     ui->LE_MLocalIntervenant->setText("");
     ui->LE_MMailIntervenant->setText("");
 }
@@ -129,6 +141,7 @@ void AffairesJuridiques::on_B_MAnnulerAffaire_clicked()
 
 void AffairesJuridiques::on_B_AjouterIntervenant_clicked()
 {
+    ui->CB_ANationaliteIntervenant->setCurrentIndex(0);
     ui->stackedWidget->setCurrentIndex(2);
 }
 
@@ -139,7 +152,7 @@ void AffairesJuridiques::on_B_AConfirmerIntervenant_clicked()
         int cin = ui->LE_ACinIntervenant->text().toInt();
         QString nom = ui->LE_ANomIntervenant->text();
         QString prenom = ui->LE_APrenomIntervenant->text();
-        QString nationalite = ui->LE_ANationaliteIntervenant->text();
+        QString nationalite = ui->CB_ANationaliteIntervenant->currentText();
         QString localisation = ui->LE_ALocalIntervenant->text();
         QString mail = ui->LE_AMailIntervenant->text();
         Intervenant intervenant(cin, nom, prenom, nationalite, localisation, mail);
@@ -150,9 +163,7 @@ void AffairesJuridiques::on_B_AConfirmerIntervenant_clicked()
 
             ui->LE_ACinIntervenant->setText("");
             ui->LE_ANomIntervenant->setText("");
-            ui->LE_ANationaliteIntervenant->setText("");
             ui->LE_APrenomIntervenant->setText("");
-            ui->LE_ANationaliteIntervenant->setText("");
             ui->LE_ALocalIntervenant->setText("");
             ui->LE_AMailIntervenant->setText("");
         }
@@ -188,7 +199,7 @@ void AffairesJuridiques::on_B_MConfirmerIntervenant_clicked()
         affaire.setCin(ui->CB_IDIntervenant->currentText().toInt());
         affaire.setNom(ui->LE_MNomIntervenant->text());
         affaire.setPrenom(ui->LE_MPrenomIntervenant->text());
-        affaire.setNationalite(ui->LE_MNationaliteIntervenant->text());
+        affaire.setNationalite(ui->CB_MNationaliteIntervenant->currentText());
         affaire.setLocalisation(ui->LE_MLocalIntervenant->text());
         affaire.setMail(ui->LE_MMailIntervenant->text());
         if(affaire.modifier()) {
@@ -196,9 +207,7 @@ void AffairesJuridiques::on_B_MConfirmerIntervenant_clicked()
             ui->T_Intervenants->setModel(intervenant.afficher());
             ui->stackedWidget->setCurrentIndex(1);
 
-            ui->LE_ANationaliteIntervenant->setText("");
             ui->LE_APrenomIntervenant->setText("");
-            ui->LE_ANationaliteIntervenant->setText("");
             ui->LE_ALocalIntervenant->setText("");
             ui->LE_AMailIntervenant->setText("");
         }
@@ -305,4 +314,72 @@ void AffairesJuridiques::on_B_Recherche_clicked()
     else if(prenom != ""){
         ui->T_Intervenants->setModel(intervenant.ChercherP(prenom));
     }
+}
+
+void AffairesJuridiques::on_B_Statistics_clicked()
+{
+    QSqlQuery qry;
+
+    qry.prepare("SELECT COUNT (*) FROM intervenant");
+    qry.exec();
+    int rows= 0;
+    if (qry.next()) {
+        rows= qry.value(0).toInt();
+    }
+
+    qry.prepare("SELECT COUNT (*) FROM intervenant where Nationalite='Autres...'");
+    qry.exec();
+    int Autres= 0;
+    if (qry.next()) {
+        Autres= qry.value(0).toInt();
+    }
+
+    qry.prepare("SELECT COUNT (*) FROM intervenant where Nationalite='Tunisienne'");
+    qry.exec();
+    int Tn= 0;
+    if (qry.next()) {
+        Tn= qry.value(0).toInt();
+    }
+
+    qry.prepare("SELECT COUNT (*) FROM intervenant where Nationalite='Algerienne'");
+    qry.exec();
+    int Ag= 0;
+    if (qry.next()) {
+        Ag= qry.value(0).toInt();
+    }
+
+    qry.prepare("SELECT COUNT (*) FROM intervenant where Nationalite='Francaise'");
+    qry.exec();
+    int Fr= 0;
+    if (qry.next()) {
+        Fr= qry.value(0).toInt();
+    }
+
+    qry.prepare("SELECT COUNT (*) FROM intervenant where Nationalite='Libanaise'");
+    qry.exec();
+    int Lb= 0;
+    if (qry.next()) {
+        Lb= qry.value(0).toInt();
+    }
+
+    QPieSeries *series = new QPieSeries();
+    series->append("Tunisienne", Tn);
+    series->append("Francaise", Fr);
+    series->append("Algerienne", Ag);
+    series->append("Libanaise", Lb);
+    series->append("Autres...", Autres);
+
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->setTitle("Les statistics de Nationalite : ");
+
+    QChartView *chartView = new QChartView(chart);
+    chartView->setParent(ui->F_Statistic);
+
+    ui->stackedWidget->setCurrentIndex(7);
+}
+
+void AffairesJuridiques::on_B_BackToGestions_3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
 }

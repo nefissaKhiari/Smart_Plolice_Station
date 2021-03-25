@@ -2,7 +2,6 @@
 #include "connection.h"
 
 #include <QApplication>
-#include <QApplication>
 #include <QMessageBox>
 #include <QDebug>
 

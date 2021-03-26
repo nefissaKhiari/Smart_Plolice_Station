@@ -10,11 +10,13 @@ CONFIG += c++11
 
 SOURCES += \
     connection.cpp \
+    equipement.cpp \
     main.cpp \
     gestionequipement.cpp
 
 HEADERS += \
     connection.h \
+    equipement.h \
     gestionequipement.h
 
 FORMS += \

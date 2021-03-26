@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -828,8 +828,8 @@ QPushButton:hover {
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/Recources/Images/close.png</normaloff>:/Recources/Images/close.png</iconset>
+        <iconset resource="ressource.qrc">
+         <normaloff>:/ressource/image/close.png</normaloff>:/ressource/image/close.png</iconset>
        </property>
       </widget>
      </widget>
@@ -912,7 +912,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>50</x>
-         <y>190</y>
+         <y>390</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -928,7 +928,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>50</x>
-         <y>240</y>
+         <y>190</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -944,7 +944,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>50</x>
-         <y>290</y>
+         <y>240</y>
          <width>131</width>
          <height>31</height>
         </rect>
@@ -960,7 +960,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>50</x>
-         <y>340</y>
+         <y>290</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -976,7 +976,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>50</x>
-         <y>400</y>
+         <y>340</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -992,7 +992,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>180</y>
+         <y>380</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1005,13 +1005,26 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>240</y>
+         <y>190</y>
          <width>351</width>
          <height>31</height>
         </rect>
        </property>
        <property name="placeholderText">
         <string>Quantite...</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="LE_ATailleEquipement">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>240</y>
+         <width>351</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>taille...</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="LE_AEtatEquipement">
@@ -1024,19 +1037,6 @@ QPushButton:hover {
         </rect>
        </property>
        <property name="placeholderText">
-        <string>taille...</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="LE_ALocalIntervenant">
-       <property name="geometry">
-        <rect>
-         <x>240</x>
-         <y>340</y>
-         <width>351</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
         <string>Etat...</string>
        </property>
       </widget>
@@ -1044,7 +1044,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>390</y>
+         <y>330</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1264,7 +1264,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>190</y>
+         <y>420</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -1280,7 +1280,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>240</y>
+         <y>200</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -1296,7 +1296,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>290</y>
+         <y>260</y>
          <width>131</width>
          <height>31</height>
         </rect>
@@ -1312,7 +1312,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>340</y>
+         <y>320</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -1328,7 +1328,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>390</y>
+         <y>370</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -1344,7 +1344,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>190</y>
+         <y>420</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1357,7 +1357,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>240</y>
+         <y>200</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1370,7 +1370,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>290</y>
+         <y>260</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1383,7 +1383,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>340</y>
+         <y>320</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1396,7 +1396,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>390</y>
+         <y>370</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1408,8 +1408,8 @@ QPushButton:hover {
       <widget class="QPushButton" name="B_MConfirmerEquipement">
        <property name="geometry">
         <rect>
-         <x>350</x>
-         <y>450</y>
+         <x>380</x>
+         <y>480</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -1434,8 +1434,8 @@ QPushButton:hover {
       <widget class="QPushButton" name="B_MAnuulerEquipement">
        <property name="geometry">
         <rect>
-         <x>140</x>
-         <y>450</y>
+         <x>100</x>
+         <y>480</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -2249,8 +2249,8 @@ QComboBox::drop-down {
       <widget class="QLabel" name="L_MTypeAffaire">
        <property name="geometry">
         <rect>
-         <x>60</x>
-         <y>120</y>
+         <x>50</x>
+         <y>150</y>
          <width>181</width>
          <height>31</height>
         </rect>
@@ -2266,7 +2266,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>60</x>
-         <y>280</y>
+         <y>310</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -2282,7 +2282,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>60</x>
-         <y>160</y>
+         <y>210</y>
          <width>151</width>
          <height>31</height>
         </rect>
@@ -2298,7 +2298,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>110</y>
+         <y>150</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -2311,7 +2311,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>220</y>
+         <y>260</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -2324,7 +2324,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>160</y>
+         <y>200</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -2415,7 +2415,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>60</x>
-         <y>220</y>
+         <y>260</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -2431,7 +2431,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>280</y>
+         <y>310</y>
          <width>351</width>
          <height>31</height>
         </rect>

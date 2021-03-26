@@ -2,7 +2,7 @@
 #define GESTIONEQUIPEMENT_H
 
 #include <QMainWindow>
-
+#include "equipement.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class GestionEquipement; }
 QT_END_NAMESPACE
@@ -40,7 +40,14 @@ private slots:
 
     void on_B_BackToGestionmaintenance_6_clicked();
 
+    void on_B_AConfirmerEquipement_clicked();
+
+    void on_B_MConfirmerEquipement_clicked();
+
+    void on_B_SupprimerEquipement_clicked();
+
 private:
     Ui::GestionEquipement *ui;
+    Equipement equipement;
 };
 #endif // GESTIONEQUIPEMENT_H

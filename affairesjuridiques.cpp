@@ -13,6 +13,7 @@ AffairesJuridiques::AffairesJuridiques(QWidget *parent)
 {
     ui->setupUi(this);
     ui->LE_ACinIntervenant->setValidator(new QIntValidator(1, 99999999, this));
+    ui->LE_ChercherNom->setValidator(new QIntValidator(1, 99999999, this));
 
     ui->stackedWidget->setCurrentIndex(0);
 
@@ -94,6 +95,12 @@ void AffairesJuridiques::on_B_AAnnulerIntervenant_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
 
+    ui->L_ACinIntAlert->setText("");
+    ui->L_ANomIntAlert->setText("");
+    ui->L_APrenomIntAlert->setText("");
+    ui->L_ALocalIntAlert->setText("");
+    ui->L_AMailIntAlert->setText("");
+
     ui->LE_ACinIntervenant->setText("");
     ui->LE_ANomIntervenant->setText("");
     ui->LE_APrenomIntervenant->setText("");
@@ -149,30 +156,96 @@ void AffairesJuridiques::on_B_AjouterIntervenant_clicked()
 
 void AffairesJuridiques::on_B_AConfirmerIntervenant_clicked()
 {
-    QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout du l'intervenant?", QMessageBox::Yes | QMessageBox::No);
-    if(reply == QMessageBox::Yes) {
-        int cin = ui->LE_ACinIntervenant->text().toInt();
-        QString nom = ui->LE_ANomIntervenant->text();
-        QString prenom = ui->LE_APrenomIntervenant->text();
-        QString nationalite = ui->CB_ANationaliteIntervenant->currentText();
-        QString localisation = ui->LE_ALocalIntervenant->text();
-        QString mail = ui->LE_AMailIntervenant->text();
-        Intervenant intervenant(cin, nom, prenom, nationalite, localisation, mail);
-        if(intervenant.ajouter()) {
-            ui->CB_IDIntervenant->setModel(intervenant.listCin());
-            ui->T_Intervenants->setModel(intervenant.afficher());
-            ui->stackedWidget->setCurrentIndex(1);
+    /*************** BEGIN : Controle de Saisir L'ajout d'Intervenant ***************/
+    bool overAll = false, cin_B, nom_B, prenom_B, mail_B, local_B;
+    int cin = ui->LE_ACinIntervenant->text().toInt();
+    QString cin_l = ui->LE_ACinIntervenant->text();
+    QString nom = ui->LE_ANomIntervenant->text();
+    QString prenom = ui->LE_APrenomIntervenant->text();
+    QString nationalite = ui->CB_ANationaliteIntervenant->currentText();
+    QString localisation = ui->LE_ALocalIntervenant->text();
+    QString mail = ui->LE_AMailIntervenant->text();
 
-            ui->LE_ACinIntervenant->setText("");
-            ui->LE_ANomIntervenant->setText("");
-            ui->LE_APrenomIntervenant->setText("");
-            ui->LE_ALocalIntervenant->setText("");
-            ui->LE_AMailIntervenant->setText("");
-        }
-        else {
-            QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
+    // BEGIN : cin
+    if(cin_l.length() < 8) {
+        cin_B = false;
+        ui->L_ACinIntAlert->setText("Il faut 8 charactere de facon XXXXXXXXXX");
+        ui->L_ACinIntAlert->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+    }
+    else {
+        cin_B = true;
+        ui->L_ACinIntAlert->setText("Ok");
+        ui->L_ACinIntAlert->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+    }
+    // END : cin
+
+    // BEGIN : Nom
+    if(nom.length() < 3) {
+        nom_B = false;
+        ui->L_ANomIntAlert->setText("Il faut 3 charactere Minimum");
+        ui->L_ANomIntAlert->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+    }
+    else {
+        nom_B = true;
+        ui->L_ANomIntAlert->setText("Ok");
+        ui->L_ANomIntAlert->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+    }
+    // END : Nom
+
+    // BEGIN : Prenom
+    if(prenom.length() < 3) {
+        prenom_B = false;
+        ui->L_APrenomIntAlert->setText("Il faut 3 charactere Minimum");
+        ui->L_APrenomIntAlert->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+    }
+    else {
+        prenom_B = true;
+        ui->L_APrenomIntAlert->setText("Ok");
+        ui->L_APrenomIntAlert->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+    }
+    // END : Prenom
+
+    // BEGIN : Local
+    if(localisation.length() < 10) {
+        local_B = false;
+        ui->L_ALocalIntAlert->setText("Il faut 10 charactere Minimum");
+        ui->L_ALocalIntAlert->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+    }
+    else {
+        local_B = true;
+        ui->L_ALocalIntAlert->setText("Ok");
+        ui->L_ALocalIntAlert->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+    }
+    // END : Local
+
+    // BEGIN : Mail
+    // END : Mail
+
+    (cin_B && nom_B && prenom_B && local_B)? overAll = true : overAll = false;
+    /*************** END : Controle de Saisir L'ajout d'Intervenant ***************/
+
+    /*************** BEGIN : Ajouter sur BaseDonnee ***************/
+    if(overAll) {
+        QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout du l'intervenant?", QMessageBox::Yes | QMessageBox::No);
+        if(reply == QMessageBox::Yes) {
+            Intervenant intervenant(cin, nom, prenom, nationalite, localisation, mail);
+            if(intervenant.ajouter()) {
+                ui->CB_IDIntervenant->setModel(intervenant.listCin());
+                ui->T_Intervenants->setModel(intervenant.afficher());
+                ui->stackedWidget->setCurrentIndex(1);
+
+                ui->LE_ACinIntervenant->setText("");
+                ui->LE_ANomIntervenant->setText("");
+                ui->LE_APrenomIntervenant->setText("");
+                ui->LE_ALocalIntervenant->setText("");
+                ui->LE_AMailIntervenant->setText("");
+            }
+            else {
+                QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
+            }
         }
     }
+    /*************** END : Ajouter sur BaseDonnee ***************/
 }
 
 void AffairesJuridiques::on_B_SupprimerIntervenant_clicked()
@@ -428,4 +501,14 @@ void AffairesJuridiques::on_LE_ChercherPrenom_returnPressed()
     else {
         ui->T_Intervenants->setModel(intervenant.ChercherP(prenom));
     }
+}
+
+void AffairesJuridiques::on_LE_ChercherNom_textChanged(const QString &arg1)
+{
+    ui->T_Intervenants->setModel(intervenant.ChercherC(arg1));
+}
+
+void AffairesJuridiques::on_LE_ChercherPrenom_textChanged(const QString &arg1)
+{
+    ui->T_Intervenants->setModel(intervenant.ChercherP(arg1));
 }

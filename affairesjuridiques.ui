@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -914,8 +914,8 @@ QPushButton:hover {
      <widget class="QToolButton" name="toolButton_3">
       <property name="geometry">
        <rect>
-        <x>550</x>
-        <y>40</y>
+        <x>566</x>
+        <y>20</y>
         <width>121</width>
         <height>121</height>
        </rect>
@@ -940,10 +940,10 @@ QPushButton:hover {
      <widget class="QFrame" name="frame_4">
       <property name="geometry">
        <rect>
-        <x>290</x>
-        <y>100</y>
+        <x>306</x>
+        <y>80</y>
         <width>641</width>
-        <height>531</height>
+        <height>591</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -983,7 +983,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>190</y>
+         <y>200</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -999,7 +999,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>240</y>
+         <y>260</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -1015,7 +1015,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>390</y>
+         <y>450</y>
          <width>131</width>
          <height>31</height>
         </rect>
@@ -1031,7 +1031,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>290</y>
+         <y>320</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -1047,7 +1047,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>340</y>
+         <y>380</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -1063,7 +1063,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>190</y>
+         <y>200</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1076,7 +1076,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>240</y>
+         <y>260</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1089,7 +1089,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>290</y>
+         <y>320</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1102,7 +1102,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>340</y>
+         <y>380</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1118,7 +1118,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>350</x>
-         <y>450</y>
+         <y>520</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -1144,7 +1144,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>140</x>
-         <y>450</y>
+         <y>520</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -1231,7 +1231,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>390</y>
+         <y>450</y>
          <width>191</width>
          <height>31</height>
         </rect>
@@ -1321,6 +1321,91 @@ QComboBox::drop-down {
          <string>Autres...</string>
         </property>
        </item>
+      </widget>
+      <widget class="QLabel" name="L_ACinIntAlert">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>170</y>
+         <width>351</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;
+font-size: 12px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_ANomIntAlert">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>230</y>
+         <width>351</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;
+font-size: 12px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_APrenomIntAlert">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>290</y>
+         <width>351</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;
+font-size: 12px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_ALocalIntAlert">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>350</y>
+         <width>351</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;
+font-size: 12px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_AMailIntAlert">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>410</y>
+         <width>351</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;
+font-size: 12px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
       </widget>
      </widget>
      <zorder>frame_4</zorder>

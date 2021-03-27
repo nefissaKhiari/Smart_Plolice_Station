@@ -68,6 +68,10 @@ private slots:
 
     void on_B_BackToGestions_3_clicked();
 
+    void on_LE_ChercherNom_returnPressed();
+
+    void on_LE_ChercherPrenom_returnPressed();
+
 private:
     Ui::AffairesJuridiques *ui;
     Intervenant intervenant;

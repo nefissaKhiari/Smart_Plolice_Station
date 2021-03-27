@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>7</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -317,6 +317,23 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <attribute name="horizontalHeaderDefaultSectionSize">
         <number>115</number>
        </attribute>
+      </widget>
+      <widget class="QLabel" name="L_Alerts">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>591</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;
+font-size: 13px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
       </widget>
      </widget>
      <widget class="QFrame" name="frame_2">
@@ -1202,6 +1219,9 @@ QPushButton:hover {
          <width>351</width>
          <height>31</height>
         </rect>
+       </property>
+       <property name="maxLength">
+        <number>99999999</number>
        </property>
        <property name="placeholderText">
         <string>CIN...</string>
@@ -2702,7 +2722,7 @@ QComboBox::drop-down {
      <x>0</x>
      <y>0</y>
      <width>1250</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

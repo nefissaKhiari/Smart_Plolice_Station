@@ -12,6 +12,8 @@ AffairesJuridiques::AffairesJuridiques(QWidget *parent)
     , ui(new Ui::AffairesJuridiques)
 {
     ui->setupUi(this);
+    ui->LE_ACinIntervenant->setValidator(new QIntValidator(1, 99999999, this));
+
     ui->stackedWidget->setCurrentIndex(0);
 
     ui->T_Intervenants->setModel(intervenant.afficher());
@@ -183,6 +185,9 @@ void AffairesJuridiques::on_B_SupprimerIntervenant_clicked()
             qDebug() << "Suppression Complet";
             ui->T_Intervenants->setModel(intervenantS.afficher());
             ui->CB_IDIntervenant->setModel(intervenantS.listCin());
+
+            ui->T_Affaire->setModel(affaire.afficher());
+            ui->CB_IDAffaire->setModel(affaire.listId());
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"),
@@ -320,12 +325,12 @@ void AffairesJuridiques::on_B_Statistics_clicked()
 {
     QSqlQuery qry;
 
-    qry.prepare("SELECT COUNT (*) FROM intervenant");
+    /*qry.prepare("SELECT COUNT (*) FROM intervenant");          Getting All rows of DB
     qry.exec();
     int rows= 0;
     if (qry.next()) {
         rows= qry.value(0).toInt();
-    }
+    }*/
 
     qry.prepare("SELECT COUNT (*) FROM intervenant where Nationalite='Autres...'");
     qry.exec();
@@ -401,4 +406,26 @@ void AffairesJuridiques::on_B_Statistics_clicked()
 void AffairesJuridiques::on_B_BackToGestions_3_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
+}
+
+void AffairesJuridiques::on_LE_ChercherNom_returnPressed()
+{
+    QString cinn = ui->LE_ChercherNom->text();
+    if(cinn == "") {
+        QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("Il faut Chercher avec le Nom OU le Prenom.\n" "Cliquer Ok."), QMessageBox::Ok);
+    }
+    else {
+        ui->T_Intervenants->setModel(intervenant.ChercherC(cinn));
+    }
+}
+
+void AffairesJuridiques::on_LE_ChercherPrenom_returnPressed()
+{
+    QString prenom = ui->LE_ChercherPrenom->text();
+    if(prenom == "") {
+            QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("Il faut Chercher avec le Nom OU le Prenom.\n" "Cliquer Ok."), QMessageBox::Ok);
+        }
+    else {
+        ui->T_Intervenants->setModel(intervenant.ChercherP(prenom));
+    }
 }

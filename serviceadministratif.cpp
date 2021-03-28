@@ -249,7 +249,6 @@ void ServiceAdministratif::on_B_AConfirmerService_clicked()
         QString duree = ui->LE_ADureeService->text();
         QString papiers_necess = ui->LE_APapierService->text();
         QString description = ui->TE_ADescService->toPlainText();
-
     Service S(type,duree,papiers_necess,description);
     if(S.ajouter()) {
         ui->T_Service ->setModel(S.afficher());
@@ -288,17 +287,17 @@ void ServiceAdministratif::on_B_MConfirmerService_clicked()
         S.settype(ui->LE_MTypeService ->text());
         S.setduree(ui->LE_MDureeService ->text());
         S.setpapiersnecess(ui->LE_MPapierService ->text());
-        S.setdescription(ui->TE_ADescService->toPlainText());
-
+        S.setdescription(ui->TE_MDescService->toPlainText());
+qDebug()<<S.getdescription();
 
         if(S.modifier()) {
             ui->T_Service->setModel(S.afficher());
             ui->CB_IDService->setModel(S.listId());
             ui->stackedWidget->setCurrentIndex(5);
-            ui->LE_ATypeService->setText("");
-            ui->LE_ADureeService->setText("");
-            ui->LE_APapierService->setText("");
-            ui->TE_ADescService->setText("");
+            ui->LE_MTypeService->setText("");
+            ui->LE_MDureeService->setText("");
+            ui->LE_MPapierService->setText("");
+            ui->TE_MDescService->setText("");
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("La modification a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);

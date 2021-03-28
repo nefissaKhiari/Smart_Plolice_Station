@@ -9,7 +9,7 @@ Service::Service()
     papiers_necess="";description="";
 }
 
-Service::Service(QString type, QString duree, QString papiers_necess, QString decription)
+Service::Service(QString type, QString duree, QString papiers_necess, QString description)
 {
     this->type=type; this->duree=duree;
     this->papiers_necess=papiers_necess; this->description=description;
@@ -23,7 +23,7 @@ void Service::setid(int id){this->id=id;}
 void Service::settype(QString type){this->type=type;}
 void Service::setduree(QString duree){this->duree=duree;}
 void Service::setpapiersnecess(QString papiers_necess){this->papiers_necess=papiers_necess;}
-void Service::setdescription(QString desription){this->description=description;}
+void Service::setdescription(QString description){this->description=description;}
 bool Service::ajouter()
 {
     QSqlQuery query;

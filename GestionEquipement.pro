@@ -12,12 +12,14 @@ SOURCES += \
     connection.cpp \
     equipement.cpp \
     main.cpp \
-    gestionequipement.cpp
+    gestionequipement.cpp \
+    maintenance.cpp
 
 HEADERS += \
     connection.h \
     equipement.h \
-    gestionequipement.h
+    gestionequipement.h \
+    maintenance.h
 
 FORMS += \
     gestionequipement.ui

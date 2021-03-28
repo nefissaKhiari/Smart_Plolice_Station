@@ -5,6 +5,7 @@
 #include <QSqlQuery>
 #include <QDebug>
 #include<equipement.h>
+#include <maintenance.h>
 GestionEquipement::GestionEquipement(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::GestionEquipement)
@@ -13,6 +14,8 @@ GestionEquipement::GestionEquipement(QWidget *parent)
     ui->stackedWidget->setCurrentIndex(0);
     ui->CB_IDEquipement->setModel(equipement.listRef());
     ui->T_Equipement->setModel(equipement.afficher());
+    ui->CB_IDMaintenance->setModel(maintenance.listId());
+    ui->T_Maintenance->setModel(maintenance.afficher());
 }
 
 GestionEquipement::~GestionEquipement()
@@ -69,6 +72,18 @@ void GestionEquipement::on_B_AjouterMaintenance_clicked()
 
 void GestionEquipement::on_B_ModifierMaintenance_clicked()
 {
+    QSqlQuery qry;
+    QString id_string = QString::number(ui->CB_IDMaintenance->currentText().toInt());
+    qry.prepare("SELECT * FROM maintenance where idmaintenance=:idmaintenance");
+    qry.bindValue(0, id_string);
+    if(qry.exec()) {
+        while(qry.next()) {
+            ui->LE_MDateDebut->setText(qry.value(1).toString());
+            ui->LE_MCout->setText(qry.value(2).toString());
+            ui->LE_MDatefin->setText(qry.value(3).toString());
+            ui->LE_MIDEquipement->setText(qry.value(4).toString());
+        }
+    }
     ui->stackedWidget->setCurrentIndex(6);
 }
 
@@ -173,6 +188,69 @@ void GestionEquipement::on_B_SupprimerEquipement_clicked()
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"),
                         QObject::tr("Suppression a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
+        }
+    }
+}
+
+void GestionEquipement::on_B_AConfirmerMaintenance_clicked()
+{
+    QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout de l'equipement au maintenance?", QMessageBox::Yes | QMessageBox::No);
+    if(reply == QMessageBox::Yes) {
+        QString datedebut = ui->LE_ADateDebut->text();
+        int cout = ui->LE_ACout->text().toInt();
+        QString datefin = ui->LE_ADateFin->text();
+        int reference = ui->LE_ReferenceEq->text().toInt();
+        Maintenance maintenance(datedebut, cout , datefin, reference);
+        if(maintenance.ajouter()) {
+            ui->CB_IDMaintenance->setModel(maintenance.listId());
+            ui->T_Maintenance->setModel(maintenance.afficher());
+            ui->stackedWidget->setCurrentIndex(1);
+
+
+            ui->LE_ADateDebut->setText("");
+            ui->LE_ACout->setText("");
+            ui->LE_ADateFin->setText("");
+
+        }
+        else {
+            QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
+        }
+    }
+}
+
+void GestionEquipement::on_B_SupprimerMaintenance_clicked()
+{
+    QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la fixation de l'equipement?", QMessageBox::Yes | QMessageBox::No);
+    if(reply == QMessageBox::Yes) {
+        maintenance.setIdmaintenance(ui->CB_IDMaintenance->currentText().toInt());
+        if(maintenance.supprimer(maintenance.getIdmaintenance())) {
+            qDebug() << "Suppression Complet";
+            ui->T_Maintenance->setModel(maintenance.afficher());
+            ui->CB_IDMaintenance->setModel(maintenance.listId());
+        }
+        else {
+            QMessageBox::critical(nullptr, QObject::tr("Nope"),
+                        QObject::tr("Suppression a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
+        }
+    }
+}
+
+void GestionEquipement::on_B_MConfirmerMaintenance_clicked()
+{
+    QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la modification", "Confirmer la modification du maintenance?", QMessageBox::Yes | QMessageBox::No);
+    if(reply == QMessageBox::Yes) {
+        maintenance.setIdmaintenance(ui->CB_IDMaintenance->currentText().toInt());
+        maintenance.setCout(ui->LE_MCout->text().toInt());
+        maintenance.setDatedebut(ui->LE_MDateDebut->text());
+        maintenance.setDatefin(ui->LE_MDatefin->text());
+        maintenance.setReference(ui->LE_MIDEquipement->text().toInt());
+        if(maintenance.modifier()) {
+            ui->T_Maintenance->setModel(maintenance.afficher());
+            ui->CB_IDMaintenance->setModel(maintenance.listId());
+            ui->stackedWidget->setCurrentIndex(4);
+        }
+        else {
+            QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("La modification a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
         }
     }
 }

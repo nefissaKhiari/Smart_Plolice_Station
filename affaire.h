@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QSqlQueryModel>
+#include <QDate>
 
 class Affaire
 {
@@ -10,12 +11,12 @@ private:
     int id;
     QString type;
     QString localisation;
-    QString date;
+    QDate date;
     QString description;
     int intervenant;
 public:
     Affaire();
-    Affaire(QString, QString, QString, QString, int);
+    Affaire(QString, QString, QDate, QString, int);
 
     void setId(int);
     int getId();
@@ -26,8 +27,8 @@ public:
     void setLocalisation(QString);
     QString getLocalisation();
 
-    void setDate(QString);
-    QString getDate();
+    void setDate(QDate);
+    QDate getDate();
 
     void setDescription(QString);
     QString getDescription();

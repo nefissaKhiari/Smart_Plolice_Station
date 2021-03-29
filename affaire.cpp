@@ -5,10 +5,10 @@
 
 
 Affaire::Affaire() {
-    id=0;   type="";    localisation="";    date="";    description="";    intervenant=0;
+    id=0;   type="";    localisation="";    description="";    intervenant=0;
 }
 
-Affaire::Affaire(QString type, QString localisation, QString date, QString description, int intervenant) {
+Affaire::Affaire(QString type, QString localisation, QDate date, QString description, int intervenant) {
     this->type=type;    this->localisation=localisation;    this->date=date;    this->description=description;     this->intervenant=intervenant;
 }
 
@@ -21,8 +21,8 @@ QString Affaire::getType() { return type; }
 void Affaire::setLocalisation(QString localisation) { this->localisation=localisation; }
 QString Affaire::getLocalisation() { return localisation; }
 
-void Affaire::setDate(QString date) { this->date=date; }
-QString Affaire::getDate() { return date; }
+void Affaire::setDate(QDate date) { this->date=date; }
+QDate Affaire::getDate() { return date; }
 
 void Affaire::setDescription(QString description) { this->description=description; }
 QString Affaire::getDescription() { return description; }
@@ -68,8 +68,8 @@ QSqlQueryModel* Affaire::afficher() {
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("Localisation"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("Description"));
-    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Date"));
-    model->setHeaderData(5, Qt::Horizontal, QObject::tr("Intervenant"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Intervenant"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("Date"));
     return model;
 }
 

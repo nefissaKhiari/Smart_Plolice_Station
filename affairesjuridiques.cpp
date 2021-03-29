@@ -6,12 +6,20 @@
 #include <QIntValidator>
 #include <QSqlQuery>
 #include <QDebug>
+#include <QRegExpValidator>
+
+#define Gen_RX "^[A-Z]+(([',. -][a-zA-Z])?[a-zA-Z]*)*$"
 
 AffairesJuridiques::AffairesJuridiques(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::AffairesJuridiques)
 {
     ui->setupUi(this);
+    /*QRegExp rx(Gen_RX);
+    QRegExpValidator *GenVal = new QRegExpValidator(rx, this);
+    ui->LE_ANomIntervenant->setValidator(GenVal);
+    ui->LE_APrenomIntervenant->setValidator(GenVal);
+    ui->LE_ALocalIntervenant->setValidator(GenVal);*/
     ui->LE_ACinIntervenant->setValidator(new QIntValidator(1, 99999999, this));
     ui->LE_ChercherNom->setValidator(new QIntValidator(1, 99999999, this));
 
@@ -52,6 +60,7 @@ void AffairesJuridiques::on_B_BackToGestions_2_clicked()
 
 void AffairesJuridiques::on_B_AjouterAffaire_clicked()
 {
+    //ui->DE_ADateAffaire->setDate();
     ui->CB_ACinIntAffaire->setModel(intervenant.listCin());
     ui->stackedWidget->setCurrentIndex(5);
 }
@@ -111,12 +120,6 @@ void AffairesJuridiques::on_B_AAnnulerIntervenant_clicked()
 void AffairesJuridiques::on_B_MAnuulerIntervenant_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
-
-    ui->LE_MCinIntervenant->setText("");
-    ui->LE_MNomIntervenant->setText("");
-    ui->LE_MPrenomIntervenant->setText("");
-    ui->LE_MLocalIntervenant->setText("");
-    ui->LE_MMailIntervenant->setText("");
 }
 
 void AffairesJuridiques::on_B_ModifierAffaire_clicked()
@@ -130,11 +133,10 @@ void AffairesJuridiques::on_B_ModifierAffaire_clicked()
             ui->LE_MTypeAffaire->setText(qry.value(1).toString());
             ui->LE_MLocalAffaire->setText(qry.value(2).toString());
             ui->TE_MDescAffaire->setText(qry.value(3).toString());
-            ui->LE_MDateAffaire->setText(qry.value(4).toString());
-            ui->LE_MCinIntAffaire->setText(qry.value(5).toString());
+            ui->LE_MCinIntAffaire->setText(qry.value(4).toString());
+            ui->DE_MDateAffaire->setDate(qry.value(5).toDate());
         }
     }
-    ui->CB_ACinIntAffaire->setModel(intervenant.listCin());
     ui->stackedWidget->setCurrentIndex(6);
 }
 
@@ -187,6 +189,7 @@ void AffairesJuridiques::on_B_AConfirmerIntervenant_clicked()
     }
     else {
         nom_B = true;
+        nom[0] = nom[0].toUpper();
         ui->L_ANomIntAlert->setText("Ok");
         ui->L_ANomIntAlert->setStyleSheet("QLabel{color: green; font-size: 12px;}");
     }
@@ -200,6 +203,7 @@ void AffairesJuridiques::on_B_AConfirmerIntervenant_clicked()
     }
     else {
         prenom_B = true;
+        prenom[0] = prenom[0].toUpper();
         ui->L_APrenomIntAlert->setText("Ok");
         ui->L_APrenomIntAlert->setStyleSheet("QLabel{color: green; font-size: 12px;}");
     }
@@ -212,7 +216,8 @@ void AffairesJuridiques::on_B_AConfirmerIntervenant_clicked()
         ui->L_ALocalIntAlert->setStyleSheet("QLabel{color: red; font-size: 12px;}");
     }
     else {
-        local_B = true;
+        local_B = true;        
+        localisation[0] = localisation[0].toUpper();
         ui->L_ALocalIntAlert->setText("Ok");
         ui->L_ALocalIntAlert->setStyleSheet("QLabel{color: green; font-size: 12px;}");
     }
@@ -284,10 +289,6 @@ void AffairesJuridiques::on_B_MConfirmerIntervenant_clicked()
             ui->CB_IDIntervenant->setModel(intervenant.listCin());
             ui->T_Intervenants->setModel(intervenant.afficher());
             ui->stackedWidget->setCurrentIndex(1);
-
-            ui->LE_MPrenomIntervenant->setText("");
-            ui->LE_MLocalIntervenant->setText("");
-            ui->LE_AMailIntervenant->setText("");
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("La modification a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -303,7 +304,7 @@ void AffairesJuridiques::on_B_AConfirmerAffaire_clicked()
         QString type = ui->LE_ATypeAffaire->text();
         QString localisation = ui->LE_ALocalAffaire->text();
         QString description = ui->TE_ADescAffaire->toPlainText();
-        QString date = ui->LE_ADateAffaire->text();
+        QDate date = ui->DE_ADateAffaire->date();
         Affaire affaire(type, localisation, date, description, intervenant);
         if(affaire.ajouter()) {
             ui->T_Affaire->setModel(affaire.afficher());
@@ -345,17 +346,12 @@ void AffairesJuridiques::on_B_MConfirmerAffaire_clicked()
         affaire.setId(ui->CB_IDAffaire->currentText().toInt());
         affaire.setType(ui->LE_MTypeAffaire->text());
         affaire.setLocalisation(ui->LE_MLocalAffaire->text());
-        affaire.setDate(ui->LE_MDateAffaire->text());
+        affaire.setDate(ui->DE_MDateAffaire->date());
         affaire.setDescription(ui->TE_MDescAffaire->toPlainText());
         if(affaire.modifier()) {
             ui->T_Affaire->setModel(affaire.afficher());
             ui->CB_IDAffaire->setModel(affaire.listId());
             ui->stackedWidget->setCurrentIndex(4);
-
-            ui->LE_ATypeAffaire->setText("");
-            ui->LE_ALocalAffaire->setText("");
-            ui->LE_ADateAffaire->setText("");
-            ui->TE_ADescAffaire->setText("");
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("La modification a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -398,7 +394,8 @@ void AffairesJuridiques::on_B_Statistics_clicked()
 {
     QSqlQuery qry;
 
-    /*qry.prepare("SELECT COUNT (*) FROM intervenant");          Getting All rows of DB
+    /*  Getting All rows of DB
+    qry.prepare("SELECT COUNT (*) FROM intervenant");
     qry.exec();
     int rows= 0;
     if (qry.next()) {

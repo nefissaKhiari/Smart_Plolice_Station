@@ -1,9 +1,11 @@
 #include "vehiculemission.h"
 #include "ui_vehiculemission.h"
 #include"vehicule.h"
+#include "missions.h"
 #include <QMessageBox>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
+
 
 VehiculeMission::VehiculeMission(QWidget *parent)
     : QMainWindow(parent)
@@ -12,6 +14,7 @@ VehiculeMission::VehiculeMission(QWidget *parent)
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
     ui->T_Vehicules->setModel(v_tmp.afficher());
+    ui->T_Mission->setModel(m_tmp.afficher());
 
     QSqlQuery *query = new QSqlQuery();
     QSqlQueryModel * modal = new QSqlQueryModel();
@@ -19,6 +22,12 @@ VehiculeMission::VehiculeMission(QWidget *parent)
     query->exec();
     modal->setQuery(*query);
     ui->CB_IDVehicule->setModel(modal);
+    query->prepare("SELECT nom from missions");
+    query->exec();
+    modal->setQuery(*query);
+    ui->CB_IDMission->setModel(modal);
+
+
 }
 
 VehiculeMission::~VehiculeMission()
@@ -36,7 +45,6 @@ void VehiculeMission::on_B_GestionVehicule_clicked()
 void VehiculeMission::on_B_GestionMission_clicked()
 {
      ui->stackedWidget->setCurrentIndex(4);
-
 }
 
 
@@ -75,6 +83,12 @@ void VehiculeMission::on_B_AjouterVehicule_clicked()
 void VehiculeMission::on_B_AAnnulerVehicule_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
+    ui->LE_AMarqueVehicule->setText("");
+    ui->LE_AMatriculeVehicule->setText("");
+    ui->LE_ANbplacesVehicule->setText("");
+    ui->LE_ACouleurVehicule->setText("");
+    ui->LE_AQuantiteVehicule->setText("");
+
 
 }
 
@@ -86,6 +100,22 @@ void VehiculeMission::on_B_MAnuulerVehicule_clicked()
 void VehiculeMission::on_B_ModifierMission_clicked()
 {
     ui->stackedWidget->setCurrentIndex(6);
+    QString nom = ui->CB_IDMission->currentText();
+    ui->LE_MNomMission->setText(nom);
+    QSqlQuery query;
+    query.prepare("SELECT * from missions where nom = :nom");
+    query.bindValue(":nom" , nom);
+    if (query.exec())
+    {
+        while (query.next())
+        {
+            ui->dateEdit_2->setDate(query.value(1).toDate());
+            ui->LE_MLocalMission->setText(query.value(2).toString());
+            ui->TE_MDescMission->setText(query.value(3).toString());
+
+        }
+
+    }
 }
 
 void VehiculeMission::on_B_AjouterMission_clicked()
@@ -96,11 +126,17 @@ void VehiculeMission::on_B_AjouterMission_clicked()
 void VehiculeMission::on_B_AAnnulerMission_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
+    ui->LE_ANomMission->setText("");
+    ui->LE_ALocalMission->setText("");
+    ui->TE_ADescMission->setText("");
+
+
 }
 
 void VehiculeMission::on_B_MAnnulerMission_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
+
 }
 
 void VehiculeMission::on_B_BackToGestions_2_clicked()
@@ -123,6 +159,7 @@ void VehiculeMission::on_B_AConfirmerVehicule_clicked()
        if(test)
        {
            msgBox.setText("Ajout avec succés.");
+           ui->stackedWidget->setCurrentIndex(1);
                ui->T_Vehicules->setModel(v_tmp.afficher());
                QSqlQuery *query = new QSqlQuery();
                QSqlQueryModel * modal = new QSqlQueryModel();
@@ -130,6 +167,13 @@ void VehiculeMission::on_B_AConfirmerVehicule_clicked()
                query->exec();
                modal->setQuery(*query);
                ui->CB_IDVehicule->setModel(modal);
+               ui->LE_AMarqueVehicule->setText("");
+               ui->LE_AMatriculeVehicule->setText("");
+               ui->LE_ANbplacesVehicule->setText("");
+               ui->LE_ACouleurVehicule->setText("");
+               ui->LE_AQuantiteVehicule->setText("");
+
+
 
        }
 
@@ -181,9 +225,88 @@ void VehiculeMission::on_B_MConfirmerVehicule_clicked()
     {
         ui->T_Vehicules->setModel(v_tmp.afficher());
         msgBox.setText("modification avec succes");
+        ui->stackedWidget->setCurrentIndex(1);
     }
     else
                 msgBox.setText("echec au niveau de la modification");
 
     msgBox.exec();
+}
+
+void VehiculeMission::on_B_AConfirmerMission_clicked()
+{
+    QString nom = ui->LE_ANomMission->text();
+    QDate datem = ui->dateEdit->date();
+    QString localisation = ui->LE_ALocalMission->text();
+    QString description = ui->TE_ADescMission->toPlainText();
+
+    QMessageBox msgBox;
+
+    missions E(nom, datem, localisation, description);
+    bool test=E.ajouter();
+    if(test)
+    {
+        msgBox.setText("Ajout avec succés.");
+         ui->stackedWidget->setCurrentIndex(4);
+            ui->T_Mission->setModel(m_tmp.afficher());
+            QSqlQuery *query = new QSqlQuery();
+            QSqlQueryModel * modal = new QSqlQueryModel();
+            query->prepare("SELECT nom from missions");
+            query->exec();
+            modal->setQuery(*query);
+            ui->CB_IDMission->setModel(modal);
+
+            ui->LE_ANomMission->setText("");
+            ui->LE_ALocalMission->setText("");
+            ui->TE_ADescMission->setText("");
+
+}
+}
+
+void VehiculeMission::on_B_MConfirmerMission_clicked()
+{
+    QString nom = ui->CB_IDMission->currentText();
+    QDate datem = ui->dateEdit_2->date();
+    QString localisation = ui->LE_MLocalMission->text();
+    QString description = ui->TE_MDescMission->toPlainText();
+
+
+    QMessageBox msgBox;
+
+    bool test = m_tmp.modifier(nom, datem, localisation, description);
+
+    if (test)
+    {
+        ui->T_Mission->setModel(m_tmp.afficher());
+        msgBox.setText("modification avec succes");
+        ui->stackedWidget->setCurrentIndex(4);
+
+    }
+    else
+                msgBox.setText("echec au niveau de la modification");
+
+    msgBox.exec();
+}
+
+void VehiculeMission::on_B_SupprimerMission_clicked()
+{
+    QString nom = ui->CB_IDMission->currentText();
+    QMessageBox msgbox;
+
+    bool test=m_tmp.supprimer(nom);
+    if (test)
+    {
+        msgbox.setText("Suppression avec succés.");
+              ui->T_Mission->setModel(m_tmp.afficher());
+              QSqlQuery *query = new QSqlQuery();
+              QSqlQueryModel * modal = new QSqlQueryModel();
+              query->prepare("SELECT nom from missions");
+              query->exec();
+              modal->setQuery(*query);
+              ui->CB_IDMission->setModel(modal);
+    }
+    else
+        msgbox.setText("Echec au niveau de la Suppression");
+
+      msgbox.exec();
 }

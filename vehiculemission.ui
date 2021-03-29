@@ -101,7 +101,7 @@ QMssageBox QDialogButtonBox{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -1181,6 +1181,44 @@ border-radius: 0px;</string>
         <number>138</number>
        </attribute>
       </widget>
+      <widget class="QComboBox" name="comboBox">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>121</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>nom</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>localisation</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>description</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>30</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>rechercher</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QToolButton" name="toolButton_7">
       <property name="geometry">
@@ -1488,19 +1526,6 @@ border-radius: 0px;</string>
         <string>Nom...</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="LE_ADateMission">
-       <property name="geometry">
-        <rect>
-         <x>240</x>
-         <y>220</y>
-         <width>351</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>Date...</string>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="LE_ALocalMission">
        <property name="geometry">
         <rect>
@@ -1618,6 +1643,16 @@ border-radius: 0px;</string>
         <string>Description...</string>
        </property>
       </widget>
+      <widget class="QDateEdit" name="dateEdit">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>220</y>
+         <width>351</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
      </widget>
      <zorder>frame_8</zorder>
      <zorder>toolButton_8</zorder>
@@ -1724,19 +1759,6 @@ border-radius: 0px;</string>
        </property>
        <property name="placeholderText">
         <string>Nom...</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="LE_MDateMission">
-       <property name="geometry">
-        <rect>
-         <x>240</x>
-         <y>220</y>
-         <width>351</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>Date...</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="LE_MLocalMission">
@@ -1854,6 +1876,16 @@ border-radius: 0px;</string>
        </property>
        <property name="placeholderText">
         <string>Description...</string>
+       </property>
+      </widget>
+      <widget class="QDateEdit" name="dateEdit_2">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>220</y>
+         <width>351</width>
+         <height>31</height>
+        </rect>
        </property>
       </widget>
      </widget>

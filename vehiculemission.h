@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "vehicule.h"
+#include "missions.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class VehiculeMission; }
@@ -47,8 +48,15 @@ private slots:
 
     void on_B_SupprimerVehicule_clicked();
 
+    void on_B_AConfirmerMission_clicked();
+
+    void on_B_MConfirmerMission_clicked();
+
+    void on_B_SupprimerMission_clicked();
+
 private:
     Ui::VehiculeMission *ui;
     vehicule v_tmp;
+    missions m_tmp;
 };
 #endif // VEHICULEMISSION_H

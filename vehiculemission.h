@@ -54,6 +54,12 @@ private slots:
 
     void on_B_SupprimerMission_clicked();
 
+    void on_B_Trier_clicked();
+
+    void on_lineEdit_returnPressed();
+
+    void on_lineEdit_textChanged(const QString &arg1);
+
 private:
     Ui::VehiculeMission *ui;
     vehicule v_tmp;

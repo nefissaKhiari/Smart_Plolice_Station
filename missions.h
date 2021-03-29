@@ -28,6 +28,7 @@ public:
     QSqlQueryModel*    afficher();
     bool supprimer(QString);
     bool modifier(QString,QDate, QString, QString );
+    QSqlQueryModel* rechercher(QString,QString);
 
 
 

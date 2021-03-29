@@ -310,3 +310,21 @@ void VehiculeMission::on_B_SupprimerMission_clicked()
 
       msgbox.exec();
 }
+
+void VehiculeMission::on_B_Trier_clicked()
+{
+    QString Tri = ui->comboBox_2->currentText();
+        ui->T_Vehicules->setModel(v_tmp.Trier(Tri));
+}
+
+void VehiculeMission::on_lineEdit_returnPressed()
+{
+
+}
+
+void VehiculeMission::on_lineEdit_textChanged(const QString &arg1)
+{
+       QString by=ui->comboBox->currentText();
+        ui->T_Mission->setModel(m_tmp.rechercher(arg1,by));
+
+}

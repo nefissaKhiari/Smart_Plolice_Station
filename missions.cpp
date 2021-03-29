@@ -74,3 +74,18 @@ bool missions::modifier(QString nom, QDate datem, QString localisation, QString 
 }
 
 
+QSqlQueryModel* missions::rechercher(QString rechercher,QString by) {
+    QSqlQueryModel* model = new QSqlQueryModel();
+    if(by=="nom") {
+        model->setQuery("SELECT * FROM missions WHERE nom LIKE '"+rechercher+"%'");
+    }
+    else if(by=="localisation") {
+       model->setQuery("SELECT * FROM missions WHERE localisation LIKE '"+rechercher+"%'");
+    }
+    else if(by=="description") {
+        model->setQuery("SELECT * FROM missions WHERE description LIKE '"+rechercher+"%'");
+    }
+
+
+    return model;
+}

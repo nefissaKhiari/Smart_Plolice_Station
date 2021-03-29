@@ -73,3 +73,24 @@ bool vehicule::modifier(QString marque, QString couleur, int quantite, int nb_pl
       return query.exec();
 }
 
+
+QSqlQueryModel* vehicule::Trier(QString tri) {
+    QSqlQueryModel* model = new QSqlQueryModel();
+    if(tri=="matricule") {
+        model->setQuery("SELECT * FROM vehicules ORDER BY matricule");
+    }
+    else if(tri=="marque") {
+        model->setQuery("SELECT * FROM vehicules ORDER BY marque");
+    }
+    else if(tri=="quantite") {
+        model->setQuery("SELECT * FROM vehicules ORDER BY quantite ");
+    }
+    else if(tri=="couleur") {
+        model->setQuery("SELECT * FROM vehicules ORDER BY couleur ");
+    }
+    else if(tri=="nb_places") {
+        model->setQuery("SELECT * FROM vehicules ORDER BY nb_places ");
+    }
+
+    return model;
+}

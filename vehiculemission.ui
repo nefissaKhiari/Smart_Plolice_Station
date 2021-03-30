@@ -287,9 +287,9 @@ QMssageBox QDialogButtonBox{
       <widget class="QPushButton" name="B_Statistics">
        <property name="geometry">
         <rect>
-         <x>580</x>
+         <x>610</x>
          <y>20</y>
-         <width>151</width>
+         <width>111</width>
          <height>31</height>
         </rect>
        </property>
@@ -310,7 +310,7 @@ QMssageBox QDialogButtonBox{
       <widget class="QPushButton" name="B_Trier">
        <property name="geometry">
         <rect>
-         <x>190</x>
+         <x>200</x>
          <y>20</y>
          <width>101</width>
          <height>31</height>
@@ -353,9 +353,9 @@ border-radius: 0px;</string>
       <widget class="QComboBox" name="comboBox_2">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>20</x>
          <y>21</y>
-         <width>141</width>
+         <width>171</width>
          <height>31</height>
         </rect>
        </property>
@@ -389,6 +389,29 @@ border-radius: 0px;</string>
          <string/>
         </property>
        </item>
+      </widget>
+      <widget class="QPushButton" name="B_Statistics_2">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>20</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>impression</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>:/Recources/Images/trend.png</normaloff>:/Recources/Images/trend.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>23</width>
+         <height>23</height>
+        </size>
+       </property>
       </widget>
      </widget>
      <widget class="QFrame" name="frame_2">
@@ -1187,7 +1210,7 @@ border-radius: 0px;</string>
         <rect>
          <x>20</x>
          <y>30</y>
-         <width>121</width>
+         <width>141</width>
          <height>31</height>
         </rect>
        </property>
@@ -1210,7 +1233,7 @@ border-radius: 0px;</string>
       <widget class="QLineEdit" name="lineEdit">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>170</x>
          <y>30</y>
          <width>141</width>
          <height>31</height>

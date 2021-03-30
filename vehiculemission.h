@@ -60,6 +60,8 @@ private slots:
 
     void on_lineEdit_textChanged(const QString &arg1);
 
+    void on_B_Statistics_clicked();
+
 private:
     Ui::VehiculeMission *ui;
     vehicule v_tmp;

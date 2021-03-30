@@ -15,6 +15,7 @@ ServiceAdministratif::ServiceAdministratif(QWidget *parent)
     ui->CB_IDCitoyen->setModel(C.listId());
     ui->T_Service ->setModel(S.afficher());
     ui->CB_IDService->setModel(S.listId());
+    ui->CB_NomCitoyen->setModel(C.listId());
 
 }
 
@@ -249,7 +250,8 @@ void ServiceAdministratif::on_B_AConfirmerService_clicked()
         QString duree = ui->LE_ADureeService->text();
         QString papiers_necess = ui->LE_APapierService->text();
         QString description = ui->TE_ADescService->toPlainText();
-    Service S(type,duree,papiers_necess,description);
+        int id_citoyen=ui->CB_NomCitoyen->currentText().toInt();
+    Service S(type,duree,papiers_necess,description,id_citoyen);
     if(S.ajouter()) {
         ui->T_Service ->setModel(S.afficher());
         ui->CB_IDService ->setModel(S.listId());

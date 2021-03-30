@@ -34,6 +34,7 @@ public:
     bool supprimer(int id);
      bool modifier();
     QSqlQueryModel* listId();
+
 private:
     int id;
     QString nom , prenom , date_Naiss, lieu_Naiss ,mail ,  adresse , nom_pere, profession,etat_civil;

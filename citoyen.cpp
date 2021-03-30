@@ -86,6 +86,8 @@ QSqlQueryModel* Citoyen::listId() {
     model->setQuery("SELECT id FROM citoyens");
     return model;
 }
+
+
 bool Citoyen::modifier() {
     QSqlQuery query;
     QString id_string = QString::number(id);

@@ -2,30 +2,31 @@
 #define MAINTENANCE_H
 #include<QString>
 #include <QSqlQueryModel>
+#include <QDate>
 
 class Maintenance
 {
 private:
     int idmaintenance;
-    QString datedebut;
+    QDate datedebut;
     int cout;
-    QString datefin;
+    QDate datefin;
     int reference;
 public:
     Maintenance();
-    Maintenance(QString,int,QString,int);
+    Maintenance(QDate,int,QDate,int);
 
     void setIdmaintenance(int);
     int getIdmaintenance();
 
-    void setDatedebut(QString);
-    QString getDatedebut();
+    void setDatedebut(QDate);
+    QDate getDatedebut();
 
     void setCout(int);
     int getCout();
 
-    void setDatefin(QString);
-    QString getDatefin();
+    void setDatefin(QDate);
+    QDate getDatefin();
 
     void setReference(int);
     int getReference();

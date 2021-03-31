@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "equipement.h"
 #include "maintenance.h"
+#include "notification.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class GestionEquipement; }
 QT_END_NAMESPACE
@@ -53,9 +54,16 @@ private slots:
 
     void on_B_MConfirmerMaintenance_clicked();
 
+    void on_B_Recherche_clicked();
+
+    void on_B_Trier_clicked();
+
+    void on_B_ResetTableEquipement_clicked();
+
 private:
     Ui::GestionEquipement *ui;
     Equipement equipement;
     Maintenance maintenance;
+    Notification notification;
 };
 #endif // GESTIONEQUIPEMENT_H

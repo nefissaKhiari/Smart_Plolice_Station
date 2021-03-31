@@ -77,6 +77,48 @@ QSqlQueryModel* Equipement::afficher() {
     model->setHeaderData(5, Qt::Horizontal, QObject::tr("nom"));
     return model;
 }
+
+QSqlQueryModel* Equipement::Trier(QString tri) {
+    QSqlQueryModel* model = new QSqlQueryModel();
+    if(tri=="Nom") {
+        model->setQuery("SELECT * FROM equipement ORDER BY nom ASC");
+    }
+    else if(tri=="Poid") {
+        model->setQuery("SELECT * FROM equipement ORDER BY poid ASC");
+    }
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("reference"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("quantite"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("taille"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("etat"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("poid"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("nom"));
+    return model;
+}
+
+QSqlQueryModel* Equipement::RechercheNom(QString cherche) {
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery("SELECT * FROM Equipement WHERE nom LIKE '"+cherche+"%'");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("reference"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("quantite"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("taille"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("etat"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("poid"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("nom"));
+    return model;
+}
+
+QSqlQueryModel* Equipement::Rechercherref(QString cherche) {
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery("SELECT * FROM equipement WHERE reference LIKE '"+cherche+"%' ");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("reference"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("quantite"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("taille"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("etat"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("poid"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("nom"));
+    return model;
+}
+
 QSqlQueryModel* Equipement::listRef() {
     QSqlQueryModel* model = new QSqlQueryModel();
     model->setQuery("SELECT reference FROM equipement");

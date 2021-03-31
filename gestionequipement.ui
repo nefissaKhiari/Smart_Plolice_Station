@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -681,12 +681,12 @@ QComboBox::drop-down {
        </property>
        <item>
         <property name="text">
-         <string>nom</string>
+         <string>Nom</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>poid</string>
+         <string>Poid</string>
         </property>
        </item>
       </widget>
@@ -1082,35 +1082,6 @@ QPushButton:hover {
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="B_AAnnulerEquipement">
-       <property name="geometry">
-        <rect>
-         <x>90</x>
-         <y>470</y>
-         <width>161</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string> Annuler</string>
-       </property>
-       <property name="icon">
-        <iconset resource="ressource.qrc">
-         <normaloff>:/ressource/image/close.png</normaloff>:/ressource/image/close.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>16</width>
-         <height>16</height>
-        </size>
-       </property>
-      </widget>
       <widget class="QToolButton" name="toolButton_4">
        <property name="geometry">
         <rect>
@@ -1166,30 +1137,29 @@ QPushButton:hover {
         <string>Ref...</string>
        </property>
       </widget>
-     </widget>
-     <widget class="QPushButton" name="B_BackToGestionEquipement_3">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>30</y>
-        <width>371</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="text">
-       <string> Gestion des Equipements</string>
-      </property>
-      <property name="icon">
-       <iconset resource="ressource.qrc">
-        <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
-      </property>
+      <widget class="QPushButton" name="B_BackToGestionEquipement_3">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>470</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string>annuler</string>
+       </property>
+       <property name="icon">
+        <iconset resource="ressource.qrc">
+         <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
+       </property>
+      </widget>
      </widget>
      <zorder>frame_4</zorder>
      <zorder>toolButton_3</zorder>
-     <zorder>B_BackToGestionEquipement_3</zorder>
     </widget>
     <widget class="QWidget" name="Modifier_equipement">
      <widget class="QToolButton" name="toolButton_5">
@@ -1431,32 +1401,6 @@ QPushButton:hover {
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="B_MAnuulerEquipement">
-       <property name="geometry">
-        <rect>
-         <x>100</x>
-         <y>480</y>
-         <width>161</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="text">
-        <string> Annuler</string>
-       </property>
-       <property name="icon">
-        <iconset resource="ressource.qrc">
-         <normaloff>:/ressource/image/close.png</normaloff>:/ressource/image/close.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>16</width>
-         <height>16</height>
-        </size>
-       </property>
-      </widget>
       <widget class="QToolButton" name="toolButton_6">
        <property name="geometry">
         <rect>
@@ -1515,30 +1459,29 @@ QPushButton:hover {
         <string>Ref...</string>
        </property>
       </widget>
-     </widget>
-     <widget class="QPushButton" name="B_BackToGestionsEquipement_4">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>30</y>
-        <width>371</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="text">
-       <string> Gestion des Equipement</string>
-      </property>
-      <property name="icon">
-       <iconset resource="ressource.qrc">
-        <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
-      </property>
+      <widget class="QPushButton" name="B_BackToGestionsEquipement_4">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>480</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string>annuler</string>
+       </property>
+       <property name="icon">
+        <iconset resource="ressource.qrc">
+         <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
+       </property>
+      </widget>
      </widget>
      <zorder>frame_5</zorder>
      <zorder>toolButton_5</zorder>
-     <zorder>B_BackToGestionsEquipement_4</zorder>
     </widget>
     <widget class="QWidget" name="maintenance">
      <widget class="QFrame" name="frame_6">
@@ -1930,19 +1873,6 @@ QComboBox::drop-down {
         <string>cout:</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="LE_ADateFin">
-       <property name="geometry">
-        <rect>
-         <x>210</x>
-         <y>300</y>
-         <width>351</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>Date fin...</string>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="LE_ACout">
        <property name="geometry">
         <rect>
@@ -1979,32 +1909,6 @@ QComboBox::drop-down {
         <size>
          <width>20</width>
          <height>20</height>
-        </size>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="B_AAnnulerMaintenance">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>500</y>
-         <width>161</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="text">
-        <string> Annuler</string>
-       </property>
-       <property name="icon">
-        <iconset resource="ressource.qrc">
-         <normaloff>:/ressource/image/close.png</normaloff>:/ressource/image/close.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>16</width>
-         <height>16</height>
         </size>
        </property>
       </widget>
@@ -2050,19 +1954,6 @@ QComboBox::drop-down {
         <string>Date Debut :</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="LE_ADateDebut">
-       <property name="geometry">
-        <rect>
-         <x>210</x>
-         <y>210</y>
-         <width>351</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>Date debut...</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="L_ATypeAffaire_2">
        <property name="geometry">
         <rect>
@@ -2092,30 +1983,49 @@ QComboBox::drop-down {
         <string>reference...</string>
        </property>
       </widget>
-     </widget>
-     <widget class="QPushButton" name="B_BackToGestionMaintenance_5">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>30</y>
-        <width>371</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="text">
-       <string> Gestion des maintenances</string>
-      </property>
-      <property name="icon">
-       <iconset resource="ressource.qrc">
-        <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
-      </property>
+      <widget class="QPushButton" name="B_BackToGestionMaintenance_5">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>500</y>
+         <width>181</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string>annuler</string>
+       </property>
+       <property name="icon">
+        <iconset resource="ressource.qrc">
+         <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
+       </property>
+      </widget>
+      <widget class="QDateEdit" name="dateEditDebut_2">
+       <property name="geometry">
+        <rect>
+         <x>219</x>
+         <y>210</y>
+         <width>341</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDateEdit" name="dateEdit_2Fin_2">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>310</y>
+         <width>331</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
      </widget>
      <zorder>frame_8</zorder>
      <zorder>toolButton_8</zorder>
-     <zorder>B_BackToGestionMaintenance_5</zorder>
     </widget>
     <widget class="QWidget" name="Modifier_maintenance">
      <widget class="QFrame" name="frame_9">
@@ -2192,19 +2102,6 @@ QComboBox::drop-down {
         <string>Cout:</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="LE_MDateDebut">
-       <property name="geometry">
-        <rect>
-         <x>240</x>
-         <y>260</y>
-         <width>351</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>Date debut...</string>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="LE_MCout">
        <property name="geometry">
         <rect>
@@ -2241,32 +2138,6 @@ QComboBox::drop-down {
         <size>
          <width>20</width>
          <height>20</height>
-        </size>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="B_MAnnulerMaintenance">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>500</y>
-         <width>161</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="text">
-        <string> Annuler</string>
-       </property>
-       <property name="icon">
-        <iconset resource="ressource.qrc">
-         <normaloff>:/ressource/image/close.png</normaloff>:/ressource/image/close.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>16</width>
-         <height>16</height>
         </size>
        </property>
       </widget>
@@ -2312,19 +2183,6 @@ QComboBox::drop-down {
         <string>Date Debut:</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="LE_MDatefin">
-       <property name="geometry">
-        <rect>
-         <x>240</x>
-         <y>310</y>
-         <width>351</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>Date fin...</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="L_ACinIntAffaire">
        <property name="geometry">
         <rect>
@@ -2357,6 +2215,46 @@ QComboBox::drop-down {
         <string>ID...</string>
        </property>
       </widget>
+      <widget class="QPushButton" name="B_BackToGestionmaintenance_6">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>500</y>
+         <width>151</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string>annuler</string>
+       </property>
+       <property name="icon">
+        <iconset resource="ressource.qrc">
+         <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
+       </property>
+      </widget>
+      <widget class="QDateEdit" name="dateEditDebut">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>260</y>
+         <width>321</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QDateEdit" name="dateEdit_2Fin">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>310</y>
+         <width>321</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
      </widget>
      <widget class="QToolButton" name="toolButton_10">
       <property name="geometry">
@@ -2382,26 +2280,6 @@ QComboBox::drop-down {
         <width>64</width>
         <height>64</height>
        </size>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="B_BackToGestionmaintenance_6">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>30</y>
-        <width>371</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="text">
-       <string> Gestion des maintenances</string>
-      </property>
-      <property name="icon">
-       <iconset resource="ressource.qrc">
-        <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
       </property>
      </widget>
     </widget>

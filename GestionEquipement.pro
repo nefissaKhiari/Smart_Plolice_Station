@@ -13,13 +13,15 @@ SOURCES += \
     equipement.cpp \
     main.cpp \
     gestionequipement.cpp \
-    maintenance.cpp
+    maintenance.cpp \
+    notification.cpp
 
 HEADERS += \
     connection.h \
     equipement.h \
     gestionequipement.h \
-    maintenance.h
+    maintenance.h \
+    notification.h
 
 FORMS += \
     gestionequipement.ui

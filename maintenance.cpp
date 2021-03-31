@@ -5,9 +5,9 @@
 
 Maintenance::Maintenance()
 {
-idmaintenance=0;datedebut="";cout=0;datefin="";reference=0;
+idmaintenance=0;cout=0;reference=0;
 }
-Maintenance :: Maintenance(QString datedebut, int cout, QString datefin, int reference)
+Maintenance :: Maintenance(QDate datedebut, int cout, QDate datefin, int reference)
 {
    this->datedebut=datedebut; this->cout=cout; this->datefin=datefin; this->reference=reference;
 }
@@ -15,14 +15,14 @@ Maintenance :: Maintenance(QString datedebut, int cout, QString datefin, int ref
 void Maintenance::setIdmaintenance(int idmaintenance) { this->idmaintenance=idmaintenance; }
 int Maintenance::getIdmaintenance() { return idmaintenance; }
 
-void Maintenance::setDatedebut(QString datedebut) { this->datedebut=datedebut; }
-QString Maintenance::getDatedebut() { return datedebut; }
+void Maintenance::setDatedebut(QDate datedebut) { this->datedebut=datedebut; }
+QDate Maintenance::getDatedebut() { return datedebut; }
 
 void Maintenance::setCout(int cout) { this->cout=cout; }
 int Maintenance::getCout() { return cout; }
 
-void Maintenance::setDatefin(QString datefin) { this->datefin=datefin; }
-QString Maintenance::getDatefin() { return datefin; }
+void Maintenance::setDatefin(QDate datefin) { this->datefin=datefin; }
+QDate Maintenance::getDatefin() { return datefin; }
 
 void Maintenance::setReference(int reference) { this->reference=reference; }
 int Maintenance::getReference() { return reference; }

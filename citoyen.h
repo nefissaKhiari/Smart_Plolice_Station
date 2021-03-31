@@ -34,6 +34,7 @@ public:
     bool supprimer(int id);
      bool modifier();
     QSqlQueryModel* listId();
+    QSqlQueryModel* rechercher(QString,QString);
 
 private:
     int id;

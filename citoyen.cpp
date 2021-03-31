@@ -104,5 +104,20 @@ bool Citoyen::modifier() {
     query.bindValue(8, etat_civil);
     return query.exec();
 }
+QSqlQueryModel* Citoyen::rechercher(QString rechercher,QString by) {
+    QSqlQueryModel* model = new QSqlQueryModel();
+    if(by=="id") {
+        model->setQuery("SELECT * FROM citoyens WHERE id LIKE '"+rechercher+"%'");
+    }
+    else if(by=="nom") {
+       model->setQuery("SELECT * FROM citoyens WHERE nom LIKE '"+rechercher+"%'");
+    }
+    else if(by=="prenom") {
+        model->setQuery("SELECT * FROM citoyens WHERE prenom LIKE '"+rechercher+"%'");
+    }
+
+
+    return model;
+}
 
 

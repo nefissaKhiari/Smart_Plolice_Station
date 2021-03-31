@@ -62,6 +62,12 @@ private slots:
 
     void on_TE_ADescService_copyAvailable(bool b);
 
+    void on_B_Recherche_clicked();
+
+    //void on_LE_recherche_cursorPositionChanged(int arg1, int arg2);
+
+    void on_LE_recherche_textChanged(const QString &arg1);
+
 private:
     Ui::ServiceAdministratif *ui;
     Citoyen C;

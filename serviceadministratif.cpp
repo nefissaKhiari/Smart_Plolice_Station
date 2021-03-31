@@ -16,6 +16,7 @@ ServiceAdministratif::ServiceAdministratif(QWidget *parent)
     ui->T_Service ->setModel(S.afficher());
     ui->CB_IDService->setModel(S.listId());
     ui->CB_NomCitoyen->setModel(C.listId());
+    //ui->CB_NomCitoyen_2->setModel(C.listId());
 
 }
 
@@ -232,6 +233,7 @@ void ServiceAdministratif::on_B_ModifierService_clicked()
             ui->LE_MDureeService->setText(qry.value(2).toString());
             ui->LE_MPapierService->setText(qry.value(3).toString());
             ui->TE_MDescService->setText(qry.value(4).toString());
+            ui->LE_Nomci->setText(qry.value(5).toString());
 
         }
     }
@@ -290,6 +292,9 @@ void ServiceAdministratif::on_B_MConfirmerService_clicked()
         S.setduree(ui->LE_MDureeService ->text());
         S.setpapiersnecess(ui->LE_MPapierService ->text());
         S.setdescription(ui->TE_MDescService->toPlainText());
+       // S.setid_citoyen(ui->LE_Nomci->text().toInt());
+
+
 qDebug()<<S.getdescription();
 
         if(S.modifier()) {
@@ -300,6 +305,8 @@ qDebug()<<S.getdescription();
             ui->LE_MDureeService->setText("");
             ui->LE_MPapierService->setText("");
             ui->TE_MDescService->setText("");
+             //ui->LE_Nomci->setText("");
+
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("La modification a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -322,4 +329,20 @@ void ServiceAdministratif::on_B_SupprimerService_clicked()
                         QObject::tr("Suppression a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
         }
     }
+}
+
+void ServiceAdministratif::on_B_Recherche_clicked()
+{
+
+}
+
+//void ServiceAdministratif::on_LE_recherche_cursorPositionChanged(int arg1, int arg2)
+//{
+//}
+
+
+void ServiceAdministratif::on_LE_recherche_textChanged(const QString &arg1)
+{
+    QString by=ui->CB_recherche->currentText();
+            ui->T_Citoyens->setModel(C.rechercher(arg1,by));
 }

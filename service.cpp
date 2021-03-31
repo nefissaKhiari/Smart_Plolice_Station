@@ -76,14 +76,12 @@ QSqlQueryModel* Service::listNom() {
 bool Service::modifier() {
     QSqlQuery query;
     QString id_string = QString::number(id);
-    QString id_cit_string = QString::number(id_citoyen);
-    query.prepare("UPDATE services set type=:type, duree=:duree, papiers_necess=:papiers_necess, description=:description id_citoyen=:id_citoyen where id=:id");
-    query.bindValue(5, id_string);
+    query.prepare("UPDATE services set type=:type, duree=:duree, papiers_necess=:papiers_necess, description=:description where id=:id");
+    query.bindValue(4, id_string);
     query.bindValue(0, type);
     query.bindValue(1, duree);
     query.bindValue(2, papiers_necess);
     query.bindValue(3, description);
-     query.bindValue(4, id_cit_string);
 
     return query.exec();
 }

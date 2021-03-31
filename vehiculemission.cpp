@@ -50,16 +50,15 @@ VehiculeMission::VehiculeMission(QWidget *parent)
     ui->T_Vehicules->setModel(v_tmp.afficher());
     ui->T_Mission->setModel(m_tmp.afficher());
 
-    QSqlQuery *query = new QSqlQuery();
-    QSqlQueryModel * modal = new QSqlQueryModel();
-    query->prepare("SELECT matricule from vehicules");
-    query->exec();
-    modal->setQuery(*query);
-    ui->CB_IDVehicule->setModel(modal);
-    query->prepare("SELECT nom from missions");
-    query->exec();
-    modal->setQuery(*query);
-    ui->CB_IDMission->setModel(modal);
+
+    ui->CB_IDVehicule->setModel(v_tmp.afficherm());
+
+
+    ui->CB_IDMission->setModel(m_tmp.affichern());
+
+    ui->comboBox_5->setModel(v_tmp.afficherm());
+
+
 
 
 }
@@ -146,6 +145,7 @@ void VehiculeMission::on_B_ModifierMission_clicked()
             ui->dateEdit_2->setDate(query.value(1).toDate());
             ui->LE_MLocalMission->setText(query.value(2).toString());
             ui->TE_MDescMission->setText(query.value(3).toString());
+            ui->lineEdit_3->setText(query.value(4).toString());
 
         }
 
@@ -206,6 +206,7 @@ void VehiculeMission::on_B_AConfirmerVehicule_clicked()
                ui->LE_ANbplacesVehicule->setText("");
                ui->LE_ACouleurVehicule->setText("");
                ui->LE_AQuantiteVehicule->setText("");
+               ui->comboBox_5->setModel(modal);
 
 
 
@@ -273,10 +274,10 @@ void VehiculeMission::on_B_AConfirmerMission_clicked()
     QDate datem = ui->dateEdit->date();
     QString localisation = ui->LE_ALocalMission->text();
     QString description = ui->TE_ADescMission->toPlainText();
-
+    int matricule=ui->comboBox_5->currentText().toInt();
     QMessageBox msgBox;
 
-    missions E(nom, datem, localisation, description);
+    missions E(nom, datem, localisation, description,matricule);
     bool test=E.ajouter();
     if(test)
     {
@@ -415,4 +416,12 @@ void VehiculeMission::on_B_Statistics_clicked()
                                   doc.setHtml(strStream);
                                   doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
                                   doc.print(&printer);
+}
+
+void VehiculeMission::on_B_Statistics_2_clicked()
+{
+    QPrinter printer;
+        QPrintDialog *printDialog = new QPrintDialog(&printer, this);
+        printDialog->setWindowTitle("Imprimer Document");
+        printDialog->exec();
 }

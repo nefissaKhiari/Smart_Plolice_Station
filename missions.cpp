@@ -4,12 +4,13 @@
 #include <QSqlQueryModel>
 
 
-missions::missions(QString nom, QDate datem, QString localisation, QString description)
+missions::missions(QString nom, QDate datem, QString localisation, QString description, int matricule)
 {
     this->nom = nom;
     this->datem = datem;
     this->localisation = localisation;
     this->description = description;
+    this->matricule = matricule;
 
 
 
@@ -19,6 +20,8 @@ void missions::setnom(QString n){nom = n;}
 void missions::setdatem(QDate d){datem = d;}
 void missions::setlocalisation(QString l){localisation = l;}
 void missions::setdescription(QString d){description = d;}
+void missions::setmatricule(int m){matricule =m;}
+
 
 
 
@@ -27,18 +30,20 @@ QString missions::get_nom(){return nom;}
 QDate missions::get_datem(){return datem;}
 QString missions::get_localisation(){return localisation;}
 QString missions::get_description(){return description;}
+int missions::get_matricule(){return matricule;}
 
 
 
 bool missions::ajouter()
 {
     QSqlQuery query;
-            query.prepare("INSERT INTO missions (nom, datem, localisation, description)"
-                  "VALUES (:nom, :datem, :localisation, :description)");
+            query.prepare("INSERT INTO missions (nom, datem, localisation, description, matricule)"
+                  "VALUES (:nom, :datem, :localisation, :description, :matricule)");
     query.bindValue(":nom", nom);
     query.bindValue(":datem", datem);
     query.bindValue(":localisation", localisation);
     query.bindValue(":description", description);
+    query.bindValue(":matricule", matricule);
 
 
 
@@ -50,6 +55,15 @@ QSqlQueryModel * missions::afficher()
 {
     QSqlQueryModel *model = new QSqlQueryModel;
     model->setQuery("SELECT * FROM missions");
+
+    return model;
+}
+
+QSqlQueryModel * missions::affichern()
+
+{
+    QSqlQueryModel *model = new QSqlQueryModel;
+    model->setQuery("SELECT nom FROM missions");
 
     return model;
 }

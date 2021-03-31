@@ -87,7 +87,7 @@ QMssageBox QDialogButtonBox{
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>0</y>
+      <y>-10</y>
       <width>1250</width>
       <height>711</height>
      </rect>
@@ -1425,7 +1425,7 @@ border-radius: 0px;</string>
       <property name="geometry">
        <rect>
         <x>550</x>
-        <y>40</y>
+        <y>10</y>
         <width>121</width>
         <height>121</height>
        </rect>
@@ -1447,13 +1447,13 @@ border-radius: 0px;</string>
        </size>
       </property>
      </widget>
-     <widget class="QFrame" name="frame_8">
+     <widget class="QFrame" name="box">
       <property name="geometry">
        <rect>
         <x>290</x>
-        <y>100</y>
+        <y>70</y>
         <width>641</width>
-        <height>581</height>
+        <height>621</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1567,7 +1567,7 @@ border-radius: 0px;</string>
        <property name="geometry">
         <rect>
          <x>350</x>
-         <y>500</y>
+         <y>560</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -1590,7 +1590,7 @@ border-radius: 0px;</string>
        <property name="geometry">
         <rect>
          <x>140</x>
-         <y>500</y>
+         <y>560</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -1677,8 +1677,34 @@ border-radius: 0px;</string>
         </rect>
        </property>
       </widget>
+      <widget class="QComboBox" name="comboBox_5">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>500</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>500</y>
+         <width>351</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string>Vehicule associé à cette mission :</string>
+       </property>
+      </widget>
      </widget>
-     <zorder>frame_8</zorder>
+     <zorder>box</zorder>
      <zorder>toolButton_8</zorder>
     </widget>
     <widget class="QWidget" name="Modifier_affaire">
@@ -1688,7 +1714,7 @@ border-radius: 0px;</string>
         <x>290</x>
         <y>100</y>
         <width>641</width>
-        <height>581</height>
+        <height>611</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1802,7 +1828,7 @@ border-radius: 0px;</string>
        <property name="geometry">
         <rect>
          <x>350</x>
-         <y>500</y>
+         <y>550</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -1825,7 +1851,7 @@ border-radius: 0px;</string>
        <property name="geometry">
         <rect>
          <x>140</x>
-         <y>500</y>
+         <y>550</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -1910,6 +1936,38 @@ border-radius: 0px;</string>
          <width>351</width>
          <height>31</height>
         </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>500</y>
+         <width>341</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string>vehicule associé à cette mission :</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_3">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>440</x>
+         <y>500</y>
+         <width>131</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </widget>

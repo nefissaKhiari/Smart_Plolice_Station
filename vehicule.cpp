@@ -55,6 +55,16 @@ QSqlQueryModel * vehicule::afficher()
 }
 
 
+QSqlQueryModel * vehicule::afficherm()
+
+{
+    QSqlQueryModel *model = new QSqlQueryModel;
+    model->setQuery("SELECT matricule FROM vehicules");
+
+    return model;
+}
+
+
 bool vehicule::supprimer(int matricule)
 {
     QSqlQuery query;

@@ -62,6 +62,8 @@ private slots:
 
     void on_B_Statistics_clicked();
 
+    void on_B_Statistics_2_clicked();
+
 private:
     Ui::VehiculeMission *ui;
     vehicule v_tmp;

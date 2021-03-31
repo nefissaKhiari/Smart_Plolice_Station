@@ -627,7 +627,7 @@ QPushButton:hover {
         <string>Trier</string>
        </property>
        <property name="icon">
-        <iconset resource="../../Downloads/Smart_Plolice_Station_2A19-ElGhaliOmar/Recources.qrc">
+        <iconset>
          <normaloff>:/Recources/Images/ascending-sort.png</normaloff>:/Recources/Images/ascending-sort.png</iconset>
        </property>
        <property name="iconSize">
@@ -679,7 +679,7 @@ QPushButton:hover {
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="../../Downloads/Smart_Plolice_Station_2A19-ElGhaliOmar/Recources.qrc">
+        <iconset>
          <normaloff>:/Recources/Images/close.png</normaloff>:/Recources/Images/close.png</iconset>
        </property>
       </widget>
@@ -1016,7 +1016,7 @@ QPushButton:hover {
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="../../Downloads/Smart_Plolice_Station_2A19-ElGhaliOmar/Recources.qrc">
+        <iconset>
          <normaloff>:/Recources/Images/add-user.png</normaloff>:/Recources/Images/add-user.png</iconset>
        </property>
        <property name="iconSize">
@@ -1428,7 +1428,7 @@ QPushButton:hover {
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="../../Downloads/Smart_Plolice_Station_2A19-ElGhaliOmar/Recources.qrc">
+        <iconset>
          <normaloff>:/Recources/Images/add-user.png</normaloff>:/Recources/Images/add-user.png</iconset>
        </property>
        <property name="iconSize">
@@ -1829,7 +1829,7 @@ QPushButton:hover {
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="../../Downloads/Smart_Plolice_Station_2A19-ElGhaliOmar/Recources.qrc">
+        <iconset>
          <normaloff>:/Recources/Images/add-user.png</normaloff>:/Recources/Images/add-user.png</iconset>
        </property>
        <property name="iconSize">
@@ -2978,7 +2978,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="../../Downloads/Smart_Plolice_Station_2A19-ElGhaliOmar/Recources.qrc">
+          <iconset>
            <normaloff>:/Recources/Images/add-user.png</normaloff>:/Recources/Images/add-user.png</iconset>
          </property>
          <property name="iconSize">
@@ -3388,7 +3388,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="../../Downloads/Smart_Plolice_Station_2A19-ElGhaliOmar/Recources.qrc">
+          <iconset>
            <normaloff>:/Recources/Images/add-user.png</normaloff>:/Recources/Images/add-user.png</iconset>
          </property>
          <property name="iconSize">
@@ -3787,7 +3787,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="../../Downloads/Smart_Plolice_Station_2A19-ElGhaliOmar/Recources.qrc">
+          <iconset>
            <normaloff>:/Recources/Images/add-user.png</normaloff>:/Recources/Images/add-user.png</iconset>
          </property>
          <property name="iconSize">
@@ -4431,7 +4431,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="../../Downloads/Smart_Plolice_Station_2A19-ElGhaliOmar/Recources.qrc">
+          <iconset>
            <normaloff>:/Recources/Images/edit-property.png</normaloff>:/Recources/Images/edit-property.png</iconset>
          </property>
          <property name="iconSize">
@@ -4727,7 +4727,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="../../Downloads/Smart_Plolice_Station_2A19-ElGhaliOmar/Recources.qrc">
+        <iconset>
          <normaloff>:/Recources/Images/add-property.png</normaloff>:/Recources/Images/add-property.png</iconset>
        </property>
        <property name="iconSize">
@@ -4991,7 +4991,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="../../Downloads/Smart_Plolice_Station_2A19-ElGhaliOmar/Recources.qrc">
+        <iconset>
          <normaloff>:/Recources/Images/edit-property.png</normaloff>:/Recources/Images/edit-property.png</iconset>
        </property>
        <property name="iconSize">
@@ -5109,7 +5109,6 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
  </widget>
  <resources>
   <include location="Ressources.qrc"/>
-  <include location="../../Downloads/Smart_Plolice_Station_2A19-ElGhaliOmar/Recources.qrc"/>
  </resources>
  <connections/>
 </ui>

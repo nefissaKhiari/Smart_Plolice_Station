@@ -60,7 +60,6 @@ private slots:
 
     void on_B_SupprimerService_clicked();
 
-    void on_TE_ADescService_copyAvailable(bool b);
 
     void on_B_Recherche_clicked();
 

@@ -1,4 +1,4 @@
-   QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,24 +10,21 @@ CONFIG += c++11
 
 SOURCES += \
     connection.cpp \
-    etudiant.cpp \
+    detenu.cpp \
+    infraction.cpp \
     main.cpp \
-    affairesjuridiques.cpp \
-    mainwindow.cpp
+    gestiondetenu.cpp
 
 HEADERS += \
-    affairesjuridiques.h \
     connection.h \
-    etudiant.h \
-    mainwindow.h
+    detenu.h \
+    gestiondetenu.h \
+    infraction.h
 
 FORMS += \
-    affairesjuridiques.ui
+    gestiondetenu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-
-RESOURCES += \
-    Recources.qrc

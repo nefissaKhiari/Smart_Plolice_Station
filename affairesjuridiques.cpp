@@ -60,7 +60,8 @@ void AffairesJuridiques::on_B_BackToGestions_2_clicked()
 
 void AffairesJuridiques::on_B_AjouterAffaire_clicked()
 {
-    //ui->DE_ADateAffaire->setDate();
+    QDateTime curDataTime=QDateTime::currentDateTime();
+    ui->DE_ADateAffaire->setDate(curDataTime.date());
     ui->CB_ACinIntAffaire->setModel(intervenant.listCin());
     ui->stackedWidget->setCurrentIndex(5);
 }

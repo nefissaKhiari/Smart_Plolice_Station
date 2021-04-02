@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -2859,17 +2859,6 @@ QComboBox::drop-down {
      </widget>
     </widget>
     <widget class="QWidget" name="Statistics">
-     <widget class="QFrame" name="F_Statistic">
-      <property name="geometry">
-       <rect>
-        <x>320</x>
-        <y>170</y>
-        <width>641</width>
-        <height>481</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout"/>
-     </widget>
      <widget class="QPushButton" name="B_BackToGestions_3">
       <property name="geometry">
        <rect>
@@ -2889,6 +2878,115 @@ QComboBox::drop-down {
        <iconset resource="Recources.qrc">
         <normaloff>:/Recources/Images/back-arrow.png</normaloff>:/Recources/Images/back-arrow.png</iconset>
       </property>
+     </widget>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>70</y>
+        <width>1221</width>
+        <height>631</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1207</width>
+         <height>1518</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QFrame" name="ScrollAreaFrame">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>1500</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#ScrollAreaFrame{
+background: transparent;
+}</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QFrame" name="F_Statistic">
+           <property name="geometry">
+            <rect>
+             <x>540</x>
+             <y>0</y>
+             <width>641</width>
+             <height>481</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: rgb(0, 0, 0,);</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout"/>
+          </widget>
+          <widget class="QFrame" name="F_Statistic_Nationalite">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>651</width>
+             <height>481</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: rgb(0, 0, 0,);</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+          </widget>
+          <widget class="QFrame" name="F_Statistic_3">
+           <property name="geometry">
+            <rect>
+             <x>540</x>
+             <y>500</y>
+             <width>641</width>
+             <height>481</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: rgb(0, 0, 0,);</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_3"/>
+          </widget>
+          <widget class="QFrame" name="F_Statistic_4">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>500</y>
+             <width>651</width>
+             <height>481</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: rgb(0, 0, 0,);</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_4"/>
+          </widget>
+          <zorder>F_Statistic_Nationalite</zorder>
+          <zorder>F_Statistic</zorder>
+          <zorder>F_Statistic_3</zorder>
+          <zorder>F_Statistic_4</zorder>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </widget>
    </widget>

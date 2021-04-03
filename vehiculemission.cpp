@@ -103,6 +103,7 @@ void VehiculeMission::on_B_ModifierVehicule_clicked()
             ui->LE_MQuantiteVehicule->setText(query.value(2).toString());
             ui->LE_MCouleurVehicule->setText(query.value(3).toString());
             ui->LE_MNbplacesVehicule->setText(query.value(4).toString());
+            ui->LE_MCinVehicule->setText(query.value(5).toString());
         }
 
     }
@@ -121,6 +122,7 @@ void VehiculeMission::on_B_AAnnulerVehicule_clicked()
     ui->LE_ANbplacesVehicule->setText("");
     ui->LE_ACouleurVehicule->setText("");
     ui->LE_AQuantiteVehicule->setText("");
+    ui->LE_ACinVehicule->setText("");
 
 
 }
@@ -133,23 +135,28 @@ void VehiculeMission::on_B_MAnuulerVehicule_clicked()
 void VehiculeMission::on_B_ModifierMission_clicked()
 {
     ui->stackedWidget->setCurrentIndex(6);
-    QString nom = ui->CB_IDMission->currentText();
-    ui->LE_MNomMission->setText(nom);
+    int id = ui->CB_IDMission->currentText().toInt();
+     ui->LE_Mbox->setModel(v_tmp.afficherm());
     QSqlQuery query;
-    query.prepare("SELECT * from missions where nom = :nom");
-    query.bindValue(":nom" , nom);
+    query.prepare("SELECT * from missions where id = :id");
+    query.bindValue(":id" , id);
     if (query.exec())
     {
         while (query.next())
         {
+            ui->LE_MNomMission->setText(query.value(0).toString());
             ui->dateEdit_2->setDate(query.value(1).toDate());
             ui->LE_MLocalMission->setText(query.value(2).toString());
             ui->TE_MDescMission->setText(query.value(3).toString());
-            ui->lineEdit_3->setText(query.value(4).toString());
+            ui->LE_Mbox->setCurrentText(query.value(4).toString());
 
         }
 
     }
+
+
+
+
 }
 
 void VehiculeMission::on_B_AjouterMission_clicked()
@@ -159,6 +166,7 @@ void VehiculeMission::on_B_AjouterMission_clicked()
 
 void VehiculeMission::on_B_AAnnulerMission_clicked()
 {
+
     ui->stackedWidget->setCurrentIndex(4);
     ui->LE_ANomMission->setText("");
     ui->LE_ALocalMission->setText("");
@@ -185,10 +193,11 @@ void VehiculeMission::on_B_AConfirmerVehicule_clicked()
        QString couleur = ui->LE_ACouleurVehicule->text();
        int quantite = ui->LE_AQuantiteVehicule->text().toInt();
        int nb_places = ui->LE_ANbplacesVehicule->text().toInt();
+       int CIN_policier = ui->LE_ACinVehicule->text().toInt();
 
        QMessageBox msgBox;
 
-       vehicule E(matricule, marque, couleur, nb_places, quantite);
+       vehicule E(matricule, marque, couleur, nb_places, quantite, CIN_policier);
        bool test=E.ajouter();
        if(test)
        {
@@ -206,6 +215,7 @@ void VehiculeMission::on_B_AConfirmerVehicule_clicked()
                ui->LE_ANbplacesVehicule->setText("");
                ui->LE_ACouleurVehicule->setText("");
                ui->LE_AQuantiteVehicule->setText("");
+               ui->LE_ACinVehicule->setText("");
                ui->comboBox_5->setModel(modal);
 
 
@@ -230,6 +240,7 @@ void VehiculeMission::on_B_SupprimerVehicule_clicked()
     {
         msgbox.setText("Suppression avec succés.");
               ui->T_Vehicules->setModel(v_tmp.afficher());
+              ui->T_Mission->setModel(m_tmp.afficher());
               QSqlQuery *query = new QSqlQuery();
               QSqlQueryModel * modal = new QSqlQueryModel();
               query->prepare("SELECT matricule from vehicules");
@@ -251,10 +262,11 @@ void VehiculeMission::on_B_MConfirmerVehicule_clicked()
     QString couleur = ui->LE_MCouleurVehicule->text();
     int quantite=ui->LE_MQuantiteVehicule->text().toInt();
     int nb_places=ui->LE_MNbplacesVehicule->text().toInt();
+    int CIN_policier=ui->LE_MCinVehicule->text().toInt();
 
     QMessageBox msgBox;
 
-    bool test = v_tmp.modifier(marque, couleur, quantite, nb_places, matricule);
+    bool test = v_tmp.modifier(marque, couleur, quantite, nb_places, matricule, CIN_policier);
 
     if (test)
     {
@@ -270,6 +282,7 @@ void VehiculeMission::on_B_MConfirmerVehicule_clicked()
 
 void VehiculeMission::on_B_AConfirmerMission_clicked()
 {
+    int id;
     QString nom = ui->LE_ANomMission->text();
     QDate datem = ui->dateEdit->date();
     QString localisation = ui->LE_ALocalMission->text();
@@ -277,7 +290,7 @@ void VehiculeMission::on_B_AConfirmerMission_clicked()
     int matricule=ui->comboBox_5->currentText().toInt();
     QMessageBox msgBox;
 
-    missions E(nom, datem, localisation, description,matricule);
+    missions E( id, nom, datem, localisation, description, matricule);
     bool test=E.ajouter();
     if(test)
     {
@@ -286,7 +299,7 @@ void VehiculeMission::on_B_AConfirmerMission_clicked()
             ui->T_Mission->setModel(m_tmp.afficher());
             QSqlQuery *query = new QSqlQuery();
             QSqlQueryModel * modal = new QSqlQueryModel();
-            query->prepare("SELECT nom from missions");
+            query->prepare("SELECT id from missions");
             query->exec();
             modal->setQuery(*query);
             ui->CB_IDMission->setModel(modal);
@@ -300,15 +313,16 @@ void VehiculeMission::on_B_AConfirmerMission_clicked()
 
 void VehiculeMission::on_B_MConfirmerMission_clicked()
 {
-    QString nom = ui->CB_IDMission->currentText();
+    int id = ui->CB_IDMission->currentText().toInt();
+     QString nom = ui->LE_MNomMission->text();
     QDate datem = ui->dateEdit_2->date();
     QString localisation = ui->LE_MLocalMission->text();
     QString description = ui->TE_MDescMission->toPlainText();
+    int matricule=ui->LE_Mbox->currentText().toInt();
 
+     QMessageBox msgBox;
 
-    QMessageBox msgBox;
-
-    bool test = m_tmp.modifier(nom, datem, localisation, description);
+    bool test = m_tmp.modifier(id, nom, datem, localisation, description, matricule);
 
     if (test)
     {
@@ -325,17 +339,17 @@ void VehiculeMission::on_B_MConfirmerMission_clicked()
 
 void VehiculeMission::on_B_SupprimerMission_clicked()
 {
-    QString nom = ui->CB_IDMission->currentText();
+    int id = ui->CB_IDMission->currentText().toInt();
     QMessageBox msgbox;
 
-    bool test=m_tmp.supprimer(nom);
+    bool test=m_tmp.supprimer(id);
     if (test)
     {
         msgbox.setText("Suppression avec succés.");
               ui->T_Mission->setModel(m_tmp.afficher());
               QSqlQuery *query = new QSqlQuery();
               QSqlQueryModel * modal = new QSqlQueryModel();
-              query->prepare("SELECT nom from missions");
+              query->prepare("SELECT id from missions");
               query->exec();
               modal->setQuery(*query);
               ui->CB_IDMission->setModel(modal);
@@ -421,7 +435,11 @@ void VehiculeMission::on_B_Statistics_clicked()
 void VehiculeMission::on_B_Statistics_2_clicked()
 {
     QPrinter printer;
-        QPrintDialog *printDialog = new QPrintDialog(&printer, this);
-        printDialog->setWindowTitle("Imprimer Document");
-        printDialog->exec();
+        QPrintDialog dialog(&printer,this);
+        dialog.setWindowTitle("imprimer un document");
+
+        if (dialog.exec() != QDialog::Accepted)
+            return;
+
+
 }

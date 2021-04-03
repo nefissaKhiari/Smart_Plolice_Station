@@ -4,8 +4,9 @@
 #include <QSqlQueryModel>
 
 
-missions::missions(QString nom, QDate datem, QString localisation, QString description, int matricule)
+missions::missions(int id, QString nom, QDate datem, QString localisation, QString description, int matricule)
 {
+    this->id = id;
     this->nom = nom;
     this->datem = datem;
     this->localisation = localisation;
@@ -16,6 +17,7 @@ missions::missions(QString nom, QDate datem, QString localisation, QString descr
 
 }
 
+void missions::setid(int i){id =i;}
 void missions::setnom(QString n){nom = n;}
 void missions::setdatem(QDate d){datem = d;}
 void missions::setlocalisation(QString l){localisation = l;}
@@ -25,7 +27,7 @@ void missions::setmatricule(int m){matricule =m;}
 
 
 
-
+int missions::get_id(){return id;}
 QString missions::get_nom(){return nom;}
 QDate missions::get_datem(){return datem;}
 QString missions::get_localisation(){return localisation;}
@@ -37,8 +39,9 @@ int missions::get_matricule(){return matricule;}
 bool missions::ajouter()
 {
     QSqlQuery query;
-            query.prepare("INSERT INTO missions (nom, datem, localisation, description, matricule)"
-                  "VALUES (:nom, :datem, :localisation, :description, :matricule)");
+            query.prepare("INSERT INTO missions ( nom, datem, localisation, description, matricule)"
+                  "VALUES ( :nom, :datem, :localisation, :description, :matricule)");
+
     query.bindValue(":nom", nom);
     query.bindValue(":datem", datem);
     query.bindValue(":localisation", localisation);
@@ -63,26 +66,29 @@ QSqlQueryModel * missions::affichern()
 
 {
     QSqlQueryModel *model = new QSqlQueryModel;
-    model->setQuery("SELECT nom FROM missions");
+    model->setQuery("SELECT id FROM missions");
 
     return model;
 }
 
 
-bool missions::supprimer(QString nom)
+bool missions::supprimer(int id)
 {
     QSqlQuery query;
-    query.prepare("DELETE FROM missions WHERE nom = :nom");
-    query.bindValue(":nom", nom);
+    query.prepare("DELETE FROM missions WHERE id= :id");
+    query.bindValue(":id", id);
     return query.exec();
 }
 
-bool missions::modifier(QString nom, QDate datem, QString localisation, QString description)
+bool missions::modifier(int id, QString nom, QDate datem, QString localisation, QString description, int matricule)
 {
     QSqlQuery query;
-         query.prepare("UPDATE missions SET datem= :datem, localisation='"+localisation+"', description='"+description+"' where nom= :nom");
+         query.prepare("UPDATE missions SET  nom= :nom, datem= :datem, localisation='"+localisation+"', description='"+description+"', matricule= :matricule  where id= :id");
          query.bindValue(":datem", datem);
          query.bindValue(":nom", nom);
+         query.bindValue(":matricule", matricule);
+         query.bindValue(":id", id);
+
 
       return query.exec();
 }

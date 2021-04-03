@@ -259,7 +259,7 @@ QMssageBox QDialogButtonBox{
        </rect>
       </property>
       <property name="text">
-       <string> Gestion des vehicules</string>
+       <string>retour</string>
       </property>
       <property name="icon">
        <iconset resource="resources.qrc">
@@ -650,7 +650,7 @@ border-radius: 0px;</string>
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>170</y>
+         <y>140</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -666,7 +666,7 @@ border-radius: 0px;</string>
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>220</y>
+         <y>190</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -682,7 +682,7 @@ border-radius: 0px;</string>
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>270</y>
+         <y>240</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -698,7 +698,7 @@ border-radius: 0px;</string>
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>320</y>
+         <y>290</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -714,7 +714,7 @@ border-radius: 0px;</string>
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>370</y>
+         <y>340</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -729,8 +729,8 @@ border-radius: 0px;</string>
       <widget class="QLineEdit" name="LE_AMatriculeVehicule">
        <property name="geometry">
         <rect>
-         <x>240</x>
-         <y>170</y>
+         <x>230</x>
+         <y>140</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -745,8 +745,8 @@ border-radius: 0px;</string>
       <widget class="QLineEdit" name="LE_AMarqueVehicule">
        <property name="geometry">
         <rect>
-         <x>240</x>
-         <y>220</y>
+         <x>230</x>
+         <y>190</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -758,8 +758,8 @@ border-radius: 0px;</string>
       <widget class="QLineEdit" name="LE_ACouleurVehicule">
        <property name="geometry">
         <rect>
-         <x>240</x>
-         <y>270</y>
+         <x>230</x>
+         <y>240</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -771,8 +771,8 @@ border-radius: 0px;</string>
       <widget class="QLineEdit" name="LE_ANbplacesVehicule">
        <property name="geometry">
         <rect>
-         <x>240</x>
-         <y>320</y>
+         <x>230</x>
+         <y>290</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -784,8 +784,8 @@ border-radius: 0px;</string>
       <widget class="QLineEdit" name="LE_AQuantiteVehicule">
        <property name="geometry">
         <rect>
-         <x>240</x>
-         <y>370</y>
+         <x>230</x>
+         <y>340</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -800,8 +800,8 @@ border-radius: 0px;</string>
       <widget class="QPushButton" name="B_AConfirmerVehicule">
        <property name="geometry">
         <rect>
-         <x>350</x>
-         <y>450</y>
+         <x>360</x>
+         <y>460</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -823,8 +823,8 @@ border-radius: 0px;</string>
       <widget class="QPushButton" name="B_AAnnulerVehicule">
        <property name="geometry">
         <rect>
-         <x>140</x>
-         <y>450</y>
+         <x>150</x>
+         <y>460</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -870,6 +870,38 @@ border-radius: 0px;</string>
          <width>30</width>
          <height>30</height>
         </size>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_ACinVehicule">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>390</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string>CIN_policier</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="LE_ACinVehicule">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>390</y>
+         <width>351</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>CIN_policier...</string>
        </property>
       </widget>
      </widget>
@@ -949,7 +981,7 @@ border-radius: 0px;</string>
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>170</y>
+         <y>150</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -965,7 +997,7 @@ border-radius: 0px;</string>
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>220</y>
+         <y>200</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -981,7 +1013,7 @@ border-radius: 0px;</string>
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>270</y>
+         <y>250</y>
          <width>131</width>
          <height>31</height>
         </rect>
@@ -997,7 +1029,7 @@ border-radius: 0px;</string>
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>320</y>
+         <y>300</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -1013,7 +1045,7 @@ border-radius: 0px;</string>
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>370</y>
+         <y>350</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -1028,8 +1060,8 @@ border-radius: 0px;</string>
       <widget class="QLineEdit" name="LE_MMatriculeVehicule">
        <property name="geometry">
         <rect>
-         <x>240</x>
-         <y>170</y>
+         <x>230</x>
+         <y>150</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1044,8 +1076,8 @@ border-radius: 0px;</string>
       <widget class="QLineEdit" name="LE_MMarqueVehicule">
        <property name="geometry">
         <rect>
-         <x>240</x>
-         <y>220</y>
+         <x>230</x>
+         <y>200</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1057,8 +1089,8 @@ border-radius: 0px;</string>
       <widget class="QLineEdit" name="LE_MCouleurVehicule">
        <property name="geometry">
         <rect>
-         <x>240</x>
-         <y>270</y>
+         <x>230</x>
+         <y>250</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1070,8 +1102,8 @@ border-radius: 0px;</string>
       <widget class="QLineEdit" name="LE_MNbplacesVehicule">
        <property name="geometry">
         <rect>
-         <x>240</x>
-         <y>320</y>
+         <x>230</x>
+         <y>300</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1083,8 +1115,8 @@ border-radius: 0px;</string>
       <widget class="QLineEdit" name="LE_MQuantiteVehicule">
        <property name="geometry">
         <rect>
-         <x>240</x>
-         <y>370</y>
+         <x>230</x>
+         <y>350</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1097,7 +1129,7 @@ border-radius: 0px;</string>
        <property name="geometry">
         <rect>
          <x>350</x>
-         <y>450</y>
+         <y>460</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -1120,7 +1152,7 @@ border-radius: 0px;</string>
        <property name="geometry">
         <rect>
          <x>140</x>
-         <y>450</y>
+         <y>460</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -1163,6 +1195,35 @@ border-radius: 0px;</string>
          <width>30</width>
          <height>30</height>
         </size>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_MCinVehicule">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>400</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string>CIN_policier :</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="LE_MCinVehicule">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>400</y>
+         <width>351</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>CIN_policier...</string>
        </property>
       </widget>
      </widget>
@@ -1277,7 +1338,7 @@ border-radius: 0px;</string>
        </rect>
       </property>
       <property name="text">
-       <string> Gestion des missions</string>
+       <string>retour</string>
       </property>
       <property name="icon">
        <iconset resource="resources.qrc">
@@ -1954,20 +2015,14 @@ border-radius: 0px;</string>
         <string>vehicule associé à cette mission :</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_3">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
+      <widget class="QComboBox" name="LE_Mbox">
        <property name="geometry">
         <rect>
-         <x>440</x>
-         <y>500</y>
+         <x>460</x>
+         <y>501</y>
          <width>131</width>
          <height>31</height>
         </rect>
-       </property>
-       <property name="text">
-        <string/>
        </property>
       </widget>
      </widget>

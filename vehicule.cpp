@@ -4,13 +4,14 @@
 #include <QSqlQueryModel>
 
 
-vehicule::vehicule(int matricule, QString marque, QString couleur, int nb_places, int quantite)
+vehicule::vehicule(int matricule, QString marque, QString couleur, int nb_places, int quantite, int CIN_policier)
 {
     this->matricule = matricule;
     this->marque = marque;
     this->couleur = couleur;
     this->nb_places = nb_places;
     this->quantite = quantite;
+    this->CIN_policier = CIN_policier;
 
 
 }
@@ -20,7 +21,7 @@ void vehicule::setmarque(QString m){marque = m;}
 void vehicule::setcouleur(QString c){couleur = c;}
 void vehicule::setnb_places(int nb){nb_places = nb;}
 void vehicule::setquantite(int q){quantite = q;}
-
+void vehicule::setCIN_policier(int p){CIN_policier = p;}
 
 
 int vehicule::get_matricule(){return matricule;}
@@ -28,18 +29,20 @@ QString vehicule::get_marque(){return marque;}
 QString vehicule::get_couleur(){return couleur;}
 int vehicule::get_nb_places(){return nb_places;}
 int vehicule::get_quantite(){return quantite;}
+int vehicule::get_CIN_policier(){return CIN_policier;}
 
 
 bool vehicule::ajouter()
 {
     QSqlQuery query;
-            query.prepare("INSERT INTO vehicules (matricule, marque, quantite, couleur, nb_places)"
-                  "VALUES (:matricule, :marque, :quantite, :couleur, :nb_places)");
+            query.prepare("INSERT INTO vehicules (matricule, marque, quantite, couleur, nb_places, CIN_policier)"
+                  "VALUES (:matricule, :marque, :quantite, :couleur, :nb_places, :CIN_policier)");
     query.bindValue(":matricule", matricule);
     query.bindValue(":marque", marque);
     query.bindValue(":quantite", quantite);
     query.bindValue(":couleur", couleur);
     query.bindValue(":nb_places", nb_places);
+    query.bindValue(":CIN_policier", CIN_policier);
 
 
     return query.exec();
@@ -73,13 +76,14 @@ bool vehicule::supprimer(int matricule)
     return query.exec();
 }
 
-bool vehicule::modifier(QString marque, QString couleur, int quantite, int nb_places, int matricule)
+bool vehicule::modifier(QString marque, QString couleur, int quantite, int nb_places, int matricule, int CIN_policier)
 {
     QSqlQuery query;
-         query.prepare("UPDATE vehicules SET marque='"+marque+"',  couleur='"+couleur+"', quantite= :quantite, nb_places= :nb_places where matricule= :matricule");
+         query.prepare("UPDATE vehicules SET marque='"+marque+"',  couleur='"+couleur+"', quantite= :quantite, nb_places= :nb_places, CIN_policier= :CIN_policier where matricule= :matricule");
          query.bindValue(":quantite", quantite);
          query.bindValue(":nb_places", nb_places);
          query.bindValue(":matricule", matricule);
+         query.bindValue(":CIN_policier", CIN_policier);
       return query.exec();
 }
 

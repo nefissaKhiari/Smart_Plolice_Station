@@ -2,6 +2,7 @@
 #include "ui_affairesjuridiques.h"
 #include "intervenant.h"
 #include "affaire.h"
+#include "messengerclient.h"
 #include <QMessageBox>
 #include <QIntValidator>
 #include <QSqlQuery>
@@ -509,4 +510,10 @@ void AffairesJuridiques::on_LE_ChercherNom_textChanged(const QString &arg1)
 void AffairesJuridiques::on_LE_ChercherPrenom_textChanged(const QString &arg1)
 {
     ui->T_Intervenants->setModel(intervenant.ChercherP(arg1));
+}
+
+void AffairesJuridiques::on_B_Chat_clicked()
+{
+    MessengerClient MS;
+    MS.exec();
 }

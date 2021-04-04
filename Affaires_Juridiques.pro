@@ -1,4 +1,4 @@
-QT       += core gui sql charts
+QT       += core gui sql charts network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,17 +13,24 @@ SOURCES += \
     connection.cpp \
     intervenant.cpp \
     main.cpp \
-    affairesjuridiques.cpp
+    affairesjuridiques.cpp \
+    messengerclient.cpp \
+    messengerconnection.cpp
 
 HEADERS += \
     affaire.h \
     affairesjuridiques.h \
     connection.h \
-    intervenant.h
+    intervenant.h \
+    messengerclient.h \
+    messengerconnection.h
 
 FORMS += \
-    affairesjuridiques.ui
+    affairesjuridiques.ui \
+    messengerclient.ui \
+    messengerconnection.ui
 
+QMAKE_CXXFLAGS += -std=gnu++11
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin

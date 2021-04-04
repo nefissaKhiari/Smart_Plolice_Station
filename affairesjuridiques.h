@@ -76,6 +76,8 @@ private slots:
 
     void on_LE_ChercherPrenom_textChanged(const QString &arg1);
 
+    void on_B_Chat_clicked();
+
 private:
     Ui::AffairesJuridiques *ui;
     Intervenant intervenant;

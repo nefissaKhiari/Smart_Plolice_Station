@@ -120,4 +120,16 @@ QSqlQueryModel* Citoyen::rechercher(QString rechercher,QString by) {
     return model;
 }
 
+QSqlQueryModel* Citoyen::Trier(QString tri) {
+    QSqlQueryModel* model = new QSqlQueryModel();
+    if(tri=="nom") {
+        model->setQuery("SELECT * FROM citoyens ORDER BY nom ");
+    }
+    else if(tri=="prenom") {
+        model->setQuery("SELECT * FROM citoyens ORDER BY prenom ");
+    }
+
+    return model;
+}
+
 

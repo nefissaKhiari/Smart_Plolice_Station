@@ -11,13 +11,13 @@ public:
 
     Service(QString, QString, QString, QString,int);
     int getid();
-    QString gettype();
+    QString getlibelle();
     QString getduree();
     QString getpapiersnecess();
     QString getdescription();
      int getid_citoyen();
     void setid(int);
-    void settype(QString);
+    void setlibelle(QString);
     void setduree(QString);
     void setpapiersnecess(QString);
     void setdescription(QString);
@@ -28,9 +28,10 @@ public:
      bool modifier();
     QSqlQueryModel* listId();
      QSqlQueryModel* listNom();
+       QSqlQueryModel* rechercher(QString,QString);
 private:
     int id , id_citoyen;
-    QString type , duree , papiers_necess, description;
+    QString libelle , duree , papiers_necess, description;
 
 };
 

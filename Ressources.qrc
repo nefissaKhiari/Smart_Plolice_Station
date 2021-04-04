@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/Ressources">
+    <qresource prefix="/ressources">
         <file>image/add.png</file>
         <file>image/add-property.png</file>
         <file>image/add-user.png</file>
@@ -16,10 +16,10 @@
         <file>image/judge.png</file>
         <file>image/live-chat.png</file>
         <file>image/pdf-file.png</file>
-        <file>image/trash.png</file>
-        <file>image/trend.png</file>
+        <file>image/person-silhouette.png</file>
         <file>image/support.png</file>
         <file>image/systeme-de-population.png</file>
-        <file>image/person-silhouette.png</file>
+        <file>image/trash.png</file>
+        <file>image/trend.png</file>
     </qresource>
 </RCC>

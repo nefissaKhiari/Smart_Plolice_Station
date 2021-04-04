@@ -35,6 +35,7 @@ public:
      bool modifier();
     QSqlQueryModel* listId();
     QSqlQueryModel* rechercher(QString,QString);
+    QSqlQueryModel* Trier(QString);
 
 private:
     int id;

@@ -11,6 +11,6 @@ void Notification::notifications_supprimermaintenance(){
 
    // notifyIcon->setIcon(QIcon(":/new/prefix1/MyResources/computer-icons-avatar-user-login-avatar.jpg"));
     notifyIcon->show();
-    notifyIcon->showMessage("Gestion des equipements en maintenance ","Equipement fixé",QSystemTrayIcon::Information,15000);
+    notifyIcon->showMessage("Gestion des equipements en maintenance ","Etat d'equipement modifier",QSystemTrayIcon::Information,15000);
 }
 

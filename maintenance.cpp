@@ -27,6 +27,9 @@ QDate Maintenance::getDatefin() { return datefin; }
 void Maintenance::setReference(int reference) { this->reference=reference; }
 int Maintenance::getReference() { return reference; }
 
+void Maintenance::setEtat(QString etat) { this->etat=etat; }
+QString Maintenance::getEtat() { return etat; }
+
 bool Maintenance::ajouter() {
     QSqlQuery query;
     QString cout_string = QString::number(cout);
@@ -44,12 +47,13 @@ bool Maintenance::modifier() {
     QString id_string = QString::number(idmaintenance);
     QString cout_string = QString::number(cout);
     QString reference_string = QString::number(reference);
-    query.prepare("UPDATE maintenance set datedebut=:datedebut, cout=:cout, datefin=:datefin, reference=:reference  where idmaintenance=:idmaintenance");
-    query.bindValue(4, id_string);
+    query.prepare("UPDATE maintenance set datedebut=:datedebut, cout=:cout, datefin=:datefin, reference=:reference, etat=:etat  where idmaintenance=:idmaintenance");
+    query.bindValue(5, id_string);
     query.bindValue(0, datedebut);
     query.bindValue(1, cout_string);
     query.bindValue(2, datefin);
     query.bindValue(3, reference_string);
+    query.bindValue(4, etat);
     return query.exec();
 }
 

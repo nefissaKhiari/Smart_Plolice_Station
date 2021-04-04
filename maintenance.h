@@ -12,6 +12,7 @@ private:
     int cout;
     QDate datefin;
     int reference;
+    QString etat;
 public:
     Maintenance();
     Maintenance(QDate,int,QDate,int);
@@ -30,6 +31,9 @@ public:
 
     void setReference(int);
     int getReference();
+
+    void setEtat(QString);
+    QString getEtat();
 
     bool ajouter();
     bool modifier();

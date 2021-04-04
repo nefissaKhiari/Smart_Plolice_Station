@@ -82,6 +82,7 @@ void GestionEquipement::on_B_ModifierMaintenance_clicked()
             ui->LE_MCout->setText(qry.value(2).toString());
             ui->dateEdit_2Fin->setDate(qry.value(3).toDate());
             ui->LE_MIDEquipement->setText(qry.value(4).toString());
+            ui->CB_MEtat->setCurrentText(qry.value(5).toString());
         }
     }
     ui->stackedWidget->setCurrentIndex(6);
@@ -227,7 +228,6 @@ void GestionEquipement::on_B_SupprimerMaintenance_clicked()
             qDebug() << "Suppression Complet";
             ui->T_Maintenance->setModel(maintenance.afficher());
             ui->CB_IDMaintenance->setModel(maintenance.listId());
-            notification.notifications_supprimermaintenance();
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"),
@@ -239,6 +239,17 @@ void GestionEquipement::on_B_SupprimerMaintenance_clicked()
 
 void GestionEquipement::on_B_MConfirmerMaintenance_clicked()
 {
+    QSqlQuery qry;
+    QString etatp;
+    QString id_string = QString::number(ui->CB_IDMaintenance->currentText().toInt());
+    qry.prepare("SELECT * FROM maintenance where idmaintenance=:idmaintenance");
+    qry.bindValue(0, id_string);
+    if(qry.exec()) {
+        while(qry.next()) {
+            etatp=qry.value(5).toString();
+        }
+    }
+
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la modification", "Confirmer la modification du maintenance?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         maintenance.setIdmaintenance(ui->CB_IDMaintenance->currentText().toInt());
@@ -246,7 +257,13 @@ void GestionEquipement::on_B_MConfirmerMaintenance_clicked()
         maintenance.setDatedebut(ui->dateEditDebut_2->date());
         maintenance.setDatefin(ui->dateEdit_2Fin_2->date());
         maintenance.setReference(ui->LE_MIDEquipement->text().toInt());
+        maintenance.setEtat(ui->CB_MEtat->currentText());
         if(maintenance.modifier()) {
+            if(etatp!=maintenance.getEtat())
+            {
+                notification.notifications_supprimermaintenance();
+
+            }
             ui->T_Maintenance->setModel(maintenance.afficher());
             ui->CB_IDMaintenance->setModel(maintenance.listId());
             ui->stackedWidget->setCurrentIndex(4);

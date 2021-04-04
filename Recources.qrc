@@ -20,5 +20,6 @@
         <file>Images/trend.png</file>
         <file>Images/search.png</file>
         <file>Images/curve-down-arrow.png</file>
+        <file>Images/configuration.png</file>
     </qresource>
 </RCC>

@@ -109,3 +109,21 @@ QSqlQueryModel* missions::rechercher(QString rechercher,QString by) {
 
     return model;
 }
+
+
+
+
+QSqlQueryModel* missions::Trierm(QString tri) {
+    QSqlQueryModel* model = new QSqlQueryModel();
+    if(tri=="nom") {
+        model->setQuery("SELECT * FROM missions ORDER BY nom");
+    }
+    else if(tri=="localisation") {
+        model->setQuery("SELECT * FROM missions ORDER BY localisation");
+    }
+    else if(tri=="description") {
+        model->setQuery("SELECT * FROM missions ORDER BY description ");
+    }
+
+    return model;
+}

@@ -284,33 +284,10 @@ QMssageBox QDialogButtonBox{
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QPushButton" name="B_Statistics">
-       <property name="geometry">
-        <rect>
-         <x>610</x>
-         <y>20</y>
-         <width>111</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>PDF</string>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>:/Recources/Images/trend.png</normaloff>:/Recources/Images/trend.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>23</width>
-         <height>23</height>
-        </size>
-       </property>
-      </widget>
       <widget class="QPushButton" name="B_Trier">
        <property name="geometry">
         <rect>
-         <x>200</x>
+         <x>150</x>
          <y>20</y>
          <width>101</width>
          <height>31</height>
@@ -353,9 +330,9 @@ border-radius: 0px;</string>
       <widget class="QComboBox" name="comboBox_2">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>21</y>
-         <width>171</width>
+         <x>10</x>
+         <y>20</y>
+         <width>131</width>
          <height>31</height>
         </rect>
        </property>
@@ -398,12 +375,12 @@ border-radius: 0px;</string>
         <rect>
          <x>450</x>
          <y>20</y>
-         <width>151</width>
+         <width>251</width>
          <height>31</height>
         </rect>
        </property>
        <property name="text">
-        <string>impression</string>
+        <string>impression d'un PDF</string>
        </property>
        <property name="icon">
         <iconset>
@@ -1278,6 +1255,9 @@ border-radius: 0px;</string>
          <height>31</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background: white;</string>
+       </property>
        <item>
         <property name="text">
          <string>nom</string>
@@ -1305,6 +1285,57 @@ border-radius: 0px;</string>
        </property>
        <property name="placeholderText">
         <string>rechercher</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_3">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>30</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: white;</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>nom</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>localisation</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>description</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QPushButton" name="B_Trier_2">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>30</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Trier</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>:/Recources/Images/ascending-sort.png</normaloff>:/Recources/Images/ascending-sort.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>18</width>
+         <height>18</height>
+        </size>
        </property>
       </widget>
      </widget>
@@ -1740,6 +1771,12 @@ border-radius: 0px;</string>
          <height>31</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background: white;</string>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
       </widget>
       <widget class="QComboBox" name="comboBox_5">
        <property name="geometry">
@@ -2003,6 +2040,26 @@ border-radius: 0px;</string>
          <width>351</width>
          <height>31</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: white;</string>
+       </property>
+       <property name="minimumTime">
+        <time>
+         <hour>3</hour>
+         <minute>0</minute>
+         <second>0</second>
+        </time>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+       <property name="date">
+        <date>
+         <year>2000</year>
+         <month>1</month>
+         <day>19</day>
+        </date>
        </property>
       </widget>
       <widget class="QLabel" name="label_2">

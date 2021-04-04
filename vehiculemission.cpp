@@ -433,3 +433,9 @@ void VehiculeMission::on_lineEdit_textChanged(const QString &arg1)
     QString by=ui->comboBox->currentText();
      ui->T_Mission->setModel(m_tmp.rechercher(arg1,by));
 }
+
+void VehiculeMission::on_B_Trier_2_clicked()
+{
+    QString Tri = ui->comboBox_3->currentText();
+        ui->T_Mission->setModel(m_tmp.Trierm(Tri));
+}

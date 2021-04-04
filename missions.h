@@ -35,7 +35,7 @@ public:
     bool modifier(int, QString, QDate, QString, QString , int);
     QSqlQueryModel* rechercher(QString,QString);
     QSqlQueryModel*    affichern();
-
+    QSqlQueryModel* Trierm(QString);
 
 private:
     QString  nom, localisation,description;

@@ -2,7 +2,7 @@
 #include <QDebug>
 #include <QTableView>
 #include <QSqlQueryModel>
-
+#include <QSqlQuery>
 
 vehicule::vehicule(int matricule, QString marque, QString couleur, int nb_places, int quantite, int CIN_policier)
 {
@@ -66,6 +66,25 @@ QSqlQueryModel * vehicule::afficherm()
 
     return model;
 }
+
+QSqlQuery  vehicule::impression(int matricule)
+
+{
+    QSqlQuery qeury;
+
+       qeury.prepare("select * from vehicule where matricule = :matricule");
+
+       if(qeury.exec())
+
+       {
+
+           return qeury;
+
+       }
+}
+
+
+
 
 
 bool vehicule::supprimer(int matricule)

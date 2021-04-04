@@ -38,8 +38,8 @@
 #include <QtCharts/QPieSeries>
 #include <QtCharts/QPieSlice>
 #include <QPieSeries>
-
-
+#include <QPlainTextEdit>
+#include <QDebug>
 
 VehiculeMission::VehiculeMission(QWidget *parent)
     : QMainWindow(parent)
@@ -371,75 +371,65 @@ void VehiculeMission::on_lineEdit_returnPressed()
 
 }
 
-void VehiculeMission::on_lineEdit_textChanged(const QString &arg1)
-{
-       QString by=ui->comboBox->currentText();
-        ui->T_Mission->setModel(m_tmp.rechercher(arg1,by));
 
-}
 
-void VehiculeMission::on_B_Statistics_clicked()
-{
-    QString strStream;
-                                      QTextStream out(&strStream);
 
-                                      const int rowCount = ui->T_Vehicules->model()->rowCount();
-                                      const int columnCount = ui->T_Vehicules->model()->columnCount();
-
-                                      out <<  "<html>\n"
-                                          "<head>\n"
-                                          "<meta Content=\"Text/html; charset=Windows-1251\">\n"
-                                          <<  QString("<title>%1</title>\n").arg("strTitle")
-                                          <<  "</head>\n"
-                                          "<body bgcolor=#ffffff link=#5000A0>\n"
-
-                                         //     "<align='right'> " << datefich << "</align>"
-                                          "<center> <H1>Tableaux des vehicules </H1></br></br><table border=1 cellspacing=0 cellpadding=2>\n";
-
-                                      // headers
-                                      out << "<thead><tr bgcolor=#f0f0f0> <th>Numero</th>";
-                                      for (int column = 0; column < columnCount; column++)
-                                          if (!ui->T_Vehicules->isColumnHidden(column))
-                                              out << QString("<th>%1</th>").arg(ui->T_Vehicules->model()->headerData(column, Qt::Horizontal).toString());
-                                      out << "</tr></thead>\n";
-
-                                      // data table
-                                      for (int row = 0; row < rowCount; row++) {
-                                          out << "<tr> <td bkcolor=0>" << row+1 <<"</td>";
-                                          for (int column = 0; column < columnCount; column++) {
-                                              if (!ui->T_Vehicules->isColumnHidden(column)) {
-                                                  QString data = ui->T_Vehicules->model()->data(ui->T_Vehicules->model()->index(row, column)).toString().simplified();
-                                                  out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
-                                              }
-                                          }
-                                          out << "</tr>\n";
-                                      }
-                                      out <<  "</table> </center>\n"
-                                          "</body>\n"
-                                          "</html>\n";
-
-                                QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Sauvegarder en PDF", QString(), "*.pdf");
-                                  if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
-
-                                 QPrinter printer (QPrinter::PrinterResolution);
-                                  printer.setOutputFormat(QPrinter::PdfFormat);
-                                 printer.setPaperSize(QPrinter::A4);
-                                printer.setOutputFileName(fileName);
-
-                                 QTextDocument doc;
-                                  doc.setHtml(strStream);
-                                  doc.setPageSize(printer.pageRect().size()); // This is necessary if you want to hide the page number
-                                  doc.print(&printer);
-}
 
 void VehiculeMission::on_B_Statistics_2_clicked()
 {
-    QPrinter printer;
-        QPrintDialog dialog(&printer,this);
-        dialog.setWindowTitle("imprimer un document");
+    QModelIndex index = ui->T_Vehicules->currentIndex();
+    int matricule = index.data(Qt::DisplayRole).toInt();
 
-        if (dialog.exec() != QDialog::Accepted)
-            return;
+            QSqlQuery view;
+
+            vehicule v;
+
+            view=v.impression(matricule);
+        view.next();
 
 
+
+
+
+
+       QPlainTextEdit text;
+   text.setStyleSheet("QPlainTextEdit{color: #ffff00; background-color: #303030;");
+           QTextDocument *doc = text.document();
+           QFont font = doc->defaultFont();
+           font.setBold(true);
+           font.setFamily("Arial");
+           font.setPixelSize(20);
+           doc->setDefaultFont(font);
+           text.appendPlainText("station policer");
+           text.appendPlainText("matricule: "+view.value(0).toString()+"");
+
+                  text.appendPlainText("marque : "+view.value(1).toString()+"");
+
+                  text.appendPlainText("quantite: "+view.value(2).toString()+"");
+                       qDebug()<< view.value(2).toString();
+                  text.appendPlainText("couleur: "+view.value(3).toString()+"");
+
+                  text.appendPlainText("nb_places "+view.value(4).toString()+"");
+
+                  text.appendPlainText("CIN_policier: "+view.value(5).toString()+"");
+
+                   QPrinter printer;
+                               printer.setPrinterName("Print");
+                               QPrintDialog dlg(&printer,this);
+                               if (dlg.exec() == QDialog::Rejected)
+                               {
+                                   return;
+                               }
+                               text.print(&printer);
+
+
+}
+
+
+
+
+void VehiculeMission::on_lineEdit_textChanged(const QString &arg1)
+{
+    QString by=ui->comboBox->currentText();
+     ui->T_Mission->setModel(m_tmp.rechercher(arg1,by));
 }

@@ -359,6 +359,9 @@ border-radius: 0px;</string>
          <height>31</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background: white;</string>
+       </property>
        <item>
         <property name="text">
          <string>matricule</string>
@@ -1747,6 +1750,9 @@ border-radius: 0px;</string>
          <height>31</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background: white;</string>
+       </property>
       </widget>
       <widget class="QLabel" name="label">
        <property name="geometry">
@@ -2023,6 +2029,9 @@ border-radius: 0px;</string>
          <width>131</width>
          <height>31</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: white;</string>
        </property>
       </widget>
      </widget>

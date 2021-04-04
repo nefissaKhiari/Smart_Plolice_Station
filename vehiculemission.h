@@ -57,12 +57,9 @@ private slots:
     void on_B_Trier_clicked();
 
     void on_lineEdit_returnPressed();
+    void on_B_Statistics_2_clicked();
 
     void on_lineEdit_textChanged(const QString &arg1);
-
-    void on_B_Statistics_clicked();
-
-    void on_B_Statistics_2_clicked();
 
 private:
     Ui::VehiculeMission *ui;

@@ -34,7 +34,7 @@ public:
     bool modifier(QString, QString, int , int , int, int);
     QSqlQueryModel* Trier(QString);
     QSqlQueryModel*    afficherm();
-
+    QSqlQuery   impression(int);
 
 
 

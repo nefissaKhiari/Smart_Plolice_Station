@@ -29,12 +29,14 @@ SOURCES += \
         main.cpp \
     connection.cpp \
     mainwindow.cpp \
+    notification.cpp \
     service.cpp
 
 HEADERS += \
     citoyen.h \
     connection.h \
     mainwindow.h \
+    notification.h \
     service.h
 
 FORMS += \

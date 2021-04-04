@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "citoyen.h"
 #include "service.h"
+#include "notification.h"
 namespace Ui {
 class MainWindow;
 }
@@ -63,10 +64,17 @@ private slots:
 
     void on_B_Trier_clicked();
 
+    void on_B_TrierS_clicked();
+
+    void on_B_ResetTableIntervenant_2_clicked();
+
+    void on_B_ResetTableIntervenant_clicked();
+
 private:
     Ui::MainWindow *ui;
     Citoyen C;
   Service S;
+  Notifications N;
 };
 
 #endif // MAINWINDOW_H

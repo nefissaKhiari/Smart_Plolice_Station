@@ -98,3 +98,12 @@ QSqlQueryModel* Service::rechercher(QString rechercher,QString by) {
 
     return model;
 }
+QSqlQueryModel* Service::Trier(QString tri) {
+    QSqlQueryModel* model = new QSqlQueryModel();
+    if(tri=="libelle") {
+        model->setQuery("SELECT * FROM services ORDER BY libelle ");
+    }
+
+    return model;
+}
+

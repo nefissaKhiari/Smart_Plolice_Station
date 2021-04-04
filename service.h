@@ -29,6 +29,7 @@ public:
     QSqlQueryModel* listId();
      QSqlQueryModel* listNom();
        QSqlQueryModel* rechercher(QString,QString);
+        QSqlQueryModel* Trier(QString);
 private:
     int id , id_citoyen;
     QString libelle , duree , papiers_necess, description;

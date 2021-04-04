@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "citoyen.h"
 #include "service.h"
+#include "notification.h"
 #include <QMessageBox>
 #include <QIntValidator>
 #include <QSqlQuery>
@@ -102,6 +103,7 @@ void MainWindow::on_B_AConfirmerCitoyen_clicked()
         ui->LE_ANomPereCit ->setText("");
         ui->LE_AProfessionCit->setText("");
         ui->LE_AEtatCitoyen ->setText("");
+        N.notifications_ajoutercitoyen();
     }
     else {
         QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -143,6 +145,7 @@ void MainWindow::on_B_MConfirmerCitoyen_clicked()
             ui->LE_ANomPereCit->setText("");
             ui->LE_AProfessionCit->setText("");
             ui->LE_AEtatCitoyen->setText("");
+            N.notifications_modifiercitoyen();
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("La modification a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -160,6 +163,7 @@ void MainWindow::on_B_SupprimerCitoyen_clicked()
             ui->T_Citoyens ->setModel(C.afficher());
             ui->CB_IDCitoyen ->setModel(C.listId());
              ui->stackedWidget->setCurrentIndex(1);
+              N.notifications_supprimercitoyen();
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"),
@@ -243,6 +247,7 @@ void MainWindow::on_B_AConfirmerService_clicked()
         ui->LE_ADureeService ->setText("");
         ui->LE_APapierService->setText("");
         ui->TE_ADescService->setText("");
+        N.notifications_ajouterservice();
 
     }
     else {
@@ -280,7 +285,7 @@ qDebug()<<S.getdescription();
             ui->LE_MPapierService->setText("");
             ui->TE_MDescService->setText("");
              //ui->LE_Nomci->setText("");
-
+            N.notifications_modifierservice();
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("La modification a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -302,6 +307,7 @@ void MainWindow::on_B_SupprimerService_clicked()
             qDebug() << "Suppression Complet";
             ui->T_Service->setModel(S.afficher());
             ui->CB_IDService->setModel(S.listId());
+             N.notifications_supprimerservice();
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"),
@@ -333,3 +339,20 @@ void MainWindow::on_B_Trier_clicked()
 
 
 
+
+void MainWindow::on_B_TrierS_clicked()
+{
+    QString Tri = ui->CB_TriService->currentText();
+            ui->T_Service->setModel(S.Trier(Tri));
+
+}
+
+void MainWindow::on_B_ResetTableIntervenant_2_clicked()
+{
+    ui->T_Citoyens ->setModel(C.afficher());
+}
+
+void MainWindow::on_B_ResetTableIntervenant_clicked()
+{
+    ui->T_Service ->setModel(S.afficher());
+}

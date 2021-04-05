@@ -16,6 +16,8 @@ AffairesJuridiques::AffairesJuridiques(QWidget *parent)
     , ui(new Ui::AffairesJuridiques)
 {
     ui->setupUi(this);
+    son=new QSound(":/Recources/Images/cassette-player-button-3.wav");
+
     /*QRegExp rx(Gen_RX);
     QRegExpValidator *GenVal = new QRegExpValidator(rx, this);
     ui->LE_ANomIntervenant->setValidator(GenVal);
@@ -41,26 +43,31 @@ AffairesJuridiques::~AffairesJuridiques()
 
 void AffairesJuridiques::on_B_GestionIntervenant_clicked()
 {
+    son->play();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
 void AffairesJuridiques::on_B_GestioAffaire_clicked()
 {
+    son->play();
     ui->stackedWidget->setCurrentIndex(4);
 }
 
 void AffairesJuridiques::on_B_BackToGestions_clicked()
 {
+    son->play();
     ui->stackedWidget->setCurrentIndex(0);
 }
 
 void AffairesJuridiques::on_B_BackToGestions_2_clicked()
 {
+    son->play();
     ui->stackedWidget->setCurrentIndex(0);
 }
 
 void AffairesJuridiques::on_B_AjouterAffaire_clicked()
 {
+    son->play();
     QDateTime curDataTime=QDateTime::currentDateTime();
     ui->DE_ADateAffaire->setDate(curDataTime.date());
     ui->CB_ACinIntAffaire->setModel(intervenant.listCin());
@@ -69,6 +76,7 @@ void AffairesJuridiques::on_B_AjouterAffaire_clicked()
 
 void AffairesJuridiques::on_B_ModifierIntervenant_clicked()
 {
+    son->play();
     QSqlQuery qry;
     QString cin_string = QString::number(ui->CB_IDIntervenant->currentText().toInt());
     qry.prepare("SELECT * FROM intervenant where cin=:cin");
@@ -104,6 +112,7 @@ void AffairesJuridiques::on_B_ModifierIntervenant_clicked()
 
 void AffairesJuridiques::on_B_AAnnulerIntervenant_clicked()
 {
+    son->play();
     ui->stackedWidget->setCurrentIndex(1);
 
     ui->L_ACinIntAlert->setText("");
@@ -121,11 +130,13 @@ void AffairesJuridiques::on_B_AAnnulerIntervenant_clicked()
 
 void AffairesJuridiques::on_B_MAnuulerIntervenant_clicked()
 {
+    son->play();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
 void AffairesJuridiques::on_B_ModifierAffaire_clicked()
 {  
+    son->play();
     QSqlQuery qry;
     QString id_string = QString::number(ui->CB_IDAffaire->currentText().toInt());
     qry.prepare("SELECT * FROM affaires where id=:id");
@@ -144,22 +155,26 @@ void AffairesJuridiques::on_B_ModifierAffaire_clicked()
 
 void AffairesJuridiques::on_B_AAnnulerAffaire_clicked()
 {
+    son->play();
     ui->stackedWidget->setCurrentIndex(4);
 }
 
 void AffairesJuridiques::on_B_MAnnulerAffaire_clicked()
 {
+    son->play();
     ui->stackedWidget->setCurrentIndex(4);
 }
 
 void AffairesJuridiques::on_B_AjouterIntervenant_clicked()
 {
+    son->play();
     ui->CB_ANationaliteIntervenant->setCurrentIndex(0);
     ui->stackedWidget->setCurrentIndex(2);
 }
 
 void AffairesJuridiques::on_B_AConfirmerIntervenant_clicked()
 {
+    son->play();
     /*************** BEGIN : Controle de Saisir L'ajout d'Intervenant ***************/
     bool overAll = false, cin_B, nom_B, prenom_B, mail_B, local_B;
     int cin = ui->LE_ACinIntervenant->text().toInt();
@@ -257,6 +272,7 @@ void AffairesJuridiques::on_B_AConfirmerIntervenant_clicked()
 
 void AffairesJuridiques::on_B_SupprimerIntervenant_clicked()
 {
+    son->play();
     Intervenant intervenantS;
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression du l'intervenant?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
@@ -278,6 +294,7 @@ void AffairesJuridiques::on_B_SupprimerIntervenant_clicked()
 
 void AffairesJuridiques::on_B_MConfirmerIntervenant_clicked()
 {
+    son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la modification", "Confirmer la modification du l'intervenant?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         Intervenant affaire;
@@ -300,6 +317,7 @@ void AffairesJuridiques::on_B_MConfirmerIntervenant_clicked()
 
 void AffairesJuridiques::on_B_AConfirmerAffaire_clicked()
 {
+    son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout du l'affaire?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         int intervenant = ui->CB_ACinIntAffaire->currentText().toInt();
@@ -315,7 +333,6 @@ void AffairesJuridiques::on_B_AConfirmerAffaire_clicked()
 
             ui->LE_ATypeAffaire->setText("");
             ui->LE_ALocalAffaire->setText("");
-            ui->LE_ADateAffaire->setText("");
             ui->TE_ADescAffaire->setText("");
         }
         else {
@@ -326,6 +343,7 @@ void AffairesJuridiques::on_B_AConfirmerAffaire_clicked()
 
 void AffairesJuridiques::on_B_SupprimerAffaire_clicked()
 {
+    son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression du l'affaire?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         affaire.setId(ui->CB_IDAffaire->currentText().toInt());
@@ -343,6 +361,7 @@ void AffairesJuridiques::on_B_SupprimerAffaire_clicked()
 
 void AffairesJuridiques::on_B_MConfirmerAffaire_clicked()
 {
+    son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la modification", "Confirmer la modification du l'affaire?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         affaire.setId(ui->CB_IDAffaire->currentText().toInt());
@@ -363,6 +382,7 @@ void AffairesJuridiques::on_B_MConfirmerAffaire_clicked()
 
 void AffairesJuridiques::on_B_ResetTableIntervenant_clicked()
 {
+    son->play();
     ui->LE_ChercherNom->setText("");
     ui->LE_ChercherPrenom->setText("");
     ui->T_Intervenants->setModel(intervenant.afficher());
@@ -370,12 +390,14 @@ void AffairesJuridiques::on_B_ResetTableIntervenant_clicked()
 
 void AffairesJuridiques::on_B_Trier_clicked()
 {
+    son->play();
     QString Tri = ui->CB_TriIntervenant->currentText();
     ui->T_Intervenants->setModel(intervenant.Trier(Tri));
 }
 
 void AffairesJuridiques::on_B_Recherche_clicked()
 {
+    son->play();
     QString cinn = ui->LE_ChercherNom->text();
     QString prenom = ui->LE_ChercherPrenom->text();
     if((cinn != "") && (prenom != "")) {
@@ -394,8 +416,7 @@ void AffairesJuridiques::on_B_Recherche_clicked()
 
 void AffairesJuridiques::on_B_Statistics_clicked()
 {
-    QSqlQuery qry;
-
+    son->play();
     /*  Getting All rows of DB
     qry.prepare("SELECT COUNT (*) FROM intervenant");
     qry.exec();
@@ -403,6 +424,9 @@ void AffairesJuridiques::on_B_Statistics_clicked()
     if (qry.next()) {
         rows= qry.value(0).toInt();
     }*/
+
+    /********************* BEGIN : Donut->Nationalite *********************/
+    QSqlQuery qry;
 
     qry.prepare("SELECT COUNT (*) FROM intervenant where Nationalite='Autres...'");
     qry.exec();
@@ -471,17 +495,20 @@ void AffairesJuridiques::on_B_Statistics_clicked()
 
     QChartView *chartView = new QChartView(chart);
     chartView->setParent(ui->F_Statistic);
+    /********************* END : Donut->Nationalite *********************/
 
     ui->stackedWidget->setCurrentIndex(7);
 }
 
 void AffairesJuridiques::on_B_BackToGestions_3_clicked()
 {
+    son->play();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
 void AffairesJuridiques::on_LE_ChercherNom_returnPressed()
 {
+    son->play();
     QString cinn = ui->LE_ChercherNom->text();
     if(cinn == "") {
         QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("Il faut Chercher avec le Nom OU le Prenom.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -493,6 +520,7 @@ void AffairesJuridiques::on_LE_ChercherNom_returnPressed()
 
 void AffairesJuridiques::on_LE_ChercherPrenom_returnPressed()
 {
+    son->play();
     QString prenom = ui->LE_ChercherPrenom->text();
     if(prenom == "") {
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("Il faut Chercher avec le Nom OU le Prenom.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -504,16 +532,19 @@ void AffairesJuridiques::on_LE_ChercherPrenom_returnPressed()
 
 void AffairesJuridiques::on_LE_ChercherNom_textChanged(const QString &arg1)
 {
+    son->play();
     ui->T_Intervenants->setModel(intervenant.ChercherC(arg1));
 }
 
 void AffairesJuridiques::on_LE_ChercherPrenom_textChanged(const QString &arg1)
 {
+    son->play();
     ui->T_Intervenants->setModel(intervenant.ChercherP(arg1));
 }
 
 void AffairesJuridiques::on_B_Chat_clicked()
 {
+    son->play();
     MessengerClient MS;
     MS.exec();
 }

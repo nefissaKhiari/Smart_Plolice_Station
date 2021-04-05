@@ -8,6 +8,8 @@
 #include <QChartView>
 #include <QPieSeries>
 #include <QPieSlice>
+#include <QSound>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class AffairesJuridiques; }
@@ -82,5 +84,6 @@ private:
     Ui::AffairesJuridiques *ui;
     Intervenant intervenant;
     Affaire affaire;
+    QSound *son;
 };
 #endif // AFFAIRESJURIDIQUES_H

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1250</width>
+    <width>1500</width>
     <height>750</height>
    </rect>
   </property>
@@ -76,7 +76,7 @@ QMessageBox QLabel{
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1250</width>
+      <width>1501</width>
       <height>711</height>
      </rect>
     </property>
@@ -105,7 +105,7 @@ QPushButton:hover{
      <widget class="QPushButton" name="B_BackToMenu">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>160</x>
         <y>20</y>
         <width>141</width>
         <height>41</height>
@@ -125,7 +125,7 @@ QPushButton:hover{
      <widget class="QFrame" name="frame_3">
       <property name="geometry">
        <rect>
-        <x>280</x>
+        <x>400</x>
         <y>200</y>
         <width>701</width>
         <height>381</height>
@@ -231,7 +231,7 @@ QPushButton:hover{
      <widget class="QToolButton" name="toolButton_2">
       <property name="geometry">
        <rect>
-        <x>570</x>
+        <x>690</x>
         <y>140</y>
         <width>121</width>
         <height>121</height>
@@ -259,7 +259,7 @@ QPushButton:hover{
      <widget class="QPushButton" name="B_BackToGestions">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>160</x>
         <y>20</y>
         <width>371</width>
         <height>41</height>
@@ -279,7 +279,7 @@ QPushButton:hover{
      <widget class="QFrame" name="frame">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>156</x>
         <y>170</y>
         <width>741</width>
         <height>531</height>
@@ -339,7 +339,7 @@ font-size: 13px;</string>
      <widget class="QFrame" name="frame_2">
       <property name="geometry">
        <rect>
-        <x>770</x>
+        <x>906</x>
         <y>170</y>
         <width>461</width>
         <height>211</height>
@@ -540,7 +540,7 @@ QComboBox::drop-down {
      <widget class="QPushButton" name="B_Statistics">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>156</x>
         <y>130</y>
         <width>151</width>
         <height>31</height>
@@ -566,7 +566,7 @@ QComboBox::drop-down {
      <widget class="QToolButton" name="toolButton">
       <property name="geometry">
        <rect>
-        <x>330</x>
+        <x>466</x>
         <y>110</y>
         <width>121</width>
         <height>121</height>
@@ -589,7 +589,7 @@ QComboBox::drop-down {
      <widget class="QFrame" name="frame_10">
       <property name="geometry">
        <rect>
-        <x>770</x>
+        <x>906</x>
         <y>390</y>
         <width>461</width>
         <height>311</height>
@@ -879,7 +879,7 @@ QPushButton:hover {
      <widget class="QPushButton" name="B_Chat">
       <property name="geometry">
        <rect>
-        <x>1010</x>
+        <x>1146</x>
         <y>110</y>
         <width>221</width>
         <height>51</height>
@@ -914,7 +914,7 @@ QPushButton:hover {
      <widget class="QToolButton" name="toolButton_3">
       <property name="geometry">
        <rect>
-        <x>566</x>
+        <x>691</x>
         <y>20</y>
         <width>121</width>
         <height>121</height>
@@ -940,7 +940,7 @@ QPushButton:hover {
      <widget class="QFrame" name="frame_4">
       <property name="geometry">
        <rect>
-        <x>306</x>
+        <x>431</x>
         <y>80</y>
         <width>641</width>
         <height>591</height>
@@ -1415,7 +1415,7 @@ font-size: 12px;</string>
      <widget class="QToolButton" name="toolButton_5">
       <property name="geometry">
        <rect>
-        <x>566</x>
+        <x>691</x>
         <y>20</y>
         <width>121</width>
         <height>121</height>
@@ -1441,7 +1441,7 @@ font-size: 12px;</string>
      <widget class="QFrame" name="frame_5">
       <property name="geometry">
        <rect>
-        <x>306</x>
+        <x>431</x>
         <y>80</y>
         <width>641</width>
         <height>591</height>
@@ -1910,7 +1910,7 @@ font-size: 12px;</string>
      <widget class="QFrame" name="frame_6">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>150</x>
         <y>160</y>
         <width>741</width>
         <height>531</height>
@@ -1953,7 +1953,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
      <widget class="QToolButton" name="toolButton_7">
       <property name="geometry">
        <rect>
-        <x>320</x>
+        <x>460</x>
         <y>100</y>
         <width>121</width>
         <height>121</height>
@@ -1976,7 +1976,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
      <widget class="QPushButton" name="B_BackToGestions_2">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>160</x>
         <y>20</y>
         <width>371</width>
         <height>41</height>
@@ -1996,7 +1996,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
      <widget class="QFrame" name="frame_7">
       <property name="geometry">
        <rect>
-        <x>760</x>
+        <x>900</x>
         <y>230</y>
         <width>461</width>
         <height>391</height>
@@ -2199,7 +2199,7 @@ QComboBox::drop-down {
      <widget class="QToolButton" name="toolButton_8">
       <property name="geometry">
        <rect>
-        <x>550</x>
+        <x>690</x>
         <y>40</y>
         <width>121</width>
         <height>121</height>
@@ -2225,7 +2225,7 @@ QComboBox::drop-down {
      <widget class="QFrame" name="frame_8">
       <property name="geometry">
        <rect>
-        <x>290</x>
+        <x>430</x>
         <y>100</y>
         <width>641</width>
         <height>581</height>
@@ -2323,19 +2323,6 @@ QComboBox::drop-down {
        </property>
        <property name="placeholderText">
         <string>Type...</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="LE_ADateAffaire">
-       <property name="geometry">
-        <rect>
-         <x>460</x>
-         <y>-40</y>
-         <width>351</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>Date...</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="LE_ALocalAffaire">
@@ -2565,7 +2552,7 @@ QComboBox::drop-down {
      <widget class="QFrame" name="frame_9">
       <property name="geometry">
        <rect>
-        <x>290</x>
+        <x>430</x>
         <y>100</y>
         <width>641</width>
         <height>581</height>
@@ -2834,7 +2821,7 @@ QComboBox::drop-down {
      <widget class="QToolButton" name="toolButton_10">
       <property name="geometry">
        <rect>
-        <x>550</x>
+        <x>690</x>
         <y>40</y>
         <width>121</width>
         <height>121</height>
@@ -2882,7 +2869,7 @@ QComboBox::drop-down {
      <widget class="QScrollArea" name="scrollArea">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>140</x>
         <y>70</y>
         <width>1221</width>
         <height>631</height>
@@ -3049,7 +3036,7 @@ background: transparent;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1250</width>
+     <width>1500</width>
      <height>20</height>
     </rect>
    </property>

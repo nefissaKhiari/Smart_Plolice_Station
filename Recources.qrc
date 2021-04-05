@@ -21,5 +21,6 @@
         <file>Images/search.png</file>
         <file>Images/curve-down-arrow.png</file>
         <file>Images/configuration.png</file>
+        <file>Images/cassette-player-button-3.wav</file>
     </qresource>
 </RCC>

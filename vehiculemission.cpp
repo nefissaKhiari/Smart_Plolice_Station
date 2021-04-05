@@ -1,5 +1,7 @@
 #include "vehiculemission.h"
 #include "ui_vehiculemission.h"
+#include "affectations.h"
+
 #include"vehicule.h"
 #include "missions.h"
 #include <QMessageBox>
@@ -46,16 +48,15 @@ VehiculeMission::VehiculeMission(QWidget *parent)
 {
     ui->setupUi(this);
     son=new QSound(":/sons/cassette-player-button-3.wav");
+
     ui->stackedWidget->setCurrentIndex(0);
     ui->T_Vehicules->setModel(v_tmp.afficher());
     ui->T_Mission->setModel(m_tmp.afficher());
-
-
+    ui->T_Affectation->setModel(a_tmp.afficherA());
+    ui->CB_IDAffVeh->setModel(v_tmp.afficherm());
+    ui->CB_IDAffMiss->setModel(m_tmp.affichern());
     ui->CB_IDVehicule->setModel(v_tmp.afficherm());
-
-
     ui->CB_IDMission->setModel(m_tmp.affichern());
-
     ui->comboBox_5->setModel(v_tmp.afficherm());
 
 
@@ -430,7 +431,7 @@ void VehiculeMission::on_B_Statistics_2_clicked()
         "<body bgcolor=#ffffff link=#5000A0>\n"
          <<QString(currentDate)
         <<//"<align='right'> " << datefich << "</align>"
-        "<center> <img src=""lien logo mtaa application"" width=""100"" height=""100"" > <br> <br><H1>EXTRAIT DES VEHICULES</H1> <br> <br><table border=1 cellspacing=0 cellpadding=2>\n";
+        "<center> <img src=""C:/Users/lenovo/Desktop/Smart_Plolice_Station_2A19/images/logo.png"" width=""100"" height=""100"" > <br> <br><H1>EXTRAIT DES VEHICULES</H1> <br> <br><table border=1 cellspacing=0 cellpadding=2>\n";
         // headers
         out << "<thead><tr bgcolor=#f0f0f0> <th>Numero</th>";
         for (int column = 0; column < columnCount; column++)
@@ -497,4 +498,34 @@ void VehiculeMission::on_B_Trier_2_clicked()
 {  son->play();
     QString Tri = ui->comboBox_3->currentText();
         ui->T_Mission->setModel(m_tmp.Trierm(Tri));
+}
+
+void VehiculeMission::on_B_GestionMission_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(7);
+}
+
+void VehiculeMission::on_B_BackToGestions_3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void VehiculeMission::on_B_ConfirmerAffectation_clicked()
+{
+    son->play();
+
+        int id_M = ui->CB_IDAffMiss->currentText().toInt();
+       int matricule_V = ui->CB_IDAffVeh->currentText().toInt();
+        QMessageBox msgBox;
+
+        affectations A( id_M, matricule_V);
+        bool test=A.ajouterA();
+        if(test)
+        {
+            msgBox.setText("Ajout avec succés.");
+             ui->stackedWidget->setCurrentIndex(7);
+                ui->T_Affectation->setModel(a_tmp.afficherA());
+
+
+}
 }

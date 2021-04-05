@@ -1,6 +1,7 @@
 #ifndef VEHICULEMISSION_H
 #define VEHICULEMISSION_H
 
+#include "affectations.h"
 #include <QMainWindow>
 #include "vehicule.h"
 #include "missions.h"
@@ -63,10 +64,17 @@ private slots:
 
     void on_B_Trier_2_clicked();
 
+    void on_B_GestionMission_2_clicked();
+
+    void on_B_BackToGestions_3_clicked();
+
+    void on_B_ConfirmerAffectation_clicked();
+
 private:
     Ui::VehiculeMission *ui;
     vehicule v_tmp;
     QSound *son;
     missions m_tmp;
+    affectations a_tmp;
 };
 #endif // VEHICULEMISSION_H

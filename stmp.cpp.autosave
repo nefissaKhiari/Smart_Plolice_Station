@@ -1,0 +1,6 @@
+#include "Stmp.h"
+
+stmp::stmp()
+{
+
+}

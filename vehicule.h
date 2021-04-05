@@ -4,7 +4,7 @@
 #include <QSqlQueryModel>
 #include <QDate>
 #include <QTableView>
-
+#include <QSound>
 
 class vehicule
 {
@@ -41,7 +41,7 @@ public:
 private:
     QString  marque, couleur;
     int matricule,nb_places,quantite,CIN_policier;
-
+    QSound *son;
 };
 
 

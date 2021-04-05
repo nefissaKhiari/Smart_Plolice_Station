@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "vehicule.h"
 #include "missions.h"
-
+#include <QSound>
 QT_BEGIN_NAMESPACE
 namespace Ui { class VehiculeMission; }
 QT_END_NAMESPACE
@@ -66,6 +66,7 @@ private slots:
 private:
     Ui::VehiculeMission *ui;
     vehicule v_tmp;
+    QSound *son;
     missions m_tmp;
 };
 #endif // VEHICULEMISSION_H

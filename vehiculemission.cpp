@@ -33,7 +33,6 @@
 #include <QPrintDialog>
 #include<QtSql/QSqlQuery>
 #include<QVariant>
-#include <QSound>
 #include <QtCharts/QChartView>
 #include <QtCharts/QPieSeries>
 #include <QtCharts/QPieSlice>
@@ -46,6 +45,7 @@ VehiculeMission::VehiculeMission(QWidget *parent)
     , ui(new Ui::VehiculeMission)
 {
     ui->setupUi(this);
+    son=new QSound(":/sons/cassette-player-button-3.wav");
     ui->stackedWidget->setCurrentIndex(0);
     ui->T_Vehicules->setModel(v_tmp.afficher());
     ui->T_Mission->setModel(m_tmp.afficher());
@@ -70,24 +70,25 @@ VehiculeMission::~VehiculeMission()
 
 
 void VehiculeMission::on_B_GestionVehicule_clicked()
-{
+{ son->play();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
 
 void VehiculeMission::on_B_GestionMission_clicked()
-{
+{ son->play();
      ui->stackedWidget->setCurrentIndex(4);
 }
 
 
 void VehiculeMission::on_B_BackToGestions_clicked()
-{
+{ son->play();
      ui->stackedWidget->setCurrentIndex(0);
 }
 
 void VehiculeMission::on_B_ModifierVehicule_clicked()
 {
+    son->play();
     ui->stackedWidget->setCurrentIndex(3);
 
     QString matricule = ui->CB_IDVehicule->currentText();
@@ -110,12 +111,13 @@ void VehiculeMission::on_B_ModifierVehicule_clicked()
 }
 
 void VehiculeMission::on_B_AjouterVehicule_clicked()
-{
+{ son->play();
     ui->stackedWidget->setCurrentIndex(2);
 }
 
 void VehiculeMission::on_B_AAnnulerVehicule_clicked()
 {
+    son->play();
     ui->stackedWidget->setCurrentIndex(1);
     ui->LE_AMarqueVehicule->setText("");
     ui->LE_AMatriculeVehicule->setText("");
@@ -128,12 +130,13 @@ void VehiculeMission::on_B_AAnnulerVehicule_clicked()
 }
 
 void VehiculeMission::on_B_MAnuulerVehicule_clicked()
-{
+{ son->play();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
 void VehiculeMission::on_B_ModifierMission_clicked()
 {
+    son->play();
     ui->stackedWidget->setCurrentIndex(6);
     int id = ui->CB_IDMission->currentText().toInt();
      ui->LE_Mbox->setModel(v_tmp.afficherm());
@@ -160,13 +163,13 @@ void VehiculeMission::on_B_ModifierMission_clicked()
 }
 
 void VehiculeMission::on_B_AjouterMission_clicked()
-{
+{   son->play();
     ui->stackedWidget->setCurrentIndex(5);
 }
 
 void VehiculeMission::on_B_AAnnulerMission_clicked()
 {
-
+    son->play();
     ui->stackedWidget->setCurrentIndex(4);
     ui->LE_ANomMission->setText("");
     ui->LE_ALocalMission->setText("");
@@ -176,18 +179,18 @@ void VehiculeMission::on_B_AAnnulerMission_clicked()
 }
 
 void VehiculeMission::on_B_MAnnulerMission_clicked()
-{
+{    son->play();
     ui->stackedWidget->setCurrentIndex(4);
 
 }
 
 void VehiculeMission::on_B_BackToGestions_2_clicked()
-{
+{     son->play();
     ui->stackedWidget->setCurrentIndex(0);
 }
 
 void VehiculeMission::on_B_AConfirmerVehicule_clicked()
-{
+{son->play();
        int matricule = ui->LE_AMatriculeVehicule->text().toInt();
        QString marque = ui->LE_AMarqueVehicule->text();
        QString couleur = ui->LE_ACouleurVehicule->text();
@@ -231,7 +234,7 @@ void VehiculeMission::on_B_AConfirmerVehicule_clicked()
 }
 
 void VehiculeMission::on_B_SupprimerVehicule_clicked()
-{
+{  son->play();
     int matricule = ui->CB_IDVehicule->currentText().toInt();
     QMessageBox msgbox;
 
@@ -256,7 +259,7 @@ void VehiculeMission::on_B_SupprimerVehicule_clicked()
 }
 
 void VehiculeMission::on_B_MConfirmerVehicule_clicked()
-{
+{    son->play();
     int matricule = ui->CB_IDVehicule->currentText().toInt();
     QString marque = ui->LE_MMarqueVehicule->text();
     QString couleur = ui->LE_MCouleurVehicule->text();
@@ -281,7 +284,7 @@ void VehiculeMission::on_B_MConfirmerVehicule_clicked()
 }
 
 void VehiculeMission::on_B_AConfirmerMission_clicked()
-{
+{   son->play();
     int id;
     QString nom = ui->LE_ANomMission->text();
     QDate datem = ui->dateEdit->date();
@@ -312,7 +315,7 @@ void VehiculeMission::on_B_AConfirmerMission_clicked()
 }
 
 void VehiculeMission::on_B_MConfirmerMission_clicked()
-{
+{   son->play();
     int id = ui->CB_IDMission->currentText().toInt();
      QString nom = ui->LE_MNomMission->text();
     QDate datem = ui->dateEdit_2->date();
@@ -338,7 +341,7 @@ void VehiculeMission::on_B_MConfirmerMission_clicked()
 }
 
 void VehiculeMission::on_B_SupprimerMission_clicked()
-{
+{   son->play();
     int id = ui->CB_IDMission->currentText().toInt();
     QMessageBox msgbox;
 
@@ -361,7 +364,7 @@ void VehiculeMission::on_B_SupprimerMission_clicked()
 }
 
 void VehiculeMission::on_B_Trier_clicked()
-{
+{   son->play();
     QString Tri = ui->comboBox_2->currentText();
         ui->T_Vehicules->setModel(v_tmp.Trier(Tri));
 }
@@ -376,7 +379,7 @@ void VehiculeMission::on_lineEdit_returnPressed()
 
 
 void VehiculeMission::on_B_Statistics_2_clicked()
-{
+{   son->play();
     /*QModelIndex index = ui->T_Vehicules->currentIndex();
     int matricule = index.data(Qt::DisplayRole).toInt();
 
@@ -427,7 +430,7 @@ void VehiculeMission::on_B_Statistics_2_clicked()
         "<body bgcolor=#ffffff link=#5000A0>\n"
          <<QString(currentDate)
         <<//"<align='right'> " << datefich << "</align>"
-        "<center> <img src=""lien logo mtaa application"" width=""100"" height=""100"" > <br> <br><H1>EXTRAIT DE NAISSANCE</H1> <br> <br><table border=1 cellspacing=0 cellpadding=2>\n";
+        "<center> <img src=""lien logo mtaa application"" width=""100"" height=""100"" > <br> <br><H1>EXTRAIT DES VEHICULES</H1> <br> <br><table border=1 cellspacing=0 cellpadding=2>\n";
         // headers
         out << "<thead><tr bgcolor=#f0f0f0> <th>Numero</th>";
         for (int column = 0; column < columnCount; column++)
@@ -485,13 +488,13 @@ void VehiculeMission::on_B_Statistics_2_clicked()
 
 
 void VehiculeMission::on_lineEdit_textChanged(const QString &arg1)
-{
+{  son->play();
     QString by=ui->comboBox->currentText();
      ui->T_Mission->setModel(m_tmp.rechercher(arg1,by));
 }
 
 void VehiculeMission::on_B_Trier_2_clicked()
-{
+{  son->play();
     QString Tri = ui->comboBox_3->currentText();
         ui->T_Mission->setModel(m_tmp.Trierm(Tri));
 }

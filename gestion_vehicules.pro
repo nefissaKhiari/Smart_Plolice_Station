@@ -32,6 +32,7 @@ HEADERS += \
 
 FORMS += \
     vehiculemission.ui
+TARGET =sound
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -39,4 +40,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    Sound.qrc \
     resources.qrc

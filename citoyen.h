@@ -2,17 +2,18 @@
 #define CITOYEN_H
 
 #include<QString>
+#include<QDate>
 #include <QSqlQueryModel>
 class Citoyen
 {
 public:
     Citoyen();
 
-    Citoyen(QString, QString, QString, QString,QString,QString,QString,QString,QString);
+    Citoyen(QString, QString, QDate, QString,QString,QString,QString,QString,QString);
     int getid();
     QString getnom();
     QString getprenom();
-    QString getdatenaiss();
+    QDate getdatenaiss();
     QString getlieunaiss();
     QString getmail();
     QString getadresse();
@@ -22,7 +23,7 @@ public:
     void setid(int);
     void setnom(QString);
     void setprenom(QString);
-    void setdatenaiss(QString);
+    void setdatenaiss(QDate);
     void setlieunaiss(QString);
     void setmail(QString);
     void setadresse(QString);
@@ -39,7 +40,8 @@ public:
 
 private:
     int id;
-    QString nom , prenom , date_Naiss, lieu_Naiss ,mail ,  adresse , nom_pere, profession,etat_civil;
+    QString nom , prenom , lieu_Naiss ,mail ,  adresse , nom_pere, profession,etat_civil;
+    QDate date_Naiss;
 
 };
 

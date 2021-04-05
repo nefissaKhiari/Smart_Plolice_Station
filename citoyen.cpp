@@ -2,16 +2,17 @@
 #include<QSqlQuery>
 #include<QtDebug>
 #include<QObject>
+#include<QDate>
 
 Citoyen::Citoyen()
 {
     id=0;  nom=""; prenom="";
-    date_Naiss="";lieu_Naiss="";mail="";
+    lieu_Naiss="";mail="";
     adresse="";nom_pere="";profession="";
     etat_civil="";
 }
 
-Citoyen::Citoyen(QString nom, QString prenom, QString date_Naiss, QString lieu_Naiss,QString mail,QString adresse,QString nom_pere,QString profession,QString etat_civil)
+Citoyen::Citoyen(QString nom, QString prenom, QDate date_Naiss, QString lieu_Naiss,QString mail,QString adresse,QString nom_pere,QString profession,QString etat_civil)
 {
     this->nom=nom; this->prenom=prenom;
     this->date_Naiss=date_Naiss; this->lieu_Naiss=lieu_Naiss;
@@ -21,7 +22,7 @@ Citoyen::Citoyen(QString nom, QString prenom, QString date_Naiss, QString lieu_N
 int Citoyen::getid(){return id;}
 QString Citoyen::getnom(){return nom;}
 QString Citoyen::getprenom(){return prenom;}
-QString Citoyen::getdatenaiss(){return date_Naiss;}
+QDate Citoyen::getdatenaiss(){return date_Naiss;}
 QString Citoyen::getlieunaiss(){return lieu_Naiss;}
 QString Citoyen::getmail(){return mail;}
 QString Citoyen::getadresse(){return adresse;}
@@ -31,7 +32,7 @@ QString Citoyen::getetatcivil(){return etat_civil;}
 void Citoyen::setid(int id){this->id=id;}
 void Citoyen::setnom(QString nom){this->nom=nom;}
 void Citoyen::setprenom(QString prenom){this->prenom=prenom;}
-void Citoyen::setdatenaiss(QString date_Naiss){this->date_Naiss=date_Naiss;}
+void Citoyen::setdatenaiss(QDate date_Naiss){this->date_Naiss=date_Naiss;}
 void Citoyen::setlieunaiss(QString lieu_Naiss){this->lieu_Naiss=lieu_Naiss;}
 void Citoyen::setmail(QString mail){this->mail=mail;}
 void Citoyen::setadresse(QString adresse){this->adresse=adresse;}
@@ -95,7 +96,7 @@ bool Citoyen::modifier() {
     query.bindValue(9, id_string);
     query.bindValue(0, nom);
     query.bindValue(1, prenom);
-    query.bindValue(5, date_Naiss);
+    query.bindValue(2, date_Naiss);
     query.bindValue(3, lieu_Naiss);
     query.bindValue(4, mail);
     query.bindValue(5, adresse);

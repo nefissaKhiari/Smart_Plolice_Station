@@ -70,6 +70,12 @@ private slots:
 
     void on_B_ResetTableIntervenant_clicked();
 
+    void on_B_EnvoyeMail_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_B_returnCitoyen_3_clicked();
+
 private:
     Ui::MainWindow *ui;
     Citoyen C;

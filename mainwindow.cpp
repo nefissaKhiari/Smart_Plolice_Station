@@ -3,6 +3,7 @@
 #include "citoyen.h"
 #include "service.h"
 #include "notification.h"
+#include "smtp.h"
 #include <QMessageBox>
 #include <QIntValidator>
 #include <QSqlQuery>
@@ -14,6 +15,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
+    ui->mdp->setEchoMode(QLineEdit::Password);
+    //for email tab
+   // connect(ui->pushButton_2, SIGNAL(clicked()),this, SLOT(sendMail()));
+    //connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(browse()));
 
 }
 
@@ -55,10 +60,10 @@ void MainWindow::on_B_AccederProfil_clicked()
             ui->LE_PDateNaissCit->setText(qry.value(3).toString());
             ui->LE_PLieuNaissCit->setText(qry.value(4).toString());
             ui->LE_PMailCitoyen->setText(qry.value(5).toString());
-            ui->LE_PAdresseCit->setText(qry.value(5).toString());
-            ui->LE_PNomPereCit->setText(qry.value(5).toString());
-            ui->LE_PProfessionCit->setText(qry.value(5).toString());
-            ui->LE_PEtatCitoyen->setText(qry.value(5).toString());
+            ui->LE_PAdresseCit->setText(qry.value(6).toString());
+            ui->LE_PNomPereCit->setText(qry.value(7).toString());
+            ui->LE_PProfessionCit->setText(qry.value(8).toString());
+            ui->LE_PEtatCitoyen->setText(qry.value(9).toString());
             ui->stackedWidget->setCurrentIndex(4);
         }
     }
@@ -79,9 +84,10 @@ void MainWindow::on_B_AConfirmerCitoyen_clicked()
 {
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout du citoyen?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
+
         QString nom = ui->LE_ANomCitoyen->text();
         QString prenom = ui->LE_APrenomCitoyen->text();
-        QString date_Naiss = ui->LE_ADateNaissCit->text();
+        QDate date_Naiss= ui->DE_ADateNaissCit->date();
         QString lieu_Naiss = ui->LE_ALieuNaissCit->text();
         QString mail = ui->LE_AMailCitoyen->text();
         QString adresse = ui->LE_AAdresseCit->text();
@@ -96,7 +102,7 @@ void MainWindow::on_B_AConfirmerCitoyen_clicked()
 
         ui->LE_ANomCitoyen ->setText("");
         ui->LE_APrenomCitoyen ->setText("");
-        ui->LE_ADateNaissCit->setText("");
+        //ui->DE_ADateNaissCit->setDate();
         ui->LE_ALieuNaissCit->setText("");
         ui->LE_AMailCitoyen->setText("");
         ui->LE_AAdresseCit ->setText("");
@@ -124,21 +130,22 @@ void MainWindow::on_B_MConfirmerCitoyen_clicked()
         C.setid(ui->CB_IDCitoyen ->currentText().toInt());
         C.setnom(ui->LE_MNomCitoyen ->text());
         C.setprenom(ui->LE_MPrenomCitoyen ->text());
-        C.setdatenaiss(ui->LE_MDateNaissCit_2 ->text());
+        C.setdatenaiss(ui->DE_MDateNaissCit ->date());
         C.setlieunaiss(ui->LE_MLieuNaissCit ->text());
         C.setmail(ui->LE_MMailCitoyen ->text());
         C.setadresse(ui->LE_MAdresseCit ->text());
         C.setnompere(ui->LE_MNomPereCit->text());
         C.setprofession(ui->LE_MProfessionCit ->text());
         C.setetatcivil(ui->LE_MEtatCitoyen ->text());
-
+qDebug() << C.getdatenaiss();
         if(C.modifier()) {
             ui->T_Citoyens->setModel(C.afficher());
             ui->CB_IDCitoyen->setModel(C.listId());
             ui->stackedWidget->setCurrentIndex(1);
             ui->LE_ANomCitoyen->setText("");
             ui->LE_APrenomCitoyen->setText("");
-            ui->LE_ADateNaissCit->setText("");
+            //QDate date_Naiss = ui->DE_MDateNaissCit->date();
+          //  ui->DE_MDateNaissCit->setDate();
             ui->LE_ALieuNaissCit->setText("");
             ui->LE_AMailCitoyen->setText("");
             ui->LE_AAdresseCit->setText("");
@@ -182,13 +189,13 @@ void MainWindow::on_B_MConfirmerCitoyen_2_clicked()
         while(qry.next()) {
             ui->LE_MNomCitoyen ->setText(qry.value(1).toString());
             ui->LE_MPrenomCitoyen->setText(qry.value(2).toString());
-            ui->LE_MDateNaissCit_2->setText(qry.value(3).toString());
+            ui->DE_MDateNaissCit->setDate(qry.value(3).toDate());
             ui->LE_MLieuNaissCit->setText(qry.value(4).toString());
             ui->LE_MMailCitoyen->setText(qry.value(5).toString());
-            ui->LE_MAdresseCit->setText(qry.value(5).toString());
-            ui->LE_MNomPereCit->setText(qry.value(5).toString());
-            ui->LE_MProfessionCit->setText(qry.value(5).toString());
-            ui->LE_MEtatCitoyen->setText(qry.value(5).toString());
+            ui->LE_MAdresseCit->setText(qry.value(6).toString());
+            ui->LE_MNomPereCit->setText(qry.value(7).toString());
+            ui->LE_MProfessionCit->setText(qry.value(8).toString());
+            ui->LE_MEtatCitoyen->setText(qry.value(9).toString());
         }
     }
     ui->stackedWidget->setCurrentIndex(3);
@@ -355,4 +362,35 @@ void MainWindow::on_B_ResetTableIntervenant_2_clicked()
 void MainWindow::on_B_ResetTableIntervenant_clicked()
 {
     ui->T_Service ->setModel(S.afficher());
+}
+
+void MainWindow::on_B_EnvoyeMail_clicked()
+{
+    QSqlQuery qry;
+    QString id_string = QString::number(ui->CB_IDCitoyen->currentText().toInt());
+    qry.prepare("SELECT * FROM citoyens where id=:id");
+    qry.bindValue(0, id_string);
+    if(qry.exec()) {
+        while(qry.next()) {
+            ui->lineEdit->setText(qry.value(5).toString());
+        }
+    }
+    ui->stackedWidget->setCurrentIndex(6);
+}
+
+void MainWindow::on_pushButton_2_clicked()
+
+    {
+        Smtp* smtp = new Smtp("myriam.brahmi@esprit.tn",ui->mdp->text(), "smtp.gmail.com");
+        connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+
+          smtp->sendMail("myriam.brahmi@esprit.tn", ui->lineEdit->text() , ui->lineEdit_3->text(),ui->msg->toPlainText());
+          ui->stackedWidget->setCurrentIndex(4);
+          N.notifications_envoyermail();
+    }
+
+
+void MainWindow::on_B_returnCitoyen_3_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(4);
 }

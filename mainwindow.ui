@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>8</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -1023,19 +1023,6 @@ QPushButton:hover {
         <string>Prenom...</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="LE_ADateNaissCit">
-       <property name="geometry">
-        <rect>
-         <x>210</x>
-         <y>270</y>
-         <width>351</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>Date_Naiss...</string>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="LE_ALieuNaissCit">
        <property name="geometry">
         <rect>
@@ -1230,6 +1217,22 @@ QPushButton:hover {
         <string>Etat Civil...</string>
        </property>
       </widget>
+      <widget class="QDateEdit" name="DE_ADateNaissCit">
+       <property name="geometry">
+        <rect>
+         <x>209</x>
+         <y>270</y>
+         <width>351</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:white;</string>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
      </widget>
      <zorder>frame_4</zorder>
      <zorder>toolButton_3</zorder>
@@ -1407,19 +1410,6 @@ QPushButton:hover {
        </property>
        <property name="placeholderText">
         <string>Prenom...</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="LE_MDateNaissCit_2">
-       <property name="geometry">
-        <rect>
-         <x>210</x>
-         <y>270</y>
-         <width>351</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>Date_Naiss...</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="LE_MLieuNaissCit">
@@ -1614,6 +1604,22 @@ QPushButton:hover {
        </property>
        <property name="placeholderText">
         <string>Etat Civil...</string>
+       </property>
+      </widget>
+      <widget class="QDateEdit" name="DE_MDateNaissCit">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>270</y>
+         <width>351</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: white;</string>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
        </property>
       </widget>
      </widget>
@@ -2676,7 +2682,7 @@ QPushButton:hover {
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="Profile_Service">
+    <widget class="QWidget" name="mail">
      <widget class="QStackedWidget" name="stackedWidget_2">
       <property name="geometry">
        <rect>
@@ -4914,6 +4920,165 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         </property>
        </widget>
       </widget>
+     </widget>
+     <widget class="QFrame" name="frame_22">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>120</y>
+        <width>801</width>
+        <height>551</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLineEdit" name="lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>110</y>
+         <width>371</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>****@****.***  ...</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="mdp">
+       <property name="geometry">
+        <rect>
+         <x>602</x>
+         <y>110</y>
+         <width>171</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>Mot de passe...</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>100</y>
+         <width>81</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:grey;</string>
+       </property>
+       <property name="text">
+        <string>    A  :</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_3">
+       <property name="geometry">
+        <rect>
+         <x>172</x>
+         <y>180</y>
+         <width>601</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>........</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>25</x>
+         <y>170</y>
+         <width>111</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:grey;</string>
+       </property>
+       <property name="text">
+        <string>   Objet  :</string>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="msg">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>250</y>
+         <width>661</width>
+         <height>231</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>Contenu du Mail...</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="geometry">
+        <rect>
+         <x>622</x>
+         <y>500</y>
+         <width>141</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Envoyer</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QToolButton" name="toolButton_14">
+      <property name="geometry">
+       <rect>
+        <x>730</x>
+        <y>60</y>
+        <width>121</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="ressources.qrc">
+        <normaloff>:/ressources/image/add-property.png</normaloff>:/ressources/image/add-property.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>64</width>
+        <height>64</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="B_returnCitoyen_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>211</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Profil Citoyen</string>
+      </property>
+      <property name="icon">
+       <iconset resource="ressources.qrc">
+        <normaloff>:/ressources/image/back-arrow.png</normaloff>:/ressources/image/back-arrow.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="Ajouter_service">

@@ -55,3 +55,12 @@ void Notifications::notifications_modifierservice(){
     notifyIcon->showMessage("Gestion des services ","Service modifié",QSystemTrayIcon::Information,15000);
 
 }
+void Notifications::notifications_envoyermail()
+{
+
+   QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+
+   // notifyIcon->setIcon(QIcon(":/new/prefix1/MyResources/computer-icons-avatar-user-login-avatar.jpg"));
+    notifyIcon->show();
+    notifyIcon->showMessage("Email ","Mail Envoyé ",QSystemTrayIcon::Information,15000);
+}

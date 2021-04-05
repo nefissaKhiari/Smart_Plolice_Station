@@ -9,21 +9,21 @@ class missions
 {
 public:
     missions(){}
-    missions( int, QString, QDate, QString, QString, int );
+    missions( int, QString, QDate, QString, QString );
 
     void setid (int ) ;
     void setnom(QString n);
     void setdatem(QDate d);
     void setlocalisation (QString l);
     void setdescription (QString d);
-    void setmatricule (int ) ;
+
 
     int get_id();
     QString get_nom();
     QDate get_datem();
     QString get_localisation();
     QString get_description();
-    int get_matricule();
+
 
 
 
@@ -32,7 +32,7 @@ public:
     bool ajouter();
     QSqlQueryModel*    afficher();
     bool supprimer(int);
-    bool modifier(int, QString, QDate, QString, QString , int);
+    bool modifier(int, QString, QDate, QString, QString );
     QSqlQueryModel* rechercher(QString,QString);
     QSqlQueryModel*    affichern();
     QSqlQueryModel* Trierm(QString);
@@ -40,7 +40,7 @@ public:
 private:
     QString  nom, localisation,description;
     QDate datem;
-   int matricule,id;
+   int id;
 
 
 };

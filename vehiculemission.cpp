@@ -57,7 +57,7 @@ VehiculeMission::VehiculeMission(QWidget *parent)
     ui->CB_IDAffMiss->setModel(m_tmp.affichern());
     ui->CB_IDVehicule->setModel(v_tmp.afficherm());
     ui->CB_IDMission->setModel(m_tmp.affichern());
-    ui->comboBox_5->setModel(v_tmp.afficherm());
+
 
 
 
@@ -140,7 +140,7 @@ void VehiculeMission::on_B_ModifierMission_clicked()
     son->play();
     ui->stackedWidget->setCurrentIndex(6);
     int id = ui->CB_IDMission->currentText().toInt();
-     ui->LE_Mbox->setModel(v_tmp.afficherm());
+
     QSqlQuery query;
     query.prepare("SELECT * from missions where id = :id");
     query.bindValue(":id" , id);
@@ -152,7 +152,7 @@ void VehiculeMission::on_B_ModifierMission_clicked()
             ui->dateEdit_2->setDate(query.value(1).toDate());
             ui->LE_MLocalMission->setText(query.value(2).toString());
             ui->TE_MDescMission->setText(query.value(3).toString());
-            ui->LE_Mbox->setCurrentText(query.value(4).toString());
+
 
         }
 
@@ -220,7 +220,7 @@ void VehiculeMission::on_B_AConfirmerVehicule_clicked()
                ui->LE_ACouleurVehicule->setText("");
                ui->LE_AQuantiteVehicule->setText("");
                ui->LE_ACinVehicule->setText("");
-               ui->comboBox_5->setModel(modal);
+
 
 
 
@@ -286,21 +286,22 @@ void VehiculeMission::on_B_MConfirmerVehicule_clicked()
 
 void VehiculeMission::on_B_AConfirmerMission_clicked()
 {   son->play();
-    int id;
+    int id=0;
     QString nom = ui->LE_ANomMission->text();
     QDate datem = ui->dateEdit->date();
     QString localisation = ui->LE_ALocalMission->text();
     QString description = ui->TE_ADescMission->toPlainText();
-    int matricule=ui->comboBox_5->currentText().toInt();
+
     QMessageBox msgBox;
 
-    missions E( id, nom, datem, localisation, description, matricule);
+    missions E( id, nom, datem, localisation, description);
     bool test=E.ajouter();
     if(test)
     {
         msgBox.setText("Ajout avec succés.");
          ui->stackedWidget->setCurrentIndex(4);
             ui->T_Mission->setModel(m_tmp.afficher());
+            ui->CB_IDAffMiss->setModel(m_tmp.affichern());
             QSqlQuery *query = new QSqlQuery();
             QSqlQueryModel * modal = new QSqlQueryModel();
             query->prepare("SELECT id from missions");
@@ -322,11 +323,11 @@ void VehiculeMission::on_B_MConfirmerMission_clicked()
     QDate datem = ui->dateEdit_2->date();
     QString localisation = ui->LE_MLocalMission->text();
     QString description = ui->TE_MDescMission->toPlainText();
-    int matricule=ui->LE_Mbox->currentText().toInt();
+
 
      QMessageBox msgBox;
 
-    bool test = m_tmp.modifier(id, nom, datem, localisation, description, matricule);
+    bool test = m_tmp.modifier(id, nom, datem, localisation, description);
 
     if (test)
     {
@@ -528,4 +529,9 @@ void VehiculeMission::on_B_ConfirmerAffectation_clicked()
 
 
 }
+}
+
+void VehiculeMission::on_B_ResetTableIntervenant_clicked()
+{
+    ui->T_Affectation->setModel(a_tmp.afficherA());
 }

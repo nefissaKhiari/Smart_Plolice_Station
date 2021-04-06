@@ -36,6 +36,8 @@ public:
     QSqlQueryModel*    afficherm();
     QSqlQuery   impression(int);
 
+     QSqlQueryModel* rechercherv(QString,QString);
+
 
 
 private:

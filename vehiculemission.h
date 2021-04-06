@@ -70,6 +70,36 @@ private slots:
 
     void on_B_ConfirmerAffectation_clicked();
 
+
+
+
+
+
+
+
+
+    void on_B_Trier_3_clicked();
+
+    void on_annulera_clicked();
+
+
+
+
+
+    void on_annulerv_clicked();
+
+    void on_annulerM_clicked();
+
+
+
+
+
+    void on_molka_textChanged(const QString &arg1);
+
+    void on_recherchera_textChanged(const QString &arg1);
+
+    void on_supprimera_clicked();
+
 private:
     Ui::VehiculeMission *ui;
     vehicule v_tmp;

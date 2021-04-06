@@ -127,3 +127,26 @@ QSqlQueryModel* vehicule::Trier(QString tri) {
 
     return model;
 }
+
+
+QSqlQueryModel* vehicule::rechercherv(QString rechercherv,QString by) {
+    QSqlQueryModel* model = new QSqlQueryModel();
+    if(by=="matricule") {
+        model->setQuery("SELECT * FROM vehicules WHERE matricule LIKE '"+rechercherv+"%'");
+    }
+    else if(by=="marque") {
+       model->setQuery("SELECT * FROM vehicules WHERE marque LIKE '"+rechercherv+"%'");
+    }
+    else if(by=="quantite") {
+        model->setQuery("SELECT * FROM vehicules WHERE quantite LIKE '"+rechercherv+"%'");
+    }
+    else if(by=="couleur") {
+        model->setQuery("SELECT * FROM vehicules WHERE couleur LIKE '"+rechercherv+"%'");
+    }
+    else if(by=="nb_places") {
+        model->setQuery("SELECT * FROM vehicules WHERE nb_places LIKE '"+rechercherv+"%'");
+    }
+
+
+    return model;
+}

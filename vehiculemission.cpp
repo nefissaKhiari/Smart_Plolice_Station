@@ -1,7 +1,8 @@
 #include "vehiculemission.h"
 #include "ui_vehiculemission.h"
 #include "affectations.h"
-
+#include <QSqlQueryModel>
+#include <QSqlQuery>
 #include"vehicule.h"
 #include "missions.h"
 #include <QMessageBox>
@@ -531,7 +532,91 @@ void VehiculeMission::on_B_ConfirmerAffectation_clicked()
 }
 }
 
-void VehiculeMission::on_B_ResetTableIntervenant_clicked()
+
+
+
+
+void VehiculeMission::on_B_Trier_3_clicked()
 {
-    ui->T_Affectation->setModel(a_tmp.afficherA());
+    son->play();
+    QString Tri = ui->cc->currentText();
+        ui->T_Affectation->setModel(a_tmp.Triera(Tri));
+
+}
+
+void VehiculeMission::on_annulera_clicked()
+{
+    son->play();
+ui->T_Affectation ->setModel(a_tmp.afficherA());
+}
+
+
+
+
+void VehiculeMission::on_annulerv_clicked()
+{
+    son->play();
+    ui->T_Vehicules ->setModel(v_tmp.afficher());
+}
+
+void VehiculeMission::on_annulerM_clicked()
+{
+    son->play();
+    ui->T_Mission ->setModel(m_tmp.afficher());
+}
+
+
+
+
+void VehiculeMission::on_molka_textChanged(const QString &arg1)
+{
+    son->play();
+    QString by=ui->rr->currentText();
+     ui->T_Vehicules->setModel(v_tmp.rechercherv(arg1,by));
+}
+
+
+void VehiculeMission::on_recherchera_textChanged(const QString &arg1)
+{
+    son->play();
+    QString by=ui->lineedit->currentText();
+     ui->T_Affectation->setModel(a_tmp.recherchera(arg1,by));
+}
+
+void VehiculeMission::on_supprimera_clicked()
+{
+    son->play();
+        int id_M = ui->CB_IDAffMiss->currentText().toInt();
+       int matricule_V = ui->CB_IDAffVeh->currentText().toInt();
+        QMessageBox msgbox;
+
+
+        bool test=a_tmp.supprimerA(id_M, matricule_V);
+        if (test)
+        {
+            msgbox.setText("Suppression avec succés.");
+                  ui->T_Affectation->setModel(a_tmp.afficherA());
+
+                  QSqlQuery *query = new QSqlQuery();
+                  QSqlQueryModel * modal = new QSqlQueryModel();
+                  query->prepare("SELECT id_mission, id_vehicule from affectations");
+                  query->exec();
+                  modal->setQuery(*query);
+                  ui->CB_IDAffMiss->setModel(modal);
+                  query->exec();
+                  modal->setQuery(*query);
+                  ui->CB_IDAffVeh->setModel(modal);
+                  /*QSqlQuery *qury = new QSqlQuery();
+                  QSqlQueryModel * modale = new QSqlQueryModel();
+                  qury->prepare("SELECT id_vehicule from affectations");
+                  qury->exec();
+                  modale->setQuery(*qury);
+                  ui->CB_IDAffVeh->setModel(modale);*/
+
+        }
+        else
+            msgbox.setText("Echec au niveau de la Suppression");
+
+          msgbox.exec();
+
 }

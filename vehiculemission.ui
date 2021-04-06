@@ -301,7 +301,7 @@ QPushButton:hover{
       <widget class="QPushButton" name="B_Trier">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>570</x>
          <y>20</y>
          <width>101</width>
          <height>31</height>
@@ -347,7 +347,7 @@ border-radius: 0px;</string>
       <widget class="QComboBox" name="comboBox_2">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>430</x>
          <y>20</y>
          <width>131</width>
          <height>31</height>
@@ -387,41 +387,97 @@ border-radius: 0px;</string>
         </property>
        </item>
       </widget>
-      <widget class="QPushButton" name="B_Statistics_2">
+      <widget class="QPushButton" name="annulerv">
        <property name="geometry">
         <rect>
-         <x>450</x>
-         <y>20</y>
-         <width>251</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>impression d'un PDF</string>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>:/Recources/Images/trend.png</normaloff>:/Recources/Images/trend.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>23</width>
-         <height>23</height>
-        </size>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton">
-       <property name="geometry">
-        <rect>
-         <x>260</x>
+         <x>680</x>
          <y>20</y>
          <width>31</width>
          <height>31</height>
         </rect>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background: white;
+	border-radius: 15px;
+}
+
+QPushButton:hover {
+	background: #BEBEBE;
+}</string>
+       </property>
        <property name="text">
         <string/>
        </property>
+       <property name="icon">
+        <iconset resource="resources.qrc">
+         <normaloff>:/resources/images/close.png</normaloff>:/resources/images/close.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>16</width>
+         <height>16</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="molka">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>20</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>rechercher...</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="rr">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>131</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: white;</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>matricule</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>marque</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>couleur</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>nb_places</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>quantite</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string/>
+        </property>
+       </item>
       </widget>
      </widget>
      <widget class="QFrame" name="frame_2">
@@ -550,6 +606,29 @@ border-radius: 0px;</string>
        <property name="icon">
         <iconset resource="resources.qrc">
          <normaloff>:/resources/images/trash.png</normaloff>:/resources/images/trash.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>23</width>
+         <height>23</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="B_Statistics_2">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>90</y>
+         <width>251</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>impression d'un PDF</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>:/Recources/Images/trend.png</normaloff>:/Recources/Images/trend.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -1348,7 +1427,7 @@ border-radius: 0px;</string>
       <widget class="QPushButton" name="B_Trier_2">
        <property name="geometry">
         <rect>
-         <x>590</x>
+         <x>580</x>
          <y>30</y>
          <width>101</width>
          <height>31</height>
@@ -1365,6 +1444,42 @@ border-radius: 0px;</string>
         <size>
          <width>18</width>
          <height>18</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="annulerM">
+       <property name="geometry">
+        <rect>
+         <x>690</x>
+         <y>30</y>
+         <width>31</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background: white;
+	border-radius: 15px;
+}
+
+QPushButton:hover {
+	background: #BEBEBE;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="resources.qrc">
+         <normaloff>:/resources/images/close.png</normaloff>:/resources/images/close.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>16</width>
+         <height>16</height>
         </size>
        </property>
       </widget>
@@ -2096,9 +2211,9 @@ border-radius: 0px;</string>
       <property name="geometry">
        <rect>
         <x>770</x>
-        <y>250</y>
+        <y>210</y>
         <width>461</width>
-        <height>341</height>
+        <height>401</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -2215,6 +2330,29 @@ border-radius: 0px;</string>
         <string>Matricule :</string>
        </property>
       </widget>
+      <widget class="QPushButton" name="supprimera">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>330</y>
+         <width>151</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Supprimer</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resources.qrc">
+         <normaloff>:/resources/images/trash.png</normaloff>:/resources/images/trash.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>23</width>
+         <height>23</height>
+        </size>
+       </property>
+      </widget>
      </widget>
      <widget class="QToolButton" name="toolButton_14">
       <property name="geometry">
@@ -2277,7 +2415,7 @@ border-radius: 0px;</string>
       <widget class="QPushButton" name="B_Trier_3">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>140</x>
          <y>20</y>
          <width>101</width>
          <height>31</height>
@@ -2310,7 +2448,8 @@ border-radius: 0px;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background: white;</string>
+        <string notr="true">background: white;
+border-radius: 0px;</string>
        </property>
        <attribute name="horizontalHeaderCascadingSectionResizes">
         <bool>false</bool>
@@ -2319,12 +2458,12 @@ border-radius: 0px;</string>
         <number>117</number>
        </attribute>
       </widget>
-      <widget class="QComboBox" name="comboBox_4">
+      <widget class="QComboBox" name="cc">
        <property name="geometry">
         <rect>
          <x>10</x>
          <y>20</y>
-         <width>131</width>
+         <width>121</width>
          <height>31</height>
         </rect>
        </property>
@@ -2333,39 +2472,19 @@ border-radius: 0px;</string>
        </property>
        <item>
         <property name="text">
-         <string>matricule</string>
+         <string>id_M</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>marque</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>couleur</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>nb_places</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>quantite</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string/>
+         <string>matricule_V</string>
         </property>
        </item>
       </widget>
-      <widget class="QPushButton" name="B_ResetTableIntervenant">
+      <widget class="QPushButton" name="annulera">
        <property name="geometry">
         <rect>
-         <x>260</x>
+         <x>250</x>
          <y>20</y>
          <width>31</width>
          <height>31</height>
@@ -2397,6 +2516,42 @@ QPushButton:hover {
          <height>16</height>
         </size>
        </property>
+      </widget>
+      <widget class="QLineEdit" name="recherchera">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>20</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>rechercher...</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="lineedit">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>20</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: white;</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>id_M</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>matricule_V</string>
+        </property>
+       </item>
       </widget>
      </widget>
      <zorder>frame_10</zorder>

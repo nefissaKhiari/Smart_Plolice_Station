@@ -21,6 +21,9 @@ public:
       bool ajouterA();
       QSqlQueryModel*    afficherA();
       bool supprimerA(int,int);
+      QSqlQueryModel* Triera(QString);
+
+       QSqlQueryModel* recherchera(QString,QString);
 
 private:
  int  id_M, matricule_V;

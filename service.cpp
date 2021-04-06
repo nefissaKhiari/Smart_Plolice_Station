@@ -9,11 +9,12 @@ Service::Service()
     papiers_necess="";description="";
 }
 
-Service::Service(QString libelle, QString duree, QString papiers_necess, QString description,int id_citoyen)
+Service::Service(QString libelle, QString duree, QString papiers_necess, QString description,int id_citoyen,int id_policier)
 {
     this->libelle=libelle; this->duree=duree;
     this->papiers_necess=papiers_necess; this->description=description;
     this->id_citoyen=id_citoyen;
+    this->id_policier=id_policier;
 }
 int Service::getid(){return id;}
 QString Service::getlibelle(){return libelle;}
@@ -21,23 +22,26 @@ QString Service::getduree(){return duree;}
 QString Service::getpapiersnecess(){return papiers_necess;}
 QString Service::getdescription(){return description;}
 int Service::getid_citoyen(){return id_citoyen;}
+int Service::getidpolicier(){return id_citoyen;}
 void Service::setid(int id){this->id=id;}
 void Service::setlibelle(QString libelle){this->libelle=libelle;}
 void Service::setduree(QString duree){this->duree=duree;}
 void Service::setpapiersnecess(QString papiers_necess){this->papiers_necess=papiers_necess;}
 void Service::setdescription(QString description){this->description=description;}
 void Service::setid_citoyen(int id_citoyen){this->id_citoyen=id_citoyen;}
+void Service::setidpolicier(int id_policier){this->id_policier=id_policier;}
 bool Service::ajouter()
 {
     QSqlQuery query;
 
-        query.prepare("INSERT INTO services (libelle, duree, papiers_necess,description,id_citoyen) "
-                      "VALUES (:libelle, :duree, :papiers_necess,:description,:id_citoyen)");
+        query.prepare("INSERT INTO services (libelle, duree, papiers_necess,description,id_citoyen,id_policier) "
+                      "VALUES (:libelle, :duree, :papiers_necess,:description,:id_citoyen,:id_policier)");
         query.bindValue(0, libelle);
         query.bindValue(1, duree);
         query.bindValue(2,papiers_necess);
         query.bindValue(3,description);
         query.bindValue(4,id_citoyen);
+        query.bindValue(5,id_policier);
 
     return query.exec();
 
@@ -61,6 +65,7 @@ QSqlQueryModel* Service::afficher()
           model->setHeaderData(3, Qt::Horizontal, QObject::tr("papiers_necess"));
           model->setHeaderData(4, Qt::Horizontal, QObject::tr("decription"));
           model->setHeaderData(5, Qt::Horizontal, QObject::tr("id_citoyen"));
+           model->setHeaderData(6, Qt::Horizontal, QObject::tr("id_policier"));
     return model;
 }
 QSqlQueryModel* Service::listId() {

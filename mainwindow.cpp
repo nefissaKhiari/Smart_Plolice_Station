@@ -244,10 +244,13 @@ void MainWindow::on_B_AConfirmerService_clicked()
         QString papiers_necess = ui->LE_APapierService->text();
         QString description = ui->TE_ADescService->toPlainText();
         int id_citoyen=ui->CB_NomCitoyen->currentText().toInt();
-    Service S(libelle,duree,papiers_necess,description,id_citoyen);
+         int id_policier=ui->CB_Idpolicier->currentText().toInt();
+
+    Service S(libelle,duree,papiers_necess,description,id_citoyen,id_policier);
     if(S.ajouter()) {
         ui->T_Service ->setModel(S.afficher());
         ui->CB_IDService ->setModel(S.listId());
+        ui->CB_Idpolicier ->setModel(S.listId());
         ui->stackedWidget->setCurrentIndex(5);
 
         ui->LE_ATypeService ->setText("");

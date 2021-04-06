@@ -396,7 +396,7 @@ void AffairesJuridiques::on_B_Statistics_clicked()
     QPieSlice *fr = series->slices().at(1);
     QPieSlice *ag = series->slices().at(2);
     QPieSlice *lb = series->slices().at(3);
-    QPieSlice *autres = series->slices().at(4);
+    //QPieSlice *autres = series->slices().at(4);
     /*********************** Labels
     tn->setLabelVisible(true);
     fr->setLabelVisible(true);
@@ -424,11 +424,11 @@ void AffairesJuridiques::on_B_Statistics_clicked()
 
     /********************* BEGIN : Bars->Localisation *********************/
     int NE=intervenant.NE();
-    int NO=0;
-    int CE=0;
-    int CO=0;
-    int SE=0;
-    int SO=0;
+    int NO=intervenant.NO();
+    int CE=intervenant.CE();
+    int CO=intervenant.CO();
+    int SE=intervenant.SE();
+    int SO=intervenant.SO();
 
     QBarSet *set0 = new QBarSet("Tunis, Bizerte..");
     QBarSet *set1 = new QBarSet("Beja, Le Kef..");

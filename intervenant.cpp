@@ -178,49 +178,42 @@ int Intervenant::NE() {
     QSqlQuery bqry;
     bqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Bizerte'");
     bqry.exec();
-    //int b = 0;
     if (bqry.next()) {
         r += bqry.value(0).toInt();
     }
     QSqlQuery tqry;
     tqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Tunis'");
     tqry.exec();
-    //int t = 0;
     if (tqry.next()) {
         r += tqry.value(0).toInt();
     }
     QSqlQuery aqry;
     aqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Ariana'");
     aqry.exec();
-    //int a = 0;
     if (aqry.next()) {
         r += aqry.value(0).toInt();
     }
     QSqlQuery mqry;
     mqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='La Manouba'");
     mqry.exec();
-    //int m = 0;
     if (mqry.next()) {
         r += mqry.value(0).toInt();
     }
     QSqlQuery baqry;
     baqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Ben Arous'");
     baqry.exec();
-    //int ba = 0;
     if (baqry.next()) {
         r += baqry.value(0).toInt();
     }
     QSqlQuery zqry;
     zqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Zaghouan'");
     zqry.exec();
-    //int z = 0;
     if (zqry.next()) {
         r += zqry.value(0).toInt();
     }
     QSqlQuery nqry;
     nqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Nabeul'");
     nqry.exec();
-    //int z = 0;
     if (nqry.next()) {
         r += nqry.value(0).toInt();
     }
@@ -229,57 +222,139 @@ int Intervenant::NE() {
 }
 
 int Intervenant::NO() {
-    QSqlQuery qry;
-    qry.prepare("SELECT COUNT (*) FROM intervenant where localisation=''");
-    qry.exec();
-    int Lb= 0;
-    if (qry.next()) {
-        Lb= qry.value(0).toInt();
+    int  r=0;
+
+    QSqlQuery jqry;
+    jqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Jendouba'");
+    jqry.exec();
+    if (jqry.next()) {
+        r += jqry.value(0).toInt();
     }
-    return Lb;
+    QSqlQuery bqry;
+    bqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Beja'");
+    bqry.exec();
+    if (bqry.next()) {
+        r += bqry.value(0).toInt();
+    }
+    QSqlQuery kqry;
+    kqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Le Kef'");
+    kqry.exec();
+    if (kqry.next()) {
+        r += kqry.value(0).toInt();
+    }
+    QSqlQuery sqry;
+    sqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Siliana'");
+    sqry.exec();
+    if (sqry.next()) {
+        r += sqry.value(0).toInt();
+    }
+
+    return r;
 }
 
 int Intervenant::CE() {
-    QSqlQuery qry;
-    qry.prepare("SELECT COUNT (*) FROM intervenant where localisation=''");
-    qry.exec();
-    int Lb= 0;
-    if (qry.next()) {
-        Lb= qry.value(0).toInt();
+    int r=0;
+
+    QSqlQuery sqry;
+    sqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Sousse'");
+    sqry.exec();
+    if (sqry.next()) {
+        r += sqry.value(0).toInt();
     }
-    return Lb;
+    QSqlQuery mqry;
+    mqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Monastir'");
+    mqry.exec();
+    if (mqry.next()) {
+        r += mqry.value(0).toInt();
+    }
+    QSqlQuery maqry;
+    maqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Mahdia'");
+    maqry.exec();
+    if (maqry.next()) {
+        r += maqry.value(0).toInt();
+    }
+
+    return r;
 }
 
 int Intervenant::CO() {
-    QSqlQuery qry;
-    qry.prepare("SELECT COUNT (*) FROM intervenant where localisation=''");
-    qry.exec();
-    int Lb= 0;
-    if (qry.next()) {
-        Lb= qry.value(0).toInt();
+    int r=0;
+
+    QSqlQuery sqry;
+    sqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Sidi Bouzid'");
+    sqry.exec();
+    if (sqry.next()) {
+        r += sqry.value(0).toInt();
     }
-    return Lb;
+    QSqlQuery mqry;
+    mqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Kasserine'");
+    mqry.exec();
+    if (mqry.next()) {
+        r += mqry.value(0).toInt();
+    }
+    QSqlQuery maqry;
+    maqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Kairouan'");
+    maqry.exec();
+    if (maqry.next()) {
+        r += maqry.value(0).toInt();
+    }
+
+    return r;
 }
 
 int Intervenant::SE() {
-    QSqlQuery qry;
-    qry.prepare("SELECT COUNT (*) FROM intervenant where localisation=''");
-    qry.exec();
-    int Lb= 0;
-    if (qry.next()) {
-        Lb= qry.value(0).toInt();
+    int  r=0;
+
+    QSqlQuery jqry;
+    jqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Tataouine'");
+    jqry.exec();
+    if (jqry.next()) {
+        r += jqry.value(0).toInt();
     }
-    return Lb;
+    QSqlQuery bqry;
+    bqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Medenine'");
+    bqry.exec();
+    if (bqry.next()) {
+        r += bqry.value(0).toInt();
+    }
+    QSqlQuery kqry;
+    kqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Gabes'");
+    kqry.exec();
+    if (kqry.next()) {
+        r += kqry.value(0).toInt();
+    }
+    QSqlQuery sqry;
+    sqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Sfax'");
+    sqry.exec();
+    if (sqry.next()) {
+        r += sqry.value(0).toInt();
+    }
+
+    return r;
 }
 
 int Intervenant::SO() {
-    QSqlQuery qry;
-    qry.prepare("SELECT COUNT (*) FROM intervenant where localisation=''");
-    qry.exec();
-    int Lb= 0;
-    if (qry.next()) {
-        Lb= qry.value(0).toInt();
+    int r=0;
+
+    QSqlQuery sqry;
+    sqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Kebili'");
+    sqry.exec();
+    if (sqry.next()) {
+        r += sqry.value(0).toInt();
     }
-    return Lb;
+    QSqlQuery mqry;
+    mqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Tozeur'");
+    mqry.exec();
+    if (mqry.next()) {
+        r += mqry.value(0).toInt();
+    }
+    QSqlQuery maqry;
+    maqry.prepare("SELECT COUNT (*) FROM intervenant where localisation='Gafsa'");
+    maqry.exec();
+    if (maqry.next()) {
+        r += maqry.value(0).toInt();
+    }
+
+    return r;
 }
 

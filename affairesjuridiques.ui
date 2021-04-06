@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -1135,7 +1135,7 @@ QComboBox::drop-down {
         <string/>
        </property>
        <property name="placeholderText">
-        <string>Mail...</string>
+        <string>Exemple@mail.com</string>
        </property>
       </widget>
       <widget class="QPushButton" name="B_AConfirmerIntervenant">
@@ -1542,6 +1542,16 @@ QComboBox::drop-down {
        </item>
        <item>
         <property name="text">
+         <string>Kasserine</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Kebili</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
          <string>Le Kef</string>
         </property>
        </item>
@@ -1603,16 +1613,6 @@ QComboBox::drop-down {
        <item>
         <property name="text">
          <string>Tozeur</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Kasserine</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Kebili</string>
         </property>
        </item>
        <item>
@@ -2219,6 +2219,16 @@ QComboBox::drop-down {
        </item>
        <item>
         <property name="text">
+         <string>Kasserine</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Kebili</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
          <string>La Manouba</string>
         </property>
        </item>
@@ -2275,16 +2285,6 @@ QComboBox::drop-down {
        <item>
         <property name="text">
          <string>Tozeur</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Kasserine</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Kebili</string>
         </property>
        </item>
        <item>
@@ -3277,9 +3277,9 @@ background: transparent;;</string>
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>0</y>
+         <y>-867</y>
          <width>1207</width>
-         <height>1518</height>
+         <height>1498</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -3288,7 +3288,7 @@ background: transparent;;</string>
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>1500</height>
+            <height>1480</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -3464,12 +3464,151 @@ background: transparent;
             <string>Statistiques sur les Localisations</string>
            </property>
           </widget>
+          <widget class="QLabel" name="L_ConfigIntervenant_7">
+           <property name="geometry">
+            <rect>
+             <x>80</x>
+             <y>1170</y>
+             <width>391</width>
+             <height>71</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>century gothic</family>
+             <pointsize>-1</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: transparent;</string>
+           </property>
+           <property name="text">
+            <string>Statistiques sur les Localisations</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="L_ConfigIntervenant_8">
+           <property name="geometry">
+            <rect>
+             <x>170</x>
+             <y>1240</y>
+             <width>201</width>
+             <height>71</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>century gothic</family>
+             <pointsize>-1</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: transparent;</string>
+           </property>
+           <property name="text">
+            <string>des intervenants</string>
+           </property>
+          </widget>
+          <widget class="QFrame" name="F_StatisticAge">
+           <property name="geometry">
+            <rect>
+             <x>540</x>
+             <y>1000</y>
+             <width>641</width>
+             <height>481</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: rgb(0, 0, 0,);</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_4"/>
+          </widget>
+          <widget class="QFrame" name="F_Statistic_Age">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>1000</y>
+             <width>651</width>
+             <height>481</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: rgb(0, 0, 0,);</string>
+           </property>
+           <widget class="QLabel" name="L_ConfigIntervenant_9">
+            <property name="geometry">
+             <rect>
+              <x>121</x>
+              <y>180</y>
+              <width>301</width>
+              <height>71</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>century gothic</family>
+              <pointsize>-1</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background: transparent;</string>
+            </property>
+            <property name="text">
+             <string>Statistiques sur les Ages</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="L_ConfigIntervenant_10">
+            <property name="geometry">
+             <rect>
+              <x>170</x>
+              <y>250</y>
+              <width>201</width>
+              <height>71</height>
+             </rect>
+            </property>
+            <property name="font">
+             <font>
+              <family>century gothic</family>
+              <pointsize>-1</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background: transparent;</string>
+            </property>
+            <property name="text">
+             <string>des intervenants</string>
+            </property>
+           </widget>
+          </widget>
           <zorder>F_Statistic_Nationalite</zorder>
           <zorder>F_Statistic</zorder>
           <zorder>F_Statistic_Local</zorder>
           <zorder>L_ConfigIntervenant_6</zorder>
           <zorder>L_ConfigIntervenant_5</zorder>
           <zorder>F_StatisticLocal</zorder>
+          <zorder>L_ConfigIntervenant_7</zorder>
+          <zorder>L_ConfigIntervenant_8</zorder>
+          <zorder>F_StatisticAge</zorder>
+          <zorder>F_Statistic_Age</zorder>
          </widget>
         </item>
        </layout>

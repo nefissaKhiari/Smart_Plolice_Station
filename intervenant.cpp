@@ -91,27 +91,17 @@ QSqlQueryModel* Intervenant::Trier(QString tri) {
     return model;
 }
 
-QSqlQueryModel* Intervenant::ChercherP(QString cherche) {
+QSqlQueryModel* Intervenant::Chercher(QString rechercher,QString by) {
     QSqlQueryModel* model = new QSqlQueryModel();
-    model->setQuery("SELECT * FROM intervenant WHERE prenom LIKE '"+cherche+"%' ");
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
-    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Nationalité"));
-    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Localisation"));
-    model->setHeaderData(5, Qt::Horizontal, QObject::tr("Mail"));
-    return model;
-}
-
-QSqlQueryModel* Intervenant::ChercherC(QString cherche) {
-    QSqlQueryModel* model = new QSqlQueryModel();
-    model->setQuery("SELECT * FROM intervenant WHERE cin LIKE '"+cherche+"%' ");
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
-    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Nationalité"));
-    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Localisation"));
-    model->setHeaderData(5, Qt::Horizontal, QObject::tr("Mail"));
+    if(by=="CIN") {
+        model->setQuery("SELECT * FROM intervenant WHERE cin LIKE '"+rechercher+"%'");
+    }
+    else if(by=="Localisation") {
+       model->setQuery("SELECT * FROM intervenant WHERE localisation LIKE '"+rechercher+"%'");
+    }
+    else if(by=="Prenom") {
+        model->setQuery("SELECT * FROM intervenant WHERE prenom LIKE '"+rechercher+"%'");
+    }
     return model;
 }
 

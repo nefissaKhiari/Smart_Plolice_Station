@@ -64,17 +64,11 @@ private slots:
 
     void on_B_Trier_clicked();
 
-    void on_B_Recherche_clicked();
-
     void on_B_Statistics_clicked();
 
     void on_B_BackToGestions_3_clicked();
 
-    void on_LE_ChercherNom_returnPressed();
-
     void on_LE_ChercherPrenom_returnPressed();
-
-    void on_LE_ChercherNom_textChanged(const QString &arg1);
 
     void on_LE_ChercherPrenom_textChanged(const QString &arg1);
 

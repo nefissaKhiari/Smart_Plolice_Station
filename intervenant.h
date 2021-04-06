@@ -43,10 +43,7 @@ public:
     QSqlQueryModel* listCin();
 
     QSqlQueryModel* Trier(QString);
-    QSqlQueryModel* RechercheCin();
-    QSqlQueryModel* ChercherP(QString);
-    QSqlQueryModel* ChercherC(QString);
-
+    QSqlQueryModel* Chercher(QString,QString);
 };
 
 #endif // INTERVENANT_H

@@ -24,7 +24,6 @@ AffairesJuridiques::AffairesJuridiques(QWidget *parent)
     ui->LE_APrenomIntervenant->setValidator(GenVal);
     ui->LE_ALocalIntervenant->setValidator(GenVal);*/
     ui->LE_ACinIntervenant->setValidator(new QIntValidator(1, 99999999, this));
-    ui->LE_ChercherNom->setValidator(new QIntValidator(1, 99999999, this));
 
     ui->stackedWidget->setCurrentIndex(0);
 
@@ -354,7 +353,6 @@ void AffairesJuridiques::on_B_MConfirmerAffaire_clicked()
 void AffairesJuridiques::on_B_ResetTableIntervenant_clicked()
 {
     son->play();
-    ui->LE_ChercherNom->setText("");
     ui->LE_ChercherPrenom->setText("");
     ui->T_Intervenants->setModel(intervenant.afficher());
 }
@@ -364,25 +362,6 @@ void AffairesJuridiques::on_B_Trier_clicked()
     son->play();
     QString Tri = ui->CB_TriIntervenant->currentText();
     ui->T_Intervenants->setModel(intervenant.Trier(Tri));
-}
-
-void AffairesJuridiques::on_B_Recherche_clicked()
-{
-    son->play();
-    QString cinn = ui->LE_ChercherNom->text();
-    QString prenom = ui->LE_ChercherPrenom->text();
-    if((cinn != "") && (prenom != "")) {
-        QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("Il faut Chercher avec le Nom OU le Prenom.\n" "Cliquer Ok."), QMessageBox::Ok);
-    }
-    else if((cinn == "") && (prenom == "")) {
-        QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("Il faut Chercher avec le Nom OU le Prenom.\n" "Cliquer Ok."), QMessageBox::Ok);
-    }
-    else if(cinn != ""){
-        ui->T_Intervenants->setModel(intervenant.ChercherC(cinn));
-    }
-    else if(prenom != ""){
-        ui->T_Intervenants->setModel(intervenant.ChercherP(prenom));
-    }
 }
 
 void AffairesJuridiques::on_B_Statistics_clicked()
@@ -477,40 +456,23 @@ void AffairesJuridiques::on_B_BackToGestions_3_clicked()
     ui->stackedWidget->setCurrentIndex(1);
 }
 
-void AffairesJuridiques::on_LE_ChercherNom_returnPressed()
-{
-    son->play();
-    QString cinn = ui->LE_ChercherNom->text();
-    if(cinn == "") {
-        QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("Il faut Chercher avec le Nom OU le Prenom.\n" "Cliquer Ok."), QMessageBox::Ok);
-    }
-    else {
-        ui->T_Intervenants->setModel(intervenant.ChercherC(cinn));
-    }
-}
-
 void AffairesJuridiques::on_LE_ChercherPrenom_returnPressed()
 {
     son->play();
-    QString prenom = ui->LE_ChercherPrenom->text();
-    if(prenom == "") {
-            QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("Il faut Chercher avec le Nom OU le Prenom.\n" "Cliquer Ok."), QMessageBox::Ok);
+    QString by = ui->CB_ChercherIntervenant->currentText();;
+    QString chercher = ui->LE_ChercherPrenom->text();
+    if(chercher == "") {
+            QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("Vide.\n" "Cliquer Ok."), QMessageBox::Ok);
         }
     else {
-        ui->T_Intervenants->setModel(intervenant.ChercherP(prenom));
+        ui->T_Intervenants->setModel(intervenant.Chercher(chercher, by));
     }
-}
-
-void AffairesJuridiques::on_LE_ChercherNom_textChanged(const QString &arg1)
-{
-    son->play();
-    ui->T_Intervenants->setModel(intervenant.ChercherC(arg1));
 }
 
 void AffairesJuridiques::on_LE_ChercherPrenom_textChanged(const QString &arg1)
 {
-    son->play();
-    ui->T_Intervenants->setModel(intervenant.ChercherP(arg1));
+    QString by = ui->CB_ChercherIntervenant->currentText();
+    ui->T_Intervenants->setModel(intervenant.Chercher(arg1, by));
 }
 
 void AffairesJuridiques::on_B_Chat_clicked()

@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -1015,7 +1015,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>450</y>
+         <y>440</y>
          <width>131</width>
          <height>31</height>
         </rect>
@@ -1031,7 +1031,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>320</y>
+         <y>380</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -1047,7 +1047,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>380</y>
+         <y>320</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -1085,24 +1085,11 @@ QPushButton:hover {
         <string>Prenom...</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="LE_ALocalIntervenant">
-       <property name="geometry">
-        <rect>
-         <x>240</x>
-         <y>320</y>
-         <width>351</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>Localisation...</string>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="LE_AMailIntervenant">
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>380</y>
+         <y>320</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1231,7 +1218,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>450</y>
+         <y>440</y>
          <width>191</width>
          <height>31</height>
         </rect>
@@ -1407,6 +1394,196 @@ font-size: 12px;</string>
         <string/>
        </property>
       </widget>
+      <widget class="QComboBox" name="CB_ALocalIntervenant">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>380</y>
+         <width>191</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QComboBox {
+  border: 1px solid red;
+  border-radius: 4px;
+  background: white;
+}
+
+QComboBox QAbstractItemView {
+  border: 1px solid black;
+  border-radius: 0;
+  background-color: white;
+  selection-background-color:#305068;
+}
+
+QComboBox QAbstractItemView:hover {
+  background-color: white;
+  color: #F0F0F0;
+}
+
+QComboBox QAbstractItemView:selected {
+  background: #1464A0;
+  color: #32414B;
+}
+
+QComboBox QAbstractItemView:alternate {
+  background: #19232D;
+}
+
+QComboBox:disabled {
+  background-color: #19232D;
+  color: #787878;
+}
+
+QComboBox:hover {
+  border: 1px solid #148CD2;
+}
+
+QComboBox:focus {
+  border: 1px solid #1464A0;
+}
+
+QComboBox:on {
+  selection-background-color: #1464A0;
+}
+
+QComboBox::item:checked {
+  font-weight: bold;
+}
+
+QComboBox::item:selected {
+  border: 0px solid transparent;
+}
+
+QComboBox::drop-down {
+  subcontrol-origin: padding;
+  subcontrol-position: top right;
+  width: 12px;
+  border-left: 1px solid #32414B;
+}</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Ariana</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Beja</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ben Arous</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Bizerte</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Gabes</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Gafsa</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Jendouba</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Kairouan</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Le Kef</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>La Manouba</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Monastir</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Mahdia</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Medenine</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Nabeul</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sousse</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sfax</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Siliana</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sidi Bouzid</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tunis</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tataouine</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tozeur</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Kasserine</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Kebili</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Zaghouan</string>
+        </property>
+       </item>
+      </widget>
      </widget>
      <zorder>frame_4</zorder>
      <zorder>toolButton_3</zorder>
@@ -1516,7 +1693,7 @@ font-size: 12px;</string>
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>450</y>
+         <y>440</y>
          <width>131</width>
          <height>31</height>
         </rect>
@@ -1532,7 +1709,7 @@ font-size: 12px;</string>
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>320</y>
+         <y>380</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -1548,7 +1725,7 @@ font-size: 12px;</string>
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>380</y>
+         <y>320</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -1586,24 +1763,11 @@ font-size: 12px;</string>
         <string>Prenom...</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="LE_MLocalIntervenant">
-       <property name="geometry">
-        <rect>
-         <x>240</x>
-         <y>320</y>
-         <width>351</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>Ville, Rue, Code postale...</string>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="LE_MMailIntervenant">
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>380</y>
+         <y>320</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1726,7 +1890,7 @@ font-size: 12px;</string>
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>450</y>
+         <y>440</y>
          <width>191</width>
          <height>31</height>
         </rect>
@@ -1901,6 +2065,196 @@ font-size: 12px;</string>
        <property name="text">
         <string/>
        </property>
+      </widget>
+      <widget class="QComboBox" name="CB_MLocalIntervenant">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>380</y>
+         <width>191</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QComboBox {
+  border: 1px solid red;
+  border-radius: 4px;
+  background: white;
+}
+
+QComboBox QAbstractItemView {
+  border: 1px solid black;
+  border-radius: 0;
+  background-color: white;
+  selection-background-color:#305068;
+}
+
+QComboBox QAbstractItemView:hover {
+  background-color: white;
+  color: #F0F0F0;
+}
+
+QComboBox QAbstractItemView:selected {
+  background: #1464A0;
+  color: #32414B;
+}
+
+QComboBox QAbstractItemView:alternate {
+  background: #19232D;
+}
+
+QComboBox:disabled {
+  background-color: #19232D;
+  color: #787878;
+}
+
+QComboBox:hover {
+  border: 1px solid #148CD2;
+}
+
+QComboBox:focus {
+  border: 1px solid #1464A0;
+}
+
+QComboBox:on {
+  selection-background-color: #1464A0;
+}
+
+QComboBox::item:checked {
+  font-weight: bold;
+}
+
+QComboBox::item:selected {
+  border: 0px solid transparent;
+}
+
+QComboBox::drop-down {
+  subcontrol-origin: padding;
+  subcontrol-position: top right;
+  width: 12px;
+  border-left: 1px solid #32414B;
+}</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Ariana</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Beja</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ben Arous</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Bizerte</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Gabes</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Gafsa</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Jendouba</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Kairouan</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Le Kef</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>La Manouba</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Monastir</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Mahdia</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Medenine</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Nabeul</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sousse</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sfax</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Siliana</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Sidi Bouzid</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tunis</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tataouine</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Tozeur</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Kasserine</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Kebili</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Zaghouan</string>
+        </property>
+       </item>
       </widget>
      </widget>
      <zorder>frame_5</zorder>

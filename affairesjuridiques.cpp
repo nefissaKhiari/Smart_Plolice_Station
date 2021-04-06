@@ -86,24 +86,8 @@ void AffairesJuridiques::on_B_ModifierIntervenant_clicked()
             ui->LE_MCinIntervenant->setText(qry.value(0).toString());
             ui->LE_MNomIntervenant->setText(qry.value(1).toString());
             ui->LE_MPrenomIntervenant->setText(qry.value(2).toString());
-            ui->CB_ANationaliteIntervenant->setCurrentText(qry.value(3).toString());
-            QString Nat = qry.value(3).toString();
-            if(Nat == "Tunisienne") {
-                ui->CB_MNationaliteIntervenant->setCurrentText("Tunisienne");
-            }
-            else if(Nat == "Algerienne") {
-                ui->CB_MNationaliteIntervenant->setCurrentText("Algerienne");
-            }
-            else if(Nat == "Francaise") {
-                ui->CB_MNationaliteIntervenant->setCurrentText("Francaise");
-            }
-            else if(Nat == "Libanaise") {
-                ui->CB_MNationaliteIntervenant->setCurrentText("Libanaise");
-            }
-            else if(Nat == "Autres...") {
-                ui->CB_MNationaliteIntervenant->setCurrentText("Autres...");
-            }
-            ui->LE_MLocalIntervenant->setText(qry.value(4).toString());
+            ui->CB_MNationaliteIntervenant->setCurrentText(qry.value(3).toString());
+            ui->CB_MLocalIntervenant->setCurrentText(qry.value(4).toString());
             ui->LE_MMailIntervenant->setText(qry.value(5).toString());
         }
     }
@@ -124,7 +108,6 @@ void AffairesJuridiques::on_B_AAnnulerIntervenant_clicked()
     ui->LE_ACinIntervenant->setText("");
     ui->LE_ANomIntervenant->setText("");
     ui->LE_APrenomIntervenant->setText("");
-    ui->LE_ALocalIntervenant->setText("");
     ui->LE_AMailIntervenant->setText("");
 }
 
@@ -176,13 +159,13 @@ void AffairesJuridiques::on_B_AConfirmerIntervenant_clicked()
 {
     son->play();
     /*************** BEGIN : Controle de Saisir L'ajout d'Intervenant ***************/
-    bool overAll = false, cin_B, nom_B, prenom_B, mail_B, local_B;
+    bool overAll = false, cin_B, nom_B, prenom_B, mail_B;
     int cin = ui->LE_ACinIntervenant->text().toInt();
     QString cin_l = ui->LE_ACinIntervenant->text();
     QString nom = ui->LE_ANomIntervenant->text();
     QString prenom = ui->LE_APrenomIntervenant->text();
     QString nationalite = ui->CB_ANationaliteIntervenant->currentText();
-    QString localisation = ui->LE_ALocalIntervenant->text();
+    QString localisation = ui->CB_ALocalIntervenant->currentText();
     QString mail = ui->LE_AMailIntervenant->text();
 
     // BEGIN : cin
@@ -227,23 +210,12 @@ void AffairesJuridiques::on_B_AConfirmerIntervenant_clicked()
     // END : Prenom
 
     // BEGIN : Local
-    if(localisation.length() < 10) {
-        local_B = false;
-        ui->L_ALocalIntAlert->setText("Il faut 10 charactere Minimum");
-        ui->L_ALocalIntAlert->setStyleSheet("QLabel{color: red; font-size: 12px;}");
-    }
-    else {
-        local_B = true;        
-        localisation[0] = localisation[0].toUpper();
-        ui->L_ALocalIntAlert->setText("Ok");
-        ui->L_ALocalIntAlert->setStyleSheet("QLabel{color: green; font-size: 12px;}");
-    }
     // END : Local
 
     // BEGIN : Mail
     // END : Mail
 
-    (cin_B && nom_B && prenom_B && local_B)? overAll = true : overAll = false;
+    (cin_B && nom_B && prenom_B)? overAll = true : overAll = false;
     /*************** END : Controle de Saisir L'ajout d'Intervenant ***************/
 
     /*************** BEGIN : Ajouter sur BaseDonnee ***************/
@@ -259,7 +231,6 @@ void AffairesJuridiques::on_B_AConfirmerIntervenant_clicked()
                 ui->LE_ACinIntervenant->setText("");
                 ui->LE_ANomIntervenant->setText("");
                 ui->LE_APrenomIntervenant->setText("");
-                ui->LE_ALocalIntervenant->setText("");
                 ui->LE_AMailIntervenant->setText("");
             }
             else {
@@ -302,7 +273,7 @@ void AffairesJuridiques::on_B_MConfirmerIntervenant_clicked()
         affaire.setNom(ui->LE_MNomIntervenant->text());
         affaire.setPrenom(ui->LE_MPrenomIntervenant->text());
         affaire.setNationalite(ui->CB_MNationaliteIntervenant->currentText());
-        affaire.setLocalisation(ui->LE_MLocalIntervenant->text());
+        affaire.setLocalisation(ui->CB_MLocalIntervenant->currentText());
         affaire.setMail(ui->LE_MMailIntervenant->text());
         if(affaire.modifier()) {
             ui->CB_IDIntervenant->setModel(intervenant.listCin());

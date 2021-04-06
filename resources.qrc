@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/resources">
+        <file>image/add.png</file>
+        <file>image/back-arrow (1).png</file>
+        <file>image/background.png</file>
+        <file>image/edit.png</file>
+        <file>image/email.png</file>
+        <file>image/excel.png</file>
+        <file>image/gdpr.png</file>
+        <file>image/loupe.png</file>
+        <file>image/policeman.png</file>
+        <file>image/sort-down.png</file>
+        <file>image/trash.png</file>
+        <file>../../../../Downloads/close.png</file>
+        <file>../../../../Downloads/check-mark.png</file>
+        <file>image/86776531_494504471503098_5865239929629442048_n.png</file>
+    </qresource>
+</RCC>

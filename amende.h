@@ -1,0 +1,56 @@
+#ifndef AMENDE_H
+#define AMENDE_H
+
+#include <QString>
+#include <QSqlQueryModel>
+
+
+class Amende
+{
+private:
+    int ID_amende;
+    QString type_amende;
+   int prix_amende;
+    QString description_amende;
+    QString lieu_amende;
+   QString  date_amende;
+
+public:
+   Amende();
+   Amende(int, QString, int, QString, QString, QString);
+
+    void setId_amende(int);
+    int getId_amende();
+
+    void setType_amende(QString);
+    QString getType_amende();
+
+    void setPrix_amende(int);
+    int getPrix_amende();
+
+    void setDescription_amende(QString);
+    QString getDescription_amende();
+
+    void setLieu_amende(QString);
+    QString getLieu_amende();
+
+    void setDate_amende(  QString);
+      QString getDate_amende();
+
+
+
+    bool ajouter_amende();
+    bool modifier_amende();
+    bool supprimer_amende(int);
+
+    QSqlQueryModel* afficher_amende();
+    QSqlQueryModel* listId_amende();
+
+    QSqlQueryModel* Envoyer_sms_amende(QString);
+
+
+
+};
+
+
+#endif // AMENDE_H

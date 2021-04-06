@@ -38,6 +38,17 @@ public:
     bool ajouter();
     bool modifier();
     bool supprimer(int);
+    int NatA();
+    int NatTn();
+    int NatFr();
+    int NatAg();
+    int NatLb();
+    int NE();
+    int NO();
+    int CE();
+    int CO();
+    int SE();
+    int SO();
 
     QSqlQueryModel* afficher();
     QSqlQueryModel* listCin();

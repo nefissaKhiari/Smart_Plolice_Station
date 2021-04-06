@@ -377,41 +377,11 @@ void AffairesJuridiques::on_B_Statistics_clicked()
 
     /********************* BEGIN : Donut->Nationalite *********************/
     QSqlQuery qry;
-
-    qry.prepare("SELECT COUNT (*) FROM intervenant where Nationalite='Autres...'");
-    qry.exec();
-    int Autres= 0;
-    if (qry.next()) {
-        Autres= qry.value(0).toInt();
-    }
-
-    qry.prepare("SELECT COUNT (*) FROM intervenant where Nationalite='Tunisienne'");
-    qry.exec();
-    int Tn= 0;
-    if (qry.next()) {
-        Tn= qry.value(0).toInt();
-    }
-
-    qry.prepare("SELECT COUNT (*) FROM intervenant where Nationalite='Algerienne'");
-    qry.exec();
-    int Ag= 0;
-    if (qry.next()) {
-        Ag= qry.value(0).toInt();
-    }
-
-    qry.prepare("SELECT COUNT (*) FROM intervenant where Nationalite='Francaise'");
-    qry.exec();
-    int Fr= 0;
-    if (qry.next()) {
-        Fr= qry.value(0).toInt();
-    }
-
-    qry.prepare("SELECT COUNT (*) FROM intervenant where Nationalite='Libanaise'");
-    qry.exec();
-    int Lb= 0;
-    if (qry.next()) {
-        Lb= qry.value(0).toInt();
-    }
+    int Autres=intervenant.NatA();
+    int Tn=intervenant.NatTn();
+    int Ag=intervenant.NatAg();
+    int Fr=intervenant.NatFr();
+    int Lb=intervenant.NatLb();
 
     QPieSeries *series = new QPieSeries();
     series->append("Tunisienne", Tn);
@@ -427,25 +397,77 @@ void AffairesJuridiques::on_B_Statistics_clicked()
     QPieSlice *ag = series->slices().at(2);
     QPieSlice *lb = series->slices().at(3);
     QPieSlice *autres = series->slices().at(4);
+    /*********************** Labels
     tn->setLabelVisible(true);
-    tn->setBrush(Qt::red);
     fr->setLabelVisible(true);
-    fr->setBrush(Qt::blue);
     ag->setLabelVisible(true);
-    ag->setBrush(Qt::green);
     lb->setLabelVisible(true);
+    autres->setLabelVisible(true);
+    ******************************/
+    tn->setBrush(Qt::red);
+    fr->setBrush(Qt::blue);
+    ag->setBrush(Qt::green);
     lb->setPen(QPen(Qt::green, 1));
     lb->setBrush(Qt::white);
-    autres->setLabelVisible(true);
     fr->setBrush(Qt::darkBlue);
 
     QChart *chart = new QChart();
     chart->addSeries(series);
-    chart->setTitle("Les statistics de Nationalite : ");
+    chart->setTitle("Nationalite des Intervenants");
+    chart->legend()->setVisible(true);
+    chart->legend()->setAlignment(Qt::AlignBottom);
+    chart->setAnimationOptions(QChart::AllAnimations);
 
     QChartView *chartView = new QChartView(chart);
     chartView->setParent(ui->F_Statistic);
     /********************* END : Donut->Nationalite *********************/
+
+    /********************* BEGIN : Bars->Localisation *********************/
+    int NE=intervenant.NE();
+    int NO=0;
+    int CE=0;
+    int CO=0;
+    int SE=0;
+    int SO=0;
+
+    QBarSet *set0 = new QBarSet("Tunis, Bizerte..");
+    QBarSet *set1 = new QBarSet("Beja, Le Kef..");
+    QBarSet *set2 = new QBarSet("Sousse, Mehdia..");
+    QBarSet *set3 = new QBarSet("Kairouan..");
+    QBarSet *set4 = new QBarSet("Sfax, Gabes..");
+    QBarSet *set5 = new QBarSet("Gafsa, Tozeur..");
+
+    *set0 << NE << 0 << 0 << 0 << 0 << 0;
+    *set1 << 0 << NO << 0 << 0 << 0 << 0;
+    *set2 << 0 << 0 << CE << 0 << 0 << 0;
+    *set3 << 0 << 0 << 0 << CO << 0 << 0;
+    *set4 << 0 << 0 << 0 << 0 << SE << 0;
+    *set5 << 0 << 0 << 0 << 0 << 0 << SO;
+
+    QBarSeries *seriess = new QBarSeries();
+    seriess->append(set0);
+    seriess->append(set1);
+    seriess->append(set2);
+    seriess->append(set3);
+    seriess->append(set4);
+    seriess->append(set5);
+
+    QChart *charts = new QChart();
+    charts->addSeries(seriess);
+    charts->setTitle("Localisation des Intervenants");
+    charts->setAnimationOptions(QChart::AllAnimations);
+    QStringList categories;
+    categories << "Nord-Est" << "Nord-Ouest" << "Centre-Est" << "Centre-Ouest" << "Sud-Est" << "Sud-Ouest";
+    QBarCategoryAxis *axis = new QBarCategoryAxis();
+    axis->append(categories);
+    charts->createDefaultAxes();
+    charts->setAxisX(axis, seriess);
+    charts->legend()->setVisible(true);
+    charts->legend()->setAlignment(Qt::AlignBottom);
+    QChartView *chartsView = new QChartView(charts);
+    chartsView->setRenderHint(QPainter::Antialiasing);
+    chartsView->setParent(ui->F_StatisticLocal);
+    /********************* END : Bars->Localisation *********************/
 
     ui->stackedWidget->setCurrentIndex(7);
 }

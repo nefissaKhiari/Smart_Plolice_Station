@@ -6,10 +6,18 @@
 #include <QMainWindow>
 #include <QtCharts>
 #include <QChartView>
+#include <QBarSeries>
+#include <QBarSet>
+#include <QLegend>
+#include <QBarCategoryAxis>
+#include <QHorizontalStackedBarSeries>
+#include <QLineSeries>
+#include <QCategoryAxis>
 #include <QPieSeries>
 #include <QPieSlice>
 #include <QSound>
 
+QT_CHARTS_USE_NAMESPACE;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class AffairesJuridiques; }

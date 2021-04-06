@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -3383,7 +3383,7 @@ background: transparent;
             </property>
            </widget>
           </widget>
-          <widget class="QFrame" name="F_Statistic_3">
+          <widget class="QFrame" name="F_StatisticLocal">
            <property name="geometry">
             <rect>
              <x>540</x>
@@ -3397,7 +3397,7 @@ background: transparent;
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_3"/>
           </widget>
-          <widget class="QFrame" name="F_Statistic_4">
+          <widget class="QFrame" name="F_Statistic_Local">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -3410,10 +3410,66 @@ background: transparent;
             <string notr="true">background: rgb(0, 0, 0,);</string>
            </property>
           </widget>
+          <widget class="QLabel" name="L_ConfigIntervenant_6">
+           <property name="geometry">
+            <rect>
+             <x>170</x>
+             <y>740</y>
+             <width>201</width>
+             <height>71</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>century gothic</family>
+             <pointsize>-1</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: transparent;</string>
+           </property>
+           <property name="text">
+            <string>des intervenants</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="L_ConfigIntervenant_5">
+           <property name="geometry">
+            <rect>
+             <x>80</x>
+             <y>670</y>
+             <width>391</width>
+             <height>71</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>century gothic</family>
+             <pointsize>-1</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: transparent;</string>
+           </property>
+           <property name="text">
+            <string>Statistiques sur les Localisations</string>
+           </property>
+          </widget>
           <zorder>F_Statistic_Nationalite</zorder>
           <zorder>F_Statistic</zorder>
-          <zorder>F_Statistic_3</zorder>
-          <zorder>F_Statistic_4</zorder>
+          <zorder>F_Statistic_Local</zorder>
+          <zorder>L_ConfigIntervenant_6</zorder>
+          <zorder>L_ConfigIntervenant_5</zorder>
+          <zorder>F_StatisticLocal</zorder>
          </widget>
         </item>
        </layout>

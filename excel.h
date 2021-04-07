@@ -25,7 +25,7 @@ public:
                       QTableView *tableview):excelFilePath(filepath),
                       sheetName(sheettitle), tableView(tableview){}
 
-    ~EXCEL() {QSqlDatabase::removeDatabase("Gestion_Ecole");}
+    ~EXCEL() {QSqlDatabase::removeDatabase("excelexport");}
 
 public:
     void setOutputFilePath(const QString &spath) {excelFilePath = spath;}

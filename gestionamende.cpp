@@ -348,13 +348,13 @@ void GestionAmende::on_B_Excel_clicked()
 
         //colums to export
 
-        obj.addField(1, "cin_policier", "number");
-        obj.addField(2, "nom_policier", "char(20)");
-        obj.addField(3, "prenom_policier", "char(20)");
-         obj.addField(4, "grade_policier", "char(20)");
-         obj.addField(5, "mdp_policier", "char(20)");
-         obj.addField(6, "photo_policier", "char(20)");
-         obj.addField(7, "secteur_policier", "char(20)");
+        obj.addField(0, "cin_policier", "number");
+        obj.addField(1, "nom_policier", "char(20)");
+        obj.addField(2, "prenom_policier", "char(20)");
+         obj.addField(3, "grade_policier", "char(20)");
+         obj.addField(4, "mdp_policier", "char(20)");
+         obj.addField(5, "photo_policier", "char(20)");
+         obj.addField(6, "secteur_policier", "char(20)");
 
 
 
@@ -394,3 +394,55 @@ void GestionAmende::on_B_Recherche_clicked()
 
 
 }
+
+void GestionAmende::on_B_imprimer_clicked()
+{
+    QString strStream;
+        QTextStream out(&strStream);
+
+        const int rowCount = ui->T_Policier->model()->rowCount();
+        const int columnCount =ui->T_Policier->model()->columnCount();
+
+        out <<  "<html>\n"
+            "<head>\n"
+            "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+            <<  QString("<title>%1</title>\n").arg("strTitle")
+            <<  "</head>\n"
+            "<body bgcolor=#ffffff link=#5000A0>\n"
+            "<table border=1 cellspacing=0 cellpadding=2>\n";
+
+        // headers
+        out << "<thead><tr bgcolor=#f0f0f0>";
+        for (int column = 0; column < columnCount; column++)
+          //  if (ui->table_journaliste->isColumnHidden(column))
+                out << QString("<th>%1</th>").arg(ui->T_Policier->model()->headerData(column, Qt::Horizontal).toString());
+        out << "</tr></thead>\n";
+
+        // data table
+        for (int row = 0; row < rowCount; row++) {
+            out << "<tr>";
+            for (int column = 0; column < columnCount; column++) {
+                if (!ui->T_Policier->isColumnHidden(column)) {
+                    QString data = ui->T_Policier->model()->data(ui->T_Policier->model()->index(row, column)).toString().simplified();
+                    out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                }
+            }
+            out << "</tr>\n";
+        }
+        out <<  "</table>\n"
+            "</body>\n"
+            "</html>\n";
+
+        QTextDocument *document = new QTextDocument();
+        document->setHtml(strStream);
+
+        QPrinter printer;
+
+        QPrintDialog *dialog = new QPrintDialog(&printer, NULL);
+        if (dialog->exec() == QDialog::Accepted) {
+            document->print(&printer);
+        }
+
+        delete document;
+    }
+

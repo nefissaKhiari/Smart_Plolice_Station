@@ -4,6 +4,26 @@
 #include <QMainWindow>
 #include "amende.h"
 #include "policier.h"
+#include "excel.h"
+
+
+#include <QMainWindow>
+#include <QSortFilterProxyModel>
+#include <QTextTableFormat>
+#include <QStandardItemModel>
+#include <QDialog>
+#include <QFileDialog>
+#include <QMessageBox>
+
+#include <QPainter>
+#include <QtPrintSupport/QPrinter>
+#include <QTextDocument>
+#include <QPrintDialog>
+#include <QTextStream>
+
+
+
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class GestionAmende; }
@@ -67,6 +87,8 @@ private slots:
  void on_B_Excel_clicked();
 
  void on_B_Recherche_clicked();
+
+ void on_B_imprimer_clicked();
 
 private:
     Ui::GestionAmende *ui;

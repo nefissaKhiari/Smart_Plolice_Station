@@ -871,12 +871,39 @@ QPushButton:hover {
        </size>
       </property>
      </widget>
+     <widget class="QPushButton" name="B_imprimer">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>110</y>
+        <width>221</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="text">
+       <string>imprimer</string>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/resources/image/excel.png</normaloff>:/resources/image/excel.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
+      </property>
+     </widget>
      <zorder>frame</zorder>
      <zorder>B_BackToGestionAmende</zorder>
      <zorder>frame_2</zorder>
      <zorder>toolButton</zorder>
      <zorder>frame_10</zorder>
      <zorder>B_Excel</zorder>
+     <zorder>B_imprimer</zorder>
     </widget>
     <widget class="QWidget" name="Ajouter_policier">
      <widget class="QToolButton" name="toolButton_3">

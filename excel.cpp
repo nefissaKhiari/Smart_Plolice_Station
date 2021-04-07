@@ -12,7 +12,7 @@ int EXCEL::export2Excel()
         return -1;
     }
 
-    QSqlDatabase db = QSqlDatabase::addDatabase("QODBC", "Gestion_Ecole");
+    QSqlDatabase db = QSqlDatabase::addDatabase("QODBC", "excelexport");
     if(!db.isValid())
     {
         qDebug() << "ExportExcelObject::export2Excel failed: QODBC not supported.";
@@ -25,9 +25,9 @@ int EXCEL::export2Excel()
     qDebug() << "dsn = " << dsn;
     if(!db.open())
     {
-        qDebug() << db.lastError();
+       // qDebug() << db.lastError();
         qDebug() << "ExportExcelObject::export2Excel failed: Create Excel file failed by DRIVER={Microsoft Excel Driver (*.xls)}.";
-        QSqlDatabase::removeDatabase("Gestion_Ecole");
+        //QSqlDatabase::removeDatabase("excelexport");
         return -3;
     }
 
@@ -54,7 +54,7 @@ int EXCEL::export2Excel()
     {
         qDebug() << "ExportExcelObject::export2Excel failed: Create Excel sheet failed.";
         db.close();
-        QSqlDatabase::removeDatabase("Gestion_Ecole");
+        QSqlDatabase::removeDatabase("excelexport");
         return -4;
     }
 

@@ -15,4 +15,7 @@
         <file>../../../../Downloads/check-mark.png</file>
         <file>image/86776531_494504471503098_5865239929629442048_n.png</file>
     </qresource>
+    <qresource prefix="/new/prefix1">
+        <file>image/variante-de-machine-d'imprimante-avec-impressions-papier.png</file>
+    </qresource>
 </RCC>

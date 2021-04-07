@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -323,6 +323,22 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <attribute name="horizontalHeaderDefaultSectionSize">
         <number>115</number>
        </attribute>
+      </widget>
+      <widget class="QLabel" name="ALERT_P">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>331</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
       </widget>
      </widget>
      <widget class="QFrame" name="frame_2">
@@ -840,8 +856,8 @@ QPushButton:hover {
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/Recources/Images/close.png</normaloff>:/Recources/Images/close.png</iconset>
+        <iconset resource="resources.qrc">
+         <normaloff>:/resources/Downloads/close.png</normaloff>:/resources/Downloads/close.png</iconset>
        </property>
       </widget>
      </widget>
@@ -888,12 +904,12 @@ QPushButton:hover {
       </property>
       <property name="icon">
        <iconset resource="resources.qrc">
-        <normaloff>:/resources/image/excel.png</normaloff>:/resources/image/excel.png</iconset>
+        <normaloff>:/new/prefix1/image/variante-de-machine-d'imprimante-avec-impressions-papier.png</normaloff>:/new/prefix1/image/variante-de-machine-d'imprimante-avec-impressions-papier.png</iconset>
       </property>
       <property name="iconSize">
        <size>
-        <width>25</width>
-        <height>25</height>
+        <width>35</width>
+        <height>35</height>
        </size>
       </property>
      </widget>
@@ -1723,27 +1739,20 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         <number>114</number>
        </attribute>
       </widget>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QLabel" name="ALERT_M">
        <property name="geometry">
         <rect>
-         <x>50</x>
-         <y>30</y>
-         <width>111</width>
-         <height>41</height>
+         <x>20</x>
+         <y>50</y>
+         <width>331</width>
+         <height>31</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
        <property name="text">
-        <string>SMS </string>
-       </property>
-       <property name="icon">
-        <iconset resource="resources.qrc">
-         <normaloff>:/resources/image/email.png</normaloff>:/resources/image/email.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>25</width>
-         <height>25</height>
-        </size>
+        <string/>
        </property>
       </widget>
      </widget>

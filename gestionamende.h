@@ -38,6 +38,7 @@ public:
     ~GestionAmende();
 
 
+    void INFORMER(QLabel *label ,QString message, int duration);
 
 private slots:
 
@@ -89,6 +90,10 @@ private slots:
  void on_B_Recherche_clicked();
 
  void on_B_imprimer_clicked();
+
+
+
+
 
 private:
     Ui::GestionAmende *ui;

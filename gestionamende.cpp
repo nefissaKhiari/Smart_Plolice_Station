@@ -7,7 +7,6 @@
 #include <QSqlQuery>
 #include <QDebug>
 
-
 #include <QFileDialog>
 #include <QDialog>
 #include <QTextDocument>
@@ -18,6 +17,10 @@
 #include <QPrinter>
 #include<QPrintDialog>
 #include<excel.h>
+#include <QTimer>
+
+
+
 
 
 GestionAmende::GestionAmende(QWidget *parent)
@@ -32,6 +35,15 @@ GestionAmende::GestionAmende(QWidget *parent)
 
     ui->T_Policier->setModel(policier.afficher_policier());
     ui->comboBoxCin->setModel(policier.listCin_policier());
+}
+
+
+void GestionAmende::INFORMER(QLabel *label, QString message, int duration){
+    label->setVisible(true);
+    label->setText(message);
+    QTimer::singleShot(duration, ui->ALERT_M, &QLabel::hide);
+    QTimer::singleShot(duration, ui->ALERT_P, &QLabel::hide);
+
 }
 
 GestionAmende::~GestionAmende()
@@ -68,6 +80,7 @@ void GestionAmende::on_B_AConfirmerPolicier_clicked()
             ui->comboBoxCin->setModel(policier.listCin_policier());
             ui->T_Policier->setModel(policier.afficher_policier());
             ui->stackedWidget->setCurrentIndex(1);
+            INFORMER(ui->ALERT_P,"AJOUT AVEC SUCCEES",3000);
 
             ui->LE_ACin->setText("");
             ui->LE_ANomPolicier->setText("");
@@ -137,6 +150,7 @@ void GestionAmende::on_B_MConfirmerPolicier_clicked()
             ui->comboBoxCin->setModel(policier.listCin_policier());
             ui->T_Policier->setModel(policier.afficher_policier());
             ui->stackedWidget->setCurrentIndex(1);
+            INFORMER(ui->ALERT_P,"MODIFICATION AVEC SUCCEES",3000);
 
 
             ui->LE_MNomPolicier->setText("");
@@ -176,6 +190,7 @@ void GestionAmende::on_B_SupprimerPolicier_clicked()
             qDebug() << "Suppression Complet";
             ui->T_Policier->setModel(policier.afficher_policier());
             ui->comboBoxCin->setModel(policier. listCin_policier());
+            INFORMER(ui->ALERT_P,"SUPPRESSION AVEC SUCCEES",3000);
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"),
@@ -237,6 +252,7 @@ void GestionAmende::on_B_AConfirmerAmende_clicked()
             ui->T_Amende->setModel(amende.afficher_amende());
             ui->CB_IDAmende->setModel(amende.listId_amende());
             ui->stackedWidget->setCurrentIndex(4);
+        INFORMER(ui->ALERT_M,"AJOUT AVEC SUCCEES",3000);
 
 
             ui->LE_ATypeAmende->setText("");
@@ -294,6 +310,7 @@ void GestionAmende::on_B_MConfirmerAmende_clicked()
             ui->T_Amende->setModel(amende.afficher_amende());
             ui->CB_IDAmende->setModel(amende.listId_amende());
             ui->stackedWidget->setCurrentIndex(4);
+         INFORMER(ui->ALERT_M,"MODIFICATION AVEC SUCCEES",3000);
 
             ui->LE_ATypeAmende->setText("");
             ui->LE_APrixAmende->setText("");
@@ -328,6 +345,7 @@ void GestionAmende::on_B_SupprimerAmende_clicked()
             qDebug() << "Suppression Complet";
             ui->T_Amende->setModel(amende.afficher_amende());
             ui->CB_IDAmende->setModel(amende.listId_amende());
+             INFORMER(ui->ALERT_M,"SUPPRESSION AVEC SUCCEES",3000);
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"),
@@ -445,4 +463,8 @@ void GestionAmende::on_B_imprimer_clicked()
 
         delete document;
     }
+
+
+
+
 

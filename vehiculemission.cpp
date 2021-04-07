@@ -43,6 +43,8 @@
 #include <QPlainTextEdit>
 #include <QDebug>
 #include "notification.h"
+#include <QPrinter>
+#include<QPrintDialog>
 
 
 VehiculeMission::VehiculeMission(QWidget *parent)
@@ -391,43 +393,14 @@ void VehiculeMission::on_lineEdit_returnPressed()
 
 void VehiculeMission::on_B_Statistics_2_clicked()
 {   son->play();
-    /*QModelIndex index = ui->T_Vehicules->currentIndex();
-    int matricule = index.data(Qt::DisplayRole).toInt();
 
-            QSqlQuery view;
-
-            vehicule v;
-
-            view=v.impression(matricule);
-        view.next();
-
-
-
-
-
-
-       QPlainTextEdit text;
-   text.setStyleSheet("QPlainTextEdit{color: #ffff00; background-color: #303030;");
-           QTextDocument *doc = text.document();
-           QFont font = doc->defaultFont();
-           font.setBold(true);
-           font.setFamily("Arial");
-           font.setPixelSize(20);
-           doc->setDefaultFont(font);
-           text.appendPlainText("station policer");
-           text.appendPlainText("matricule: "+view.value(0).toString()+"");
-
-                  text.appendPlainText("marque : "+view.value(1).toString()+"");
-
-                  text.appendPlainText("quantite: "+view.value(2).toString()+"");
-                       qDebug()<< view.value(2).toString();
-                  text.appendPlainText("couleur: "+view.value(3).toString()+"");
-
-                  text.appendPlainText("nb_places "+view.value(4).toString()+"");
-
-                  text.appendPlainText("CIN_policier: "+view.value(5).toString()+"");*/
-
-    QString strStream;
+    QPrinter printer (QPrinter::PrinterResolution);
+    QPrintDialog dlg(&printer,this);
+    if (dlg.exec() == QDialog::Rejected)
+    {
+        return;
+    }
+   QString strStream;
         QString currentDate = QDateTime().currentDateTime().toString();
         QTextStream out(&strStream);
         const int rowCount = ui->T_Vehicules->model()->rowCount();
@@ -483,7 +456,8 @@ void VehiculeMission::on_B_Statistics_2_clicked()
         {
             fileName.append(".pdf");
         }
-        QPrinter printer (QPrinter::PrinterResolution);
+
+
         printer.setOutputFormat(QPrinter::PdfFormat);
         printer.setPaperSize(QPrinter::A4);
         printer.setOutputFileName(fileName);
@@ -491,6 +465,22 @@ void VehiculeMission::on_B_Statistics_2_clicked()
         doc.setHtml(strStream);
         doc.setPageSize(printer.pageRect().size());
         doc.print(&printer);
+        QTextDocument *document = new QTextDocument();
+                        document->setHtml(strStream);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

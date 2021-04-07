@@ -14,10 +14,11 @@ private:
     QString description_amende;
     QString lieu_amende;
    QString  date_amende;
+   int CIN_policier;
 
 public:
    Amende();
-   Amende(int, QString, int, QString, QString, QString);
+   Amende(int, QString, int, QString, QString, QString, int);
 
     void setId_amende(int);
     int getId_amende();
@@ -37,6 +38,8 @@ public:
     void setDate_amende(  QString);
       QString getDate_amende();
 
+      void setCIN_policier(  int);
+        int getCIN_policier();
 
 
     bool ajouter_amende();

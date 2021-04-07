@@ -19,6 +19,7 @@
 #include<QPrintDialog>
 #include<excel.h>
 
+
 GestionAmende::GestionAmende(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::GestionAmende)
@@ -224,13 +225,14 @@ void GestionAmende::on_B_AConfirmerAmende_clicked()
 
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout de l'Amende?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
-        int id_amende = ui->CB_IDAmende->currentText().toInt();
+        int id_amende = ui->LE_AIDAmende->text().toInt();
         QString type_amende = ui->LE_ATypeAmende->text();
        float prix_amende = ui->LE_APrixAmende->text().toFloat() ;
         QString description_amende = ui->LE_ADescAmende->toPlainText();
         QString lieu_amende = ui->LE_ALieuAmende->text();
         QString date_amende = ui->LE_ADateAmende->text();
-         Amende amende (id_amende, type_amende, prix_amende, description_amende, lieu_amende, date_amende);
+        int CIN_policier = ui->LE_ACINpolicier->text().toInt();
+         Amende amende (id_amende, type_amende, prix_amende, description_amende, lieu_amende, date_amende,CIN_policier);
         if(amende.ajouter_amende()) {
             ui->T_Amende->setModel(amende.afficher_amende());
             ui->CB_IDAmende->setModel(amende.listId_amende());
@@ -242,6 +244,7 @@ void GestionAmende::on_B_AConfirmerAmende_clicked()
             ui->LE_ADescAmende->setText("");
             ui->LE_ALieuAmende->setText("");
             ui->LE_ADateAmende->setText("");
+            ui->LE_ACINpolicier->setText("");
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -262,11 +265,13 @@ void GestionAmende::on_B_ModifierAmende_clicked()
     qry.bindValue(0, id_string);
     if(qry.exec()) {
         while(qry.next()) {
+            ui->LE_MIDAmende->setText(qry.value(0).toString());
             ui->LE_MTypeAmende->setText(qry.value(1).toString());
             ui->LE_MPrixAmende->setText(qry.value(2).toString());
             ui->LE_MDescAmende->setText(qry.value(3).toString());
             ui->LE_MLieuAmende->setText(qry.value(4).toString());
             ui->LE_MDateAmende->setText(qry.value(5).toString());
+            ui->LE_MCINpolicier->setText(qry.value(6).toString());
         }
     }
     ui->CB_IDAmende->setModel(amende.listId_amende());
@@ -278,12 +283,13 @@ void GestionAmende::on_B_MConfirmerAmende_clicked()
 
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la modification", "Confirmer la modification de l'Amende?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
-        amende.setId_amende(ui->CB_IDAmende->currentText().toInt());
+        amende.setId_amende(ui->LE_MIDAmende->text().toInt());
         amende.setType_amende(ui->LE_MTypeAmende->text());
         amende.setPrix_amende(ui->LE_MPrixAmende->text().toFloat());
         amende.setDescription_amende(ui->LE_MDescAmende->toPlainText());
         amende.setLieu_amende(ui->LE_MLieuAmende->text());
         amende.setDate_amende(ui->LE_MDateAmende->text());
+        amende.setCIN_policier(ui->LE_MCINpolicier->text().toInt());
         if(amende.modifier_amende()) {
             ui->T_Amende->setModel(amende.afficher_amende());
             ui->CB_IDAmende->setModel(amende.listId_amende());
@@ -294,6 +300,8 @@ void GestionAmende::on_B_MConfirmerAmende_clicked()
             ui->LE_ADescAmende->setText("");
             ui->LE_ALieuAmende->setText("");
             ui->LE_ADateAmende->setText("");
+            ui->LE_MCINpolicier->setText("");
+
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("La modification a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -358,6 +366,19 @@ void GestionAmende::on_B_Excel_clicked()
                                      QString(tr("%1 records exported!")).arg(retVal)
                                      );
         }
+
+
+
+
+
+        /*QPrinter printer (QPrinter::PrinterResolution);
+                printer.setOutputFormat(QPrinter::PdfFormat);
+                printer.setPaperSize(QPrinter::A4);
+                printer.setOutputFileName(fileName);
+                QTextDocument doc;
+                doc.setHtml(strStream);
+                doc.setPageSize(printer.pageRect().size());
+                doc.print(&printer);*/
 }
 
 void GestionAmende::on_B_Recherche_clicked()

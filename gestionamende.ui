@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -2128,7 +2128,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>100</y>
+         <y>80</y>
          <width>81</width>
          <height>21</height>
         </rect>
@@ -2143,8 +2143,8 @@ QComboBox::drop-down {
       <widget class="QLabel" name="L_ATypeAmende">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>140</y>
+         <x>50</x>
+         <y>120</y>
          <width>81</width>
          <height>31</height>
         </rect>
@@ -2159,8 +2159,8 @@ QComboBox::drop-down {
       <widget class="QLabel" name="L_APrixAmende">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>200</y>
+         <x>50</x>
+         <y>160</y>
          <width>81</width>
          <height>31</height>
         </rect>
@@ -2175,8 +2175,8 @@ QComboBox::drop-down {
       <widget class="QLabel" name="L_ADescAmende">
        <property name="geometry">
         <rect>
-         <x>60</x>
-         <y>260</y>
+         <x>40</x>
+         <y>210</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -2193,7 +2193,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>390</y>
+         <y>330</y>
          <width>101</width>
          <height>21</height>
         </rect>
@@ -2208,8 +2208,8 @@ QComboBox::drop-down {
       <widget class="QLabel" name="L_ADateAmende">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>440</y>
+         <x>60</x>
+         <y>380</y>
          <width>81</width>
          <height>31</height>
         </rect>
@@ -2225,7 +2225,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>152</x>
-         <y>100</y>
+         <y>80</y>
          <width>191</width>
          <height>20</height>
         </rect>
@@ -2234,8 +2234,8 @@ QComboBox::drop-down {
       <widget class="QLineEdit" name="LE_ATypeAmende">
        <property name="geometry">
         <rect>
-         <x>170</x>
-         <y>150</y>
+         <x>150</x>
+         <y>130</y>
          <width>211</width>
          <height>20</height>
         </rect>
@@ -2245,7 +2245,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>152</x>
-         <y>210</y>
+         <y>170</y>
          <width>211</width>
          <height>20</height>
         </rect>
@@ -2255,7 +2255,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>200</x>
-         <y>270</y>
+         <y>210</y>
          <width>361</width>
          <height>91</height>
         </rect>
@@ -2265,7 +2265,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>172</x>
-         <y>390</y>
+         <y>340</y>
          <width>191</width>
          <height>20</height>
         </rect>
@@ -2275,7 +2275,33 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>170</x>
-         <y>450</y>
+         <y>380</y>
+         <width>201</width>
+         <height>20</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_ACINpolicier">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>430</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string>CIN policier</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="LE_ACINpolicier">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>440</y>
          <width>201</width>
          <height>20</height>
         </rect>
@@ -2286,7 +2312,7 @@ QComboBox::drop-down {
      <zorder>toolButton_8</zorder>
     </widget>
     <widget class="QWidget" name="Modifier_amende">
-     <widget class="QFrame" name="LE_MDateAmende_2">
+     <widget class="QFrame" name="LE_MCINPolicier">
       <property name="geometry">
        <rect>
         <x>290</x>
@@ -2410,7 +2436,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>60</x>
-         <y>100</y>
+         <y>80</y>
          <width>141</width>
          <height>21</height>
         </rect>
@@ -2426,7 +2452,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>60</x>
-         <y>140</y>
+         <y>110</y>
          <width>121</width>
          <height>41</height>
         </rect>
@@ -2442,7 +2468,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>60</x>
-         <y>190</y>
+         <y>160</y>
          <width>91</width>
          <height>31</height>
         </rect>
@@ -2458,7 +2484,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>60</x>
-         <y>240</y>
+         <y>200</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -2474,7 +2500,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>60</x>
-         <y>400</y>
+         <y>340</y>
          <width>91</width>
          <height>31</height>
         </rect>
@@ -2490,7 +2516,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>60</x>
-         <y>450</y>
+         <y>390</y>
          <width>91</width>
          <height>31</height>
         </rect>
@@ -2503,10 +2529,13 @@ QComboBox::drop-down {
        </property>
       </widget>
       <widget class="QLineEdit" name="LE_MIDAmende">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>142</x>
-         <y>100</y>
+         <y>80</y>
          <width>161</width>
          <height>20</height>
         </rect>
@@ -2516,7 +2545,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>152</x>
-         <y>150</y>
+         <y>120</y>
          <width>211</width>
          <height>20</height>
         </rect>
@@ -2526,7 +2555,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>152</x>
-         <y>200</y>
+         <y>160</y>
          <width>181</width>
          <height>20</height>
         </rect>
@@ -2536,7 +2565,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>210</x>
-         <y>270</y>
+         <y>210</y>
          <width>331</width>
          <height>101</height>
         </rect>
@@ -2546,7 +2575,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>152</x>
-         <y>400</y>
+         <y>350</y>
          <width>221</width>
          <height>20</height>
         </rect>
@@ -2556,7 +2585,33 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>150</x>
-         <y>460</y>
+         <y>400</y>
+         <width>221</width>
+         <height>20</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_CINpolicier">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>440</y>
+         <width>131</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string>CIN policier :</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="LE_MCINpolicier">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>450</y>
          <width>221</width>
          <height>20</height>
         </rect>

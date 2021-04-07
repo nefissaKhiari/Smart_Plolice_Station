@@ -1,10 +1,11 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include <QSound>
 #include <QMainWindow>
 #include "citoyen.h"
 #include "service.h"
 #include "notification.h"
+#include "smtp.h"
 namespace Ui {
 class MainWindow;
 }
@@ -76,11 +77,15 @@ private slots:
 
     void on_B_returnCitoyen_3_clicked();
 
+    void on_browseBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
     Citoyen C;
   Service S;
   Notifications N;
+   QStringList files;
+     QSound* son;
 };
 
 #endif // MAINWINDOW_H

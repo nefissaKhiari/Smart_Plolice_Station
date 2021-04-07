@@ -8,12 +8,15 @@
 #include <QIntValidator>
 #include <QSqlQuery>
 #include <QDebug>
-
+#include <QProcess>
+#include <QDialog>
+#include <QFileDialog>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+     son=new QSound(":/ressources/cassette-player-button-3.wav");
     ui->stackedWidget->setCurrentIndex(0);
     ui->mdp->setEchoMode(QLineEdit::Password);
     //for email tab
@@ -32,6 +35,7 @@ void MainWindow::on_B_GestionCitoyen_clicked()
     ui->T_Citoyens ->setModel(C.afficher());
        ui->CB_IDCitoyen ->setModel(C.listId());
        ui->stackedWidget->setCurrentIndex(1);
+         son->play();
 }
 
 void MainWindow::on_B_GestioService_clicked()
@@ -40,11 +44,13 @@ void MainWindow::on_B_GestioService_clicked()
     ui->CB_IDService->setModel(S.listId());
     ui->CB_NomCitoyen->setModel(C.listId());
     ui->stackedWidget->setCurrentIndex(5);
+      son->play();
 }
 
 void MainWindow::on_B_BackToGestions_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+      son->play();
 }
 
 void MainWindow::on_B_AccederProfil_clicked()
@@ -67,17 +73,19 @@ void MainWindow::on_B_AccederProfil_clicked()
             ui->stackedWidget->setCurrentIndex(4);
         }
     }
-
+  son->play();
 }
 
 void MainWindow::on_B_AjouterCitoyen_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
+  son->play();
 }
 
 void MainWindow::on_B_AAnnulerCitoyen_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
+      son->play();
 }
 
 void MainWindow::on_B_AConfirmerCitoyen_clicked()
@@ -115,11 +123,13 @@ void MainWindow::on_B_AConfirmerCitoyen_clicked()
         QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
     }
     }
+  son->play();
 }
 
 void MainWindow::on_B_MAnnulerCitoyen_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
+      son->play();
 }
 
 void MainWindow::on_B_MConfirmerCitoyen_clicked()
@@ -158,6 +168,7 @@ qDebug() << C.getdatenaiss();
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("La modification a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
         }
     }
+      son->play();
 }
 
 void MainWindow::on_B_SupprimerCitoyen_clicked()
@@ -177,6 +188,7 @@ void MainWindow::on_B_SupprimerCitoyen_clicked()
                         QObject::tr("Suppression a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
         }
     }
+  son->play();
 }
 
 void MainWindow::on_B_MConfirmerCitoyen_2_clicked()
@@ -199,16 +211,19 @@ void MainWindow::on_B_MConfirmerCitoyen_2_clicked()
         }
     }
     ui->stackedWidget->setCurrentIndex(3);
+      son->play();
 }
 
 void MainWindow::on_B_returnCitoyen_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
+      son->play();
 }
 
 void MainWindow::on_B_AjouterService_clicked()
 {
     ui->stackedWidget->setCurrentIndex(7);
+      son->play();
 }
 
 void MainWindow::on_B_ModifierService_clicked()
@@ -228,11 +243,13 @@ void MainWindow::on_B_ModifierService_clicked()
         }
     }
     ui->stackedWidget->setCurrentIndex(8);
+      son->play();
 }
 
 void MainWindow::on_B_AAnnulerService_clicked()
 {
     ui->stackedWidget->setCurrentIndex(5);
+      son->play();
 }
 
 void MainWindow::on_B_AConfirmerService_clicked()
@@ -264,11 +281,13 @@ void MainWindow::on_B_AConfirmerService_clicked()
         QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
     }
     }
+      son->play();
 }
 
 void MainWindow::on_B_MAnnulerService_clicked()
 {
     ui->stackedWidget->setCurrentIndex(5);
+      son->play();
 }
 
 void MainWindow::on_B_MConfirmerService_clicked()
@@ -301,11 +320,13 @@ qDebug()<<S.getdescription();
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("La modification a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
         }
     }
+      son->play();
 }
 
 void MainWindow::on_B_BackToGestions_2_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+      son->play();
 }
 
 void MainWindow::on_B_SupprimerService_clicked()
@@ -324,12 +345,14 @@ void MainWindow::on_B_SupprimerService_clicked()
                         QObject::tr("Suppression a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
         }
     }
+      son->play();
 }
 
 void MainWindow::on_LE_recherche_textChanged(const QString &arg1)
 {
     QString by=ui->CB_recherche->currentText();
             ui->T_Citoyens->setModel(C.rechercher(arg1,by));
+
 }
 
 void MainWindow::on_LE_rechercheS_textChanged(const QString &arg1)
@@ -340,9 +363,10 @@ void MainWindow::on_LE_rechercheS_textChanged(const QString &arg1)
 
 void MainWindow::on_B_Trier_clicked()
 {
+    son->play();
     QString Tri = ui->CB_Tricitoyen->currentText();
             ui->T_Citoyens->setModel(C.Trier(Tri));
-            //ui->T_Citoyens ->setModel(C.afficher());
+
 }
 
 
@@ -386,8 +410,10 @@ void MainWindow::on_pushButton_2_clicked()
     {
         Smtp* smtp = new Smtp("myriam.brahmi@esprit.tn",ui->mdp->text(), "smtp.gmail.com");
         connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
-
-          smtp->sendMail("myriam.brahmi@esprit.tn", ui->lineEdit->text() , ui->lineEdit_3->text(),ui->msg->toPlainText());
+ if( !files.isEmpty() )
+          smtp->sendMail("myriam.brahmi@esprit.tn", ui->lineEdit->text() , ui->lineEdit_3->text(),ui->msg->toPlainText(),files);
+ else
+     smtp->sendMail("myriam.brahmi@esprit.tn", ui->lineEdit->text() , ui->lineEdit_3->text(),ui->msg->toPlainText());
           ui->stackedWidget->setCurrentIndex(4);
           N.notifications_envoyermail();
     }
@@ -396,4 +422,22 @@ void MainWindow::on_pushButton_2_clicked()
 void MainWindow::on_B_returnCitoyen_3_clicked()
 {
      ui->stackedWidget->setCurrentIndex(4);
+}
+
+void MainWindow::on_browseBtn_clicked()
+{
+    files.clear();
+
+    QFileDialog dialog(this);
+    dialog.setDirectory(QDir::homePath());
+    dialog.setFileMode(QFileDialog::ExistingFiles);
+
+    if (dialog.exec())
+        files = dialog.selectedFiles();
+
+    QString fileListString;
+    foreach(QString file, files)
+        fileListString.append( "\"" + QFileInfo(file).fileName() + "\" " );
+
+    ui->file->setText( fileListString );
 }

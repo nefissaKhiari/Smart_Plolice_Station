@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -5021,10 +5021,10 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
       <widget class="QTextEdit" name="msg">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>250</y>
-         <width>661</width>
-         <height>231</height>
+         <x>60</x>
+         <y>290</y>
+         <width>671</width>
+         <height>191</height>
         </rect>
        </property>
        <property name="placeholderText">
@@ -5042,6 +5042,32 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        </property>
        <property name="text">
         <string>Envoyer</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="file">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>250</y>
+         <width>451</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="placeholderText">
+        <string>........</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="browseBtn">
+       <property name="geometry">
+        <rect>
+         <x>670</x>
+         <y>240</y>
+         <width>111</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Browse</string>
        </property>
       </widget>
      </widget>

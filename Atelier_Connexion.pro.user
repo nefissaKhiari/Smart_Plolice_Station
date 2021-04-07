@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.11.0, 2021-04-07T15:10:47. -->
+<!-- Written by QtCreator 4.11.0, 2021-04-07T15:29:43. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -287,9 +287,8 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Atelier_Connexion2</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/myria/Pictures/Smart_Plolice_Station_2A19-BrahmiMyriam/Smart_Plolice_Station_2A19-BrahmiMyriam/Atelier_Connexion.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/myria/Pictures/Smart_Plolice_Station_2A19-BrahmiMyriam/Smart_Plolice_Station_2A19-BrahmiMyriam/Atelier_Connexion.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/myria/Desktop/Smart_Plolice_Station_2A19/Atelier_Connexion.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/myria/Desktop/Smart_Plolice_Station_2A19/Atelier_Connexion.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>

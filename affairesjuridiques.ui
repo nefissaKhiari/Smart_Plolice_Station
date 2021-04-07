@@ -3607,8 +3607,8 @@ background: transparent;
           <zorder>F_StatisticLocal</zorder>
           <zorder>L_ConfigIntervenant_7</zorder>
           <zorder>L_ConfigIntervenant_8</zorder>
-          <zorder>F_StatisticAge</zorder>
           <zorder>F_Statistic_Age</zorder>
+          <zorder>F_StatisticAge</zorder>
          </widget>
         </item>
        </layout>

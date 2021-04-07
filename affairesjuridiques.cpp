@@ -367,13 +367,6 @@ void AffairesJuridiques::on_B_Trier_clicked()
 void AffairesJuridiques::on_B_Statistics_clicked()
 {
     son->play();
-    /*  Getting All rows of DB
-    qry.prepare("SELECT COUNT (*) FROM intervenant");
-    qry.exec();
-    int rows= 0;
-    if (qry.next()) {
-        rows= qry.value(0).toInt();
-    }*/
 
     /********************* BEGIN : Donut->Nationalite *********************/
     QSqlQuery qry;
@@ -468,6 +461,39 @@ void AffairesJuridiques::on_B_Statistics_clicked()
     chartsView->setRenderHint(QPainter::Antialiasing);
     chartsView->setParent(ui->F_StatisticLocal);
     /********************* END : Bars->Localisation *********************/
+
+    /********************* BEGIN : Curve->Localisation *********************/
+    QLineSeries *seriesss = new QLineSeries();
+    seriesss->append(0, 16);
+    seriesss->append(1, 20);
+    seriesss->append(2, 24);
+    seriesss->append(3, 18);
+    seriesss->append(4, 27);
+    QChart *charttt = new QChart();
+    charttt->legend()->hide();
+    charttt->addSeries(seriesss);
+    charttt->createDefaultAxes();
+    QFont font;
+    font.setPixelSize(18);
+    charttt->setTitleFont(font);
+    charttt->setTitleBrush(QBrush(Qt::black));
+    charttt->setTitle("Age des Intervenants");
+    QPen pen(QRgb(0x000000));
+    pen.setWidth(5);
+    seriesss->setPen(pen);
+    charttt->setAnimationOptions(QChart::AllAnimations);
+    QCategoryAxis *axisX = new QCategoryAxis();
+    axisX->append("1999",0);
+    axisX->append("2000",1);
+    axisX->append("2001",2);
+    axisX->append("2002",3);
+    axisX->append("2003",4);
+    charttt->setAxisX(axisX, seriess);
+    QChartView *chartViewww = new QChartView(charttt);
+    chartViewww->setRenderHint(QPainter::Antialiasing);
+
+    chartViewww->setParent(ui->F_StatisticAge);
+    /********************* END : Curve->Localisation *********************/
 
     ui->stackedWidget->setCurrentIndex(7);
 }

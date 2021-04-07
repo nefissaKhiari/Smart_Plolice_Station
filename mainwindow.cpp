@@ -487,6 +487,12 @@ void MainWindow::on_browseBtn_clicked()
 
 void MainWindow::on_B_ModifierService_2_clicked()
 {
+    QPrinter printer (QPrinter::PrinterResolution);
+        QPrintDialog dlg(&printer,this);
+        if (dlg.exec() == QDialog::Rejected)
+        {
+            return;
+        }
     QString strStream;
         QString currentDate = QDateTime().currentDateTime().toString();
         QTextStream out(&strStream);
@@ -543,7 +549,7 @@ void MainWindow::on_B_ModifierService_2_clicked()
         {
             fileName.append(".pdf");
         }
-        QPrinter printer (QPrinter::PrinterResolution);
+        //QPrinter printer (QPrinter::PrinterResolution);
         printer.setOutputFormat(QPrinter::PdfFormat);
         printer.setPaperSize(QPrinter::A4);
         printer.setOutputFileName(fileName);
@@ -551,5 +557,6 @@ void MainWindow::on_B_ModifierService_2_clicked()
         doc.setHtml(strStream);
         doc.setPageSize(printer.pageRect().size());
         doc.print(&printer);
+            N.notifications_pdfservice();
          son->play();
 }

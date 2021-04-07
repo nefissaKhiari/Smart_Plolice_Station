@@ -15,6 +15,8 @@ public:
     void notifications_modifiercitoyen();
     void notifications_modifierservice();
     void notifications_envoyermail();
+     void notifications_pdfservice();
+
 
 };
 

@@ -3,7 +3,7 @@
 #include <QSqlQueryModel>
 #include <QDate>
 #include <QTableView>
-
+#include <QDebug>
 
 
 affectations::affectations(int id_M, int matricule_V)
@@ -72,13 +72,11 @@ QSqlQueryModel* affectations::recherchera(QString rechercher,QString by) {
 
 bool affectations::supprimerA(int id_M, int matricule_V)
 {
+
     QSqlQuery query;
-    query.prepare("DELETE FROM affectations WHERE id_M= :id_M");
-    query.bindValue(":id_M", id_M);
+    query.prepare("DELETE FROM affectations WHERE id_mission= :id_mission AND id_vehicule= :id_vehicule");
+    query.bindValue(":id_mission", id_M);
+    query.bindValue(":id_vehicule", matricule_V);
     return query.exec();
-    QSqlQuery qery;
-    qery.prepare("DELETE FROM affectations WHERE matricule_V= :matricule_V");
-    qery.bindValue(":matricule_V", matricule_V);
-    return qery.exec();
 }
 

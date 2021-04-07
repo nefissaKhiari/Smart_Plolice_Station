@@ -12,5 +12,7 @@
         <file>images/logo.png</file>
         <file>images/auto.png</file>
         <file>images/tactics.png</file>
+        <file>images/fb.png</file>
+        <file>images/insta.png</file>
     </qresource>
 </RCC>

@@ -42,6 +42,8 @@
 #include <QPieSeries>
 #include <QPlainTextEdit>
 #include <QDebug>
+#include "notification.h"
+
 
 VehiculeMission::VehiculeMission(QWidget *parent)
     : QMainWindow(parent)
@@ -193,6 +195,8 @@ void VehiculeMission::on_B_BackToGestions_2_clicked()
 
 void VehiculeMission::on_B_AConfirmerVehicule_clicked()
 {son->play();
+
+
        int matricule = ui->LE_AMatriculeVehicule->text().toInt();
        QString marque = ui->LE_AMarqueVehicule->text();
        QString couleur = ui->LE_ACouleurVehicule->text();
@@ -206,7 +210,9 @@ void VehiculeMission::on_B_AConfirmerVehicule_clicked()
        bool test=E.ajouter();
        if(test)
        {
-           msgBox.setText("Ajout avec succés.");
+
+
+         msgBox.setText("Ajout avec succés.");
            ui->stackedWidget->setCurrentIndex(1);
                ui->T_Vehicules->setModel(v_tmp.afficher());
                QSqlQuery *query = new QSqlQuery();
@@ -277,6 +283,7 @@ void VehiculeMission::on_B_MConfirmerVehicule_clicked()
     {
         ui->T_Vehicules->setModel(v_tmp.afficher());
         msgBox.setText("modification avec succes");
+         n_tmp.notifications_modifiervehicule();
         ui->stackedWidget->setCurrentIndex(1);
     }
     else
@@ -334,6 +341,7 @@ void VehiculeMission::on_B_MConfirmerMission_clicked()
     {
         ui->T_Mission->setModel(m_tmp.afficher());
         msgBox.setText("modification avec succes");
+         n_tmp.notifications_modifiermission();
         ui->stackedWidget->setCurrentIndex(4);
 
     }
@@ -461,9 +469,9 @@ void VehiculeMission::on_B_Statistics_2_clicked()
                 "<div class = ""container"">"
                     "<div class = ""row"">"
                         "<div>"
-                            "<div><img src="":/img/img/icons8-facebook-30.png""> <span>esm page fb</div>\n"
+                            "<div><img src="":/resources/images/fb.png""> <span>Debug Entity</div>\n"
                             "<br>"
-                            "<div><img src="":/img/img/icons8-instagram-30.png""> <span>esm compte insta </div>\n"
+                            "<div><img src="":/resources/images/insta.png""> <span>Debug_Entity </div>\n"
                         "</div>"
                     "</div>"
                 "</div>"
@@ -598,20 +606,18 @@ void VehiculeMission::on_supprimera_clicked()
                   ui->T_Affectation->setModel(a_tmp.afficherA());
 
                   QSqlQuery *query = new QSqlQuery();
+                   QSqlQuery *qury = new QSqlQuery();
                   QSqlQueryModel * modal = new QSqlQueryModel();
-                  query->prepare("SELECT id_mission, id_vehicule from affectations");
+                   QSqlQueryModel * modale = new QSqlQueryModel();
+                  query->prepare("SELECT id_mission from affectations");
                   query->exec();
                   modal->setQuery(*query);
                   ui->CB_IDAffMiss->setModel(modal);
-                  query->exec();
-                  modal->setQuery(*query);
-                  ui->CB_IDAffVeh->setModel(modal);
-                  /*QSqlQuery *qury = new QSqlQuery();
-                  QSqlQueryModel * modale = new QSqlQueryModel();
                   qury->prepare("SELECT id_vehicule from affectations");
                   qury->exec();
                   modale->setQuery(*qury);
-                  ui->CB_IDAffVeh->setModel(modale);*/
+
+                  ui->CB_IDAffVeh->setModel(modale);
 
         }
         else

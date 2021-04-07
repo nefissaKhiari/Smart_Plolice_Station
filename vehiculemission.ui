@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>7</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -334,8 +334,14 @@ QPushButton:hover{
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background: white;
-border-radius: 0px;</string>
+        <string notr="true">background :white;
+background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee );
+selection-background-color:QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #FF0000, stop: 1 #FF5F5F,stop: 0.5 #FEAAAA,stop: 1 #eee);
+QTableView::item:focus{selection-background-color: red;}
+QScrollBar:vertical{ width: 20px; background: none; /* only these sort effect about width ...*/}
+QScrollBar::handle:vertical{ border: 3px solid #5E749C;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee ); width: 25px; min-height: 20px; max-height: 25px; /*these sort no effect*/ }
+QScrollBar::add-page:vertical {border: 3px solid red;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  red; /* adding width: xx px; sorting no effect .. why? */}
+QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  green; /* adding width: xx px; sorting no effect .. why? */ }</string>
        </property>
        <attribute name="horizontalHeaderCascadingSectionResizes">
         <bool>false</bool>
@@ -1348,8 +1354,14 @@ QPushButton:hover {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background: white;
-border-radius: 0px;</string>
+        <string notr="true">background :white;
+background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee );
+selection-background-color:QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #FF0000, stop: 1 #FF5F5F,stop: 0.5 #FEAAAA,stop: 1 #eee);
+QTableView::item:focus{selection-background-color: red;}
+QScrollBar:vertical{ width: 20px; background: none; /* only these sort effect about width ...*/}
+QScrollBar::handle:vertical{ border: 3px solid #5E749C;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee ); width: 25px; min-height: 20px; max-height: 25px; /*these sort no effect*/ }
+QScrollBar::add-page:vertical {border: 3px solid red;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  red; /* adding width: xx px; sorting no effect .. why? */}
+QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  green; /* adding width: xx px; sorting no effect .. why? */ }</string>
        </property>
        <attribute name="horizontalHeaderDefaultSectionSize">
         <number>138</number>
@@ -2275,7 +2287,7 @@ QPushButton:hover {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background: white;</string>
+        <string notr="true"/>
        </property>
       </widget>
       <widget class="QPushButton" name="B_ConfirmerAffectation">
@@ -2311,7 +2323,7 @@ QPushButton:hover {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background: white;</string>
+        <string notr="true"/>
        </property>
       </widget>
       <widget class="QLabel" name="L_CB_ID_3">
@@ -2448,8 +2460,14 @@ QPushButton:hover {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background: white;
-border-radius: 0px;</string>
+        <string notr="true">background :white;
+background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee );
+selection-background-color:QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #FF0000, stop: 1 #FF5F5F,stop: 0.5 #FEAAAA,stop: 1 #eee);
+QTableView::item:focus{selection-background-color: red;}
+QScrollBar:vertical{ width: 20px; background: none; /* only these sort effect about width ...*/}
+QScrollBar::handle:vertical{ border: 3px solid #5E749C;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee ); width: 25px; min-height: 20px; max-height: 25px; /*these sort no effect*/ }
+QScrollBar::add-page:vertical {border: 3px solid red;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  red; /* adding width: xx px; sorting no effect .. why? */}
+QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  green; /* adding width: xx px; sorting no effect .. why? */ }</string>
        </property>
        <attribute name="horizontalHeaderCascadingSectionResizes">
         <bool>false</bool>
@@ -2468,7 +2486,7 @@ border-radius: 0px;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background: white;</string>
+        <string notr="true"/>
        </property>
        <item>
         <property name="text">
@@ -2540,7 +2558,7 @@ QPushButton:hover {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background: white;</string>
+        <string notr="true"/>
        </property>
        <item>
         <property name="text">
@@ -2553,6 +2571,12 @@ QPushButton:hover {
         </property>
        </item>
       </widget>
+      <zorder>B_Trier_3</zorder>
+      <zorder>cc</zorder>
+      <zorder>annulera</zorder>
+      <zorder>recherchera</zorder>
+      <zorder>lineedit</zorder>
+      <zorder>T_Affectation</zorder>
      </widget>
      <zorder>frame_10</zorder>
      <zorder>B_BackToGestions_3</zorder>

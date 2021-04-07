@@ -20,6 +20,7 @@ SOURCES += \
     connection.cpp \
     main.cpp \
     missions.cpp \
+    notification.cpp \
     vehicule.cpp \
     vehiculemission.cpp
 
@@ -27,6 +28,7 @@ HEADERS += \
     affectations.h \
     connection.h \
     missions.h \
+    notification.h \
     vehicule.h \
     vehiculemission.h
 

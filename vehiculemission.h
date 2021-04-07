@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include "vehicule.h"
 #include "missions.h"
+#include "notification.h"
 #include <QSound>
 QT_BEGIN_NAMESPACE
 namespace Ui { class VehiculeMission; }
@@ -106,5 +107,7 @@ private:
     QSound *son;
     missions m_tmp;
     affectations a_tmp;
+   notification n_tmp;
+
 };
 #endif // VEHICULEMISSION_H

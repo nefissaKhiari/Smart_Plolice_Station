@@ -79,6 +79,8 @@ private slots:
 
     void on_browseBtn_clicked();
 
+    void on_B_ModifierService_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     Citoyen C;

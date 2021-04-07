@@ -11,6 +11,43 @@
 #include <QProcess>
 #include <QDialog>
 #include <QFileDialog>
+#include <QMessageBox>
+#include <QSqlQuery>
+#include <QSqlQueryModel>
+#include<QDebug>
+#include<QMessageBox>
+#include<QIntValidator>
+#include<QLabel>
+#include<QDialog>
+#include<QSqlQuery>
+#include<QSqlError>
+#include <QModelIndex>
+#include <QtPrintSupport/QPrintDialog>
+#include<QtPrintSupport/QPrinter>
+#include <QPdfWriter>
+#include <QPainter>
+#include <QFileDialog>
+#include <QTextDocument>
+#include <QTextEdit>
+#include <QtSql/QSqlQueryModel>
+#include <QVector2D>
+#include <QVector>
+#include <QSqlQuery>
+#include<QDesktopServices>
+#include <QMessageBox>
+#include<QUrl>
+#include <QPixmap>
+#include <QTabWidget>
+#include <QValidator>
+#include <QPrintDialog>
+#include<QtSql/QSqlQuery>
+#include<QVariant>
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
+#include <QPieSeries>
+#include <QPlainTextEdit>
+#include <QDebug>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -378,16 +415,19 @@ void MainWindow::on_B_TrierS_clicked()
 {
     QString Tri = ui->CB_TriService->currentText();
             ui->T_Service->setModel(S.Trier(Tri));
+             son->play();
 
 }
 
 void MainWindow::on_B_ResetTableIntervenant_2_clicked()
 {
     ui->T_Citoyens ->setModel(C.afficher());
+     son->play();
 }
 
 void MainWindow::on_B_ResetTableIntervenant_clicked()
 {
+     son->play();
     ui->T_Service ->setModel(S.afficher());
 }
 
@@ -403,6 +443,7 @@ void MainWindow::on_B_EnvoyeMail_clicked()
         }
     }
     ui->stackedWidget->setCurrentIndex(6);
+     son->play();
 }
 
 void MainWindow::on_pushButton_2_clicked()
@@ -416,12 +457,14 @@ void MainWindow::on_pushButton_2_clicked()
      smtp->sendMail("myriam.brahmi@esprit.tn", ui->lineEdit->text() , ui->lineEdit_3->text(),ui->msg->toPlainText());
           ui->stackedWidget->setCurrentIndex(4);
           N.notifications_envoyermail();
+           son->play();
     }
 
 
 void MainWindow::on_B_returnCitoyen_3_clicked()
 {
      ui->stackedWidget->setCurrentIndex(4);
+      son->play();
 }
 
 void MainWindow::on_browseBtn_clicked()
@@ -440,4 +483,73 @@ void MainWindow::on_browseBtn_clicked()
         fileListString.append( "\"" + QFileInfo(file).fileName() + "\" " );
 
     ui->file->setText( fileListString );
+}
+
+void MainWindow::on_B_ModifierService_2_clicked()
+{
+    QString strStream;
+        QString currentDate = QDateTime().currentDateTime().toString();
+        QTextStream out(&strStream);
+        const int rowCount = ui->T_Service->model()->rowCount();
+        const int columnCount = ui->T_Service->model()->columnCount();
+        out <<
+         "<html>\n"
+        "<head>\n"
+        "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+        <<QString("<title>%1</title>\n").arg("strTitle")
+        <<"</head>\n"
+        "<body bgcolor=#ffffff link=#5000A0>\n"
+         <<QString(currentDate)
+        <<//"<align='right'> " << datefich << "</align>"
+        "<center> <img src=""lien logo mtaa application"" width=""100"" height=""100"" > <br> <br><H1>SERVICE DEMANDE</H1> <br> <br><table  cellspacing=0 cellpadding=2>\n";
+        // headers
+        out << "<thead><tr bgcolor=#f0f0f0> <th>Numero</th>";
+        for (int column = 0; column < columnCount; column++)
+        if (!ui->T_Service->isColumnHidden(column))
+        out << QString("<th>%1</th>").arg(ui->T_Service->model()->headerData(column, Qt::Horizontal).toString());
+        out << "</tr></thead>\n";
+        // data table
+        for (int row = 0; row < rowCount; row++)
+        {
+        out << "<tr> <td bkcolor=0>" << row+1 <<"</td>";
+        for (int column = 0; column < columnCount; column++)
+        {
+        if (!ui->T_Service->isColumnHidden(column))
+        {
+        QString data = ui->T_Service->model()->data(ui->T_Service->model()->index(row, column)).toString().simplified();
+        out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+        }
+        }
+        out << "</tr>\n";
+        }
+        out <<  "</table> </center>\n"
+             "<br> <br> <br> <br>"
+        "</body>\n"
+        "<footer>\n"
+                "<div class = ""container"">"
+                    "<div class = ""row"">"
+                        "<div>"
+                            "<div><img src="":/ressources/image/logoo.png"" width=""60"" height=""60""> <span>DEBUG_ENTITY</div>\n"
+                            "<br>"
+
+                        "</div>"
+                    "</div>"
+                "</div>"
+        "</footer>\n"
+        "</html>\n";
+        QString filter = "pdf (*.pdf) ";
+        QString fileName = QFileDialog::getSaveFileName(this, "save in", QDir::homePath(),filter);
+        if (QFileInfo(fileName).suffix().isEmpty())
+        {
+            fileName.append(".pdf");
+        }
+        QPrinter printer (QPrinter::PrinterResolution);
+        printer.setOutputFormat(QPrinter::PdfFormat);
+        printer.setPaperSize(QPrinter::A4);
+        printer.setOutputFileName(fileName);
+        QTextDocument doc;
+        doc.setHtml(strStream);
+        doc.setPageSize(printer.pageRect().size());
+        doc.print(&printer);
+         son->play();
 }

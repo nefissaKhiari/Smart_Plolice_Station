@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -2138,6 +2138,29 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <attribute name="horizontalHeaderDefaultSectionSize">
         <number>138</number>
        </attribute>
+      </widget>
+      <widget class="QPushButton" name="B_ModifierService_2">
+       <property name="geometry">
+        <rect>
+         <x>780</x>
+         <y>30</y>
+         <width>151</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PDF</string>
+       </property>
+       <property name="icon">
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressources/image/pdf-file.png</normaloff>:/ressources/image/pdf-file.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>23</width>
+         <height>23</height>
+        </size>
+       </property>
       </widget>
      </widget>
      <widget class="QToolButton" name="toolButton_7">

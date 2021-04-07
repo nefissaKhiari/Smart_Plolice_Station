@@ -6,6 +6,14 @@
 
 QT       += core gui sql serialport printsupport network charts multimedia widgets concurrent
 QT       += core gui charts
+QT       += core gui sql
+QT       += multimedia
+QT       += printsupport
+QT       += serialport
+QT       += network
+QT       += core gui sql charts
+QT       += core gui axcontainer
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 

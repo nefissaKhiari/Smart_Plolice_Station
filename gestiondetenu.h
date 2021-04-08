@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "detenu.h"
 #include "infraction.h"
+#include "affectation.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class GestionDetenu; }
@@ -54,9 +55,25 @@ private slots:
 
     void on_B_SupprimerIntervenant_clicked();
 
+    void on_B_Statistics_clicked();
+
+    void on_B_BackToGestions_3_clicked();
+
+    void on_B_Trier_2_clicked();
+
+    void on_B_ResetTableIntervenant_2_clicked();
+
+    void on_LE_Chercher_2_textChanged(const QString &arg1);
+
+    void on_B_ConfirmerAffectation_clicked();
+
+    void on_B_GestionMission_2_clicked();
+
+    void on_B_BackToGestions_4_clicked();
 private:
     Ui::GestionDetenu *ui;
     Detenu detenu;
     Infraction infraction;
+    Affectation affectation;
 };
 #endif // GESTIONDETENU_H

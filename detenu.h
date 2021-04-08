@@ -17,7 +17,7 @@ private:
     QString niveau_danger;
 public:
     Detenu();
-    Detenu(QString, QString, QString, QDate, QDate, QString, QString);
+    Detenu(int, QString, QString, QString, QDate, QDate, QString, QString);
 
     void setId(int);
     int getId();
@@ -49,6 +49,9 @@ public:
 
     QSqlQueryModel* afficher();
     QSqlQueryModel* listId();
+
+    QSqlQueryModel* Trier(QString);
+    QSqlQueryModel* Chercher(QString,QString);
 };
 
 #endif // DETENU_H

@@ -39,8 +39,15 @@ public:
     bool modifier();
     bool supprimer(int);
 
+    int dis();
+    int as();
+    int hi();
+    int vol();
+    int meurtre();
+
     QSqlQueryModel* afficher();
     QSqlQueryModel* listId();
+
 };
 
 #endif // INFRACTION_H

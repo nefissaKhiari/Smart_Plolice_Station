@@ -71,3 +71,54 @@ QSqlQueryModel* Infraction::listId() {
     model->setQuery("SELECT id FROM infractions");
     return model;
 }
+
+int Infraction::dis(){
+    QSqlQuery qry;
+    qry.prepare("SELECT COUNT (*) FROM infractions where type='discrimination'");
+        qry.exec();
+        int r= 0;
+        if (qry.next()) {
+            r= qry.value(0).toInt();
+        }
+    return r;
+}
+int Infraction::as(){
+    QSqlQuery qry;
+    qry.prepare("SELECT COUNT (*) FROM infractions where type='attouchements sexuels'");
+        qry.exec();
+        int r= 0;
+        if (qry.next()) {
+            r= qry.value(0).toInt();
+        }
+    return r;
+}
+int Infraction::hi(){
+    QSqlQuery qry;
+    qry.prepare("SELECT COUNT (*) FROM infractions where type='homicide involontaire'");
+        qry.exec();
+        int r= 0;
+        if (qry.next()) {
+            r= qry.value(0).toInt();
+        }
+    return r;
+}
+int Infraction::vol(){
+    QSqlQuery qry;
+    qry.prepare("SELECT COUNT (*) FROM infractions where type='Vol'");
+        qry.exec();
+        int r= 0;
+        if (qry.next()) {
+            r= qry.value(0).toInt();
+        }
+    return r;
+}
+int Infraction::meurtre(){
+    QSqlQuery qry;
+    qry.prepare("SELECT COUNT (*) FROM infractions where type='Meurtre'");
+        qry.exec();
+        int r= 0;
+        if (qry.next()) {
+            r= qry.value(0).toInt();
+        }
+    return r;
+}

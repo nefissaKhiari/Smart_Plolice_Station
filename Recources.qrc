@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/recource">
+        <file>images/add.png</file>
+        <file>images/affectation.png</file>
+        <file>images/ascending-sort.png</file>
+        <file>images/back-arrow.png</file>
+        <file>images/close.png</file>
+        <file>images/confirm.png</file>
+        <file>images/detenu.png</file>
+        <file>images/edit.png</file>
+        <file>images/icon.png</file>
+        <file>images/infraction.png</file>
+        <file>images/trash.png</file>
+        <file>images/trend.png</file>
+        <file>images/background.PNG</file>
+    </qresource>
+</RCC>

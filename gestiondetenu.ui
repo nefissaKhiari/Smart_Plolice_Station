@@ -3008,8 +3008,8 @@ QComboBox::drop-down {
       <widget class="QPushButton" name="B_ConfirmerAffectation">
        <property name="geometry">
         <rect>
-         <x>160</x>
-         <y>260</y>
+         <x>250</x>
+         <y>290</y>
          <width>151</width>
          <height>41</height>
         </rect>
@@ -3055,6 +3055,29 @@ QComboBox::drop-down {
        </property>
        <property name="text">
         <string>ID Infraction :</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="B_SupprimerAffectation">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>290</y>
+         <width>151</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>supprimer</string>
+       </property>
+       <property name="icon">
+        <iconset resource="Recources.qrc">
+         <normaloff>:/recource/images/trash.png</normaloff>:/recource/images/trash.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>23</width>
+         <height>23</height>
+        </size>
        </property>
       </widget>
      </widget>
@@ -3126,7 +3149,7 @@ QComboBox::drop-down {
      <x>0</x>
      <y>0</y>
      <width>1500</width>
-     <height>20</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

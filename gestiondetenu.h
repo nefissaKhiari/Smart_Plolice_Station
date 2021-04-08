@@ -70,6 +70,10 @@ private slots:
     void on_B_GestionMission_2_clicked();
 
     void on_B_BackToGestions_4_clicked();
+    void on_B_SupprimerAffectation_2_clicked();
+
+    void on_B_SupprimerAffectation_clicked();
+
 private:
     Ui::GestionDetenu *ui;
     Detenu detenu;

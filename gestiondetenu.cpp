@@ -353,3 +353,44 @@ void GestionDetenu::on_B_BackToGestions_4_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
+
+void GestionDetenu::on_B_SupprimerAffectation_2_clicked()
+{
+
+}
+
+void GestionDetenu::on_B_SupprimerAffectation_clicked()
+{
+
+              int id = ui->CB_IDInfAffectation->currentText().toInt();
+              int cin = ui->CB_CinDetAffectation->currentText().toInt();
+              QMessageBox msgBox;
+
+            Affectation a(id,cin);
+            bool test=a.supprimerA(id, cin);
+
+            if (test)
+            {
+                msgBox.setText("Suppression avec succés.");
+                      ui->T_Affectation->setModel(a.afficherA());
+
+                      QSqlQuery *query = new QSqlQuery();
+                       QSqlQuery *qury = new QSqlQuery();
+                      QSqlQueryModel * modal = new QSqlQueryModel();
+                       QSqlQueryModel * modale = new QSqlQueryModel();
+                      query->prepare("SELECT CIN_DETENU from daffectations");
+                      query->exec();
+                      modal->setQuery(*query);
+                      ui->CB_IDInfAffectation->setModel(modal);
+                      qury->prepare("SELECT ID_INFRACTION from daffectations");
+                      qury->exec();
+                      modale->setQuery(*qury);
+
+                      ui->CB_CinDetAffectation->setModel(modale);
+
+            }
+            else
+                msgBox.setText("Echec au niveau de la Suppression");
+
+              msgBox.exec();
+}

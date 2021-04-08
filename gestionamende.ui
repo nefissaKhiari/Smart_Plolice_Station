@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>6</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -2260,7 +2260,7 @@ QComboBox::drop-down {
       <widget class="QLineEdit" name="LE_AIDAmende">
        <property name="geometry">
         <rect>
-         <x>152</x>
+         <x>210</x>
          <y>80</y>
          <width>191</width>
          <height>20</height>
@@ -2270,7 +2270,7 @@ QComboBox::drop-down {
       <widget class="QLineEdit" name="LE_ATypeAmende">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>210</x>
          <y>130</y>
          <width>211</width>
          <height>20</height>
@@ -2280,7 +2280,7 @@ QComboBox::drop-down {
       <widget class="QLineEdit" name="LE_APrixAmende">
        <property name="geometry">
         <rect>
-         <x>152</x>
+         <x>210</x>
          <y>170</y>
          <width>211</width>
          <height>20</height>
@@ -2290,7 +2290,7 @@ QComboBox::drop-down {
       <widget class="QTextEdit" name="LE_ADescAmende">
        <property name="geometry">
         <rect>
-         <x>200</x>
+         <x>170</x>
          <y>210</y>
          <width>361</width>
          <height>91</height>
@@ -2300,8 +2300,8 @@ QComboBox::drop-down {
       <widget class="QLineEdit" name="LE_ALieuAmende">
        <property name="geometry">
         <rect>
-         <x>172</x>
-         <y>340</y>
+         <x>210</x>
+         <y>330</y>
          <width>191</width>
          <height>20</height>
         </rect>
@@ -2310,7 +2310,7 @@ QComboBox::drop-down {
       <widget class="QLineEdit" name="LE_ADateAmende">
        <property name="geometry">
         <rect>
-         <x>170</x>
+         <x>210</x>
          <y>380</y>
          <width>201</width>
          <height>20</height>
@@ -2320,7 +2320,7 @@ QComboBox::drop-down {
       <widget class="QLabel" name="L_ACINpolicier">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>60</x>
          <y>430</y>
          <width>141</width>
          <height>31</height>
@@ -2330,13 +2330,13 @@ QComboBox::drop-down {
         <string notr="true">background: transparent;</string>
        </property>
        <property name="text">
-        <string>CIN policier</string>
+        <string>CIN policier:</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="LE_ACINpolicier">
        <property name="geometry">
         <rect>
-         <x>170</x>
+         <x>210</x>
          <y>440</y>
          <width>201</width>
          <height>20</height>
@@ -2570,9 +2570,9 @@ QComboBox::drop-down {
        </property>
        <property name="geometry">
         <rect>
-         <x>142</x>
+         <x>200</x>
          <y>80</y>
-         <width>161</width>
+         <width>181</width>
          <height>20</height>
         </rect>
        </property>
@@ -2580,7 +2580,7 @@ QComboBox::drop-down {
       <widget class="QLineEdit" name="LE_MTypeAmende">
        <property name="geometry">
         <rect>
-         <x>152</x>
+         <x>200</x>
          <y>120</y>
          <width>211</width>
          <height>20</height>
@@ -2590,7 +2590,7 @@ QComboBox::drop-down {
       <widget class="QLineEdit" name="LE_MPrixAmende">
        <property name="geometry">
         <rect>
-         <x>152</x>
+         <x>200</x>
          <y>160</y>
          <width>181</width>
          <height>20</height>
@@ -2610,7 +2610,7 @@ QComboBox::drop-down {
       <widget class="QLineEdit" name="lineEdit_25">
        <property name="geometry">
         <rect>
-         <x>152</x>
+         <x>180</x>
          <y>350</y>
          <width>221</width>
          <height>20</height>
@@ -2620,7 +2620,7 @@ QComboBox::drop-down {
       <widget class="QLineEdit" name="LE_MDateAmende">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>180</x>
          <y>400</y>
          <width>221</width>
          <height>20</height>
@@ -2630,7 +2630,7 @@ QComboBox::drop-down {
       <widget class="QLabel" name="L_CINpolicier">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>40</x>
          <y>440</y>
          <width>131</width>
          <height>31</height>
@@ -2646,7 +2646,7 @@ QComboBox::drop-down {
       <widget class="QLineEdit" name="LE_MCINpolicier">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>180</x>
          <y>450</y>
          <width>221</width>
          <height>20</height>

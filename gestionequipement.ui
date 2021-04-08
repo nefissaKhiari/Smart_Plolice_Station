@@ -725,54 +725,6 @@ QPushButton:hover {
         </size>
        </property>
       </widget>
-      <widget class="QLineEdit" name="LE_ChercherNom">
-       <property name="geometry">
-        <rect>
-         <x>40</x>
-         <y>200</y>
-         <width>201</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="placeholderText">
-        <string>Nom...</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="B_Recherche">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>250</y>
-         <width>161</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-	background: white;
-}
-
-QPushButton:hover {
-	background: #BEBEBE;
-}</string>
-       </property>
-       <property name="text">
-        <string>Chercher</string>
-       </property>
-       <property name="icon">
-        <iconset resource="ressource.qrc">
-         <normaloff>:/ressource/image/search.png</normaloff>:/ressource/image/search.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>25</width>
-         <height>25</height>
-        </size>
-       </property>
-      </widget>
       <widget class="QLabel" name="L_CB_Recherche">
        <property name="geometry">
         <rect>
@@ -792,14 +744,14 @@ QPushButton:hover {
       <widget class="QLineEdit" name="LE_ChercherReference">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>230</x>
          <y>250</y>
          <width>201</width>
          <height>41</height>
         </rect>
        </property>
        <property name="placeholderText">
-        <string>reference...</string>
+        <string>chercher...</string>
        </property>
       </widget>
       <widget class="QPushButton" name="B_ResetTableEquipement">
@@ -831,6 +783,96 @@ QPushButton:hover {
         <iconset resource="ressource.qrc">
          <normaloff>:/ressource/image/close.png</normaloff>:/ressource/image/close.png</iconset>
        </property>
+      </widget>
+      <widget class="QComboBox" name="CB_RechercheEquipement">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>260</y>
+         <width>171</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QComboBox {
+  border: 1px solid red;
+  border-radius: 4px;
+  background: white;
+}
+
+QComboBox QAbstractItemView {
+  border: 1px solid black;
+  border-radius: 0;
+  background-color: white;
+  selection-background-color:#305068;
+}
+
+QComboBox QAbstractItemView:hover {
+  background-color: white;
+  color: #F0F0F0;
+}
+
+QComboBox QAbstractItemView:selected {
+  background: #1464A0;
+  color: #32414B;
+}
+
+QComboBox QAbstractItemView:alternate {
+  background: #19232D;
+}
+
+QComboBox:disabled {
+  background-color: #19232D;
+  color: #787878;
+}
+
+QComboBox:hover {
+  border: 1px solid #148CD2;
+}
+
+QComboBox:focus {
+  border: 1px solid #1464A0;
+}
+
+QComboBox:on {
+  selection-background-color: #1464A0;
+}
+
+QComboBox::item:checked {
+  font-weight: bold;
+}
+
+QComboBox::item:selected {
+  border: 0px solid transparent;
+}
+
+QComboBox::drop-down {
+  subcontrol-origin: padding;
+  subcontrol-position: top right;
+  width: 12px;
+  border-left: 1px solid #32414B;
+}</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>reference</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>quantite</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>etat</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>poid</string>
+        </property>
+       </item>
       </widget>
      </widget>
      <zorder>frame</zorder>

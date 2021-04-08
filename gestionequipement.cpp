@@ -285,27 +285,8 @@ void GestionEquipement::on_B_Trier_clicked()
 
 void GestionEquipement::on_B_ResetTableEquipement_clicked()
 {
-    ui->LE_ChercherNom->setText("");
     ui->LE_ChercherReference->setText("");
     ui->T_Equipement->setModel(equipement.afficher());
-}
-
-void GestionEquipement::on_B_Recherche_clicked()
-{
-    QString nom = ui->LE_ChercherNom->text();
-    QString reference = ui->LE_ChercherReference->text();
-    if((nom != "") && (reference != "")) {
-        QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("Il faut Chercher avec le Nom OU la reference.\n" "Cliquer Ok."), QMessageBox::Ok);
-    }
-    else if((nom == "") && (reference == "")) {
-        QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("Il faut Chercher avec le Nom OU la reference.\n" "Cliquer Ok."), QMessageBox::Ok);
-    }
-    else if(nom != ""){
-        ui->T_Equipement->setModel(equipement.RechercheNom(nom));
-    }
-    else if(reference !=""){
-        ui->T_Equipement->setModel(equipement.Rechercherref(reference));
-    }
 }
 
 void GestionEquipement::on_pushButton_clicked()
@@ -347,4 +328,11 @@ void GestionEquipement::on_statestique_clicked()
     QChartView *chartView = new QChartView(chart);
     chartView->setParent(ui->F_Statisticc);
     ui->stackedWidget->setCurrentIndex(7);
+}
+
+
+void GestionEquipement::on_LE_ChercherReference_textChanged(const QString &arg1)
+{
+    QString by = ui->CB_RechercheEquipement->currentText();
+    ui->T_Equipement->setModel(equipement.Chercher(arg1, by));
 }

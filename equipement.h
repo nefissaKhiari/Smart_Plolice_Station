@@ -41,8 +41,7 @@ public:
     QSqlQueryModel* listRef();
 
     QSqlQueryModel* Trier(QString);
-    QSqlQueryModel* Rechercherref(QString);
-    QSqlQueryModel* RechercheNom(QString);
+    QSqlQueryModel* Chercher(QString,QString);
 };
 
 #endif // EQUIPEMENT_H

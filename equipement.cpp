@@ -95,21 +95,20 @@ QSqlQueryModel* Equipement::Trier(QString tri) {
     return model;
 }
 
-QSqlQueryModel* Equipement::RechercheNom(QString cherche) {
+QSqlQueryModel* Equipement::Chercher(QString rechercher,QString by) {
     QSqlQueryModel* model = new QSqlQueryModel();
-    model->setQuery("SELECT * FROM Equipement WHERE nom LIKE '"+cherche+"%'");
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("reference"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("quantite"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("taille"));
-    model->setHeaderData(3, Qt::Horizontal, QObject::tr("etat"));
-    model->setHeaderData(4, Qt::Horizontal, QObject::tr("poid"));
-    model->setHeaderData(5, Qt::Horizontal, QObject::tr("nom"));
-    return model;
-}
-
-QSqlQueryModel* Equipement::Rechercherref(QString cherche) {
-    QSqlQueryModel* model = new QSqlQueryModel();
-    model->setQuery("SELECT * FROM equipement WHERE reference LIKE '"+cherche+"%' ");
+    if(by=="poid") {
+        model->setQuery("SELECT * FROM equipement WHERE poid LIKE '"+rechercher+"%'");
+    }
+    else if(by=="etat") {
+       model->setQuery("SELECT * FROM equipement WHERE etat LIKE '"+rechercher+"%'");
+    }
+    else if(by=="quantite") {
+        model->setQuery("SELECT * FROM equipement WHERE quantite LIKE '"+rechercher+"%'");
+    }
+    else if(by=="reference") {
+        model->setQuery("SELECT * FROM equipement WHERE reference LIKE '"+rechercher+"%'");
+    }
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("reference"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("quantite"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("taille"));

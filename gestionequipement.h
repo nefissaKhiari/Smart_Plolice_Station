@@ -67,8 +67,6 @@ private slots:
 
     void on_B_MConfirmerMaintenance_clicked();
 
-    void on_B_Recherche_clicked();
-
     void on_B_Trier_clicked();
 
     void on_B_ResetTableEquipement_clicked();
@@ -76,6 +74,7 @@ private slots:
     void on_pushButton_clicked();
 
     void on_statestique_clicked();
+    void on_LE_ChercherReference_textChanged(const QString &arg1);
 
 private:
     Ui::GestionEquipement *ui;

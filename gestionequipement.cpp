@@ -307,3 +307,44 @@ void GestionEquipement::on_B_Recherche_clicked()
         ui->T_Equipement->setModel(equipement.Rechercherref(reference));
     }
 }
+
+void GestionEquipement::on_pushButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
+void GestionEquipement::on_statestique_clicked()
+{
+    int fixer=maintenance.sfixer();
+    int nonfixer=maintenance.snfixer();
+    qDebug()<<fixer;
+    qDebug()<<nonfixer;
+
+    QPieSeries *series = new QPieSeries();
+    series->append("Fixer",fixer);
+    series->append("Non Fixer",nonfixer);
+    series->setHoleSize(0.5);
+    series->setPieSize(0.8);
+
+    QPieSlice *f = series->slices().at(0);
+    QPieSlice *nf = series->slices().at(1);
+    /*********************** Labels
+    tn->setLabelVisible(true);
+    fr->setLabelVisible(true);
+    ag->setLabelVisible(true);
+    lb->setLabelVisible(true);
+    autres->setLabelVisible(true);
+    ******************************/
+    f->setBrush(Qt::red);
+    nf->setBrush(Qt::blue);
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->setTitle("Etat des equipements");
+    chart->legend()->setVisible(true);
+    chart->legend()->setAlignment(Qt::AlignBottom);
+    chart->setAnimationOptions(QChart::AllAnimations);
+
+    QChartView *chartView = new QChartView(chart);
+    chartView->setParent(ui->F_Statisticc);
+    ui->stackedWidget->setCurrentIndex(7);
+}

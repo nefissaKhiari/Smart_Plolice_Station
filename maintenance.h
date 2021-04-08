@@ -38,7 +38,8 @@ public:
     bool ajouter();
     bool modifier();
     bool supprimer(int);
-
+    int sfixer();
+    int snfixer();
     QSqlQueryModel* afficher();
     QSqlQueryModel* listId();
 };

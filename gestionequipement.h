@@ -5,6 +5,19 @@
 #include "equipement.h"
 #include "maintenance.h"
 #include "notification.h"
+#include <QtCharts>
+#include <QChartView>
+#include <QBarSeries>
+#include <QBarSet>
+#include <QLegend>
+#include <QBarCategoryAxis>
+#include <QHorizontalStackedBarSeries>
+#include <QLineSeries>
+#include <QCategoryAxis>
+#include <QPieSeries>
+#include <QPieSlice>
+#include <QSound>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class GestionEquipement; }
 QT_END_NAMESPACE
@@ -59,6 +72,10 @@ private slots:
     void on_B_Trier_clicked();
 
     void on_B_ResetTableEquipement_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_statestique_clicked();
 
 private:
     Ui::GestionEquipement *ui;

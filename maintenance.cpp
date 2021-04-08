@@ -80,3 +80,25 @@ QSqlQueryModel* Maintenance::listId() {
     model->setQuery("SELECT idmaintenance FROM maintenance");
     return model;
 }
+
+int Maintenance::sfixer() {
+    QSqlQuery qry;
+    qry.prepare("SELECT COUNT (*) FROM maintenance where etat='Fixer'");
+        qry.exec();
+        int Tn= 0;
+        if (qry.next()) {
+            Tn= qry.value(0).toInt();
+        }
+    return Tn;
+}
+
+int Maintenance::snfixer() {
+    QSqlQuery qry;
+    qry.prepare("SELECT COUNT (*) FROM maintenance where etat='Non fixer'");
+        qry.exec();
+        int Tn= 0;
+        if (qry.next()) {
+            Tn= qry.value(0).toInt();
+        }
+    return Tn;
+}

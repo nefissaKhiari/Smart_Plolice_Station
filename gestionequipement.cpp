@@ -31,6 +31,12 @@ void GestionEquipement::on_B_GestionEquipement_clicked()
 
 void GestionEquipement::on_B_AjouterEquipement_clicked()
 {
+    ui->AAlerteRef->setText("");
+    ui->AAlerteQuantite->setText("");
+    ui->AAlerteEtat->setText("");
+    ui->AAlerteNom->setText("");
+    ui->AAlertePoid->setText("");
+    ui->AAlerteTaille->setText("");
     ui->stackedWidget->setCurrentIndex(2);
 }
 
@@ -115,14 +121,99 @@ void GestionEquipement::on_B_BackToGestionmaintenance_6_clicked()
 
 void GestionEquipement::on_B_AConfirmerEquipement_clicked()
 {
+     bool overAll = false, ref_b, quantite_b, taille_B, etat_B,poid_B ,nom_B ;
+
+    int reference = ui->LE_AReferenceEquipement->text().toInt();
+    QString ref_l=ui->LE_AReferenceEquipement->text();
+
+    int quantite = ui->LE_AQuantiteEquipement->text().toInt();
+    QString quantite_l=ui->LE_AQuantiteEquipement->text();
+
+    QString taille = ui->LE_ATailleEquipement->text();
+
+    QString etat = ui->LE_AEtatEquipement->text();
+
+    int poid = ui->LE_APoidEquipement->text().toInt();
+    QString poid_l=ui->LE_APoidEquipement->text();
+
+    QString nom = ui->LE_ANomEquipement->text();
+    if(ref_l.length()!=9) {
+        ref_b = false;
+        ui->AAlerteRef->setText("Il faut 9 charactere de facon XXXXXXXXXX");
+        ui->AAlerteRef->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+    }
+    else {
+        ref_b = true;
+        ui->AAlerteRef->setText("Ok");
+        ui->AAlerteRef->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+    }
+    // END : reference
+
+
+    if(quantite<5) {
+        quantite_b = false;
+        ui->AAlerteQuantite->setText("Il faut une quantite de 5 Minimum");
+        ui->AAlerteQuantite->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+    }
+    else {
+        quantite_b = true;
+        ui->AAlerteQuantite->setText("Ok");
+        ui->AAlerteQuantite->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+    }
+
+    if(taille.length() <2) {
+        taille_B = false;
+        ui->AAlerteTaille->setText("Il faut 3 charactere Minimum");
+        ui->AAlerteTaille->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+    }
+    else {
+        taille_B = true;
+        taille[0] = taille[0].toUpper();
+        ui->AAlerteTaille->setText("Ok");
+        ui->AAlerteTaille->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+    }
+
+    if(etat.length() < 5) {
+        etat_B = false;
+        ui->AAlerteEtat->setText("Il faut 5 charactere Minimum");
+        ui->AAlerteEtat->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+    }
+    else {
+        etat_B = true;
+        taille[0] = taille[0].toUpper();
+        ui->AAlerteEtat->setText("Ok");
+        ui->AAlerteEtat->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+    }
+
+    if(poid<1) {
+        poid_B = false;
+        ui->AAlertePoid->setText("Il faut un poid de 1kg Minimum");
+        ui->AAlertePoid->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+    }
+    else {
+        poid_B = true;
+        ui->AAlertePoid->setText("Ok");
+        ui->AAlertePoid->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+    }
+    if(nom.length() < 5) {
+        nom_B = false;
+        ui->AAlerteNom->setText("Il faut 5 charactere Minimum");
+        ui->AAlerteNom->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+    }
+    else {
+        nom_B  = true;
+        taille[0] = taille[0].toUpper();
+        ui->AAlerteNom->setText("Ok");
+        ui->AAlerteNom->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+    }
+
+    /*************** END : Controle de Saisir L'ajout d'Intervenant ***************/
+    (ref_b && quantite_b && taille_B && etat_B && poid_B && nom_B )? overAll = true : overAll = false;
+
+    /*************** BEGIN : Ajouter sur BaseDonnee ***************/
+    if(overAll) {
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout de l'equipement?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
-        int reference = ui->LE_AReferenceEquipement->text().toInt();
-        int quantite = ui->LE_AQuantiteEquipement->text().toInt();
-        QString taille = ui->LE_ATailleEquipement->text();
-        QString etat = ui->LE_AEtatEquipement->text();
-        int poid = ui->LE_APoidEquipement->text().toInt();
-        QString nom = ui->LE_ANomEquipement->text();
         Equipement equipement(reference, quantite, taille, etat, poid, nom);
         if(equipement.ajouter()) {
             ui->CB_IDEquipement->setModel(equipement.listRef());
@@ -140,6 +231,7 @@ void GestionEquipement::on_B_AConfirmerEquipement_clicked()
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
         }
+    }
     }
 }
 

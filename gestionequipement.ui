@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -954,7 +954,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>50</x>
-         <y>390</y>
+         <y>430</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -970,7 +970,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>50</x>
-         <y>190</y>
+         <y>180</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -986,7 +986,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>50</x>
-         <y>240</y>
+         <y>260</y>
          <width>131</width>
          <height>31</height>
         </rect>
@@ -1002,7 +1002,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>50</x>
-         <y>290</y>
+         <y>310</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -1018,7 +1018,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>50</x>
-         <y>340</y>
+         <y>370</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -1034,7 +1034,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>380</y>
+         <y>430</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1047,7 +1047,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>190</y>
+         <y>180</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1060,7 +1060,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>240</y>
+         <y>250</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1073,7 +1073,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>290</y>
+         <y>310</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1086,7 +1086,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>330</y>
+         <y>370</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1102,7 +1102,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>380</x>
-         <y>470</y>
+         <y>500</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -1154,7 +1154,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>50</x>
-         <y>140</y>
+         <y>120</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -1170,7 +1170,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>140</y>
+         <y>120</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1183,7 +1183,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>100</x>
-         <y>470</y>
+         <y>500</y>
          <width>171</width>
          <height>41</height>
         </rect>
@@ -1197,6 +1197,102 @@ QComboBox::drop-down {
        <property name="icon">
         <iconset resource="ressource.qrc">
          <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
+       </property>
+      </widget>
+      <widget class="QLabel" name="AAlerteRef">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>160</y>
+         <width>351</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="AAlerteQuantite">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>220</y>
+         <width>351</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="AAlerteTaille">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>290</y>
+         <width>351</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="AAlerteEtat">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>350</y>
+         <width>351</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="AAlertePoid">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>410</y>
+         <width>351</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="AAlerteNom">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>470</y>
+         <width>351</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </widget>

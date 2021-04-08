@@ -3547,9 +3547,9 @@ background: transparent;
            <widget class="QLabel" name="L_ConfigIntervenant_9">
             <property name="geometry">
              <rect>
-              <x>121</x>
+              <x>114</x>
               <y>180</y>
-              <width>301</width>
+              <width>331</width>
               <height>71</height>
              </rect>
             </property>
@@ -3565,7 +3565,7 @@ background: transparent;
              <string notr="true">background: transparent;</string>
             </property>
             <property name="text">
-             <string>Statistiques sur les Ages</string>
+             <string>Statistiques sur les Salaires</string>
             </property>
            </widget>
            <widget class="QLabel" name="L_ConfigIntervenant_10">

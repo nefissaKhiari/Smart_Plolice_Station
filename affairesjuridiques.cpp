@@ -464,11 +464,11 @@ void AffairesJuridiques::on_B_Statistics_clicked()
 
     /********************* BEGIN : Curve->Localisation *********************/
     QLineSeries *seriesss = new QLineSeries();
-    seriesss->append(0, 16);
-    seriesss->append(1, 20);
-    seriesss->append(2, 24);
-    seriesss->append(3, 18);
-    seriesss->append(4, 27);
+    seriesss->append(0, 12);
+    seriesss->append(1, 8);
+    seriesss->append(2, 10);
+    seriesss->append(3, 8);
+    seriesss->append(4, 4);
     QChart *charttt = new QChart();
     charttt->legend()->hide();
     charttt->addSeries(seriesss);
@@ -477,18 +477,18 @@ void AffairesJuridiques::on_B_Statistics_clicked()
     font.setPixelSize(18);
     charttt->setTitleFont(font);
     charttt->setTitleBrush(QBrush(Qt::black));
-    charttt->setTitle("Age des Intervenants");
+    charttt->setTitle("Salaire des Intervenants");
     QPen pen(QRgb(0x000000));
     pen.setWidth(5);
     seriesss->setPen(pen);
     charttt->setAnimationOptions(QChart::AllAnimations);
     QCategoryAxis *axisX = new QCategoryAxis();
-    axisX->append("1999",0);
-    axisX->append("2000",1);
-    axisX->append("2001",2);
-    axisX->append("2002",3);
-    axisX->append("2003",4);
-    charttt->setAxisX(axisX, seriess);
+    axisX->append("500DT",0);
+    axisX->append("1000DT",1);
+    axisX->append("1500DT",2);
+    axisX->append("2000DT",3);
+    axisX->append("2500DT",4);
+    charttt->setAxisX(axisX, seriesss);
     QChartView *chartViewww = new QChartView(charttt);
     chartViewww->setRenderHint(QPainter::Antialiasing);
 

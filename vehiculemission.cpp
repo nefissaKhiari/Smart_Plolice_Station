@@ -198,13 +198,85 @@ void VehiculeMission::on_B_BackToGestions_2_clicked()
 void VehiculeMission::on_B_AConfirmerVehicule_clicked()
 {son->play();
 
-
+bool overAll = false, matricule_B, marque_B, couleur_B, quantite_B,nb_places_B;
        int matricule = ui->LE_AMatriculeVehicule->text().toInt();
+      QString matriculel = ui->LE_AMatriculeVehicule->text();
        QString marque = ui->LE_AMarqueVehicule->text();
        QString couleur = ui->LE_ACouleurVehicule->text();
        int quantite = ui->LE_AQuantiteVehicule->text().toInt();
+       QString quantitel = ui->LE_AQuantiteVehicule->text();
        int nb_places = ui->LE_ANbplacesVehicule->text().toInt();
+       QString nb_placesl = ui->LE_ANbplacesVehicule->text();
        int CIN_policier = ui->LE_ACinVehicule->text().toInt();
+       if(matriculel.length() < 3) {
+               matricule_B = false;
+               ui->matriculealert->setText("Il faut 3 characteres de facon XXX");
+               ui->matriculealert->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+           }
+           else {
+               matricule_B = true;
+               ui->matriculealert->setText("Ok");
+               ui->matriculealert->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+           }
+            END : matriculel;
+
+           // BEGIN : Nom
+           if(marque.length() >10) {
+               marque_B = false;
+               ui->marquealert->setText("Il faut 10 charactere au maximum");
+               ui->marquealert->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+           }
+           else {
+               marque_B = true;
+               marque[0] = marque[0].toUpper();
+               ui->marquealert->setText("Ok");
+               ui->marquealert->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+           }
+          // END : marque;
+
+           // BEGIN : couleur
+          if(couleur.length() < 3) {
+               couleur_B = false;
+               ui->couleuralert->setText("Il faut  au moins 3 charactere ");
+               ui->couleuralert->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+           }
+           else {
+               couleur_B = true;
+               couleur[0] = couleur[0].toUpper();
+               ui->couleuralert->setText("Ok");
+               ui->couleuralert->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+           }
+           // END : couleur
+          if(quantitel.length() >2) {
+                  quantite_B = false;
+                  ui->quantitealerte->setText("Il faut maximum 2 characteres ");
+                  ui->quantitealerte->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+              }
+              else {
+                  quantite_B = true;
+                  ui->quantitealerte->setText("Ok");
+                  ui->quantitealerte->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+              }
+
+          if(nb_placesl.length() >2) {
+                  nb_places_B = false;
+                  ui->nb_placesalert->setText("Il faut maximum 2 characteres ");
+                  ui->nb_placesalert->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+              }
+              else {
+                  quantite_B = true;
+                  ui->nb_placesalert->setText("Ok");
+                  ui->nb_placesalert->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+              }
+
+
+          /*  (cin_B && nom_B && prenom_B)? overAll = true : overAll = false;
+           /*************** END : Controle de Saisir L'ajout d'Intervenant ***************/
+
+           /*************** BEGIN : Ajouter sur BaseDonnee */
+       (matricule_B && marque_B && couleur_B && quantite_B && nb_places_B  )? overAll = true : overAll = false;
+           if(overAll) {
+
 
        QMessageBox msgBox;
 
@@ -241,6 +313,7 @@ void VehiculeMission::on_B_AConfirmerVehicule_clicked()
        }
 
        msgBox.exec();
+        }
 }
 
 void VehiculeMission::on_B_SupprimerVehicule_clicked()

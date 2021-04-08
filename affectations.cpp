@@ -60,6 +60,7 @@ QSqlQueryModel* affectations::recherchera(QString rechercher,QString by) {
     if(by=="ID_M") {
        model->setQuery("SELECT v.matricule, v.cin_policier, v.marque, v.couleur,v.nb_places, v.quantite, m.id, m.nom, m.datem, m.localisation, m.description FROM vehicules v INNER JOIN affectations a ON v.matricule = a.id_vehicule INNER JOIN missions m ON m.id = a.id_mission WHERE a.id_mission LIKE '"+rechercher+"%' ;");
     }
+
     else if(by=="matricule_V") {
        model->setQuery("SELECT v.matricule, v.cin_policier, v.marque, v.couleur,v.nb_places, v.quantite, m.id, m.nom, m.datem, m.localisation, m.description FROM vehicules v INNER JOIN affectations a ON v.matricule = a.id_vehicule INNER JOIN missions m ON m.id = a.id_mission WHERE a.id_vehicule LIKE '"+rechercher+"%' ;");
     }

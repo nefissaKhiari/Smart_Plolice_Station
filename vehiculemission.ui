@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -705,7 +705,7 @@ QPushButton:hover {
         <x>290</x>
         <y>100</y>
         <width>641</width>
-        <height>531</height>
+        <height>581</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -720,8 +720,8 @@ QPushButton:hover {
       <widget class="QLabel" name="L_AjouterIntervenant">
        <property name="geometry">
         <rect>
-         <x>220</x>
-         <y>70</y>
+         <x>200</x>
+         <y>60</y>
          <width>281</width>
          <height>41</height>
         </rect>
@@ -744,8 +744,8 @@ QPushButton:hover {
       <widget class="QLabel" name="L_AMatriculeVehicule">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>140</y>
+         <x>50</x>
+         <y>110</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -760,8 +760,8 @@ QPushButton:hover {
       <widget class="QLabel" name="L_AMarqueVehicule">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>190</y>
+         <x>40</x>
+         <y>180</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -776,8 +776,8 @@ QPushButton:hover {
       <widget class="QLabel" name="L_ACouleurVehicule">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>240</y>
+         <x>30</x>
+         <y>250</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -792,8 +792,8 @@ QPushButton:hover {
       <widget class="QLabel" name="L_ANbplacesVehicule">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>290</y>
+         <x>30</x>
+         <y>390</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -808,8 +808,8 @@ QPushButton:hover {
       <widget class="QLabel" name="L_AQuantiteVehicule">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>340</y>
+         <x>30</x>
+         <y>320</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -824,8 +824,8 @@ QPushButton:hover {
       <widget class="QLineEdit" name="LE_AMatriculeVehicule">
        <property name="geometry">
         <rect>
-         <x>230</x>
-         <y>140</y>
+         <x>190</x>
+         <y>110</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -840,8 +840,8 @@ QPushButton:hover {
       <widget class="QLineEdit" name="LE_AMarqueVehicule">
        <property name="geometry">
         <rect>
-         <x>230</x>
-         <y>190</y>
+         <x>180</x>
+         <y>180</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -853,8 +853,8 @@ QPushButton:hover {
       <widget class="QLineEdit" name="LE_ACouleurVehicule">
        <property name="geometry">
         <rect>
-         <x>230</x>
-         <y>240</y>
+         <x>180</x>
+         <y>250</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -866,8 +866,8 @@ QPushButton:hover {
       <widget class="QLineEdit" name="LE_ANbplacesVehicule">
        <property name="geometry">
         <rect>
-         <x>230</x>
-         <y>290</y>
+         <x>180</x>
+         <y>390</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -879,8 +879,8 @@ QPushButton:hover {
       <widget class="QLineEdit" name="LE_AQuantiteVehicule">
        <property name="geometry">
         <rect>
-         <x>230</x>
-         <y>340</y>
+         <x>190</x>
+         <y>320</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -895,8 +895,8 @@ QPushButton:hover {
       <widget class="QPushButton" name="B_AConfirmerVehicule">
        <property name="geometry">
         <rect>
-         <x>360</x>
-         <y>460</y>
+         <x>340</x>
+         <y>520</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -919,7 +919,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>150</x>
-         <y>460</y>
+         <y>520</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -970,8 +970,8 @@ QPushButton:hover {
       <widget class="QLabel" name="L_ACinVehicule">
        <property name="geometry">
         <rect>
-         <x>70</x>
-         <y>390</y>
+         <x>30</x>
+         <y>460</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -986,8 +986,8 @@ QPushButton:hover {
       <widget class="QLineEdit" name="LE_ACinVehicule">
        <property name="geometry">
         <rect>
-         <x>230</x>
-         <y>390</y>
+         <x>180</x>
+         <y>460</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -997,6 +997,71 @@ QPushButton:hover {
        </property>
        <property name="placeholderText">
         <string>CIN_policier...</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="matriculealert">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>150</y>
+         <width>371</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="marquealert">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>220</y>
+         <width>371</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="couleuralert">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>290</y>
+         <width>371</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="quantitealerte">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>360</y>
+         <width>371</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="nb_placesalert">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>430</y>
+         <width>371</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </widget>
@@ -2287,7 +2352,7 @@ QPushButton:hover {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">background: white;</string>
        </property>
       </widget>
       <widget class="QPushButton" name="B_ConfirmerAffectation">
@@ -2323,7 +2388,7 @@ QPushButton:hover {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">background: white;</string>
        </property>
       </widget>
       <widget class="QLabel" name="L_CB_ID_3">
@@ -2486,7 +2551,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">background: white;</string>
        </property>
        <item>
         <property name="text">
@@ -2551,23 +2616,23 @@ QPushButton:hover {
       <widget class="QComboBox" name="lineedit">
        <property name="geometry">
         <rect>
-         <x>450</x>
+         <x>430</x>
          <y>20</y>
-         <width>101</width>
+         <width>131</width>
          <height>31</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">background: white;</string>
        </property>
        <item>
         <property name="text">
-         <string>id_M</string>
+         <string>matricule_V</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>matricule_V</string>
+         <string>ID_M</string>
         </property>
        </item>
       </widget>

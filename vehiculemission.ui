@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>7</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -792,8 +792,8 @@ QPushButton:hover {
       <widget class="QLabel" name="L_ANbplacesVehicule">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>390</y>
+         <x>20</x>
+         <y>320</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -808,8 +808,8 @@ QPushButton:hover {
       <widget class="QLabel" name="L_AQuantiteVehicule">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>320</y>
+         <x>20</x>
+         <y>390</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -867,7 +867,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>180</x>
-         <y>390</y>
+         <y>320</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -879,8 +879,8 @@ QPushButton:hover {
       <widget class="QLineEdit" name="LE_AQuantiteVehicule">
        <property name="geometry">
         <rect>
-         <x>190</x>
-         <y>320</y>
+         <x>170</x>
+         <y>390</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -970,7 +970,7 @@ QPushButton:hover {
       <widget class="QLabel" name="L_ACinVehicule">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>20</x>
          <y>460</y>
          <width>141</width>
          <height>31</height>
@@ -986,7 +986,7 @@ QPushButton:hover {
       <widget class="QLineEdit" name="LE_ACinVehicule">
        <property name="geometry">
         <rect>
-         <x>180</x>
+         <x>170</x>
          <y>460</y>
          <width>351</width>
          <height>31</height>
@@ -1041,7 +1041,7 @@ QPushButton:hover {
       <widget class="QLabel" name="quantitealerte">
        <property name="geometry">
         <rect>
-         <x>180</x>
+         <x>170</x>
          <y>360</y>
          <width>371</width>
          <height>31</height>
@@ -1054,7 +1054,7 @@ QPushButton:hover {
       <widget class="QLabel" name="nb_placesalert">
        <property name="geometry">
         <rect>
-         <x>180</x>
+         <x>170</x>
          <y>430</y>
          <width>371</width>
          <height>31</height>

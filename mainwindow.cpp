@@ -56,9 +56,6 @@ MainWindow::MainWindow(QWidget *parent) :
      son=new QSound(":/ressources/cassette-player-button-3.wav");
     ui->stackedWidget->setCurrentIndex(0);
     ui->mdp->setEchoMode(QLineEdit::Password);
-    //for email tab
-   // connect(ui->pushButton_2, SIGNAL(clicked()),this, SLOT(sendMail()));
-    //connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(browse()));
 
 }
 
@@ -127,8 +124,8 @@ void MainWindow::on_B_AAnnulerCitoyen_clicked()
 
 void MainWindow::on_B_AConfirmerCitoyen_clicked()
 {
-    QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout du citoyen?", QMessageBox::Yes | QMessageBox::No);
-    if(reply == QMessageBox::Yes) {
+    son->play();
+    bool overAll = false, nom_B,prenom_B ;
 
         QString nom = ui->LE_ANomCitoyen->text();
         QString prenom = ui->LE_APrenomCitoyen->text();
@@ -139,6 +136,35 @@ void MainWindow::on_B_AConfirmerCitoyen_clicked()
         QString nom_pere = ui->LE_ANomPereCit->text();
         QString profession = ui->LE_AProfessionCit ->text();
         QString etat_civil = ui->LE_AEtatCitoyen->text();
+        if(nom.length() < 3) {
+                nom_B = false;
+                ui->L_ANomCitoyenA->setText(" 3 characteres minimum pour le Nom");
+                ui->L_ANomCitoyenA->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+            }
+            else {
+                nom_B = true;
+                nom[0] = nom[0].toUpper();
+                ui->L_ANomCitoyenA->setText("Validé");
+                ui->L_ANomCitoyenA->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+            }
+        if(prenom.length() < 3) {
+               prenom_B = false;
+                ui->L_APrenomCitoyenA->setText(" 3 characteres minimum pour le Prenom");
+                ui->L_APrenomCitoyenA->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+            }
+            else {
+                prenom_B = true;
+                prenom[0] = prenom[0].toUpper();
+                ui->L_APrenomCitoyenA->setText("Validé");
+                ui->L_APrenomCitoyenA->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+            }
+(nom_B&& prenom_B )? overAll = true : overAll = false;
+ if(overAll){
+
+
+  QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout du citoyen?", QMessageBox::Yes | QMessageBox::No);
+        if(reply == QMessageBox::Yes) {
+
     Citoyen C(nom,prenom,date_Naiss,lieu_Naiss,mail, adresse,nom_pere,profession,etat_civil);
     if(C.ajouter()) {
         ui->T_Citoyens ->setModel(C.afficher());
@@ -160,7 +186,8 @@ void MainWindow::on_B_AConfirmerCitoyen_clicked()
         QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
     }
     }
-  son->play();
+ }
+
 }
 
 void MainWindow::on_B_MAnnulerCitoyen_clicked()
@@ -291,8 +318,9 @@ void MainWindow::on_B_AAnnulerService_clicked()
 
 void MainWindow::on_B_AConfirmerService_clicked()
 {
-    QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout du service?", QMessageBox::Yes | QMessageBox::No);
-    if(reply == QMessageBox::Yes) {
+    son->play();
+
+     bool overAll = false, descrip_B;
         QString libelle = ui->LE_ATypeService->text();
         QString duree = ui->LE_ADureeService->text();
         QString papiers_necess = ui->LE_APapierService->text();
@@ -300,6 +328,20 @@ void MainWindow::on_B_AConfirmerService_clicked()
         int id_citoyen=ui->CB_NomCitoyen->currentText().toInt();
          int id_policier=ui->CB_Idpolicier->currentText().toInt();
 
+         if(description.length() < 8) {
+                descrip_B = false;
+                ui->L_ADescripServiceA->setText("Il faut au minimum 20 characteres ");
+                ui->L_ADescripServiceA->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+            }
+            else {
+                descrip_B = true;
+                ui->L_ADescripServiceA->setText("Validé");
+                ui->L_ADescripServiceA->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+            }
+          (descrip_B )? overAll = true : overAll = false;
+         if(overAll) {
+ QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout du service?", QMessageBox::Yes | QMessageBox::No);
+         if(reply == QMessageBox::Yes) {
     Service S(libelle,duree,papiers_necess,description,id_citoyen,id_policier);
     if(S.ajouter()) {
         ui->T_Service ->setModel(S.afficher());
@@ -318,6 +360,7 @@ void MainWindow::on_B_AConfirmerService_clicked()
         QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
     }
     }
+         }
       son->play();
 }
 

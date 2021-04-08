@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -921,7 +921,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>40</x>
-         <y>170</y>
+         <y>160</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -1001,7 +1001,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>210</x>
-         <y>170</y>
+         <y>160</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -1231,6 +1231,38 @@ QPushButton:hover {
        </property>
        <property name="calendarPopup">
         <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_ANomCitoyenA">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>130</y>
+         <width>351</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:rgb(45, 45, 45);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_APrenomCitoyenA">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>200</y>
+         <width>351</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:rgb(45, 45, 45);</string>
+       </property>
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </widget>
@@ -1631,6 +1663,22 @@ B_MConfirmerCitoyen:pressed{
        </property>
        <property name="calendarPopup">
         <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_ANomCitoyenA_2">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>130</y>
+         <width>351</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:rgb(45, 45, 45);</string>
+       </property>
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </widget>
@@ -5307,7 +5355,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>350</x>
-         <y>500</y>
+         <y>520</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -5330,7 +5378,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>140</x>
-         <y>500</y>
+         <y>520</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -5574,6 +5622,38 @@ QComboBox::drop-down {
   width: 12px;
   border-left: 1px solid #32414B;
 }</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_ANomCitoyenA_3">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>340</y>
+         <width>351</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:rgb(45, 45, 45);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_ADescripServiceA">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>490</y>
+         <width>351</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:rgb(45, 45, 45);</string>
+       </property>
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </widget>

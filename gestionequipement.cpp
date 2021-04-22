@@ -6,11 +6,15 @@
 #include <QDebug>
 #include<equipement.h>
 #include <maintenance.h>
+#include<QFile>
+#include<QFileDialog>
+#include<QTextStream>
 GestionEquipement::GestionEquipement(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::GestionEquipement)
 {
     ui->setupUi(this);
+    song=new QSound(":/ressource/image/cassette-player-button-3.wav");
     ui->stackedWidget->setCurrentIndex(0);
     ui->CB_IDEquipement->setModel(equipement.listRef());
     ui->T_Equipement->setModel(equipement.afficher());
@@ -23,14 +27,23 @@ GestionEquipement::~GestionEquipement()
     delete ui;
 }
 
+void GestionEquipement::INFORMER(QLabel *label, QString message, int duration){
+    label->setVisible(true);
+    label->setText(message);
+    QTimer::singleShot(duration, ui->labelmessage, &QLabel::hide);
+     //QTimer::singleShot(duration, ui->labelmessage_2, &QLabel::hide);
+
+}
 
 void GestionEquipement::on_B_GestionEquipement_clicked()
 {
+    song->play();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
 void GestionEquipement::on_B_AjouterEquipement_clicked()
 {
+    song->play();
     ui->AAlerteRef->setText("");
     ui->AAlerteQuantite->setText("");
     ui->AAlerteEtat->setText("");
@@ -42,6 +55,7 @@ void GestionEquipement::on_B_AjouterEquipement_clicked()
 
 void GestionEquipement::on_B_ModifierEquipement_clicked()
 {
+    song->play();
     QSqlQuery qry;
     QString ref_string = QString::number(ui->CB_IDEquipement->currentText().toInt());
     qry.prepare("SELECT * FROM equipement where reference= :reference");
@@ -63,21 +77,26 @@ void GestionEquipement::on_B_ModifierEquipement_clicked()
 
 void GestionEquipement::on_B_BackToGestions_clicked()
 {
+    song->play();
     ui->stackedWidget->setCurrentIndex(0);
 }
 
 void GestionEquipement::on_B_GestionMaintenance_clicked()
 {
+    song->play();
     ui->stackedWidget->setCurrentIndex(4);
 }
 
 void GestionEquipement::on_B_AjouterMaintenance_clicked()
 {
+    song->play();
+    ui->Cb_AMaintenance->setModel(equipement.listRef());
     ui->stackedWidget->setCurrentIndex(5);
 }
 
 void GestionEquipement::on_B_ModifierMaintenance_clicked()
 {
+    song->play();
     QSqlQuery qry;
     QString id_string = QString::number(ui->CB_IDMaintenance->currentText().toInt());
     qry.prepare("SELECT * FROM maintenance where idmaintenance=:idmaintenance");
@@ -97,30 +116,36 @@ void GestionEquipement::on_B_ModifierMaintenance_clicked()
 void GestionEquipement::on_B_BackToGestionEquipement_3_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
+    song->play();
 }
 
 void GestionEquipement::on_B_BackToGestionsEquipement_4_clicked()
 {
+    song->play();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
 void GestionEquipement::on_B_BackToGestions_2_clicked()
 {
+    song->play();
     ui->stackedWidget->setCurrentIndex(0);
 }
 
 void GestionEquipement::on_B_BackToGestionMaintenance_5_clicked()
 {
+    song->play();
     ui->stackedWidget->setCurrentIndex(4);
 }
 
 void GestionEquipement::on_B_BackToGestionmaintenance_6_clicked()
 {
+    song->play();
     ui->stackedWidget->setCurrentIndex(4);
 }
 
 void GestionEquipement::on_B_AConfirmerEquipement_clicked()
 {
+     song->play();
      bool overAll = false, ref_b, quantite_b, taille_B, etat_B,poid_B ,nom_B ;
 
     int reference = ui->LE_AReferenceEquipement->text().toInt();
@@ -226,6 +251,7 @@ void GestionEquipement::on_B_AConfirmerEquipement_clicked()
             ui->LE_AEtatEquipement->setText("");
             ui->LE_APoidEquipement->setText("");
             ui->LE_ANomEquipement->setText("");
+            INFORMER(ui->labelmessage,"Equipement ajouter",3000);
 
         }
         else {
@@ -239,6 +265,7 @@ void GestionEquipement::on_B_AConfirmerEquipement_clicked()
 
 void GestionEquipement::on_B_MConfirmerEquipement_clicked()
 {
+    song->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer modification de l'equipement?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         int reference = ui->LE_MReference->text().toInt();
@@ -259,6 +286,7 @@ void GestionEquipement::on_B_MConfirmerEquipement_clicked()
             ui->LE_MEtatEquipement->setText("");
             ui->LE_MPoidEquipement->setText("");
             ui->LE_MNomEquipement->setText("");
+            INFORMER(ui->labelmessage,"Equipement modifier",3000);
 
         }
         else {
@@ -269,6 +297,7 @@ void GestionEquipement::on_B_MConfirmerEquipement_clicked()
 
 void GestionEquipement::on_B_SupprimerEquipement_clicked()
 {
+    song->play();
     Equipement equipement;
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression de l'equipement?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
@@ -277,6 +306,7 @@ void GestionEquipement::on_B_SupprimerEquipement_clicked()
             qDebug() << "Suppression Complet";
             ui->T_Equipement->setModel(equipement.afficher());
             ui->CB_IDEquipement->setModel(equipement.listRef());
+            INFORMER(ui->labelmessage,"Equipement suprimer",3000);
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"),
@@ -287,12 +317,13 @@ void GestionEquipement::on_B_SupprimerEquipement_clicked()
 
 void GestionEquipement::on_B_AConfirmerMaintenance_clicked()
 {
+    song->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout de l'equipement au maintenance?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         QDate date = ui->dateEditDebut_2->date();
         int cout = ui->LE_ACout->text().toInt();
         QDate date2 = ui->dateEdit_2Fin_2->date();
-        int reference = ui->LE_ReferenceEq->text().toInt();
+        int reference = ui->Cb_AMaintenance->currentText().toInt();
         Maintenance maintenance(date, cout , date2, reference);
         if(maintenance.ajouter()) {
             ui->CB_IDMaintenance->setModel(maintenance.listId());
@@ -313,6 +344,7 @@ void GestionEquipement::on_B_AConfirmerMaintenance_clicked()
 
 void GestionEquipement::on_B_SupprimerMaintenance_clicked()
 {
+    song->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la fixation de l'equipement?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         maintenance.setIdmaintenance(ui->CB_IDMaintenance->currentText().toInt());
@@ -331,6 +363,7 @@ void GestionEquipement::on_B_SupprimerMaintenance_clicked()
 
 void GestionEquipement::on_B_MConfirmerMaintenance_clicked()
 {
+    song->play();
     QSqlQuery qry;
     QString etatp;
     QString id_string = QString::number(ui->CB_IDMaintenance->currentText().toInt());
@@ -370,6 +403,7 @@ void GestionEquipement::on_B_MConfirmerMaintenance_clicked()
 
 void GestionEquipement::on_B_Trier_clicked()
 {
+    song->play();
     QString Tri = ui->CB_TriEquipement->currentText();
     ui->T_Equipement->setModel(equipement.Trier(Tri));
 
@@ -377,17 +411,20 @@ void GestionEquipement::on_B_Trier_clicked()
 
 void GestionEquipement::on_B_ResetTableEquipement_clicked()
 {
+    song->play();
     ui->LE_ChercherReference->setText("");
     ui->T_Equipement->setModel(equipement.afficher());
 }
 
 void GestionEquipement::on_pushButton_clicked()
 {
+    song->play();
     ui->stackedWidget->setCurrentIndex(4);
 }
 
 void GestionEquipement::on_statestique_clicked()
 {
+    song->play();
     int fixer=maintenance.sfixer();
     int nonfixer=maintenance.snfixer();
     qDebug()<<fixer;
@@ -425,6 +462,102 @@ void GestionEquipement::on_statestique_clicked()
 
 void GestionEquipement::on_LE_ChercherReference_textChanged(const QString &arg1)
 {
+    song->play();
     QString by = ui->CB_RechercheEquipement->currentText();
     ui->T_Equipement->setModel(equipement.Chercher(arg1, by));
+}
+
+
+void GestionEquipement::on_FBack_clicked()
+{
+    song->play();
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
+void GestionEquipement::on_statestique_3_clicked()
+{
+    song->play();
+    ui->text->clear();
+    ui->stackedWidget->setCurrentIndex(8);
+}
+
+void GestionEquipement::on_Cut_clicked()
+{
+    ui->text->cut();
+}
+
+void GestionEquipement::on_paste_clicked()
+{
+    ui->text->paste();
+}
+
+void GestionEquipement::on_copy_clicked()
+{
+    ui->text->copy();
+}
+
+void GestionEquipement::on_controlZ_clicked()
+{
+    ui->text->undo();
+}
+
+void GestionEquipement::on_refresh_clicked()
+{
+    ui->text->redo();
+}
+
+void GestionEquipement::on_New_File_clicked()
+{
+    file_path="";
+    ui->text->setText("");
+}
+
+void GestionEquipement::on_New_Folder_clicked()
+{
+   QString file_name=QFileDialog::getOpenFileName(this,"choisir le fichier");
+   QFile file(file_name);
+   file_path=file_name;
+   if(!file.open(QFile::ReadOnly | QFile::Text))
+   {
+      QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("impossible d'ouvrir le fichier.\n" "Cliquer Ok."), QMessageBox::Ok);
+      return;
+   }
+   QTextStream in(&file);
+   QString text=in.readAll();
+   ui->text->setText(text);
+   file.close();
+}
+
+void GestionEquipement::on_Edit_clicked()
+{
+    QFile file(file_path);
+    if(!file.open(QFile::WriteOnly | QFile::Text))
+    {
+       QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("impossible d'ouvrir le fichier.\n" "Cliquer Ok."), QMessageBox::Ok);
+       return;
+    }
+    QTextStream out(&file);
+    QString text=ui->text->toPlainText();
+    ui->text->setText(text);
+    out << text;
+    file.flush();
+    file.close();
+}
+
+void GestionEquipement::on_save_clicked()
+{
+    QString file_name=QFileDialog::getSaveFileName(this,"choisir le fichier");
+    QFile file(file_name);
+    file_path=file_name;
+    if(!file.open(QFile::WriteOnly | QFile::Text))
+    {
+       QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("impossible d'ouvrir le fichier.\n" "Cliquer Ok."), QMessageBox::Ok);
+       return;
+    }
+    QTextStream out(&file);
+    QString text=ui->text->toPlainText();
+    ui->text->setText(text);
+    out << text;
+    file.flush();
+    file.close();
 }

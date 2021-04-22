@@ -12,5 +12,15 @@
         <file>image/trash.png</file>
         <file>image/search.png</file>
         <file>image/icon.png</file>
+        <file>image/cassette-player-button-3.wav</file>
+        <file>image/add-file.png</file>
+        <file>image/duplicate.png</file>
+        <file>image/file.png</file>
+        <file>image/folder.png</file>
+        <file>image/paste.png</file>
+        <file>image/refreshing.png</file>
+        <file>image/scissors.png</file>
+        <file>image/back.png</file>
+        <file>image/floppy-disk.png</file>
     </qresource>
 </RCC>

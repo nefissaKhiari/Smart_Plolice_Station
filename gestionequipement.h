@@ -29,6 +29,7 @@ class GestionEquipement : public QMainWindow
 public:
     GestionEquipement(QWidget *parent = nullptr);
     ~GestionEquipement();
+    void INFORMER(QLabel *label ,QString message, int duration);
 
 private slots:
     void on_B_GestionEquipement_clicked();
@@ -76,10 +77,34 @@ private slots:
     void on_statestique_clicked();
     void on_LE_ChercherReference_textChanged(const QString &arg1);
 
+    void on_FBack_clicked();
+
+    void on_statestique_3_clicked();
+
+    void on_Cut_clicked();
+
+    void on_paste_clicked();
+
+    void on_copy_clicked();
+
+    void on_controlZ_clicked();
+
+    void on_refresh_clicked();
+
+    void on_New_File_clicked();
+
+    void on_New_Folder_clicked();
+
+    void on_Edit_clicked();
+
+    void on_save_clicked();
+
 private:
     Ui::GestionEquipement *ui;
     Equipement equipement;
     Maintenance maintenance;
     Notification notification;
+    QSound *song;
+    QString file_path;
 };
 #endif // GESTIONEQUIPEMENT_H

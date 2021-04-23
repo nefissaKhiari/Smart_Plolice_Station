@@ -45,7 +45,7 @@
 #include "notification.h"
 #include <QPrinter>
 #include<QPrintDialog>
-
+#include "excel.h"
 
 VehiculeMission::VehiculeMission(QWidget *parent)
     : QMainWindow(parent)
@@ -688,4 +688,32 @@ void VehiculeMission::on_supprimera_clicked()
 
           msgbox.exec();
 
+}
+
+
+void VehiculeMission::on_export_excel_clicked()
+{
+    son->play();
+        QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
+                                                            tr("Excel Files (*.xls)"));
+            if (fileName.isEmpty())
+                return;
+
+            ExportExcelObject obj(fileName, "Sheet1", ui->T_Mission);
+
+
+            obj.addField(0, "nom", "char(20)");
+            obj.addField(1, "datem", "char(20)");
+            obj.addField(2, "localisation", "char(20)");
+            obj.addField(3, "description", "char(20)");
+            obj.addField(4, "id", "char(20)");
+
+
+            int retVal = obj.export2Excel();
+            if( retVal > 0)
+            {
+                QMessageBox::information(this, tr("Done"),
+                                         QString(tr("exported!")).arg(retVal)
+                                         );
+            }
 }

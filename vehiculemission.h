@@ -101,6 +101,10 @@ private slots:
 
     void on_supprimera_clicked();
 
+
+
+    void on_export_excel_clicked();
+
 private:
     Ui::VehiculeMission *ui;
     vehicule v_tmp;

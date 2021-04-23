@@ -18,6 +18,7 @@ CONFIG += c++11
 SOURCES += \
     affectations.cpp \
     connection.cpp \
+    excel.cpp \
     main.cpp \
     missions.cpp \
     notification.cpp \
@@ -27,6 +28,7 @@ SOURCES += \
 HEADERS += \
     affectations.h \
     connection.h \
+    excel.h \
     missions.h \
     notification.h \
     vehicule.h \

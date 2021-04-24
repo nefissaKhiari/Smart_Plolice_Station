@@ -70,15 +70,15 @@ QSqlQueryModel* Citoyen::afficher()
 {
     QSqlQueryModel* model=new QSqlQueryModel();
           model->setQuery("SELECT * FROM citoyens ");
-          model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
-          model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
-          model->setHeaderData(3, Qt::Horizontal, QObject::tr("date_Naiss"));
-          model->setHeaderData(4, Qt::Horizontal, QObject::tr("lieu_Naiss"));
-          model->setHeaderData(5, Qt::Horizontal, QObject::tr("mail"));
-          model->setHeaderData(6, Qt::Horizontal, QObject::tr("adresse"));
-          model->setHeaderData(7, Qt::Horizontal, QObject::tr("nom_pere"));
-          model->setHeaderData(8, Qt::Horizontal, QObject::tr("profession"));
-          model->setHeaderData(9, Qt::Horizontal, QObject::tr("etat_civil"));
+          model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
+          model->setHeaderData(2, Qt::Horizontal, QObject::tr("PRENOM"));
+          model->setHeaderData(3, Qt::Horizontal, QObject::tr("DATE_Naiss"));
+          model->setHeaderData(4, Qt::Horizontal, QObject::tr("LIEU_Naiss"));
+          model->setHeaderData(5, Qt::Horizontal, QObject::tr("MAIL"));
+          model->setHeaderData(6, Qt::Horizontal, QObject::tr("ADRESSE"));
+          model->setHeaderData(7, Qt::Horizontal, QObject::tr("NOM_PERE"));
+          model->setHeaderData(8, Qt::Horizontal, QObject::tr("PROFESSION"));
+          model->setHeaderData(9, Qt::Horizontal, QObject::tr("ETAT_CIVIL"));
 
     return model;
 }

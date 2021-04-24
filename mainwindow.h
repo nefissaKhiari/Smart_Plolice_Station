@@ -81,6 +81,8 @@ private slots:
 
     void on_B_ModifierService_2_clicked();
 
+    void on_pdf_clicked();
+
 private:
     Ui::MainWindow *ui;
     Citoyen C;

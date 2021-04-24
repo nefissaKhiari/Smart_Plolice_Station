@@ -59,13 +59,13 @@ QSqlQueryModel* Service::afficher()
 {
     QSqlQueryModel* model=new QSqlQueryModel();
           model->setQuery("SELECT * FROM services ");
-          model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
-          model->setHeaderData(1, Qt::Horizontal, QObject::tr("libelle"));
-          model->setHeaderData(2, Qt::Horizontal, QObject::tr("duree"));
-          model->setHeaderData(3, Qt::Horizontal, QObject::tr("papiers_necess"));
-          model->setHeaderData(4, Qt::Horizontal, QObject::tr("decription"));
-          model->setHeaderData(5, Qt::Horizontal, QObject::tr("id_citoyen"));
-           model->setHeaderData(6, Qt::Horizontal, QObject::tr("id_policier"));
+          model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
+          model->setHeaderData(1, Qt::Horizontal, QObject::tr("LIBELLE"));
+          model->setHeaderData(2, Qt::Horizontal, QObject::tr("DUREE"));
+          model->setHeaderData(3, Qt::Horizontal, QObject::tr("PAPIERS_NESCESSAIRES"));
+          model->setHeaderData(4, Qt::Horizontal, QObject::tr("DESCRIPTION"));
+          model->setHeaderData(5, Qt::Horizontal, QObject::tr("ID_CITOYEN"));
+           model->setHeaderData(6, Qt::Horizontal, QObject::tr("ID_POLICIER"));
     return model;
 }
 QSqlQueryModel* Service::listId() {

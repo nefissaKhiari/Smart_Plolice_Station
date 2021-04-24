@@ -550,7 +550,7 @@ void MainWindow::on_B_ModifierService_2_clicked()
         "<body bgcolor=#ffffff link=#5000A0>\n"
          <<QString(currentDate)
         <<//"<align='right'> " << datefich << "</align>"
-        "<center> <img src=""lien logo mtaa application"" width=""100"" height=""100"" > <br> <br><H1>SERVICE DEMANDE</H1> <br> <br><table  cellspacing=0 cellpadding=2>\n";
+        "<center> <img src=""lien logo mtaa application"" width=""100"" height=""100"" > <br> <br><H1>EXTRAIT DE NAISSANCE</H1> <br> <br><table border=1 cellspacing=0 cellpadding=2>\n";
         // headers
         out << "<thead><tr bgcolor=#f0f0f0> <th>Numero</th>";
         for (int column = 0; column < columnCount; column++)
@@ -592,7 +592,83 @@ void MainWindow::on_B_ModifierService_2_clicked()
         {
             fileName.append(".pdf");
         }
-        //QPrinter printer (QPrinter::PrinterResolution);
+
+        printer.setOutputFormat(QPrinter::PdfFormat);
+        printer.setPaperSize(QPrinter::A4);
+        printer.setOutputFileName(fileName);
+        QTextDocument doc;
+        doc.setHtml(strStream);
+        doc.setPageSize(printer.pageRect().size());
+        doc.print(&printer);
+            N.notifications_pdfservice();
+         son->play();
+}
+
+void MainWindow::on_pdf_clicked()
+{
+    QPrinter printer (QPrinter::PrinterResolution);
+        QPrintDialog dlg(&printer,this);
+        if (dlg.exec() == QDialog::Rejected)
+        {
+            return;
+        }
+    QString strStream;
+        QString currentDate = QDateTime().currentDateTime().toString();
+        QTextStream out(&strStream);
+        const int rowCount = ui->T_Service->model()->rowCount();
+        const int columnCount = ui->T_Service->model()->columnCount();
+        out <<
+         "<html>\n"
+        "<head>\n"
+        "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+        <<QString("<title>%1</title>\n").arg("strTitle")
+        <<"</head>\n"
+        "<body bgcolor=#ffffff link=#5000A0>\n"
+         <<QString(currentDate)
+        <<//"<align='right'> " << datefich << "</align>"
+        "<center> <img src=""lien logo mtaa application"" width=""100"" height=""100"" > <br> <br><H1>EXTRAIT DE NAISSANCE</H1> <br> <br><table border=1 cellspacing=0 cellpadding=2>\n";
+        // headers
+        out << "<thead><tr bgcolor=#f0f0f0> <th>Numero</th>";
+        for (int column = 0; column < columnCount; column++)
+        if (!ui->T_Service->isColumnHidden(column))
+        out << QString("<th>%1</th>").arg(ui->T_Service->model()->headerData(column, Qt::Horizontal).toString());
+        out << "</tr></thead>\n";
+        // data table
+        for (int row = 0; row < rowCount; row++)
+        {
+        out << "<tr> <td bkcolor=0>" << row+1 <<"</td>";
+        for (int column = 0; column < columnCount; column++)
+        {
+        if (!ui->T_Service->isColumnHidden(column))
+        {
+        QString data = ui->T_Service->model()->data(ui->T_Service->model()->index(row, column)).toString().simplified();
+        out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+        }
+        }
+        out << "</tr>\n";
+        }
+        out <<  "</table> </center>\n"
+             "<br> <br> <br> <br>"
+        "</body>\n"
+        "<footer>\n"
+                "<div class = ""container"">"
+                    "<div class = ""row"">"
+                        "<div>"
+                            "<div><img src="":/ressources/image/logoo.png"" width=""60"" height=""60""> <span>DEBUG_ENTITY</div>\n"
+                            "<br>"
+
+                        "</div>"
+                    "</div>"
+                "</div>"
+        "</footer>\n"
+        "</html>\n";
+        QString filter = "pdf (*.pdf) ";
+        QString fileName = QFileDialog::getSaveFileName(this, "save in", QDir::homePath(),filter);
+        if (QFileInfo(fileName).suffix().isEmpty())
+        {
+            fileName.append(".pdf");
+        }
+
         printer.setOutputFormat(QPrinter::PdfFormat);
         printer.setPaperSize(QPrinter::A4);
         printer.setOutputFileName(fileName);

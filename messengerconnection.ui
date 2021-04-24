@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MessengerConnection</class>
+ <widget class="QDialog" name="MessengerConnection">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>519</width>
+    <height>268</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*{
+}
+
+#MessengerConnection{
+	background: url(:/Recources/Images/background.PNG);
+}
+
+QLabel{
+	background: transparent;
+	font-size: 24px;
+	color: white;
+}
+
+QFrame{
+	background: rgba(0, 0, 0, 0.8);
+	border-radius: 15px;
+}
+
+QStackedWidget{
+	background: trasnparent;
+}
+
+QToolButton{
+	font-size: 24px;
+	background: red;
+	border-radius: 45px;
+}
+
+QPushButton:hover{
+	background: #ff9999;
+}
+
+QComboBox{
+	font-size: 24px;
+}
+
+QLineEdit{
+	font-size: 24px;
+	background: transparent;
+	border: none;
+	color: white;;
+	border-bottom: 1px solid #717072;
+}
+
+QTextEdit{
+	font-size: 18px;
+	background: transparent;
+	border: 1px solid #717072;
+	color: white;
+}
+
+QMessageBox QLabel{
+	background: transparent;
+	color: black;
+}</string>
+  </property>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>21</x>
+     <y>80</y>
+     <width>477</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	font-size: 20px;
+	background: red;
+	border-radius: 5px;
+}
+
+QPushButton:hover{
+	background: #ff9999;
+}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>49</y>
+      <width>461</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string>Hostname :</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="HostName"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>89</y>
+      <width>461</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string>Port :</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSpinBox" name="Port">
+       <property name="maximum">
+        <number>99999999</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>126</y>
+      <width>461</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Ok">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string>Accepter</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Cancel">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string>Annuler</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QToolButton" name="toolButton">
+   <property name="geometry">
+    <rect>
+     <x>214</x>
+     <y>30</y>
+     <width>91</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="Recources.qrc">
+     <normaloff>:/Recources/Images/configuration.png</normaloff>:/Recources/Images/configuration.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>45</width>
+     <height>45</height>
+    </size>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="Recources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

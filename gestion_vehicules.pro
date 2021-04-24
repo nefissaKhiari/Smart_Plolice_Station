@@ -22,6 +22,7 @@ SOURCES += \
     main.cpp \
     missions.cpp \
     notification.cpp \
+    qr_code.cpp \
     vehicule.cpp \
     vehiculemission.cpp
 
@@ -31,6 +32,7 @@ HEADERS += \
     excel.h \
     missions.h \
     notification.h \
+    qr_code.h \
     vehicule.h \
     vehiculemission.h
 

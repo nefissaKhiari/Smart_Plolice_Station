@@ -1,4 +1,4 @@
-QT       += core gui sql charts network multimedia multimediawidgets axcontainer serialport printsupport
+QT       += core gui sql charts network multimedia multimediawidgets axcontainer serialport printsupport widgets concurrent
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     affaire.cpp \
     affectations.cpp \
+    citoyen.cpp \
     connection.cpp \
     equipement.cpp \
     excel.cpp \
@@ -22,11 +23,14 @@ SOURCES += \
     missions.cpp \
     notification.cpp \
     policestation.cpp \
+    service.cpp \
+    smtp.cpp \
     vehicule.cpp
 
 HEADERS += \
     affaire.h \
     affectations.h \
+    citoyen.h \
     connection.h \
     equipement.h \
     excel.h \
@@ -37,6 +41,8 @@ HEADERS += \
     missions.h \
     notification.h \
     policestation.h \
+    service.h \
+    smtp.h \
     vehicule.h
 
 FORMS += \

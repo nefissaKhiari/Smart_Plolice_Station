@@ -11,5 +11,13 @@ public:
         void notifications_modifiervehicule();
         void notifications_modifiermission();
         void notifications_supprimermaintenance();
+        void notifications_ajoutercitoyen();
+        void notifications_ajouterservice();
+        void notifications_supprimercitoyen();
+        void notifications_supprimerservice();
+        void notifications_modifiercitoyen();
+        void notifications_modifierservice();
+        void notifications_envoyermail();
+        void notifications_pdfservice();
 };
 #endif // NOTIFICATION_H

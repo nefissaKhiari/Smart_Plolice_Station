@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>17</number>
+     <number>32</number>
     </property>
     <widget class="QWidget" name="LogIn">
      <widget class="QToolButton" name="toolButton_14">
@@ -9504,12 +9504,12 @@ QPushButton:hover {
        <rect>
         <x>50</x>
         <y>30</y>
-        <width>141</width>
+        <width>161</width>
         <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string> Menu</string>
+       <string>Retour</string>
       </property>
       <property name="icon">
        <iconset>
@@ -9626,12 +9626,12 @@ QPushButton:hover {
        <rect>
         <x>50</x>
         <y>30</y>
-        <width>281</width>
+        <width>161</width>
         <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string> Gestion des Citoyens</string>
+       <string>Retour</string>
       </property>
       <property name="icon">
        <iconset>
@@ -11869,12 +11869,12 @@ QPushButton:hover {
        <rect>
         <x>50</x>
         <y>30</y>
-        <width>261</width>
+        <width>161</width>
         <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string> Gestion des Services</string>
+       <string>Retour</string>
       </property>
       <property name="icon">
        <iconset>
@@ -12959,6 +12959,9 @@ QComboBox::drop-down {
        <enum>QFrame::Raised</enum>
       </property>
       <widget class="QLineEdit" name="lineEdit">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>170</x>

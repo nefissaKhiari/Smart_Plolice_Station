@@ -83,10 +83,6 @@ QSqlQuery  vehicule::impression(int matricule)
        }
 }
 
-
-
-
-
 bool vehicule::supprimer(int matricule)
 {
     QSqlQuery query;

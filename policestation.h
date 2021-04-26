@@ -11,6 +11,9 @@
 #include "excel.h"
 #include "equipement.h"
 #include "maintenance.h"
+#include "citoyen.h"
+#include "service.h"
+#include "smtp.h"
 //***
 #include <QRegExpValidator>
 #include <QSqlQueryModel>
@@ -37,7 +40,9 @@
 #include <QSqlError>
 #include <QModelIndex>
 #include <QTextStream>
+#include <QModelIndex>
 #include <QtPrintSupport/QPrintDialog>
+#include <QPdfWriter>
 #include <QtPrintSupport/QPrinter>
 #include <QPdfWriter>
 #include <QPainter>
@@ -48,6 +53,7 @@
 #include <QtSql/QSqlQueryModel>
 #include <QVector2D>
 #include <QVector>
+#include <QProcess>
 #include <QDesktopServices>
 #include <QUrl>
 #include <QPixmap>
@@ -238,6 +244,69 @@ private slots:
 
     void on_pushButton_9_clicked();
 
+    void on_B_GestionCitoyen_clicked();
+
+    void on_B_GestioService_clicked();
+
+    void on_B_BackToGestions_6_clicked();
+
+    void on_B_BackToGestions_7_clicked();
+
+    void on_B_AjouterCitoyen_clicked();
+
+    void on_B_AAnnulerCitoyen_clicked();
+
+    void on_B_AConfirmerCitoyen_clicked();
+
+    void on_B_AccederProfil_clicked();
+
+    void on_B_SupprimerCitoyen_clicked();
+
+    void on_B_MConfirmerCitoyen_2_clicked();
+
+    void on_B_MAnnulerCitoyen_clicked();
+
+    void on_B_MConfirmerCitoyen_clicked();
+
+    void on_B_EnvoyeMail_clicked();
+
+    void on_B_returnCitoyen_3_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_browseBtn_clicked();
+
+    void on_B_Trier_3_clicked();
+    void on_LE_recherche_textChanged(const QString &arg1);
+
+    void on_B_ResetTableIntervenant_2_clicked();
+
+    void on_B_ServiceAdminis_clicked();
+
+    void on_B_returnCitoyen_clicked();
+
+    void on_B_AjouterService_clicked();
+
+    void on_B_AAnnulerService_clicked();
+
+    void on_B_ModifierService_clicked();
+
+    void on_B_AConfirmerService_clicked();
+
+    void on_B_MAnnulerService_clicked();
+
+    void on_B_MConfirmerService_clicked();
+
+    void on_B_SupprimerService_clicked();
+
+    void on_B_TrierS_clicked();
+
+    void on_LE_rechercheS_textChanged(const QString &arg1);
+
+    void on_B_ResetTableIntervenant_3_clicked();
+
+    void on_pdf_clicked();
+
 private:
     Ui::PoliceStation *ui;
     Intervenant intervenant;
@@ -246,9 +315,12 @@ private:
     vehicule v_tmp;
     missions m_tmp;
     affectations a_tmp;
-    notification n_tmp, notification;
+    notification n_tmp, notification, N;
     Equipement equipement;
     Maintenance maintenance;
     QString file_path;
+    Citoyen C;
+    Service S;
+    QStringList files;
 };
 #endif // POLICESTATION_H

@@ -12,9 +12,11 @@ SOURCES += \
     affaire.cpp \
     affectations.cpp \
     connection.cpp \
+    equipement.cpp \
     excel.cpp \
     intervenant.cpp \
     main.cpp \
+    maintenance.cpp \
     messengerclient.cpp \
     messengerconnection.cpp \
     missions.cpp \
@@ -26,8 +28,10 @@ HEADERS += \
     affaire.h \
     affectations.h \
     connection.h \
+    equipement.h \
     excel.h \
     intervenant.h \
+    maintenance.h \
     messengerclient.h \
     messengerconnection.h \
     missions.h \

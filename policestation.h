@@ -9,6 +9,8 @@
 #include "notification.h"
 #include "affectations.h"
 #include "excel.h"
+#include "equipement.h"
+#include "maintenance.h"
 //***
 #include <QRegExpValidator>
 #include <QSqlQueryModel>
@@ -34,10 +36,12 @@
 #include <QDialog>
 #include <QSqlError>
 #include <QModelIndex>
+#include <QTextStream>
 #include <QtPrintSupport/QPrintDialog>
 #include <QtPrintSupport/QPrinter>
 #include <QPdfWriter>
 #include <QPainter>
+#include <QFile>
 #include <QFileDialog>
 #include <QTextDocument>
 #include <QTextEdit>
@@ -50,8 +54,8 @@
 #include <QValidator>
 #include <QTabWidget>
 #include <QPrintDialog>
-#include<QVariant>
-#include<QPrintDialog>
+#include <QVariant>
+#include <QPrintDialog>
 //********************* End : Includes *********************
 QT_BEGIN_NAMESPACE
 namespace Ui { class PoliceStation; }
@@ -166,6 +170,74 @@ private slots:
 
     void on_B_Statistics_3_clicked();
 
+    void on_B_GestionEquipement_clicked();
+
+    void on_B_GestionMaintenance_clicked();
+
+    void on_B_BackToGestions_4_clicked();
+
+    void on_B_BackToGestions_5_clicked();
+
+    void on_B_AjouterEquipement_clicked();
+
+    void on_B_BackToGestionEquipement_3_clicked();
+
+    void on_B_AConfirmerEquipement_clicked();
+
+    void on_B_SupprimerEquipement_clicked();
+
+    void on_B_ModifierEquipement_clicked();
+
+    void on_B_BackToGestionsEquipement_4_clicked();
+
+    void on_B_MConfirmerEquipement_clicked();
+
+    void on_B_Trier_2_clicked();
+
+    void on_LE_ChercherReference_textChanged(const QString &arg1);
+
+    void on_B_ResetTableEquipement_clicked();
+
+    void on_B_AjouterMaintenance_clicked();
+
+    void on_B_BackToGestionMaintenance_5_clicked();
+
+    void on_B_AConfirmerMaintenance_clicked();
+
+    void on_B_SupprimerMaintenance_clicked();
+
+    void on_B_ModifierMaintenance_clicked();
+
+    void on_B_BackToGestionmaintenance_6_clicked();
+
+    void on_B_MConfirmerMaintenance_clicked();
+
+    void on_statestique_3_clicked();
+
+    void on_New_File_clicked();
+
+    void on_New_Folder_clicked();
+
+    void on_Edit_clicked();
+
+    void on_save_clicked();
+
+    void on_Cut_clicked();
+
+    void on_copy_clicked();
+
+    void on_paste_clicked();
+
+    void on_refresh_clicked();
+
+    void on_controlZ_clicked();
+
+    void on_FBack_clicked();
+
+    void on_statestique_clicked();
+
+    void on_pushButton_9_clicked();
+
 private:
     Ui::PoliceStation *ui;
     Intervenant intervenant;
@@ -174,6 +246,9 @@ private:
     vehicule v_tmp;
     missions m_tmp;
     affectations a_tmp;
-    notification n_tmp;
+    notification n_tmp, notification;
+    Equipement equipement;
+    Maintenance maintenance;
+    QString file_path;
 };
 #endif // POLICESTATION_H

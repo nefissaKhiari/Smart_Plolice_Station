@@ -10,6 +10,6 @@ public:
 
         void notifications_modifiervehicule();
         void notifications_modifiermission();
+        void notifications_supprimermaintenance();
 };
-
 #endif // NOTIFICATION_H

@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>33</number>
+     <number>20</number>
     </property>
     <widget class="QWidget" name="LogIn">
      <widget class="QToolButton" name="toolButton_14">
@@ -7523,7 +7523,7 @@ QPushButton:hover {
       <widget class="QLabel" name="L_AMarqueVehicule_2">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>50</x>
          <y>180</y>
          <width>121</width>
          <height>31</height>
@@ -7539,7 +7539,7 @@ QPushButton:hover {
       <widget class="QLabel" name="L_ACouleurVehicule_2">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>50</x>
          <y>250</y>
          <width>121</width>
          <height>31</height>
@@ -7555,7 +7555,7 @@ QPushButton:hover {
       <widget class="QLabel" name="L_ANbplacesVehicule_2">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>50</x>
          <y>320</y>
          <width>141</width>
          <height>31</height>
@@ -7571,7 +7571,7 @@ QPushButton:hover {
       <widget class="QLabel" name="L_AQuantiteVehicule_2">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>50</x>
          <y>390</y>
          <width>141</width>
          <height>31</height>
@@ -7589,7 +7589,7 @@ QPushButton:hover {
         <rect>
          <x>190</x>
          <y>110</y>
-         <width>351</width>
+         <width>391</width>
          <height>31</height>
         </rect>
        </property>
@@ -7603,9 +7603,9 @@ QPushButton:hover {
       <widget class="QLineEdit" name="LE_AMarqueVehicule_2">
        <property name="geometry">
         <rect>
-         <x>180</x>
+         <x>190</x>
          <y>180</y>
-         <width>351</width>
+         <width>391</width>
          <height>31</height>
         </rect>
        </property>
@@ -7616,9 +7616,9 @@ QPushButton:hover {
       <widget class="QLineEdit" name="LE_ACouleurVehicule_2">
        <property name="geometry">
         <rect>
-         <x>180</x>
+         <x>190</x>
          <y>250</y>
-         <width>351</width>
+         <width>391</width>
          <height>31</height>
         </rect>
        </property>
@@ -7629,9 +7629,9 @@ QPushButton:hover {
       <widget class="QLineEdit" name="LE_ANbplacesVehicule_2">
        <property name="geometry">
         <rect>
-         <x>180</x>
+         <x>190</x>
          <y>320</y>
-         <width>351</width>
+         <width>391</width>
          <height>31</height>
         </rect>
        </property>
@@ -7642,9 +7642,9 @@ QPushButton:hover {
       <widget class="QLineEdit" name="LE_AQuantiteVehicule_2">
        <property name="geometry">
         <rect>
-         <x>170</x>
+         <x>190</x>
          <y>390</y>
-         <width>351</width>
+         <width>391</width>
          <height>31</height>
         </rect>
        </property>
@@ -7733,7 +7733,7 @@ QPushButton:hover {
       <widget class="QLabel" name="L_ACinVehicule_2">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>50</x>
          <y>460</y>
          <width>141</width>
          <height>31</height>
@@ -7743,15 +7743,15 @@ QPushButton:hover {
         <string notr="true">background: transparent;</string>
        </property>
        <property name="text">
-        <string>CIN_policier</string>
+        <string>CIN_policier :</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="LE_ACinVehicule_2">
        <property name="geometry">
         <rect>
-         <x>170</x>
+         <x>200</x>
          <y>460</y>
-         <width>351</width>
+         <width>341</width>
          <height>31</height>
         </rect>
        </property>
@@ -7765,9 +7765,9 @@ QPushButton:hover {
       <widget class="QLabel" name="matriculealert_2">
        <property name="geometry">
         <rect>
-         <x>180</x>
-         <y>150</y>
-         <width>371</width>
+         <x>190</x>
+         <y>140</y>
+         <width>391</width>
          <height>31</height>
         </rect>
        </property>
@@ -7781,9 +7781,9 @@ QPushButton:hover {
       <widget class="QLabel" name="marquealert_2">
        <property name="geometry">
         <rect>
-         <x>180</x>
-         <y>220</y>
-         <width>371</width>
+         <x>190</x>
+         <y>210</y>
+         <width>391</width>
          <height>31</height>
         </rect>
        </property>
@@ -7797,9 +7797,9 @@ QPushButton:hover {
       <widget class="QLabel" name="couleuralert_2">
        <property name="geometry">
         <rect>
-         <x>180</x>
-         <y>290</y>
-         <width>371</width>
+         <x>190</x>
+         <y>280</y>
+         <width>391</width>
          <height>31</height>
         </rect>
        </property>
@@ -7813,9 +7813,9 @@ QPushButton:hover {
       <widget class="QLabel" name="quantitealerte_2">
        <property name="geometry">
         <rect>
-         <x>180</x>
-         <y>360</y>
-         <width>371</width>
+         <x>190</x>
+         <y>350</y>
+         <width>391</width>
          <height>31</height>
         </rect>
        </property>
@@ -7829,9 +7829,9 @@ QPushButton:hover {
       <widget class="QLabel" name="nb_placesalert_2">
        <property name="geometry">
         <rect>
-         <x>170</x>
-         <y>430</y>
-         <width>371</width>
+         <x>190</x>
+         <y>420</y>
+         <width>391</width>
          <height>31</height>
         </rect>
        </property>
@@ -9463,7 +9463,7 @@ QPushButton:hover {
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="../5edma/Myriam/ressources.qrc">
+       <iconset>
         <normaloff>:/ressources/image/icon.png</normaloff>:/ressources/image/icon.png</iconset>
       </property>
       <property name="iconSize">
@@ -9486,7 +9486,7 @@ QPushButton:hover {
        <string> Menu</string>
       </property>
       <property name="icon">
-       <iconset resource="../5edma/Myriam/ressources.qrc">
+       <iconset>
         <normaloff>:/ressources/image/back-arrow.png</normaloff>:/ressources/image/back-arrow.png</iconset>
       </property>
      </widget>
@@ -9553,7 +9553,7 @@ QPushButton:hover {
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/systeme-de-population.png</normaloff>:/ressources/image/systeme-de-population.png</iconset>
        </property>
        <property name="iconSize">
@@ -9579,7 +9579,7 @@ QPushButton:hover {
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/support.png</normaloff>:/ressources/image/support.png</iconset>
        </property>
        <property name="iconSize">
@@ -9608,7 +9608,7 @@ QPushButton:hover {
        <string> Gestion des Citoyens</string>
       </property>
       <property name="icon">
-       <iconset resource="../5edma/Myriam/ressources.qrc">
+       <iconset>
         <normaloff>:/ressources/image/back-arrow.png</normaloff>:/ressources/image/back-arrow.png</iconset>
       </property>
      </widget>
@@ -9625,7 +9625,7 @@ QPushButton:hover {
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="../5edma/Myriam/ressources.qrc">
+       <iconset>
         <normaloff>:/ressources/image/systeme-de-population.png</normaloff>:/ressources/image/systeme-de-population.png</iconset>
       </property>
       <property name="iconSize">
@@ -9850,7 +9850,7 @@ QPushButton:hover {
         <string>Trier</string>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/ascending-sort.png</normaloff>:/ressources/image/ascending-sort.png</iconset>
        </property>
        <property name="iconSize">
@@ -10003,7 +10003,7 @@ QPushButton:hover {
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/close.png</normaloff>:/ressources/image/close.png</iconset>
        </property>
       </widget>
@@ -10079,7 +10079,7 @@ QPushButton:hover {
         <string> Ajouter un citoyen</string>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/add.png</normaloff>:/ressources/image/add.png</iconset>
        </property>
       </widget>
@@ -10166,7 +10166,7 @@ QComboBox::drop-down {
         <string>Accéder au Profile</string>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/person-silhouette.png</normaloff>:/ressources/image/person-silhouette.png</iconset>
        </property>
        <property name="iconSize">
@@ -10387,7 +10387,7 @@ QComboBox::drop-down {
         <string> Ajouter</string>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/confirm.png</normaloff>:/ressources/image/confirm.png</iconset>
        </property>
        <property name="iconSize">
@@ -10413,7 +10413,7 @@ QComboBox::drop-down {
         <string> Annuler</string>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/close.png</normaloff>:/ressources/image/close.png</iconset>
        </property>
        <property name="iconSize">
@@ -10604,7 +10604,7 @@ QComboBox::drop-down {
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="../5edma/Myriam/ressources.qrc">
+       <iconset>
         <normaloff>:/ressources/image/systeme-de-population.png</normaloff>:/ressources/image/systeme-de-population.png</iconset>
       </property>
       <property name="iconSize">
@@ -10817,7 +10817,7 @@ B_MConfirmerCitoyen:pressed{
         <string>Confirmer</string>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/confirm.png</normaloff>:/ressources/image/confirm.png</iconset>
        </property>
        <property name="iconSize">
@@ -10843,7 +10843,7 @@ B_MConfirmerCitoyen:pressed{
         <string> Annuler</string>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/close.png</normaloff>:/ressources/image/close.png</iconset>
        </property>
        <property name="iconSize">
@@ -11018,7 +11018,7 @@ B_MConfirmerCitoyen:pressed{
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="../5edma/Myriam/ressources.qrc">
+       <iconset>
         <normaloff>:/ressources/image/systeme-de-population.png</normaloff>:/ressources/image/systeme-de-population.png</iconset>
       </property>
       <property name="iconSize">
@@ -11046,7 +11046,7 @@ B_MConfirmerCitoyen:pressed{
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="../5edma/Myriam/ressources.qrc">
+       <iconset>
         <normaloff>:/ressources/image/systeme-de-population.png</normaloff>:/ressources/image/systeme-de-population.png</iconset>
       </property>
       <property name="iconSize">
@@ -11069,7 +11069,7 @@ B_MConfirmerCitoyen:pressed{
        <string>Citoyen</string>
       </property>
       <property name="icon">
-       <iconset resource="../5edma/Myriam/ressources.qrc">
+       <iconset>
         <normaloff>:/ressources/image/back-arrow.png</normaloff>:/ressources/image/back-arrow.png</iconset>
       </property>
       <property name="iconSize">
@@ -11297,7 +11297,7 @@ B_MConfirmerCitoyen:pressed{
         <string>Modifier</string>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/edit.png</normaloff>:/ressources/image/edit.png</iconset>
        </property>
        <property name="iconSize">
@@ -11323,7 +11323,7 @@ B_MConfirmerCitoyen:pressed{
         <string>Supprimer</string>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/close.png</normaloff>:/ressources/image/close.png</iconset>
        </property>
        <property name="iconSize">
@@ -11479,7 +11479,7 @@ B_MConfirmerCitoyen:pressed{
         <string>Envoyer Mail</string>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/edit.png</normaloff>:/ressources/image/edit.png</iconset>
        </property>
        <property name="iconSize">
@@ -11508,7 +11508,7 @@ B_MConfirmerCitoyen:pressed{
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="../5edma/Myriam/ressources.qrc">
+       <iconset>
         <normaloff>:/ressources/image/support.png</normaloff>:/ressources/image/support.png</iconset>
       </property>
       <property name="iconSize">
@@ -11685,7 +11685,7 @@ QPushButton:hover {
         <string>Trier</string>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/ascending-sort.png</normaloff>:/ressources/image/ascending-sort.png</iconset>
        </property>
        <property name="iconSize">
@@ -11833,7 +11833,7 @@ QPushButton:hover {
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/close.png</normaloff>:/ressources/image/close.png</iconset>
        </property>
       </widget>
@@ -11851,7 +11851,7 @@ QPushButton:hover {
        <string> Gestion des Services</string>
       </property>
       <property name="icon">
-       <iconset resource="../5edma/Myriam/ressources.qrc">
+       <iconset>
         <normaloff>:/ressources/image/back-arrow.png</normaloff>:/ressources/image/back-arrow.png</iconset>
       </property>
      </widget>
@@ -11926,7 +11926,7 @@ QPushButton:hover {
         <string> Ajouter un service</string>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/add.png</normaloff>:/ressources/image/add.png</iconset>
        </property>
       </widget>
@@ -12013,7 +12013,7 @@ QComboBox::drop-down {
         <string>Modifier</string>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/edit.png</normaloff>:/ressources/image/edit.png</iconset>
        </property>
        <property name="iconSize">
@@ -12036,7 +12036,7 @@ QComboBox::drop-down {
         <string>Supprimer</string>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/edit.png</normaloff>:/ressources/image/edit.png</iconset>
        </property>
        <property name="iconSize">
@@ -12099,7 +12099,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         <string>PDF</string>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/pdf-file.png</normaloff>:/ressources/image/pdf-file.png</iconset>
        </property>
        <property name="iconSize">
@@ -12133,7 +12133,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="../5edma/Myriam/ressources.qrc">
+       <iconset>
         <normaloff>:/ressources/image/support.png</normaloff>:/ressources/image/support.png</iconset>
       </property>
       <property name="iconSize">
@@ -12291,7 +12291,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         <string> Ajouter</string>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/confirm.png</normaloff>:/ressources/image/confirm.png</iconset>
        </property>
        <property name="iconSize">
@@ -12314,7 +12314,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         <string> Annuler</string>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/close.png</normaloff>:/ressources/image/close.png</iconset>
        </property>
        <property name="iconSize">
@@ -12588,7 +12588,7 @@ QComboBox::drop-down {
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="../5edma/Myriam/ressources.qrc">
+       <iconset>
         <normaloff>:/ressources/image/support.png</normaloff>:/ressources/image/support.png</iconset>
       </property>
       <property name="iconSize">
@@ -12740,7 +12740,7 @@ QComboBox::drop-down {
         <string> Modifier</string>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/confirm.png</normaloff>:/ressources/image/confirm.png</iconset>
        </property>
        <property name="iconSize">
@@ -12763,7 +12763,7 @@ QComboBox::drop-down {
         <string> Annuler</string>
        </property>
        <property name="icon">
-        <iconset resource="../5edma/Myriam/ressources.qrc">
+        <iconset>
          <normaloff>:/ressources/image/close.png</normaloff>:/ressources/image/close.png</iconset>
        </property>
        <property name="iconSize">
@@ -12907,7 +12907,7 @@ QComboBox::drop-down {
        <string>Profil Citoyen</string>
       </property>
       <property name="icon">
-       <iconset resource="../5edma/Myriam/ressources.qrc">
+       <iconset>
         <normaloff>:/ressources/image/back-arrow.png</normaloff>:/ressources/image/back-arrow.png</iconset>
       </property>
       <property name="iconSize">
@@ -13069,7 +13069,7 @@ QComboBox::drop-down {
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="../5edma/Myriam/ressources.qrc">
+       <iconset>
         <normaloff>:/ressources/image/add-property.png</normaloff>:/ressources/image/add-property.png</iconset>
       </property>
       <property name="iconSize">
@@ -13094,8 +13094,6 @@ QComboBox::drop-down {
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="../5edma/Myriam/ressources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

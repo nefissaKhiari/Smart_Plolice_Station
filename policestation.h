@@ -4,8 +4,15 @@
 #include "messengerclient.h"
 #include "intervenant.h"
 #include "affaire.h"
+#include "vehicule.h"
+#include "missions.h"
+#include "notification.h"
+#include "affectations.h"
+#include "excel.h"
 //***
 #include <QRegExpValidator>
+#include <QSqlQueryModel>
+#include <QSqlQuery>
 #include <QDebug>
 #include <QIntValidator>
 #include <QSqlQuery>
@@ -23,6 +30,28 @@
 #include <QPieSeries>
 #include <QPieSlice>
 #include <QSound>
+#include <QLabel>
+#include <QDialog>
+#include <QSqlError>
+#include <QModelIndex>
+#include <QtPrintSupport/QPrintDialog>
+#include <QtPrintSupport/QPrinter>
+#include <QPdfWriter>
+#include <QPainter>
+#include <QFileDialog>
+#include <QTextDocument>
+#include <QTextEdit>
+#include <QtSql/QSqlQueryModel>
+#include <QVector2D>
+#include <QVector>
+#include <QDesktopServices>
+#include <QUrl>
+#include <QPixmap>
+#include <QValidator>
+#include <QTabWidget>
+#include <QPrintDialog>
+#include<QVariant>
+#include<QPrintDialog>
 //********************* End : Includes *********************
 QT_BEGIN_NAMESPACE
 namespace Ui { class PoliceStation; }
@@ -103,10 +132,48 @@ private slots:
 
     void on_B_MConfirmerAffaire_clicked();
 
+    void on_B_GestionVehicule_2_clicked();
+
+    void on_B_GestionMission_3_clicked();
+
+    void on_B_GestionMission_4_clicked();
+
+    void on_B_BackToGestions_9_clicked();
+
+    void on_B_BackToGestions_10_clicked();
+
+    void on_B_AjouterVehicule_2_clicked();
+
+    void on_B_AAnnulerVehicule_2_clicked();
+
+    void on_B_AConfirmerVehicule_2_clicked();
+
+    void on_B_ModifierVehicule_2_clicked();
+
+    void on_B_SupprimerVehicule_2_clicked();
+
+    void on_B_MAnuulerVehicule_2_clicked();
+
+    void on_B_MConfirmerVehicule_2_clicked();
+
+    void on_B_Trier_6_clicked();
+
+    void on_molka_2_textChanged(const QString &arg1);
+
+    void on_annulerv_2_clicked();
+
+    void on_annulerM_2_clicked();
+
+    void on_B_Statistics_3_clicked();
+
 private:
     Ui::PoliceStation *ui;
     Intervenant intervenant;
     Affaire affaire;
     QSound *son;
+    vehicule v_tmp;
+    missions m_tmp;
+    affectations a_tmp;
+    notification n_tmp;
 };
 #endif // POLICESTATION_H

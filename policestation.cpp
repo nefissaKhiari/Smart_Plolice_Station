@@ -510,3 +510,307 @@ void PoliceStation::on_B_MConfirmerAffaire_clicked()
         }
     }
 }
+
+void PoliceStation::on_B_GestionVehicule_2_clicked()
+{
+    ui->T_Vehicules_2->setModel(v_tmp.afficher());
+    ui->CB_IDAffVeh_2->setModel(v_tmp.afficherm());
+    ui->CB_IDVehicule_2->setModel(v_tmp.afficherm());
+    ui->stackedWidget->setCurrentIndex(20);
+}
+
+void PoliceStation::on_B_GestionMission_3_clicked()
+{
+    ui->T_Mission_2->setModel(m_tmp.afficher());
+    ui->CB_IDAffMiss_2->setModel(m_tmp.affichern());
+    ui->CB_IDMission_2->setModel(m_tmp.affichern());
+    ui->stackedWidget->setCurrentIndex(23);
+}
+
+void PoliceStation::on_B_GestionMission_4_clicked()
+{
+    ui->T_Affectation_2->setModel(a_tmp.afficherA());
+    ui->T_Affectation_2->setModel(a_tmp.afficherA());
+}
+
+void PoliceStation::on_B_BackToGestions_9_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(19);
+}
+
+void PoliceStation::on_B_BackToGestions_10_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(19);
+}
+
+void PoliceStation::on_B_AjouterVehicule_2_clicked()
+{
+    ui->LE_AMarqueVehicule_2->clear();
+    ui->LE_AMatriculeVehicule_2->clear();
+    ui->LE_ANbplacesVehicule_2->clear();
+    ui->LE_ACouleurVehicule_2->clear();
+    ui->LE_AQuantiteVehicule_2->clear();
+    ui->LE_ACinVehicule_2->clear();
+    ui->stackedWidget->setCurrentIndex(21);
+}
+
+void PoliceStation::on_B_AAnnulerVehicule_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(20);
+}
+
+void PoliceStation::on_B_AConfirmerVehicule_2_clicked()
+{
+    bool overAll = false, matricule_B, marque_B, couleur_B, quantite_B,nb_places_B;
+    int matricule = ui->LE_AMatriculeVehicule_2->text().toInt();
+    QString matriculel = ui->LE_AMatriculeVehicule_2->text();
+    QString marque = ui->LE_AMarqueVehicule_2->text();
+    QString couleur = ui->LE_ACouleurVehicule_2->text();
+    int quantite = ui->LE_AQuantiteVehicule_2->text().toInt();
+    QString quantitel = ui->LE_AQuantiteVehicule_2->text();
+    int nb_places = ui->LE_ANbplacesVehicule_2->text().toInt();
+    QString nb_placesl = ui->LE_ANbplacesVehicule_2->text();
+    int CIN_policier = ui->LE_ACinVehicule_2->text().toInt();
+    if(matriculel.length() < 3) {
+        matricule_B = false;
+        ui->matriculealert_2->setText("Il faut 3 characteres de facon XXX");
+        ui->matriculealert_2->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+    }
+    else {
+        matricule_B = true;
+        ui->matriculealert_2->setText("Ok");
+        ui->matriculealert_2->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+    }
+    if(marque.length() >10) {
+        marque_B = false;
+        ui->marquealert_2->setText("Il faut 10 charactere au maximum");
+        ui->marquealert_2->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+    }
+    else {
+        marque_B = true;
+        marque[0] = marque[0].toUpper();
+        ui->marquealert_2->setText("Ok");
+        ui->marquealert_2->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+    }
+    if(couleur.length() < 3) {
+        couleur_B = false;
+        ui->couleuralert_2->setText("Il faut  au moins 3 charactere ");
+        ui->couleuralert_2->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+    }
+    else {
+        couleur_B = true;
+        couleur[0] = couleur[0].toUpper();
+        ui->couleuralert_2->setText("Ok");
+        ui->couleuralert_2->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+    }
+    if(quantitel.length() >2) {
+        quantite_B = false;
+        ui->quantitealerte_2->setText("Il faut maximum 2 characteres ");
+        ui->quantitealerte_2->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+    }
+    else {
+        quantite_B = true;
+        ui->quantitealerte_2->setText("Ok");
+        ui->quantitealerte_2->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+    }
+    if(nb_placesl.length() >2) {
+        nb_places_B = false;
+        ui->nb_placesalert_2->setText("Il faut maximum 2 characteres ");
+        ui->nb_placesalert_2->setStyleSheet("QLabel{color: red; font-size: 12px;}");
+    }
+    else {
+        quantite_B = true;
+        ui->nb_placesalert_2->setText("Ok");
+        ui->nb_placesalert_2->setStyleSheet("QLabel{color: green; font-size: 12px;}");
+    }
+    /*************** END : Controle de Saisir L'ajout d'Intervenant ***************/
+
+    /*************** BEGIN : Ajouter sur BaseDonnee */
+    (matricule_B && marque_B && couleur_B && quantite_B && nb_places_B  )? overAll = true : overAll = false;
+    if(overAll) {
+        QMessageBox msgBox;
+        vehicule E(matricule, marque, couleur, nb_places, quantite, CIN_policier);
+        bool test=E.ajouter();
+        if(test)
+        {
+            msgBox.setText("Ajout avec succés.");
+            ui->T_Vehicules_2->setModel(v_tmp.afficher());
+            QSqlQuery *query = new QSqlQuery();
+            QSqlQueryModel * modal = new QSqlQueryModel();
+            query->prepare("SELECT matricule from vehicules");
+            query->exec();
+            modal->setQuery(*query);
+            ui->CB_IDVehicule_2->setModel(modal);
+            ui->stackedWidget->setCurrentIndex(20);
+        }
+        else {
+            msgBox.setText("Echec au niveau de l'ajout.");
+        }
+        msgBox.exec();
+    }
+}
+
+void PoliceStation::on_B_ModifierVehicule_2_clicked()
+{
+    QString matricule = ui->CB_IDVehicule_2->currentText();
+    ui->LE_MMatriculeVehicule_2->setText(matricule);
+    QSqlQuery query;
+    query.prepare("SELECT * from vehicules where matricule = :matricule");
+    query.bindValue(":matricule" , matricule);
+    if (query.exec())
+    {
+        while (query.next())
+        {
+            ui->LE_MMarqueVehicule_2->setText(query.value(1).toString());
+            ui->LE_MQuantiteVehicule_2->setText(query.value(2).toString());
+            ui->LE_MCouleurVehicule_2->setText(query.value(3).toString());
+            ui->LE_MNbplacesVehicule_2->setText(query.value(4).toString());
+            ui->LE_MCinVehicule_2->setText(query.value(5).toString());
+        }
+
+    }
+    ui->stackedWidget->setCurrentIndex(22);
+}
+
+void PoliceStation::on_B_SupprimerVehicule_2_clicked()
+{
+    int matricule = ui->CB_IDVehicule_2->currentText().toInt();
+    QMessageBox msgbox;
+    bool test=v_tmp.supprimer(matricule);
+    if (test) {
+        msgbox.setText("Suppression avec succés.");
+        ui->T_Vehicules_2->setModel(v_tmp.afficher());
+        ui->T_Mission_2->setModel(m_tmp.afficher());
+        QSqlQuery *query = new QSqlQuery();
+        QSqlQueryModel * modal = new QSqlQueryModel();
+        query->prepare("SELECT matricule from vehicules");
+        query->exec();
+        modal->setQuery(*query);
+        ui->CB_IDVehicule_2->setModel(modal);
+    }
+    else
+        msgbox.setText("Echec au niveau de la Suppression");
+    msgbox.exec();
+}
+
+void PoliceStation::on_B_MAnuulerVehicule_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(20);
+}
+
+void PoliceStation::on_B_MConfirmerVehicule_2_clicked()
+{
+    int matricule = ui->CB_IDVehicule_2->currentText().toInt();
+    QString marque = ui->LE_MMarqueVehicule_2->text();
+    QString couleur = ui->LE_MCouleurVehicule_2->text();
+    int quantite=ui->LE_MQuantiteVehicule_2->text().toInt();
+    int nb_places=ui->LE_MNbplacesVehicule_2->text().toInt();
+    int CIN_policier=ui->LE_MCinVehicule_2->text().toInt();
+    QMessageBox msgBox;
+    bool test = v_tmp.modifier(marque, couleur, quantite, nb_places, matricule, CIN_policier);
+    if (test) {
+        ui->T_Vehicules_2->setModel(v_tmp.afficher());
+        msgBox.setText("modification avec succes");
+        n_tmp.notifications_modifiervehicule();
+        ui->stackedWidget->setCurrentIndex(20);
+    }
+    else
+        msgBox.setText("echec au niveau de la modification");
+    msgBox.exec();
+}
+
+void PoliceStation::on_B_Trier_6_clicked()
+{
+    QString Tri = ui->comboBox_4->currentText();
+    ui->T_Vehicules_2->setModel(v_tmp.Trier(Tri));
+}
+
+void PoliceStation::on_molka_2_textChanged(const QString &arg1)
+{
+    QString by=ui->rr_2->currentText();
+    ui->T_Vehicules_2->setModel(v_tmp.rechercherv(arg1,by));
+}
+
+void PoliceStation::on_annulerv_2_clicked()
+{
+    ui->molka_2->clear();
+    ui->T_Vehicules_2->setModel(v_tmp.afficher());
+}
+
+void PoliceStation::on_annulerM_2_clicked()
+{
+    ui->T_Mission_2->setModel(m_tmp.afficher());
+}
+
+void PoliceStation::on_B_Statistics_3_clicked()
+{
+    QPrinter printer (QPrinter::PrinterResolution);
+    QPrintDialog dlg(&printer,this);
+    if (dlg.exec() == QDialog::Rejected) {
+        return;
+    }
+    QString strStream;
+    QString currentDate = QDateTime().currentDateTime().toString();
+    QTextStream out(&strStream);
+    const int rowCount = ui->T_Vehicules_2->model()->rowCount();
+    const int columnCount = ui->T_Vehicules_2->model()->columnCount();
+    out <<
+    "<html>\n"
+    "<head>\n"
+    "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+    <<QString("<title>%1</title>\n").arg("strTitle")
+    <<"</head>\n"
+    "<body bgcolor=#ffffff link=#5000A0>\n"
+    <<QString(currentDate)
+    <<//"<align='right'> " << datefich << "</align>"
+    "<center> <img src=""C:/Users/lenovo/Desktop/Smart_Plolice_Station_2A19/images/logo.png"" width=""100"" height=""100"" > <br> <br><H1>EXTRAIT DES VEHICULES</H1> <br> <br><table border=1 cellspacing=0 cellpadding=2>\n";
+    // headers
+    out << "<thead><tr bgcolor=#f0f0f0> <th>Numero</th>";
+    for (int column = 0; column < columnCount; column++)
+    if (!ui->T_Vehicules_2->isColumnHidden(column))
+    out << QString("<th>%1</th>").arg(ui->T_Vehicules_2->model()->headerData(column, Qt::Horizontal).toString());
+    out << "</tr></thead>\n";
+    // data table
+    for (int row = 0; row < rowCount; row++)
+    {
+    out << "<tr> <td bkcolor=0>" << row+1 <<"</td>";
+    for (int column = 0; column < columnCount; column++)
+    {
+    if (!ui->T_Vehicules_2->isColumnHidden(column))
+    {
+    QString data = ui->T_Vehicules_2->model()->data(ui->T_Vehicules_2->model()->index(row, column)).toString().simplified();
+    out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+    }
+    }
+    out << "</tr>\n";
+    }
+    out <<  "</table> </center>\n"
+    "<br> <br> <br> <br>"
+    "</body>\n"
+    "<footer>\n"
+    "<div class = ""container"">"
+    "<div class = ""row"">"
+    "<div>"
+    "<div><img src="":/resources/images/fb.png""> <span>Debug Entity</div>\n"
+    "<br>"
+    "<div><img src="":/resources/images/insta.png""> <span>Debug_Entity </div>\n"
+    "</div>"
+    "</div>"
+    "</div>"
+    "</footer>\n"
+    "</html>\n";
+    QString filter = "pdf (*.pdf) ";
+    QString fileName = QFileDialog::getSaveFileName(this, "save in", QDir::homePath(),filter);
+    if (QFileInfo(fileName).suffix().isEmpty()) {
+        fileName.append(".pdf");
+    }
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setPaperSize(QPrinter::A4);
+    printer.setOutputFileName(fileName);
+    QTextDocument doc;
+    doc.setHtml(strStream);
+    doc.setPageSize(printer.pageRect().size());
+    doc.print(&printer);
+    QTextDocument *document = new QTextDocument();
+    document->setHtml(strStream);
+}

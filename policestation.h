@@ -14,7 +14,7 @@
 #include "citoyen.h"
 #include "service.h"
 #include "smtp.h"
-//***
+//****
 #include <QRegExpValidator>
 #include <QSqlQueryModel>
 #include <QSqlQuery>

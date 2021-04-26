@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>32</number>
+     <number>35</number>
     </property>
     <widget class="QWidget" name="LogIn">
      <widget class="QToolButton" name="toolButton_14">
@@ -5471,7 +5471,7 @@ QComboBox::drop-down {
      <widget class="QPushButton" name="B_BackToGestions_5">
       <property name="geometry">
        <rect>
-        <x>80</x>
+        <x>50</x>
         <y>30</y>
         <width>141</width>
         <height>41</height>
@@ -6343,7 +6343,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
      <widget class="QPushButton" name="pushButton_9">
       <property name="geometry">
        <rect>
-        <x>80</x>
+        <x>50</x>
         <y>30</y>
         <width>141</width>
         <height>41</height>
@@ -7036,7 +7036,7 @@ font-size: 15px;</string>
      <widget class="QPushButton" name="B_BackToMenu_4">
       <property name="geometry">
        <rect>
-        <x>80</x>
+        <x>50</x>
         <y>30</y>
         <width>141</width>
         <height>41</height>
@@ -7055,7 +7055,7 @@ font-size: 15px;</string>
      <widget class="QPushButton" name="B_BackToGestions_9">
       <property name="geometry">
        <rect>
-        <x>80</x>
+        <x>50</x>
         <y>30</y>
         <width>141</width>
         <height>41</height>
@@ -8200,12 +8200,12 @@ QPushButton:hover {
        <rect>
         <x>50</x>
         <y>30</y>
-        <width>191</width>
+        <width>141</width>
         <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string>retour</string>
+       <string>Retour</string>
       </property>
       <property name="icon">
        <iconset>
@@ -9142,12 +9142,12 @@ QPushButton:hover {
        <rect>
         <x>50</x>
         <y>30</y>
-        <width>161</width>
+        <width>141</width>
         <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string> Retour</string>
+       <string>Retour</string>
       </property>
       <property name="icon">
        <iconset>
@@ -9504,7 +9504,7 @@ QPushButton:hover {
        <rect>
         <x>50</x>
         <y>30</y>
-        <width>161</width>
+        <width>141</width>
         <height>41</height>
        </rect>
       </property>
@@ -9626,7 +9626,7 @@ QPushButton:hover {
        <rect>
         <x>50</x>
         <y>30</y>
-        <width>161</width>
+        <width>151</width>
         <height>41</height>
        </rect>
       </property>
@@ -11087,7 +11087,7 @@ B_MConfirmerCitoyen:pressed{
        <rect>
         <x>50</x>
         <y>30</y>
-        <width>171</width>
+        <width>151</width>
         <height>41</height>
        </rect>
       </property>
@@ -11524,7 +11524,7 @@ B_MConfirmerCitoyen:pressed{
      <widget class="QToolButton" name="toolButton_36">
       <property name="geometry">
        <rect>
-        <x>472</x>
+        <x>450</x>
         <y>80</y>
         <width>121</width>
         <height>121</height>

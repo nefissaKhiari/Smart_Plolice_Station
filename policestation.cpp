@@ -533,6 +533,7 @@ void PoliceStation::on_B_GestionMission_4_clicked()
 {
     ui->T_Affectation_2->setModel(a_tmp.afficherA());
     ui->T_Affectation_2->setModel(a_tmp.afficherA());
+    ui->stackedWidget->setCurrentIndex(26);
 }
 
 void PoliceStation::on_B_BackToGestions_9_clicked()
@@ -741,6 +742,7 @@ void PoliceStation::on_annulerv_2_clicked()
 
 void PoliceStation::on_annulerM_2_clicked()
 {
+    ui->lineEdit_2->clear();
     ui->T_Mission_2->setModel(m_tmp.afficher());
 }
 
@@ -1744,4 +1746,204 @@ void PoliceStation::on_pdf_clicked()
     doc.setPageSize(printer.pageRect().size());
     doc.print(&printer);
     N.notifications_pdfservice();
+}
+
+void PoliceStation::on_B_AjouterMission_2_clicked()
+{
+    ui->LE_ANomMission_2->clear();
+    ui->LE_ALocalMission_2->clear();
+    ui->TE_ADescMission_2->clear();
+    ui->stackedWidget->setCurrentIndex(24);
+}
+
+void PoliceStation::on_B_AAnnulerMission_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(23);
+}
+
+void PoliceStation::on_B_AConfirmerMission_2_clicked()
+{
+    int id=0;
+    QString nom = ui->LE_ANomMission_2->text();
+    QDate datem = ui->dateEdit_3->date();
+    QString localisation = ui->LE_ALocalMission_2->text();
+    QString description = ui->TE_ADescMission_2->toPlainText();
+    QMessageBox msgBox;
+    missions E( id, nom, datem, localisation, description);
+    bool test=E.ajouter();
+    if(test)
+    {
+        msgBox.setText("Ajout avec succés.");
+        ui->T_Mission_2->setModel(m_tmp.afficher());
+        ui->CB_IDAffMiss_2->setModel(m_tmp.affichern());
+        QSqlQuery *query = new QSqlQuery();
+        QSqlQueryModel * modal = new QSqlQueryModel();
+        query->prepare("SELECT id from missions");
+        query->exec();
+        modal->setQuery(*query);
+        ui->CB_IDMission_2->setModel(modal);
+        ui->stackedWidget->setCurrentIndex(23);
+    }
+}
+
+void PoliceStation::on_B_ModifierMission_2_clicked()
+{
+    int id = ui->CB_IDMission_2->currentText().toInt();
+    QSqlQuery query;
+    query.prepare("SELECT * from missions where id = :id");
+    query.bindValue(":id" , id);
+    if (query.exec())
+    {
+        while (query.next())
+        {
+            ui->LE_MNomMission_2->setText(query.value(0).toString());
+            ui->dateEdit_4->setDate(query.value(1).toDate());
+            ui->LE_MLocalMission_2->setText(query.value(2).toString());
+            ui->TE_MDescMission_2->setText(query.value(3).toString());
+        }
+    }
+    ui->stackedWidget->setCurrentIndex(25);
+}
+
+void PoliceStation::on_B_MAnnulerMission_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(23);
+}
+
+void PoliceStation::on_B_MConfirmerMission_2_clicked()
+{
+    int id = ui->CB_IDMission_2->currentText().toInt();
+    QString nom = ui->LE_MNomMission_2->text();
+    QDate datem = ui->dateEdit_4->date();
+    QString localisation = ui->LE_MLocalMission_2->text();
+    QString description = ui->TE_MDescMission_2->toPlainText();
+    QMessageBox msgBox;
+    bool test = m_tmp.modifier(id, nom, datem, localisation, description);
+    if (test)
+    {
+        ui->T_Mission_2->setModel(m_tmp.afficher());
+        msgBox.setText("modification avec succes");
+        n_tmp.notifications_modifiermission();
+        ui->stackedWidget->setCurrentIndex(23);
+    }
+    else
+        msgBox.setText("echec au niveau de la modification");
+    msgBox.exec();
+}
+
+void PoliceStation::on_B_SupprimerMission_2_clicked()
+{
+    int id = ui->CB_IDMission_2->currentText().toInt();
+    QMessageBox msgbox;
+    bool test=m_tmp.supprimer(id);
+    if (test)
+    {
+        msgbox.setText("Suppression avec succés.");
+        ui->T_Mission_2->setModel(m_tmp.afficher());
+        QSqlQuery *query = new QSqlQuery();
+        QSqlQueryModel * modal = new QSqlQueryModel();
+        query->prepare("SELECT id from missions");
+        query->exec();
+        modal->setQuery(*query);
+        ui->CB_IDMission_2->setModel(modal);
+    }
+    else
+        msgbox.setText("Echec au niveau de la Suppression");
+    msgbox.exec();
+}
+
+void PoliceStation::on_B_Trier_7_clicked()
+{
+    QString Tri = ui->comboBox_6->currentText();
+    ui->T_Mission_2->setModel(m_tmp.Trierm(Tri));
+}
+
+void PoliceStation::on_lineEdit_2_textChanged(const QString &arg1)
+{
+    QString by=ui->comboBox_5->currentText();
+     ui->T_Mission_2->setModel(m_tmp.rechercher(arg1,by));
+}
+
+void PoliceStation::on_export_excel_2_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
+                                                        tr("Excel Files (*.xls)"));
+    if (fileName.isEmpty())
+        return;
+    ExportExcelObject obj(fileName, "Sheet1", ui->T_Mission_2);
+    obj.addField(0, "nom", "char(20)");
+    obj.addField(1, "datem", "char(20)");
+    obj.addField(2, "localisation", "char(20)");
+    obj.addField(3, "description", "char(20)");
+    obj.addField(4, "id", "char(20)");
+    int retVal = obj.export2Excel();
+    if( retVal > 0)
+    {
+        QMessageBox::information(this, tr("Done"), QString(tr("exported!")).arg(retVal));
+    }
+}
+
+void PoliceStation::on_B_Trier_8_clicked()
+{
+    QString Tri = ui->cc_2->currentText();
+    ui->T_Affectation_2->setModel(a_tmp.Triera(Tri));
+}
+
+void PoliceStation::on_annulera_2_clicked()
+{
+    ui->cc_2->clear();
+    ui->T_Affectation_2->setModel(a_tmp.afficherA());
+}
+
+void PoliceStation::on_recherchera_2_textChanged(const QString &arg1)
+{
+    QString by=ui->lineedit_2->currentText();
+    ui->T_Affectation_2->setModel(a_tmp.recherchera(arg1,by));
+}
+
+void PoliceStation::on_B_BackToGestions_11_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(19);
+}
+
+void PoliceStation::on_B_ConfirmerAffectation_2_clicked()
+{
+    int id_M = ui->CB_IDAffMiss_2->currentText().toInt();
+    int matricule_V = ui->CB_IDAffVeh_2->currentText().toInt();
+    QMessageBox msgBox;
+    affectations A( id_M, matricule_V);
+    bool test=A.ajouterA();
+    if(test)
+    {
+        msgBox.setText("Ajout avec succés.");
+        ui->T_Affectation_2->setModel(a_tmp.afficherA());
+    }
+}
+
+void PoliceStation::on_supprimera_2_clicked()
+{
+    int id_M = ui->CB_IDAffMiss_2->currentText().toInt();
+    int matricule_V = ui->CB_IDAffVeh_2->currentText().toInt();
+    QMessageBox msgbox;
+    bool test=a_tmp.supprimerA(id_M, matricule_V);
+    if (test)
+    {
+        msgbox.setText("Suppression avec succés.");
+        ui->T_Affectation_2->setModel(a_tmp.afficherA());
+        QSqlQuery *query = new QSqlQuery();
+        QSqlQuery *qury = new QSqlQuery();
+        QSqlQueryModel * modal = new QSqlQueryModel();
+        QSqlQueryModel * modale = new QSqlQueryModel();
+        query->prepare("SELECT id_mission from affectations");
+        query->exec();
+        modal->setQuery(*query);
+        ui->CB_IDAffMiss_2->setModel(modal);
+        qury->prepare("SELECT id_vehicule from affectations");
+        qury->exec();
+        modale->setQuery(*qury);
+        ui->CB_IDAffVeh_2->setModel(modale);
+    }
+    else
+        msgbox.setText("Echec au niveau de la Suppression");
+    msgbox.exec();
 }

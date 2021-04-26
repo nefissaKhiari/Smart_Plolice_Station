@@ -307,6 +307,38 @@ private slots:
 
     void on_pdf_clicked();
 
+    void on_B_AjouterMission_2_clicked();
+
+    void on_B_AAnnulerMission_2_clicked();
+
+    void on_B_AConfirmerMission_2_clicked();
+
+    void on_B_ModifierMission_2_clicked();
+
+    void on_B_MAnnulerMission_2_clicked();
+
+    void on_B_MConfirmerMission_2_clicked();
+
+    void on_B_SupprimerMission_2_clicked();
+
+    void on_B_Trier_7_clicked();
+
+    void on_lineEdit_2_textChanged(const QString &arg1);
+
+    void on_export_excel_2_clicked();
+
+    void on_B_Trier_8_clicked();
+
+    void on_annulera_2_clicked();
+
+    void on_recherchera_2_textChanged(const QString &arg1);
+
+    void on_B_BackToGestions_11_clicked();
+
+    void on_B_ConfirmerAffectation_2_clicked();
+
+    void on_supprimera_2_clicked();
+
 private:
     Ui::PoliceStation *ui;
     Intervenant intervenant;

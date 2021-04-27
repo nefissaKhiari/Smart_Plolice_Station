@@ -95,6 +95,8 @@ private slots:
 
 
 
+ void on_B_calculator_clicked();
+
 private:
     Ui::GestionAmende *ui;
     Amende amende;

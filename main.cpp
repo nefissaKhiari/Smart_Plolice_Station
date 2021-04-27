@@ -1,6 +1,5 @@
 #include "gestionamende.h"
 #include "connection.h"
-
 #include <QApplication>
 #include <QApplication>
 #include <QMessageBox>
@@ -23,3 +22,7 @@ int main(int argc, char *argv[])
     }
     return a.exec();
 }
+
+
+
+

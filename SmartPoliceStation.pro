@@ -11,10 +11,13 @@ CONFIG += c++11
 SOURCES += \
     affaire.cpp \
     affectations.cpp \
+    amende.cpp \
+    calc.cpp \
     citoyen.cpp \
     connection.cpp \
     equipement.cpp \
     excel.cpp \
+    exceli.cpp \
     intervenant.cpp \
     main.cpp \
     maintenance.cpp \
@@ -23,6 +26,7 @@ SOURCES += \
     missions.cpp \
     notification.cpp \
     policestation.cpp \
+    policier.cpp \
     service.cpp \
     smtp.cpp \
     vehicule.cpp
@@ -30,10 +34,13 @@ SOURCES += \
 HEADERS += \
     affaire.h \
     affectations.h \
+    amende.h \
+    calc.h \
     citoyen.h \
     connection.h \
     equipement.h \
     excel.h \
+    exceli.h \
     intervenant.h \
     maintenance.h \
     messengerclient.h \
@@ -41,11 +48,13 @@ HEADERS += \
     missions.h \
     notification.h \
     policestation.h \
+    policier.h \
     service.h \
     smtp.h \
     vehicule.h
 
 FORMS += \
+    Calc.ui \
     messengerclient.ui \
     messengerconnection.ui \
     policestation.ui

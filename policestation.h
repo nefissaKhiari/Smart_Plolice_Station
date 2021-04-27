@@ -9,11 +9,15 @@
 #include "notification.h"
 #include "affectations.h"
 #include "excel.h"
+#include "exceli.h"
 #include "equipement.h"
 #include "maintenance.h"
 #include "citoyen.h"
 #include "service.h"
 #include "smtp.h"
+#include "amende.h"
+#include "policier.h"
+#include "calc.h"
 //****
 #include <QRegExpValidator>
 #include <QSqlQueryModel>
@@ -62,6 +66,9 @@
 #include <QPrintDialog>
 #include <QVariant>
 #include <QPrintDialog>
+#include <QSortFilterProxyModel>
+#include <QTextTableFormat>
+#include <QStandardItemModel>
 //********************* End : Includes *********************
 QT_BEGIN_NAMESPACE
 namespace Ui { class PoliceStation; }
@@ -277,6 +284,7 @@ private slots:
     void on_browseBtn_clicked();
 
     void on_B_Trier_3_clicked();
+
     void on_LE_recherche_textChanged(const QString &arg1);
 
     void on_B_ResetTableIntervenant_2_clicked();
@@ -339,6 +347,60 @@ private slots:
 
     void on_supprimera_2_clicked();
 
+    void on_B_BackToMenu_3_clicked();
+
+    void on_B_Amende_clicked();
+
+    void on_B_BackToMenu_5_clicked();
+
+    void on_B_GestionPolicier_clicked();
+
+    void on_B_GestionAmende_2_clicked();
+
+    void on_B_BackToGestionAmende_clicked();
+
+    void on_B_BackToGestionPolicier_clicked();
+
+    void on_B_AjouterPolicier_clicked();
+
+    void on_B_AAnnulerPolicier_clicked();
+
+    void on_B_AConfirmerPolicier_clicked();
+
+    void on_B_SupprimerPolicier_clicked();
+
+    void on_B_ModifierPolicier_clicked();
+
+    void on_B_MAnuulerPolicier_clicked();
+
+    void on_B_MConfirmerPolicier_clicked();
+
+    void on_B_Trier_4_clicked();
+
+    void on_B_Recherche_clicked();
+
+    void on_B_ResetTablePolicier_clicked();
+
+    void on_B_imprimer_clicked();
+
+    void on_B_Excel_clicked();
+
+    void on_B_AjouterAmende_clicked();
+
+    void on_B_AConfirmerAmende_clicked();
+
+    void on_B_AAnnulerAmende_clicked();
+
+    void on_B_SupprimerAmende_clicked();
+
+    void on_B_ModifierAmende_clicked();
+
+    void on_B_MAnnulerAmende_clicked();
+
+    void on_B_MConfirmerAmende_clicked();
+
+    void on_B_calculator_clicked();
+
 private:
     Ui::PoliceStation *ui;
     Intervenant intervenant;
@@ -354,5 +416,7 @@ private:
     Citoyen C;
     Service S;
     QStringList files;
+    Amende amende;
+    Policier policier;
 };
 #endif // POLICESTATION_H

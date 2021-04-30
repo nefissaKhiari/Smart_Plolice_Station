@@ -24,5 +24,6 @@
         <file>cassette-player-button-3.wav</file>
         <file>image/téléchargement.jpg</file>
         <file>image/logoo.png</file>
+        <file>image/excel.png</file>
     </qresource>
 </RCC>

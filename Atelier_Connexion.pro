@@ -35,6 +35,7 @@ CONFIG += c++11
 
 SOURCES += \
     citoyen.cpp \
+    excel.cpp \
         main.cpp \
     connection.cpp \
     mainwindow.cpp \
@@ -45,6 +46,7 @@ SOURCES += \
 HEADERS += \
     citoyen.h \
     connection.h \
+    excel.h \
     mainwindow.h \
     notification.h \
     service.h \

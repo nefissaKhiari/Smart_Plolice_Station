@@ -48,6 +48,8 @@
 #include <QPieSeries>
 #include <QPlainTextEdit>
 #include <QDebug>
+#include<excel.h>
+#include <QTimer>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -56,6 +58,7 @@ MainWindow::MainWindow(QWidget *parent) :
      son=new QSound(":/ressources/cassette-player-button-3.wav");
     ui->stackedWidget->setCurrentIndex(0);
     ui->mdp->setEchoMode(QLineEdit::Password);
+    ui->LE_ADureeService->setValidator(new QIntValidator(1, 99999999, this));
 
 }
 
@@ -66,19 +69,20 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_B_GestionCitoyen_clicked()
 {
+             son->play();
     ui->T_Citoyens ->setModel(C.afficher());
        ui->CB_IDCitoyen ->setModel(C.listId());
        ui->stackedWidget->setCurrentIndex(1);
-         son->play();
 }
 
 void MainWindow::on_B_GestioService_clicked()
 {
+      son->play();
     ui->T_Service ->setModel(S.afficher());
     ui->CB_IDService->setModel(S.listId());
     ui->CB_NomCitoyen->setModel(C.listId());
     ui->stackedWidget->setCurrentIndex(5);
-      son->play();
+
 }
 
 void MainWindow::on_B_BackToGestions_clicked()
@@ -89,6 +93,7 @@ void MainWindow::on_B_BackToGestions_clicked()
 
 void MainWindow::on_B_AccederProfil_clicked()
 {
+    son->play();
     QSqlQuery qry;
     QString id_string = QString::number(ui->CB_IDCitoyen->currentText().toInt());
     qry.prepare("SELECT * FROM citoyens where id=:id");
@@ -104,10 +109,11 @@ void MainWindow::on_B_AccederProfil_clicked()
             ui->LE_PNomPereCit->setText(qry.value(7).toString());
             ui->LE_PProfessionCit->setText(qry.value(8).toString());
             ui->LE_PEtatCitoyen->setText(qry.value(9).toString());
+            ui->LE_Pregion->setText(qry.value(10).toString());
             ui->stackedWidget->setCurrentIndex(4);
         }
     }
-  son->play();
+
 }
 
 void MainWindow::on_B_AjouterCitoyen_clicked()
@@ -127,15 +133,16 @@ void MainWindow::on_B_AConfirmerCitoyen_clicked()
     son->play();
     bool overAll = false, nom_B,prenom_B ;
 
-        QString nom = ui->LE_ANomCitoyen->text();
-        QString prenom = ui->LE_APrenomCitoyen->text();
-        QDate date_Naiss= ui->DE_ADateNaissCit->date();
-        QString lieu_Naiss = ui->LE_ALieuNaissCit->text();
-        QString mail = ui->LE_AMailCitoyen->text();
-        QString adresse = ui->LE_AAdresseCit->text();
-        QString nom_pere = ui->LE_ANomPereCit->text();
-        QString profession = ui->LE_AProfessionCit ->text();
-        QString etat_civil = ui->LE_AEtatCitoyen->text();
+    QString nom = ui->LE_ANomCitoyen->text();
+    QString prenom = ui->LE_APrenomCitoyen->text();
+    QDate date_Naiss= ui->DE_ADateNaissCit->date();
+    QString lieu_Naiss = ui->LE_ALieuNaissCit->text();
+    QString mail = ui->LE_AMailCitoyen->text();
+    QString adresse = ui->LE_AAdresseCit->text();
+    QString nom_pere = ui->LE_ANomPereCit->text();
+    QString profession = ui->CB_Aprofession ->currentText();
+    QString etat_civil = ui->CB_Aetatciv->currentText();
+    QString region = ui->CB_Aregion->currentText();
         if(nom.length() < 3) {
                 nom_B = false;
                 ui->L_ANomCitoyenA->setText(" 3 characteres minimum pour le Nom");
@@ -165,22 +172,23 @@ void MainWindow::on_B_AConfirmerCitoyen_clicked()
   QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout du citoyen?", QMessageBox::Yes | QMessageBox::No);
         if(reply == QMessageBox::Yes) {
 
-    Citoyen C(nom,prenom,date_Naiss,lieu_Naiss,mail, adresse,nom_pere,profession,etat_civil);
-    if(C.ajouter()) {
-        ui->T_Citoyens ->setModel(C.afficher());
-        ui->CB_IDCitoyen ->setModel(C.listId());
-        ui->stackedWidget->setCurrentIndex(1);
+       Citoyen C(nom,prenom,date_Naiss,lieu_Naiss,mail, adresse,nom_pere,profession,etat_civil,region);
+       if(C.ajouter()) {
+                ui->T_Citoyens ->setModel(C.afficher());
+                ui->CB_IDCitoyen ->setModel(C.listId());
+                ui->stackedWidget->setCurrentIndex(1);
 
-        ui->LE_ANomCitoyen ->setText("");
-        ui->LE_APrenomCitoyen ->setText("");
-        //ui->DE_ADateNaissCit->setDate();
-        ui->LE_ALieuNaissCit->setText("");
-        ui->LE_AMailCitoyen->setText("");
-        ui->LE_AAdresseCit ->setText("");
-        ui->LE_ANomPereCit ->setText("");
-        ui->LE_AProfessionCit->setText("");
-        ui->LE_AEtatCitoyen ->setText("");
-        N.notifications_ajoutercitoyen();
+                ui->LE_ANomCitoyen ->setText("");
+                ui->LE_APrenomCitoyen ->setText("");
+                //ui->DE_ADateNaissCit->setDate();
+                ui->LE_ALieuNaissCit->setText("");
+                ui->LE_AMailCitoyen->setText("");
+                ui->LE_AAdresseCit ->setText("");
+                ui->LE_ANomPereCit ->setText("");
+                ui->CB_Aprofession->setCurrentText("");
+                ui->CB_Aetatciv ->setCurrentText("");
+                ui->CB_Aregion ->setCurrentText("");
+                N.notifications_ajoutercitoyen();
     }
     else {
         QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -198,6 +206,7 @@ void MainWindow::on_B_MAnnulerCitoyen_clicked()
 
 void MainWindow::on_B_MConfirmerCitoyen_clicked()
 {
+     son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la modification", "Confirmer la modification du citoyen?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         Citoyen C;
@@ -209,8 +218,9 @@ void MainWindow::on_B_MConfirmerCitoyen_clicked()
         C.setmail(ui->LE_MMailCitoyen ->text());
         C.setadresse(ui->LE_MAdresseCit ->text());
         C.setnompere(ui->LE_MNomPereCit->text());
-        C.setprofession(ui->LE_MProfessionCit ->text());
-        C.setetatcivil(ui->LE_MEtatCitoyen ->text());
+        C.setprofession(ui->CB_Mprofession ->currentText());
+        C.setetatcivil(ui->CB_Metatciv ->currentText());
+        C.setregion(ui->CB_Mregion ->currentText());
 qDebug() << C.getdatenaiss();
         if(C.modifier()) {
             ui->T_Citoyens->setModel(C.afficher());
@@ -224,19 +234,21 @@ qDebug() << C.getdatenaiss();
             ui->LE_AMailCitoyen->setText("");
             ui->LE_AAdresseCit->setText("");
             ui->LE_ANomPereCit->setText("");
-            ui->LE_AProfessionCit->setText("");
-            ui->LE_AEtatCitoyen->setText("");
+            ui->CB_Aprofession->setCurrentText("");
+            ui->CB_Aetatciv->setCurrentText("");
+             ui->CB_Aregion->setCurrentText("");
             N.notifications_modifiercitoyen();
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("La modification a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
         }
     }
-      son->play();
+
 }
 
 void MainWindow::on_B_SupprimerCitoyen_clicked()
 {
+     son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression du lcitoyen?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         C.setid(ui->CB_IDCitoyen ->currentText().toInt());
@@ -252,11 +264,12 @@ void MainWindow::on_B_SupprimerCitoyen_clicked()
                         QObject::tr("Suppression a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
         }
     }
-  son->play();
+
 }
 
 void MainWindow::on_B_MConfirmerCitoyen_2_clicked()
 {
+    son->play();
     QSqlQuery qry;
     QString id_string = QString::number(ui->CB_IDCitoyen->currentText().toInt());
     qry.prepare("SELECT * FROM citoyens where id=:id");
@@ -270,12 +283,13 @@ void MainWindow::on_B_MConfirmerCitoyen_2_clicked()
             ui->LE_MMailCitoyen->setText(qry.value(5).toString());
             ui->LE_MAdresseCit->setText(qry.value(6).toString());
             ui->LE_MNomPereCit->setText(qry.value(7).toString());
-            ui->LE_MProfessionCit->setText(qry.value(8).toString());
-            ui->LE_MEtatCitoyen->setText(qry.value(9).toString());
+            ui->CB_Mprofession->setCurrentText(qry.value(8).toString());
+            ui->CB_Metatciv->setCurrentText(qry.value(9).toString());
+            ui->CB_Mregion->setCurrentText(qry.value(10).toString());
         }
     }
     ui->stackedWidget->setCurrentIndex(3);
-      son->play();
+
 }
 
 void MainWindow::on_B_returnCitoyen_clicked()
@@ -292,10 +306,13 @@ void MainWindow::on_B_AjouterService_clicked()
 
 void MainWindow::on_B_ModifierService_clicked()
 {
+    son->play();
     QSqlQuery qry;
     QString id_string = QString::number(ui->CB_IDService->currentText().toInt());
+    QString duree_string = QString::number(ui->LE_MDureeService->text().toInt());
     qry.prepare("SELECT * FROM services where id=:id");
     qry.bindValue(0, id_string);
+    qry.bindValue(2, duree_string);
     if(qry.exec()) {
         while(qry.next()) {
             ui->LE_MTypeService->setText(qry.value(1).toString());
@@ -307,13 +324,14 @@ void MainWindow::on_B_ModifierService_clicked()
         }
     }
     ui->stackedWidget->setCurrentIndex(8);
-      son->play();
+
 }
 
 void MainWindow::on_B_AAnnulerService_clicked()
 {
+    son->play();
     ui->stackedWidget->setCurrentIndex(5);
-      son->play();
+
 }
 
 void MainWindow::on_B_AConfirmerService_clicked()
@@ -322,7 +340,8 @@ void MainWindow::on_B_AConfirmerService_clicked()
 
      bool overAll = false, descrip_B;
         QString libelle = ui->LE_ATypeService->text();
-        QString duree = ui->LE_ADureeService->text();
+        int duree = ui->LE_ADureeService->text().toInt();
+        QString duree_l = ui->LE_ADureeService->text();
         QString papiers_necess = ui->LE_APapierService->text();
         QString description = ui->TE_ADescService->toPlainText();
         int id_citoyen=ui->CB_NomCitoyen->currentText().toInt();
@@ -361,23 +380,24 @@ void MainWindow::on_B_AConfirmerService_clicked()
     }
     }
          }
-      son->play();
+
 }
 
 void MainWindow::on_B_MAnnulerService_clicked()
 {
+    son->play();
     ui->stackedWidget->setCurrentIndex(5);
-      son->play();
 }
 
 void MainWindow::on_B_MConfirmerService_clicked()
 {
+    son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la modification", "Confirmer la modification du service?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         Service S;
         S.setid(ui->CB_IDService ->currentText().toInt());
         S.setlibelle(ui->LE_MTypeService ->text());
-        S.setduree(ui->LE_MDureeService ->text());
+        S.setduree(ui->LE_MDureeService ->text().toInt());
         S.setpapiersnecess(ui->LE_MPapierService ->text());
         S.setdescription(ui->TE_MDescService->toPlainText());
        // S.setid_citoyen(ui->LE_Nomci->text().toInt());
@@ -400,17 +420,18 @@ qDebug()<<S.getdescription();
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("La modification a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
         }
     }
-      son->play();
+
 }
 
 void MainWindow::on_B_BackToGestions_2_clicked()
 {
+         son->play();
     ui->stackedWidget->setCurrentIndex(0);
-      son->play();
 }
 
 void MainWindow::on_B_SupprimerService_clicked()
 {
+    son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression du service?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         S.setid(ui->CB_IDService->currentText().toInt());
@@ -425,7 +446,7 @@ void MainWindow::on_B_SupprimerService_clicked()
                         QObject::tr("Suppression a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
         }
     }
-      son->play();
+
 }
 
 void MainWindow::on_LE_recherche_textChanged(const QString &arg1)
@@ -456,16 +477,17 @@ void MainWindow::on_B_Trier_clicked()
 
 void MainWindow::on_B_TrierS_clicked()
 {
+               son->play();
     QString Tri = ui->CB_TriService->currentText();
             ui->T_Service->setModel(S.Trier(Tri));
-             son->play();
 
 }
 
 void MainWindow::on_B_ResetTableIntervenant_2_clicked()
 {
+    son->play();
     ui->T_Citoyens ->setModel(C.afficher());
-     son->play();
+
 }
 
 void MainWindow::on_B_ResetTableIntervenant_clicked()
@@ -476,6 +498,7 @@ void MainWindow::on_B_ResetTableIntervenant_clicked()
 
 void MainWindow::on_B_EnvoyeMail_clicked()
 {
+    son->play();
     QSqlQuery qry;
     QString id_string = QString::number(ui->CB_IDCitoyen->currentText().toInt());
     qry.prepare("SELECT * FROM citoyens where id=:id");
@@ -486,12 +509,13 @@ void MainWindow::on_B_EnvoyeMail_clicked()
         }
     }
     ui->stackedWidget->setCurrentIndex(6);
-     son->play();
+
 }
 
 void MainWindow::on_pushButton_2_clicked()
 
     {
+    son->play();
         Smtp* smtp = new Smtp("myriam.brahmi@esprit.tn",ui->mdp->text(), "smtp.gmail.com");
         connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
  if( !files.isEmpty() )
@@ -506,12 +530,13 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::on_B_returnCitoyen_3_clicked()
 {
+    son->play();
      ui->stackedWidget->setCurrentIndex(4);
-      son->play();
 }
 
 void MainWindow::on_browseBtn_clicked()
 {
+    son->play();
     files.clear();
 
     QFileDialog dialog(this);
@@ -530,6 +555,7 @@ void MainWindow::on_browseBtn_clicked()
 
 void MainWindow::on_B_ModifierService_2_clicked()
 {
+    son->play();
     QPrinter printer (QPrinter::PrinterResolution);
         QPrintDialog dlg(&printer,this);
         if (dlg.exec() == QDialog::Rejected)
@@ -601,11 +627,12 @@ void MainWindow::on_B_ModifierService_2_clicked()
         doc.setPageSize(printer.pageRect().size());
         doc.print(&printer);
             N.notifications_pdfservice();
-         son->play();
+
 }
 
 void MainWindow::on_pdf_clicked()
 {
+    son->play();
     QPrinter printer (QPrinter::PrinterResolution);
         QPrintDialog dlg(&printer,this);
         if (dlg.exec() == QDialog::Rejected)
@@ -677,5 +704,152 @@ void MainWindow::on_pdf_clicked()
         doc.setPageSize(printer.pageRect().size());
         doc.print(&printer);
             N.notifications_pdfservice();
-         son->play();
+
+}
+
+void MainWindow::on_B_BackToGestions_7_clicked()
+{
+    son->play();
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::on_statistics_clicked()
+{
+    son->play();
+    QSqlQuery qry;
+    int Autres=C.ProfA();
+    int Em=C.ProfEm();
+    int Pr=C.ProfPr();
+    int Med=C.ProfMed();
+    int Dir=C.ProfDir();
+
+    QPieSeries *series = new QPieSeries();
+    series->append("Employe", Em);
+    series->append("Directeur",Dir);
+    series->append("Medecin", Med);
+    series->append("Professeur", Pr);
+    series->append("Autres...", Autres);
+    series->setHoleSize(0.5);
+    series->setPieSize(0.8);
+
+    QPieSlice *em = series->slices().at(0);
+    QPieSlice *dir = series->slices().at(1);
+    QPieSlice *med= series->slices().at(2);
+    QPieSlice *pr= series->slices().at(3);
+    em->setBrush(Qt::red);
+    med->setBrush(Qt::blue);
+    pr->setBrush(Qt::green);
+    dir->setPen(QPen(Qt::green, 1));
+    dir->setBrush(Qt::white);
+    med->setBrush(Qt::darkBlue);
+
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->setTitle("Profession des Citoyens");
+    chart->legend()->setVisible(true);
+    chart->legend()->setAlignment(Qt::AlignBottom);
+    chart->setAnimationOptions(QChart::AllAnimations);
+
+    QChartView *chartView = new QChartView(chart);
+    chartView->setParent(ui->F_Statistic);
+    QLineSeries *seriesss = new QLineSeries();
+    seriesss->append(0, 12);
+    seriesss->append(1, 8);
+    seriesss->append(2, 10);
+    seriesss->append(3, 8);
+    seriesss->append(4, 4);
+    QChart *charttt = new QChart();
+    charttt->legend()->hide();
+    charttt->addSeries(seriesss);
+    charttt->createDefaultAxes();
+    QFont font;
+    font.setPixelSize(18);
+    charttt->setTitleFont(font);
+    charttt->setTitleBrush(QBrush(Qt::black));
+    charttt->setTitle("Ages des Citoyens");
+    QPen pen(QRgb(0x000000));
+    pen.setWidth(5);
+    seriesss->setPen(pen);
+    charttt->setAnimationOptions(QChart::AllAnimations);
+    QCategoryAxis *axisX = new QCategoryAxis();
+    axisX->append("18-25ans",0);
+    axisX->append("26-35ans",1);
+    axisX->append("36-45ans",2);
+    axisX->append("46-60ans",3);
+    axisX->append("+60ans",4);
+    charttt->setAxisX(axisX, seriesss);
+    QChartView *chartViewww = new QChartView(charttt);
+    chartViewww->setRenderHint(QPainter::Antialiasing);
+
+    chartViewww->setParent(ui->F_StatisticAge);
+    /********************* BEGIN : Bars->Localisation *********************/
+    int NE=C.NE();
+    int NO=C.NO();
+    int CE=C.CE();
+    int CO=C.CO();
+    int SE=C.SE();
+    int SO=C.SO();
+
+    QBarSet *set0 = new QBarSet("Tunis, Bizerte..");
+    QBarSet *set1 = new QBarSet("Beja, Le Kef..");
+    QBarSet *set2 = new QBarSet("Sousse, Mehdia..");
+    QBarSet *set3 = new QBarSet("Kairouan..");
+    QBarSet *set4 = new QBarSet("Sfax, Gabes..");
+    QBarSet *set5 = new QBarSet("Gafsa, Tozeur..");
+
+    *set0 << NE << 0 << 0 << 0 << 0 << 0;
+    *set1 << 0 << NO << 0 << 0 << 0 << 0;
+    *set2 << 0 << 0 << CE << 0 << 0 << 0;
+    *set3 << 0 << 0 << 0 << CO << 0 << 0;
+    *set4 << 0 << 0 << 0 << 0 << SE << 0;
+    *set5 << 0 << 0 << 0 << 0 << 0 << SO;
+
+    QBarSeries *seriess = new QBarSeries();
+    seriess->append(set0);
+    seriess->append(set1);
+    seriess->append(set2);
+    seriess->append(set3);
+    seriess->append(set4);
+    seriess->append(set5);
+
+    QChart *charts = new QChart();
+    charts->addSeries(seriess);
+    charts->setTitle("Localisation des Intervenants");
+    charts->setAnimationOptions(QChart::AllAnimations);
+    QStringList categories;
+    categories << "Nord-Est" << "Nord-Ouest" << "Centre-Est" << "Centre-Ouest" << "Sud-Est" << "Sud-Ouest";
+    QBarCategoryAxis *axis = new QBarCategoryAxis();
+    axis->append(categories);
+    charts->createDefaultAxes();
+    charts->setAxisX(axis, seriess);
+    charts->legend()->setVisible(true);
+    charts->legend()->setAlignment(Qt::AlignBottom);
+    QChartView *chartsView = new QChartView(charts);
+    chartsView->setRenderHint(QPainter::Antialiasing);
+    chartsView->setParent(ui->F_StatisticLocal);
+    ui->stackedWidget->setCurrentIndex(9);
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
+                                                        tr("Excel Files (*.xls)"));
+        if (fileName.isEmpty())
+            return;
+
+        EXCEL obj(fileName, "mydata", ui->T_Citoyens);
+
+        //colums to export
+
+        obj.addField(0, "Nom", "char(50)");
+        obj.addField(1, "Prenom", "char(50)");
+        obj.addField(2, "Date_Naiss", "date");
+         obj.addField(3, "Lieu_Naiss", "char(20)");
+         obj.addField(4, "Mail", "char(50)");
+         obj.addField(5, "Adresse", "char(50)");
+         obj.addField(6, "Nom_pere", "char(20)");
+         obj.addField(6, "Profession", "char(50)");
+         obj.addField(6, "Etat_civil", "char(50)");
+         obj.addField(6, "région", "char(20)");
+
 }

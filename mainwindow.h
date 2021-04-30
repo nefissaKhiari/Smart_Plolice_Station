@@ -6,6 +6,17 @@
 #include "service.h"
 #include "notification.h"
 #include "smtp.h"
+#include <QtCharts>
+#include <QChartView>
+#include <QBarSeries>
+#include <QBarSet>
+#include <QLegend>
+#include <QBarCategoryAxis>
+#include <QHorizontalStackedBarSeries>
+#include <QLineSeries>
+#include <QCategoryAxis>
+#include <QPieSeries>
+#include <QPieSlice>
 namespace Ui {
 class MainWindow;
 }
@@ -82,6 +93,12 @@ private slots:
     void on_B_ModifierService_2_clicked();
 
     void on_pdf_clicked();
+
+    void on_B_BackToGestions_7_clicked();
+
+    void on_statistics_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;

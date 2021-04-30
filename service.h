@@ -9,17 +9,17 @@ class Service
 public:
     Service();
 
-    Service(QString, QString, QString, QString,int,int);
+    Service(QString, int, QString, QString,int,int);
     int getid();
     QString getlibelle();
-    QString getduree();
+    int getduree();
     QString getpapiersnecess();
     QString getdescription();
     int getidpolicier();
      int getid_citoyen();
     void setid(int);
     void setlibelle(QString);
-    void setduree(QString);
+    void setduree(int);
     void setpapiersnecess(QString);
     void setdescription(QString);
     void setid_citoyen(int);
@@ -33,8 +33,8 @@ public:
        QSqlQueryModel* rechercher(QString,QString);
         QSqlQueryModel* Trier(QString);
 private:
-    int id , id_citoyen,id_policier;
-    QString libelle , duree , papiers_necess, description;
+    int id , id_citoyen,id_policier,duree;
+    QString libelle  , papiers_necess, description;
 
 };
 

@@ -31,6 +31,8 @@ public:
     AffairesJuridiques(QWidget *parent = nullptr);
     ~AffairesJuridiques();
 
+    void INFORMER(QLabel *label ,QString message, int duration);
+
 private slots:
     void on_B_GestionIntervenant_clicked();
 

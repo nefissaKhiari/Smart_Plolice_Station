@@ -39,6 +39,12 @@ AffairesJuridiques::~AffairesJuridiques()
     delete ui;
 }
 
+void AffairesJuridiques::INFORMER(QLabel *label, QString message, int duration){
+    label->setVisible(true);
+    label->setText(message);
+    QTimer::singleShot(duration, ui->L_AlerteIntervenant, &QLabel::hide);
+    QTimer::singleShot(duration, ui->L_AlerteAffaire, &QLabel::hide);
+}
 
 void AffairesJuridiques::on_B_GestionIntervenant_clicked()
 {
@@ -225,6 +231,7 @@ void AffairesJuridiques::on_B_AConfirmerIntervenant_clicked()
             if(intervenant.ajouter()) {
                 ui->CB_IDIntervenant->setModel(intervenant.listCin());
                 ui->T_Intervenants->setModel(intervenant.afficher());
+                INFORMER(ui->L_AlerteIntervenant,"Intervenat est Ajoute",3000);
                 ui->stackedWidget->setCurrentIndex(1);
 
                 ui->LE_ACinIntervenant->setText("");
@@ -254,6 +261,8 @@ void AffairesJuridiques::on_B_SupprimerIntervenant_clicked()
 
             ui->T_Affaire->setModel(affaire.afficher());
             ui->CB_IDAffaire->setModel(affaire.listId());
+            INFORMER(ui->L_AlerteIntervenant,"Intervenat est Supprimer",3000);
+            son->play();
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"),
@@ -277,6 +286,7 @@ void AffairesJuridiques::on_B_MConfirmerIntervenant_clicked()
         if(affaire.modifier()) {
             ui->CB_IDIntervenant->setModel(intervenant.listCin());
             ui->T_Intervenants->setModel(intervenant.afficher());
+            INFORMER(ui->L_AlerteIntervenant,"Intervenat est Modifie",3000);
             ui->stackedWidget->setCurrentIndex(1);
         }
         else {
@@ -299,6 +309,7 @@ void AffairesJuridiques::on_B_AConfirmerAffaire_clicked()
         if(affaire.ajouter()) {
             ui->T_Affaire->setModel(affaire.afficher());
             ui->CB_IDAffaire->setModel(affaire.listId());
+            INFORMER(ui->L_AlerteAffaire,"Affaire est Ajoute",3000);
             ui->stackedWidget->setCurrentIndex(4);
 
             ui->LE_ATypeAffaire->setText("");
@@ -321,6 +332,7 @@ void AffairesJuridiques::on_B_SupprimerAffaire_clicked()
             qDebug() << "Suppression Complet";
             ui->T_Affaire->setModel(affaire.afficher());
             ui->CB_IDAffaire->setModel(affaire.listId());
+            INFORMER(ui->L_AlerteAffaire,"Affaire est Supprime",3000);
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"),
@@ -342,6 +354,7 @@ void AffairesJuridiques::on_B_MConfirmerAffaire_clicked()
         if(affaire.modifier()) {
             ui->T_Affaire->setModel(affaire.afficher());
             ui->CB_IDAffaire->setModel(affaire.listId());
+            INFORMER(ui->L_AlerteAffaire,"Affaire est Modifie",3000);
             ui->stackedWidget->setCurrentIndex(4);
         }
         else {
@@ -478,7 +491,7 @@ void AffairesJuridiques::on_B_Statistics_clicked()
     charttt->setTitleFont(font);
     charttt->setTitleBrush(QBrush(Qt::black));
     charttt->setTitle("Salaire des Intervenants");
-    QPen pen(QRgb(0x000000));
+    QPen pen(QRgb(0x0D74FF));
     pen.setWidth(5);
     seriesss->setPen(pen);
     charttt->setAnimationOptions(QChart::AllAnimations);
@@ -519,13 +532,13 @@ void AffairesJuridiques::on_LE_ChercherPrenom_returnPressed()
 
 void AffairesJuridiques::on_LE_ChercherPrenom_textChanged(const QString &arg1)
 {
+    son->play();
     QString by = ui->CB_ChercherIntervenant->currentText();
     ui->T_Intervenants->setModel(intervenant.Chercher(arg1, by));
 }
 
 void AffairesJuridiques::on_B_Chat_clicked()
 {
-    son->play();
     MessengerClient MS;
     MS.exec();
 }

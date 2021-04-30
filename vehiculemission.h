@@ -20,6 +20,7 @@ public:
     ~VehiculeMission();
 
 private slots:
+     void showTime();
     void on_B_GestionVehicule_clicked();
 
     void on_B_GestionMission_clicked();
@@ -104,6 +105,8 @@ private slots:
 
 
     void on_export_excel_clicked();
+
+
 
 private:
     Ui::VehiculeMission *ui;

@@ -26,6 +26,8 @@
 #include <QtSql/QSqlQueryModel>
 #include <QVector2D>
 #include <QVector>
+#include<QTimer>
+#include<QDateTime>
 #include <QSqlQuery>
 #include<QDesktopServices>
 #include <QMessageBox>
@@ -62,6 +64,13 @@ VehiculeMission::VehiculeMission(QWidget *parent)
     ui->CB_IDAffMiss->setModel(m_tmp.affichern());
     ui->CB_IDVehicule->setModel(v_tmp.afficherm());
     ui->CB_IDMission->setModel(m_tmp.affichern());
+    QTimer *timer=new QTimer(this);
+    connect(timer,SIGNAL(timeout()),this,SLOT(showTime()));
+    timer->start();
+
+    QDate date = QDate ::currentDate();
+    QString datee=date.toString();
+    ui->DateTime_->setText(datee);
 
 
 
@@ -73,6 +82,24 @@ VehiculeMission::~VehiculeMission()
 {
     delete ui;
 }
+
+
+void VehiculeMission:: showTime()
+{
+    QTime time = QTime::currentTime();
+
+    QString time_text=time.toString("hh : mm : ss");
+    if((time.second() % 2) == 0 )
+    {
+        time_text[3] = ' ';
+        time_text[8] = ' ';
+    }
+    ui->Digital_clock->setText(time_text);
+
+
+
+}
+
 
 
 void VehiculeMission::on_B_GestionVehicule_clicked()
@@ -717,3 +744,4 @@ void VehiculeMission::on_export_excel_clicked()
                                          );
             }
 }
+

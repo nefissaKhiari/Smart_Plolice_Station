@@ -69,6 +69,7 @@
 #include <QSortFilterProxyModel>
 #include <QTextTableFormat>
 #include <QStandardItemModel>
+
 //********************* End : Includes *********************
 QT_BEGIN_NAMESPACE
 namespace Ui { class PoliceStation; }
@@ -400,6 +401,12 @@ private slots:
     void on_B_MConfirmerAmende_clicked();
 
     void on_B_calculator_clicked();
+
+    void on_pushButton_4_clicked();
+
+    void on_statistics_clicked();
+
+    void on_excel_clicked();
 
 private:
     Ui::PoliceStation *ui;

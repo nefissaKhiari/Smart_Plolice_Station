@@ -832,6 +832,7 @@ void MainWindow::on_statistics_clicked()
 
 void MainWindow::on_pushButton_clicked()
 {
+    son->play();
     QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
                                                         tr("Excel Files (*.xls)"));
         if (fileName.isEmpty())

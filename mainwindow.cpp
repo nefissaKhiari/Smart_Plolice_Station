@@ -50,6 +50,7 @@
 #include <QDebug>
 #include<excel.h>
 #include <QTimer>
+#include <QDateTime>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -59,7 +60,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->stackedWidget->setCurrentIndex(0);
     ui->mdp->setEchoMode(QLineEdit::Password);
     ui->LE_ADureeService->setValidator(new QIntValidator(1, 99999999, this));
-
+timer=new QTimer(this);
+connect(timer,SIGNAL(timeout()),this,SLOT(myFunction()));
+timer->start(1000);
 }
 
 MainWindow::~MainWindow()
@@ -853,4 +856,12 @@ void MainWindow::on_pushButton_clicked()
          obj.addField(6, "Etat_civil", "char(50)");
          obj.addField(6, "région", "char(20)");
 
+}
+
+void MainWindow::myFunction()
+{
+
+    QTime time = QTime::currentTime();
+    QString time_text =time.toString("hh : mm : ss");
+    ui->time->setText(time_text);
 }

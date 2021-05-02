@@ -17,6 +17,7 @@
 #include <QCategoryAxis>
 #include <QPieSeries>
 #include <QPieSlice>
+#include<QTimer>
 namespace Ui {
 class MainWindow;
 }
@@ -28,6 +29,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
 
 private slots:
     void on_B_GestionCitoyen_clicked();
@@ -99,6 +101,7 @@ private slots:
     void on_statistics_clicked();
 
     void on_pushButton_clicked();
+    void myFunction();
 
 private:
     Ui::MainWindow *ui;
@@ -107,6 +110,7 @@ private:
   Notifications N;
    QStringList files;
      QSound* son;
+     QTimer *timer;
 };
 
 #endif // MAINWINDOW_H

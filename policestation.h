@@ -69,6 +69,7 @@
 #include <QSortFilterProxyModel>
 #include <QTextTableFormat>
 #include <QStandardItemModel>
+#include <QTimer>
 
 //********************* End : Includes *********************
 QT_BEGIN_NAMESPACE
@@ -407,6 +408,7 @@ private slots:
     void on_statistics_clicked();
 
     void on_excel_clicked();
+      void myFunction();
 
 private:
     Ui::PoliceStation *ui;
@@ -425,5 +427,6 @@ private:
     QStringList files;
     Amende amende;
     Policier policier;
+    QTimer *timer;
 };
 #endif // POLICESTATION_H

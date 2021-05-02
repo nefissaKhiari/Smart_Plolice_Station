@@ -74,7 +74,7 @@ QMessageBox QLabel{
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>-10</x>
       <y>0</y>
       <width>1501</width>
       <height>711</height>
@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>33</number>
+     <number>31</number>
     </property>
     <widget class="QWidget" name="LogIn">
      <widget class="QToolButton" name="toolButton_14">
@@ -387,6 +387,38 @@ QPushButton:hover{
        </size>
       </property>
      </widget>
+     <widget class="QFrame" name="frame58">
+      <property name="geometry">
+       <rect>
+        <x>1210</x>
+        <y>20</y>
+        <width>181</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(85, 85, 85)</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="time">
+       <property name="geometry">
+        <rect>
+         <x>15</x>
+         <y>9</y>
+         <width>171</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
     </widget>
     <widget class="QWidget" name="GestionsAJ">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -540,6 +572,38 @@ QPushButton:hover{
         <height>62</height>
        </size>
       </property>
+     </widget>
+     <widget class="QFrame" name="frame58_2">
+      <property name="geometry">
+       <rect>
+        <x>1210</x>
+        <y>20</y>
+        <width>181</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(85, 85, 85)</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="time_2">
+       <property name="geometry">
+        <rect>
+         <x>15</x>
+         <y>9</y>
+         <width>171</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="Intervenants">
@@ -4072,6 +4136,38 @@ background: transparent;
        </size>
       </property>
      </widget>
+     <widget class="QFrame" name="frame58_6">
+      <property name="geometry">
+       <rect>
+        <x>1220</x>
+        <y>20</y>
+        <width>181</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(85, 85, 85)</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="time_6">
+       <property name="geometry">
+        <rect>
+         <x>15</x>
+         <y>9</y>
+         <width>171</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
     </widget>
     <widget class="QWidget" name="Equipements">
      <widget class="QToolButton" name="toolButton_19">
@@ -7050,6 +7146,38 @@ font-size: 15px;</string>
         <normaloff>:/resources/images/back-arrow.png</normaloff>:/resources/images/back-arrow.png</iconset>
       </property>
      </widget>
+     <widget class="QFrame" name="frame58_3">
+      <property name="geometry">
+       <rect>
+        <x>1180</x>
+        <y>20</y>
+        <width>181</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(85, 85, 85)</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="time_3">
+       <property name="geometry">
+        <rect>
+         <x>15</x>
+         <y>9</y>
+         <width>171</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
     </widget>
     <widget class="QWidget" name="Vehicules">
      <widget class="QPushButton" name="B_BackToGestions_9">
@@ -9616,9 +9744,42 @@ QPushButton:hover {
        </property>
       </widget>
      </widget>
+     <widget class="QFrame" name="frame58_4">
+      <property name="geometry">
+       <rect>
+        <x>1200</x>
+        <y>20</y>
+        <width>181</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(85, 85, 85)</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="time_4">
+       <property name="geometry">
+        <rect>
+         <x>15</x>
+         <y>9</y>
+         <width>171</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
      <zorder>B_BackToMenu_3</zorder>
      <zorder>frame_24</zorder>
      <zorder>toolButton_29</zorder>
+     <zorder>frame58_4</zorder>
     </widget>
     <widget class="QWidget" name="Citoyen">
      <widget class="QPushButton" name="B_BackToGestions_6">
@@ -14397,6 +14558,38 @@ background: transparent;
         <height>62</height>
        </size>
       </property>
+     </widget>
+     <widget class="QFrame" name="frame58_5">
+      <property name="geometry">
+       <rect>
+        <x>1210</x>
+        <y>20</y>
+        <width>181</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(85, 85, 85)</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="time_5">
+       <property name="geometry">
+        <rect>
+         <x>15</x>
+         <y>9</y>
+         <width>171</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="Policier">

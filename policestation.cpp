@@ -1,5 +1,6 @@
 #include "policestation.h"
 #include "ui_policestation.h"
+#include <QDateTime>
 
 PoliceStation::PoliceStation(QWidget *parent)
     : QMainWindow(parent)
@@ -11,6 +12,9 @@ PoliceStation::PoliceStation(QWidget *parent)
     ui->LE_ACinIntervenant->setValidator(new QIntValidator(1, 99999999, this));
     ui->LE_ADureeService->setValidator(new QIntValidator(1, 9999, this));
     ui->mdp->setEchoMode(QLineEdit::Password);
+    timer=new QTimer(this);
+    connect(timer,SIGNAL(timeout()),this,SLOT(myFunction()));
+    timer->start(1000);
 }
 
 PoliceStation::~PoliceStation()
@@ -2009,7 +2013,7 @@ void PoliceStation::on_B_BackToMenu_3_clicked()
 
 void PoliceStation::on_B_Amende_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(36);
+    ui->stackedWidget->setCurrentIndex(37);
 }
 
 void PoliceStation::on_B_BackToMenu_5_clicked()
@@ -2021,24 +2025,24 @@ void PoliceStation::on_B_GestionPolicier_clicked()
 {
     ui->T_Policier->setModel(policier.afficher_policier());
     ui->comboBoxCin->setModel(policier.listCin_policier());
-    ui->stackedWidget->setCurrentIndex(37);
+    ui->stackedWidget->setCurrentIndex(38);
 }
 
 void PoliceStation::on_B_GestionAmende_2_clicked()
 {
     ui->T_Amende->setModel(amende.afficher_amende());
     ui->CB_IDAmende->setModel(amende.listId_amende());
-    ui->stackedWidget->setCurrentIndex(40);
+    ui->stackedWidget->setCurrentIndex(41);
 }
 
 void PoliceStation::on_B_BackToGestionAmende_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(36);
+    ui->stackedWidget->setCurrentIndex(37);
 }
 
 void PoliceStation::on_B_BackToGestionPolicier_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(36);
+    ui->stackedWidget->setCurrentIndex(37);
 }
 
 void PoliceStation::on_B_AjouterPolicier_clicked()
@@ -2051,12 +2055,12 @@ void PoliceStation::on_B_AjouterPolicier_clicked()
     ui->LE_AMdpPolicier->clear();
     ui->LE_APhotoPolicier->clear();
     ui->LE_ASecteurPolicier->clear();
-    ui->stackedWidget->setCurrentIndex(38);
+    ui->stackedWidget->setCurrentIndex(39);
 }
 
 void PoliceStation::on_B_AAnnulerPolicier_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(37);
+    ui->stackedWidget->setCurrentIndex(38);
 }
 
 void PoliceStation::on_B_AConfirmerPolicier_clicked()
@@ -2076,7 +2080,7 @@ void PoliceStation::on_B_AConfirmerPolicier_clicked()
             ui->comboBoxCin->setModel(policier.listCin_policier());
             ui->T_Policier->setModel(policier.afficher_policier());
             INFORMER(ui->ALERT_P,"AJOUT AVEC SUCCEES",3000);
-            ui->stackedWidget->setCurrentIndex(37);
+            ui->stackedWidget->setCurrentIndex(38);
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -2120,12 +2124,12 @@ void PoliceStation::on_B_ModifierPolicier_clicked()
             ui->LE_MSecteurPolicier->setText(qry.value(7).toString());
         }
     }
-    ui->stackedWidget->setCurrentIndex(39);
+    ui->stackedWidget->setCurrentIndex(40);
 }
 
 void PoliceStation::on_B_MAnuulerPolicier_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(37);
+    ui->stackedWidget->setCurrentIndex(38);
 }
 
 void PoliceStation::on_B_MConfirmerPolicier_clicked()
@@ -2145,7 +2149,7 @@ void PoliceStation::on_B_MConfirmerPolicier_clicked()
             ui->comboBoxCin->setModel(policier.listCin_policier());
             ui->T_Policier->setModel(policier.afficher_policier());
             INFORMER(ui->ALERT_P,"MODIFICATION AVEC SUCCEES",3000);
-            ui->stackedWidget->setCurrentIndex(37);
+            ui->stackedWidget->setCurrentIndex(38);
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("La modification a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -2252,7 +2256,7 @@ void PoliceStation::on_B_AjouterAmende_clicked()
     ui->LE_ADateAmende->clear();
     ui->LE_ACINpolicier->clear();
     ui->CB_IDAmende->setModel(policier.listCin_policier());
-    ui->stackedWidget->setCurrentIndex(41);
+    ui->stackedWidget->setCurrentIndex(42);
 }
 
 void PoliceStation::on_B_AConfirmerAmende_clicked()
@@ -2271,7 +2275,7 @@ void PoliceStation::on_B_AConfirmerAmende_clicked()
             ui->T_Amende->setModel(amende.afficher_amende());
             ui->CB_IDAmende->setModel(amende.listId_amende());
             INFORMER(ui->ALERT_M,"AJOUT AVEC SUCCEES",3000);
-            ui->stackedWidget->setCurrentIndex(40);
+            ui->stackedWidget->setCurrentIndex(41);
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -2281,7 +2285,7 @@ void PoliceStation::on_B_AConfirmerAmende_clicked()
 
 void PoliceStation::on_B_AAnnulerAmende_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(40);
+    ui->stackedWidget->setCurrentIndex(41);
 }
 
 void PoliceStation::on_B_SupprimerAmende_clicked()
@@ -2320,12 +2324,12 @@ void PoliceStation::on_B_ModifierAmende_clicked()
         }
     }
     ui->CB_IDAmende->setModel(amende.listId_amende());
-    ui->stackedWidget->setCurrentIndex(42);
+    ui->stackedWidget->setCurrentIndex(43);
 }
 
 void PoliceStation::on_B_MAnnulerAmende_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(40);
+    ui->stackedWidget->setCurrentIndex(41);
 }
 
 void PoliceStation::on_B_MConfirmerAmende_clicked()
@@ -2342,7 +2346,7 @@ void PoliceStation::on_B_MConfirmerAmende_clicked()
         if(amende.modifier_amende()) {
             ui->T_Amende->setModel(amende.afficher_amende());
             ui->CB_IDAmende->setModel(amende.listId_amende());
-            ui->stackedWidget->setCurrentIndex(40);
+            ui->stackedWidget->setCurrentIndex(41);
             INFORMER(ui->ALERT_M,"MODIFICATION AVEC SUCCEES",3000);
         }
         else {
@@ -2499,4 +2503,16 @@ void PoliceStation::on_excel_clicked()
          obj.addField(6, "Profession", "char(50)");
          obj.addField(6, "Etat_civil", "char(50)");
          obj.addField(6, "région", "char(20)");
+}
+
+void PoliceStation::myFunction()
+{
+    QTime time = QTime::currentTime();
+    QString time_text =time.toString("hh : mm : ss");
+    ui->time->setText(time_text);
+    ui->time_2->setText(time_text);
+    ui->time_3->setText(time_text);
+    ui->time_4->setText(time_text);
+    ui->time_5->setText(time_text);
+    ui->time_6->setText(time_text);
 }

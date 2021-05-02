@@ -2526,3 +2526,44 @@ void PoliceStation::on_export_excel_3_clicked()
         smtp->sendMail("molka.elabed@esprit.tn", "molka.elabed@esprit.tn" , "Signalisation Problème" ,ui->plainTextEdit->toPlainText());
         ui->plainTextEdit->clear();
 }
+
+void PoliceStation::on_statistics_2_clicked()
+{
+    QSqlQuery qry;
+    int Autres=intervenant.NatA();
+    int Tn=intervenant.NatTn();
+    int Ag=intervenant.NatAg();
+    int Fr=intervenant.NatFr();
+    int Lb=intervenant.NatLb();
+
+    QPieSeries *series = new QPieSeries();
+    series->append("Tunisienne", Tn);
+    series->append("Francaise", Fr);
+    series->append("Algerienne", Ag);
+    series->append("Libanaise", Lb);
+    series->append("Autres...", Autres);
+    series->setHoleSize(0.5);
+    series->setPieSize(0.8);
+
+    QPieSlice *tn = series->slices().at(0);
+    QPieSlice *fr = series->slices().at(1);
+    QPieSlice *ag = series->slices().at(2);
+    QPieSlice *lb = series->slices().at(3);
+   
+    tn->setBrush(Qt::red);
+    fr->setBrush(Qt::blue);
+    ag->setBrush(Qt::green);
+    lb->setPen(QPen(Qt::green, 1));
+    lb->setBrush(Qt::white);
+    fr->setBrush(Qt::darkBlue);
+
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->setTitle("Nationalite des Intervenants");
+    chart->legend()->setVisible(true);
+    chart->legend()->setAlignment(Qt::AlignBottom);
+    chart->setAnimationOptions(QChart::AllAnimations);
+
+    QChartView *chartView = new QChartView(chart);
+    chartView->setParent(ui->F_Statistic);
+}

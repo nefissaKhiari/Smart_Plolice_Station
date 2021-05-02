@@ -10,9 +10,9 @@ bool Connection::createConnection(){
     bool test=false;
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
-    db.setDatabaseName("test-bd");
+    db.setDatabaseName("test");
     db.setUserName("system");
-    db.setPassword("Mokki321");
+    db.setPassword("98768833");
 
     if (db.open())
         test=true;

@@ -55,7 +55,7 @@ public:
     QSqlQueryModel* Chercher_policier1(QString );
     QSqlQueryModel* Chercher_policier2( QString );
     QSqlQueryModel* Exporter_policier_excel();
-
+  QSqlQueryModel* listId();
 
 };
 

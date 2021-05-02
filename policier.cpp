@@ -181,3 +181,8 @@ QSqlQueryModel* Policier::Trier_policier(QString tri) {
          model->setHeaderData(7, Qt::Horizontal, QObject::tr("Secteur_policier"));
          return model;
  }
+ QSqlQueryModel* Policier::listId() {
+     QSqlQueryModel* model = new QSqlQueryModel();
+     model->setQuery("SELECT CIN_policier FROM policier");
+     return model;
+ }

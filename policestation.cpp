@@ -2068,27 +2068,38 @@ void PoliceStation::on_B_AAnnulerPolicier_clicked()
 
 void PoliceStation::on_B_AConfirmerPolicier_clicked()
 {
-    QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout du Policier?", QMessageBox::Yes | QMessageBox::No);
-    if(reply == QMessageBox::Yes) {
-        int cin_policier= ui->LE_ACin->text().toInt();
-        QString nom_policier = ui->LE_ANomPolicier->text();
-        QString prenom_policier = ui->LE_APrenomPolicier->text();
-        QString grade_policier = ui->LE_AGradePolicier->text();
-        QString mail_policier = ui->LE_AMailPolicier->text();
-        QString mdp_policier = ui->LE_AMdpPolicier->text();
-        QString photo_policier = ui->LE_APhotoPolicier->text();
-        QString secteur_policier = ui->LE_ASecteurPolicier->text();
-        Policier policier(cin_policier, nom_policier, prenom_policier, grade_policier, mail_policier, mdp_policier, photo_policier, secteur_policier);
-        if(policier.ajouter_policier()) {
-            ui->comboBoxCin->setModel(policier.listCin_policier());
-            ui->T_Policier->setModel(policier.afficher_policier());
-            INFORMER(ui->ALERT_P,"AJOUT AVEC SUCCEES",3000);
-            ui->stackedWidget->setCurrentIndex(38);
+    QString msg;
+
+        QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout du Policier?", QMessageBox::Yes | QMessageBox::No);
+        if(reply == QMessageBox::Yes) {
+            int cin_policier= ui->LE_ACin->text().toInt();
+            QString nom_policier = ui->LE_ANomPolicier->text();
+            QString prenom_policier = ui->LE_APrenomPolicier->text();
+            QString grade_policier = ui->LE_AGradePolicier->text();
+            QString mail_policier = ui->LE_AMailPolicier->text();
+            QString mdp_policier = ui->LE_AMdpPolicier->text();
+            QString photo_policier = ui->LE_APhotoPolicier->text();
+            QString secteur_policier = ui->LE_ASecteurPolicier->text();
+            Policier policier(cin_policier, nom_policier, prenom_policier, grade_policier, mail_policier, mdp_policier, photo_policier, secteur_policier);
+            msg="monsieur "+policier.getNom_policier()+" , Nous sommes heureux de vous avoir en tant que nouveau policier parmis nous    ";
+            Smtp* smtp = new Smtp("policestaion2021@gmail.com", "Mokki3211", "smtp.gmail.com", 465);
+                                     connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+
+
+                                     smtp->sendMail("policestaion2021@gmail.com", ui->LE_AMailPolicier->text() , "confirmation d'ajout",msg);
+            if(policier.ajouter_policier()) {
+
+
+
+                ui->comboBoxCin->setModel(policier.listCin_policier());
+                ui->T_Policier->setModel(policier.afficher_policier());
+                INFORMER(ui->ALERT_P,"AJOUT AVEC SUCCEES",3000);
+                ui->stackedWidget->setCurrentIndex(38);
+            }
+            else {
+                QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
+            }
         }
-        else {
-            QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
-        }
-    }
 }
 
 void PoliceStation::on_B_SupprimerPolicier_clicked()
@@ -2525,4 +2536,45 @@ void PoliceStation::on_export_excel_3_clicked()
     Smtp* smtp = new Smtp("molka.elabed@esprit.tn", "123mokki321", "smtp.gmail.com", 465);
         smtp->sendMail("molka.elabed@esprit.tn", "molka.elabed@esprit.tn" , "Signalisation Problème" ,ui->plainTextEdit->toPlainText());
         ui->plainTextEdit->clear();
+}
+
+void PoliceStation::on_statistics_2_clicked()
+{
+    QSqlQuery qry;
+    int Autres=intervenant.NatA();
+    int Tn=intervenant.NatTn();
+    int Ag=intervenant.NatAg();
+    int Fr=intervenant.NatFr();
+    int Lb=intervenant.NatLb();
+
+    QPieSeries *series = new QPieSeries();
+    series->append("Tunisienne", Tn);
+    series->append("Francaise", Fr);
+    series->append("Algerienne", Ag);
+    series->append("Libanaise", Lb);
+    series->append("Autres...", Autres);
+    series->setHoleSize(0.5);
+    series->setPieSize(0.8);
+
+    QPieSlice *tn = series->slices().at(0);
+    QPieSlice *fr = series->slices().at(1);
+    QPieSlice *ag = series->slices().at(2);
+    QPieSlice *lb = series->slices().at(3);
+   
+    tn->setBrush(Qt::red);
+    fr->setBrush(Qt::blue);
+    ag->setBrush(Qt::green);
+    lb->setPen(QPen(Qt::green, 1));
+    lb->setBrush(Qt::white);
+    fr->setBrush(Qt::darkBlue);
+
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->setTitle("Nationalite des Intervenants");
+    chart->legend()->setVisible(true);
+    chart->legend()->setAlignment(Qt::AlignBottom);
+    chart->setAnimationOptions(QChart::AllAnimations);
+
+    QChartView *chartView = new QChartView(chart);
+    chartView->setParent(ui->F_Statistic);
 }

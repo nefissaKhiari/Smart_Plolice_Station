@@ -408,10 +408,13 @@ private slots:
     void on_statistics_clicked();
 
     void on_excel_clicked();
-      void myFunction();
 
-      void on_export_excel_3_clicked();
+    void myFunction();
 
+    void on_export_excel_3_clicked();
+
+    void on_statistics_2_clicked();
+      
 private:
     Ui::PoliceStation *ui;
     Intervenant intervenant;

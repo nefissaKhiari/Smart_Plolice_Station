@@ -2083,10 +2083,10 @@ void PoliceStation::on_B_AConfirmerPolicier_clicked()
             Policier policier(cin_policier, nom_policier, prenom_policier, grade_policier, mail_policier, mdp_policier, photo_policier, secteur_policier);
             msg="monsieur "+policier.getNom_policier()+" , Nous sommes heureux de vous avoir en tant que nouveau policier parmis nous    ";
             Smtp* smtp = new Smtp("policestaion2021@gmail.com", "Mokki3211", "smtp.gmail.com", 465);
-                                     connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+                         connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
 
 
-                                     smtp->sendMail("policestaion2021@gmail.com", ui->LE_AMailPolicier->text() , "confirmation d'ajout",msg);
+                      smtp->sendMail("policestaion2021@gmail.com", ui->LE_AMailPolicier->text() , "confirmation d'ajout",msg);
             if(policier.ajouter_policier()) {
 
 
@@ -2567,7 +2567,7 @@ void PoliceStation::on_statistics_2_clicked()
     lb->setPen(QPen(Qt::green, 1));
     lb->setBrush(Qt::white);
     fr->setBrush(Qt::darkBlue);
-
+//a
     QChart *chart = new QChart();
     chart->addSeries(series);
     chart->setTitle("Nationalite des Intervenants");

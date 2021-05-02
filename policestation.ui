@@ -74,8 +74,8 @@ QMessageBox QLabel{
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>-10</x>
-      <y>0</y>
+      <x>0</x>
+      <y>10</y>
       <width>1501</width>
       <height>711</height>
      </rect>
@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>31</number>
+     <number>23</number>
     </property>
     <widget class="QWidget" name="LogIn">
      <widget class="QToolButton" name="toolButton_14">
@@ -3647,7 +3647,7 @@ background: transparent;;</string>
          <x>0</x>
          <y>0</y>
          <width>1200</width>
-         <height>1498</height>
+         <height>1502</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -8343,8 +8343,8 @@ QPushButton:hover {
      <widget class="QFrame" name="frame_39">
       <property name="geometry">
        <rect>
-        <x>146</x>
-        <y>150</y>
+        <x>150</x>
+        <y>180</y>
         <width>741</width>
         <height>531</height>
        </rect>
@@ -8513,8 +8513,8 @@ QPushButton:hover {
      <widget class="QFrame" name="frame_40">
       <property name="geometry">
        <rect>
-        <x>896</x>
-        <y>220</y>
+        <x>900</x>
+        <y>270</y>
         <width>461</width>
         <height>391</height>
        </rect>
@@ -8689,6 +8689,67 @@ QPushButton:hover {
         <width>64</width>
         <height>64</height>
        </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="export_excel_3">
+      <property name="geometry">
+       <rect>
+        <x>1210</x>
+        <y>190</y>
+        <width>201</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Envoyer via mail</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>:/Recources/Images/ascending-sort.png</normaloff>:/Recources/Images/ascending-sort.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>18</width>
+        <height>18</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="plainTextEdit">
+      <property name="geometry">
+       <rect>
+        <x>960</x>
+        <y>60</y>
+        <width>451</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: white;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="L_ConfigAffaire_5">
+      <property name="geometry">
+       <rect>
+        <x>1030</x>
+        <y>10</y>
+        <width>391</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>century gothic</family>
+        <pointsize>-1</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: transparent;
+color: black;</string>
+      </property>
+      <property name="text">
+       <string>Signalisation d'un problème</string>
       </property>
      </widget>
     </widget>
@@ -14080,7 +14141,7 @@ background: transparent;;</string>
          <x>0</x>
          <y>0</y>
          <width>1200</width>
-         <height>1498</height>
+         <height>1502</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">

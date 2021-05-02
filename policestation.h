@@ -410,6 +410,8 @@ private slots:
     void on_excel_clicked();
       void myFunction();
 
+      void on_export_excel_3_clicked();
+
 private:
     Ui::PoliceStation *ui;
     Intervenant intervenant;

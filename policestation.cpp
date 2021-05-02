@@ -2516,3 +2516,10 @@ void PoliceStation::myFunction()
     ui->time_5->setText(time_text);
     ui->time_6->setText(time_text);
 }
+
+void PoliceStation::on_export_excel_3_clicked()
+{
+    Smtp* smtp = new Smtp("molka.elabed@esprit.tn", "123mokki321", "smtp.gmail.com", 465);
+        smtp->sendMail("molka.elabed@esprit.tn", "molka.elabed@esprit.tn" , "Signalisation Problème" ,ui->plainTextEdit->toPlainText());
+        ui->plainTextEdit->clear();
+}

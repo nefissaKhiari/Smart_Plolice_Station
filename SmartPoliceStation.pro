@@ -1,5 +1,7 @@
 QT       += core gui sql charts network multimedia multimediawidgets axcontainer serialport printsupport widgets concurrent
 
+
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -9,6 +11,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    QrCode.cpp \
     affaire.cpp \
     affectations.cpp \
     amende.cpp \
@@ -32,6 +35,7 @@ SOURCES += \
     vehicule.cpp
 
 HEADERS += \
+    QrCode.hpp \
     affaire.h \
     affectations.h \
     amende.h \

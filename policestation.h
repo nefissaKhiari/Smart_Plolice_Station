@@ -415,6 +415,8 @@ private slots:
 
     void on_statistics_2_clicked();
       
+    void on_qrcodeb_clicked();
+
 private:
     Ui::PoliceStation *ui;
     Intervenant intervenant;

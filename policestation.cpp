@@ -1,7 +1,15 @@
 #include "policestation.h"
 #include "ui_policestation.h"
 #include <QDateTime>
+#include <QIntValidator>
+#include <QtPrintSupport/QPrinter>
+#include <QtPrintSupport/QPrintDialog>
+#include <QScrollBar>
+#include <qfiledialog.h>
+#include <QIntValidator>
+#include "QrCode.hpp"
 
+using namespace qrcodegen;
 PoliceStation::PoliceStation(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::PoliceStation)
@@ -2577,4 +2585,45 @@ void PoliceStation::on_statistics_2_clicked()
 
     QChartView *chartView = new QChartView(chart);
     chartView->setParent(ui->F_Statistic);
+}
+
+void PoliceStation::on_qrcodeb_clicked()
+{
+    int tabequipement=ui->T_Equipement->currentIndex().row();
+    QVariant idd=ui->T_Equipement->model()->data(ui->T_Equipement->model()->index(tabequipement,0));
+    int id= idd.toInt();
+    QSqlQuery qry;
+    qry.prepare("select * from equipement where REFERENCE=:ref");
+    qry.bindValue(":ref",id);
+    qry.exec();
+    QString QUANTITE,TAILLE,ETAT,POID,NOM,CIN_POLICIER,REFERENCE;
+    while(qry.next()){
+        QUANTITE=qry.value(1).toString();
+        TAILLE=qry.value(2).toString();
+        ETAT=qry.value(3).toString();
+        POID=qry.value(4).toString();
+        NOM=qry.value(5).toString();
+        CIN_POLICIER=qry.value(6).toString();
+    }
+    REFERENCE=QString::number(id);
+    REFERENCE="REFERENCE: "+REFERENCE+" QUANTITE: "+QUANTITE+" TAILLE: "+TAILLE+" ETAT: "+ETAT+ "POID: "+POID+ "NOM: "+NOM+ "CIN_POLICIER: "+CIN_POLICIER;
+    QrCode qr = QrCode::encodeText(REFERENCE.toUtf8().constData(), QrCode::Ecc::HIGH);
+
+
+    QImage im(qr.getSize(),qr.getSize(), QImage::Format_RGB888);
+
+    for (int y = 0; y < qr.getSize(); y++) {
+        for (int x = 0; x < qr.getSize(); x++) {
+            int color = qr.getModule(x, y);  // 0 for white, 1 for black
+
+            // You need to modify this part
+            if(color==0)
+                im.setPixel(x, y,qRgb(254, 254, 254));
+            else
+                im.setPixel(x, y,qRgb(0, 0, 0));
+        }
+    }
+    im=im.scaled(200,200);
+    ui->QRcode->setPixmap(QPixmap::fromImage(im));
+
 }

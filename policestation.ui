@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>39</number>
+     <number>11</number>
     </property>
     <widget class="QWidget" name="LogIn">
      <widget class="QToolButton" name="toolButton_14">
@@ -4817,11 +4817,73 @@ QComboBox::drop-down {
         <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
       </property>
      </widget>
+     <widget class="QLabel" name="QRcode">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>1270</x>
+        <y>10</y>
+        <width>200</width>
+        <height>200</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>200</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>200</height>
+       </size>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="qrcodeb">
+      <property name="geometry">
+       <rect>
+        <x>1300</x>
+        <y>220</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="text">
+       <string>QR Code</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>:/ressource/image/trash.png</normaloff>:/ressource/image/trash.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>23</width>
+        <height>23</height>
+       </size>
+      </property>
+     </widget>
      <zorder>frame_14</zorder>
      <zorder>frame_15</zorder>
      <zorder>frame_16</zorder>
      <zorder>B_BackToGestions_4</zorder>
      <zorder>toolButton_19</zorder>
+     <zorder>QRcode</zorder>
+     <zorder>qrcodeb</zorder>
     </widget>
     <widget class="QWidget" name="Ajouter_equipement">
      <widget class="QFrame" name="frame_17">

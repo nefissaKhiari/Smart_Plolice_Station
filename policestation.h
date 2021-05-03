@@ -19,7 +19,9 @@
 #include "amende.h"
 #include "policier.h"
 #include "calc.h"
+#include "login.h"
 //****
+#include <QDialog>
 #include <QUrl>
 #include <qfiledialog.h>
 #include <QScrollBar>
@@ -76,6 +78,8 @@
 #include <QStandardItemModel>
 #include <QTimer>
 #include "QrCode.hpp"
+#include <QMediaPlayer>
+#include<QDebug>
 //********************* End : Includes *********************
 QT_BEGIN_NAMESPACE
 namespace Ui { class PoliceStation; }
@@ -430,6 +434,20 @@ private slots:
 
     void on_B_BackToMenu_7_clicked();
 
+    void on_signup_clicked();
+
+    void on_sliderprogress_sliderMoved(int position);
+
+    void on_slidervolume_sliderMoved(int position);
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_5_clicked();
+    void on_positionChanged(qint64 position);
+    void on_durationChanged(qint64 position);
+
+    void on_pushButton_clicked();
+
 private:
     Ui::PoliceStation *ui;
     Intervenant intervenant;
@@ -448,5 +466,7 @@ private:
     Amende amende;
     Policier policier;
     QTimer *timer;
+    login *log;
+    QMediaPlayer* player;
 };
 #endif // POLICESTATION_H

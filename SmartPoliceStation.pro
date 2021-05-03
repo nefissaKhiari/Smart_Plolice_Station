@@ -23,6 +23,7 @@ SOURCES += \
     excel.cpp \
     exceli.cpp \
     intervenant.cpp \
+    login.cpp \
     main.cpp \
     maintenance.cpp \
     messengerclient.cpp \
@@ -48,6 +49,7 @@ HEADERS += \
     excel.h \
     exceli.h \
     intervenant.h \
+    login.h \
     maintenance.h \
     messengerclient.h \
     messengerconnection.h \

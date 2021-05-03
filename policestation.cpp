@@ -15,6 +15,9 @@ PoliceStation::PoliceStation(QWidget *parent)
     timer=new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(myFunction()));
     timer->start(1000);
+    player = new QMediaPlayer(this);
+    connect(player, &QMediaPlayer::positionChanged , this ,&PoliceStation::on_positionChanged);
+    connect(player, &QMediaPlayer::durationChanged , this ,&PoliceStation::on_durationChanged);
 }
 
 PoliceStation::~PoliceStation()
@@ -33,6 +36,7 @@ void PoliceStation::INFORMER(QLabel *label, QString message, int duration){
 
 void PoliceStation::on_B_Connecter_clicked()
 {
+
     ui->stackedWidget->setCurrentIndex(1);
 }
 
@@ -2629,4 +2633,62 @@ void PoliceStation::on_B_BackToMenu_7_clicked()
 {
     Cam xcam;
     xcam.exec();
+}
+
+void PoliceStation::on_signup_clicked()
+{
+    bool confirm_pwd=ui->signupmdp->text()==ui->signupCmdp->text();
+
+       if (log->sign_up(ui->signupmail->text(),ui->signupmdp->text()) && confirm_pwd)
+       {
+
+           ui->stackedWidget->setCurrentIndex(1);
+
+
+
+           ui->signupmail->clear();
+           ui->signupmdp->clear();
+           ui->signupCmdp->clear();
+       }
+
+       else
+           QMessageBox::warning(this,tr("Inscription"),tr("Erreur d'insciption"));
+}
+
+void PoliceStation::on_sliderprogress_sliderMoved(int position)
+{
+   player->setPosition(position);
+}
+
+void PoliceStation::on_slidervolume_sliderMoved(int position)
+{
+  player->setVolume(position);
+}
+
+void PoliceStation::on_pushButton_3_clicked()
+{
+player->setMedia(QUrl::fromLocalFile("/Users/myria/Desktop/new/Smart_Plolice_Station_2A19/cassette-player-button-3.wav"));
+player->play();
+qDebug()<<player->errorString();
+}
+
+void PoliceStation::on_pushButton_5_clicked()
+{
+player->stop();
+}
+
+void PoliceStation::on_positionChanged(qint64 position)
+{
+ui->sliderprogress->setValue(position);
+}
+
+void PoliceStation::on_durationChanged(qint64 position)
+{
+ui->sliderprogress->setMaximum(position);
+}
+
+void PoliceStation::on_pushButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(46);
+
 }

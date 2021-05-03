@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>46</number>
     </property>
     <widget class="QWidget" name="LogIn">
      <widget class="QToolButton" name="toolButton_14">
@@ -17634,6 +17634,9 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
          <height>31</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background:transparent;</string>
+       </property>
        <property name="text">
         <string>Progress</string>
        </property>
@@ -17646,6 +17649,9 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
          <width>91</width>
          <height>31</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:transparent;</string>
        </property>
        <property name="text">
         <string>Volume</string>

@@ -7,7 +7,7 @@
 #include <QScrollBar>
 #include <qfiledialog.h>
 #include <QIntValidator>
-#include "QrCode.hpp"
+
 
 using namespace qrcodegen;
 PoliceStation::PoliceStation(QWidget *parent)

@@ -70,7 +70,7 @@
 #include <QTextTableFormat>
 #include <QStandardItemModel>
 #include <QTimer>
-
+#include "QrCode.hpp"
 //********************* End : Includes *********************
 QT_BEGIN_NAMESPACE
 namespace Ui { class PoliceStation; }

@@ -2064,7 +2064,6 @@ void PoliceStation::on_B_AjouterPolicier_clicked()
     ui->LE_AGradePolicier->clear();
     ui->LE_AMailPolicier->clear();
     ui->LE_AMdpPolicier->clear();
-    ui->LE_APhotoPolicier->clear();
     ui->LE_ASecteurPolicier->clear();
     ui->stackedWidget->setCurrentIndex(39);
 }
@@ -2086,9 +2085,8 @@ void PoliceStation::on_B_AConfirmerPolicier_clicked()
             QString grade_policier = ui->LE_AGradePolicier->text();
             QString mail_policier = ui->LE_AMailPolicier->text();
             QString mdp_policier = ui->LE_AMdpPolicier->text();
-            QString photo_policier = ui->LE_APhotoPolicier->text();
             QString secteur_policier = ui->LE_ASecteurPolicier->text();
-            Policier policier(cin_policier, nom_policier, prenom_policier, grade_policier, mail_policier, mdp_policier, photo_policier, secteur_policier);
+            Policier policier(cin_policier, nom_policier, prenom_policier, grade_policier, mail_policier, mdp_policier, secteur_policier);
             msg="monsieur "+policier.getNom_policier()+" , Nous sommes heureux de vous avoir en tant que nouveau policier parmis nous    ";
             Smtp* smtp = new Smtp("policestaion2021@gmail.com", "Mokki3211", "smtp.gmail.com", 465);
                          connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
@@ -2142,7 +2140,6 @@ void PoliceStation::on_B_ModifierPolicier_clicked()
             ui->LE_MGradePolicier->setText(qry.value(3).toString());
             ui->LE_MMailPolicier->setText(qry.value(4).toString());
             ui->LE_MMdpPolicier->setText(qry.value(5).toString());
-            ui->LE_MPhotoPolicier->setText(qry.value(6).toString());
             ui->LE_MSecteurPolicier->setText(qry.value(7).toString());
         }
     }
@@ -2165,7 +2162,6 @@ void PoliceStation::on_B_MConfirmerPolicier_clicked()
         amende.setGrade_policier(ui->LE_MGradePolicier->text());
         amende.setMail_policier(ui->LE_MMailPolicier->text());
         amende.setMdp_policier(ui->LE_MMdpPolicier->text());
-        amende.setPhoto_policier(ui->LE_MPhotoPolicier->text());
         amende.setSecteur_policier(ui->LE_MSecteurPolicier->text());
         if(amende.modifier_policier()) {
             ui->comboBoxCin->setModel(policier.listCin_policier());
@@ -2260,7 +2256,6 @@ void PoliceStation::on_B_Excel_clicked()
     obj.addField(2, "prenom_policier", "char(20)");
     obj.addField(3, "grade_policier", "char(20)");
     obj.addField(4, "mdp_policier", "char(20)");
-    obj.addField(5, "photo_policier", "char(20)");
     obj.addField(6, "secteur_policier", "char(20)");
     int retVal = obj.export2Excel();
     if( retVal > 0){

@@ -2624,3 +2624,9 @@ void PoliceStation::on_B_BackToMenu_6_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
 }
+
+void PoliceStation::on_B_BackToMenu_7_clicked()
+{
+    Cam xcam;
+    xcam.exec();
+}

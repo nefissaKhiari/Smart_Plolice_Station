@@ -2,6 +2,7 @@
 #define POLICESTATION_H
 //********************* Begin : Includes *********************
 #include "messengerclient.h"
+#include "cam.h"
 #include "intervenant.h"
 #include "affaire.h"
 #include "vehicule.h"
@@ -426,6 +427,8 @@ private slots:
     void on_B_Detenu_clicked();
 
     void on_B_BackToMenu_6_clicked();
+
+    void on_B_BackToMenu_7_clicked();
 
 private:
     Ui::PoliceStation *ui;

@@ -16,6 +16,7 @@ SOURCES += \
     affectations.cpp \
     amende.cpp \
     calc.cpp \
+    cam.cpp \
     citoyen.cpp \
     connection.cpp \
     equipement.cpp \
@@ -40,6 +41,7 @@ HEADERS += \
     affectations.h \
     amende.h \
     calc.h \
+    cam.h \
     citoyen.h \
     connection.h \
     equipement.h \
@@ -59,6 +61,7 @@ HEADERS += \
 
 FORMS += \
     Calc.ui \
+    cam.ui \
     messengerclient.ui \
     messengerconnection.ui \
     policestation.ui

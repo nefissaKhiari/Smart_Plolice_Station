@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Cam</class>
+ <widget class="QDialog" name="Cam">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>661</width>
+    <height>465</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*{
+}
+
+#Cam{
+	background: url(:/Recources/Images/background.PNG);
+}
+
+QLabel{
+	background: transparent;
+	font-size: 24px;
+	color: white;
+}
+
+QFrame{
+	background: rgba(0, 0, 0, 0.8);
+	border-radius: 15px;
+}
+
+QStackedWidget{
+	background: trasnparent;
+}
+
+QToolButton{
+	font-size: 24px;
+	background: red;
+	border-radius: 60px;
+}
+
+QPushButton:hover{
+	background: #ff9999;
+}
+
+QComboBox{
+	font-size: 24px;
+}
+
+QLineEdit{
+	font-size: 24px;
+	background: transparent;
+	border: none;
+	color: white;;
+	border-bottom: 1px solid #717072;
+}
+
+QTextEdit{
+	font-size: 18px;
+	background: transparent;
+	border: 1px solid #717072;
+	color: white;
+}
+
+QMessageBox QLabel{
+	background: transparent;
+	color: black;
+}</string>
+  </property>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>621</width>
+     <height>431</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	font-size: 24px;
+	background: red;
+	border-radius: 10px;
+}
+
+QPushButton:hover{
+	background: #ff9999;
+}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QScrollArea" name="scrollArea">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>44</y>
+      <width>601</width>
+      <height>331</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: rgba(0, 0, 0, 0.8);</string>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>601</width>
+       <height>331</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>245</x>
+      <y>10</y>
+      <width>131</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size: 15px;
+background: transparent;</string>
+    </property>
+    <property name="text">
+     <string>Photo du Suspect</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Capturer">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>390</y>
+      <width>131</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Capturer</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

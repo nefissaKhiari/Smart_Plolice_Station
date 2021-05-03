@@ -1,13 +1,5 @@
 #include "policestation.h"
 #include "ui_policestation.h"
-#include <QDateTime>
-#include <QIntValidator>
-#include <QtPrintSupport/QPrinter>
-#include <QtPrintSupport/QPrintDialog>
-#include <QScrollBar>
-#include <qfiledialog.h>
-#include <QIntValidator>
-
 
 using namespace qrcodegen;
 PoliceStation::PoliceStation(QWidget *parent)
@@ -2603,15 +2595,10 @@ void PoliceStation::on_qrcodeb_clicked()
     REFERENCE=QString::number(id);
     REFERENCE="REFERENCE: "+REFERENCE+" QUANTITE: "+QUANTITE+" TAILLE: "+TAILLE+" ETAT: "+ETAT+ "POID: "+POID+ "NOM: "+NOM+ "CIN_POLICIER: "+CIN_POLICIER;
     QrCode qr = QrCode::encodeText(REFERENCE.toUtf8().constData(), QrCode::Ecc::HIGH);
-
-
     QImage im(qr.getSize(),qr.getSize(), QImage::Format_RGB888);
-
     for (int y = 0; y < qr.getSize(); y++) {
         for (int x = 0; x < qr.getSize(); x++) {
-            int color = qr.getModule(x, y);  // 0 for white, 1 for black
-
-            // You need to modify this part
+            int color = qr.getModule(x, y);
             if(color==0)
                 im.setPixel(x, y,qRgb(254, 254, 254));
             else
@@ -2620,5 +2607,20 @@ void PoliceStation::on_qrcodeb_clicked()
     }
     im=im.scaled(200,200);
     ui->QRcode->setPixmap(QPixmap::fromImage(im));
+}
 
+void PoliceStation::on_B_Google_clicked()
+{
+    QString link="http://www.google.com";
+    QDesktopServices::openUrl(QUrl(link));
+}
+
+void PoliceStation::on_B_Detenu_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(44);
+}
+
+void PoliceStation::on_B_BackToMenu_6_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
 }

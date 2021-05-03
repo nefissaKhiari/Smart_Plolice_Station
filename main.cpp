@@ -1,4 +1,4 @@
-#include "policestation.h"
+ #include "policestation.h"
 #include "connection.h"
 #include <QApplication>
 #include <QMessageBox>
@@ -19,9 +19,6 @@ int main(int argc, char *argv[])
         t.load(":/tr/english.qm");
         a.installTranslator(&t);
     }
-    /*if(lang != "Francais"){
-        a.installTranslator(&t);
-    }*/
     PoliceStation w;
     if(connection){
         w.show();

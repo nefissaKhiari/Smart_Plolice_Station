@@ -19,6 +19,10 @@
 #include "policier.h"
 #include "calc.h"
 //****
+#include <QUrl>
+#include <qfiledialog.h>
+#include <QScrollBar>
+#include <QDateTime>
 #include <QRegExpValidator>
 #include <QSqlQueryModel>
 #include <QSqlQuery>
@@ -416,6 +420,12 @@ private slots:
     void on_statistics_2_clicked();
       
     void on_qrcodeb_clicked();
+
+    void on_B_Google_clicked();
+
+    void on_B_Detenu_clicked();
+
+    void on_B_BackToMenu_6_clicked();
 
 private:
     Ui::PoliceStation *ui;

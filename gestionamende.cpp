@@ -2,7 +2,6 @@
 #include "ui_gestionamende.h"
 #include "policier.h"
 #include "amende.h"
-#include "calc.h"
 #include <QMessageBox>
 #include <QIntValidator>
 #include <QSqlQuery>
@@ -469,9 +468,3 @@ void GestionAmende::on_B_imprimer_clicked()
 
 
 
-
-void GestionAmende::on_B_calculator_clicked()
-{
-    Calc cl;
-    cl.exec();
-}

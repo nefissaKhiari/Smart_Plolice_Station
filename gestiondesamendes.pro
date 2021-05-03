@@ -10,7 +10,7 @@ CONFIG += console c++11
 
 SOURCES += \
     amende.cpp \
-    calc.cpp \
+    calculator.cpp \
     connection.cpp \
     excel.cpp \
     main.cpp \
@@ -19,14 +19,14 @@ SOURCES += \
 
 HEADERS += \
     amende.h \
-    calc.h \
+    calculator.h \
     connection.h \
     excel.h \
     gestionamende.h \
     policier.h
 
 FORMS += \
-    calc.ui \
+    calculator.ui \
     gestionamende.ui
 
 # Default rules for deployment.

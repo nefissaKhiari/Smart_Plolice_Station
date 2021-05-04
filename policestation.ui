@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>23</number>
     </property>
     <widget class="QWidget" name="LogIn">
      <widget class="QToolButton" name="toolButton_14">
@@ -461,6 +461,19 @@ font: 75 20pt &quot;MS Shell Dlg 2&quot;;</string>
         <string/>
        </property>
       </widget>
+     </widget>
+     <widget class="QPushButton" name="date_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>261</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="GestionsAJ">
@@ -3694,7 +3707,7 @@ background: transparent;;</string>
          <x>0</x>
          <y>0</y>
          <width>1200</width>
-         <height>1498</height>
+         <height>1502</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -14262,7 +14275,7 @@ background: transparent;;</string>
          <x>0</x>
          <y>0</y>
          <width>1200</width>
-         <height>1498</height>
+         <height>1502</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -17653,6 +17666,32 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
       </widget>
      </widget>
     </widget>
+   </widget>
+   <widget class="QPushButton" name="date">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>660</y>
+      <width>261</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="date_2">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>660</y>
+      <width>261</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

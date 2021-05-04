@@ -80,6 +80,7 @@
 #include "QrCode.hpp"
 #include <QMediaPlayer>
 #include<QDebug>
+#include<QDateTime>
 //********************* End : Includes *********************
 QT_BEGIN_NAMESPACE
 namespace Ui { class PoliceStation; }

@@ -15,6 +15,9 @@ PoliceStation::PoliceStation(QWidget *parent)
     timer=new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(myFunction()));
     timer->start(1000);
+    QDate date = QDate ::currentDate();
+    QString datee=date.toString();
+    ui->date_3->setText(datee);
     player = new QMediaPlayer(this);
     connect(player, &QMediaPlayer::positionChanged , this ,&PoliceStation::on_positionChanged);
     connect(player, &QMediaPlayer::durationChanged , this ,&PoliceStation::on_durationChanged);

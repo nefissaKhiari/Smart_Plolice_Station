@@ -19,5 +19,10 @@ public:
         void notifications_modifierservice();
         void notifications_envoyermail();
         void notifications_pdfservice();
+        void notifications_connection();
+        void notifications_deconnection();
+        void notifications_prob();
+        void notifications_mdpoubl();
+
 };
 #endif // NOTIFICATION_H

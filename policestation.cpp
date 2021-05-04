@@ -10,7 +10,7 @@ PoliceStation::PoliceStation(QWidget *parent)
     ui->stackedWidget->setCurrentIndex(0);
 
     ui->LE_ACinIntervenant->setValidator(new QIntValidator(1, 99999999, this));
-    ui->LE_ADureeService->setValidator(new QIntValidator(1, 9999, this));
+    ui->LE_ADureeService->setValidator(new QIntValidator(1, 999, this));
     ui->mdp->setEchoMode(QLineEdit::Password);
     timer=new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(myFunction()));
@@ -39,13 +39,23 @@ void PoliceStation::INFORMER(QLabel *label, QString message, int duration){
 
 void PoliceStation::on_B_Connecter_clicked()
 {
+qDebug()<< log->hash(ui->lineEdit_MDP->text());
+    if (log->sign_in(ui->lineEdit_Mail->text(),ui->lineEdit_MDP->text()))
+            {
+                ui->stackedWidget->setCurrentIndex(1);
+                ui->lineEdit_Mail->clear();
+                ui->lineEdit_MDP->clear();
+                N.notifications_connection();
+    }else{
 
-    ui->stackedWidget->setCurrentIndex(1);
+       N.notifications_prob();
+    }
 }
 
 void PoliceStation::on_B_Deconnecte_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+    N.notifications_deconnection();
 }
 
 void PoliceStation::on_B_AffaireJuri_clicked()
@@ -2083,7 +2093,7 @@ void PoliceStation::on_B_AConfirmerPolicier_clicked()
             QString prenom_policier = ui->LE_APrenomPolicier->text();
             QString grade_policier = ui->LE_AGradePolicier->text();
             QString mail_policier = ui->LE_AMailPolicier->text();
-            QString mdp_policier = ui->LE_AMdpPolicier->text();
+            int mdp_policier = ui->LE_AMdpPolicier->text().toInt();
             QString secteur_policier = ui->LE_ASecteurPolicier->text();
             Policier policier(cin_policier, nom_policier, prenom_policier, grade_policier, mail_policier, mdp_policier, secteur_policier);
             msg="monsieur "+policier.getNom_policier()+" , Nous sommes heureux de vous avoir en tant que nouveau policier parmis nous    ";
@@ -2129,6 +2139,7 @@ void PoliceStation::on_B_ModifierPolicier_clicked()
 {
     QSqlQuery qry;
     QString cin_string = QString::number(ui->comboBoxCin->currentText().toInt());
+    QString mdp_policier_string = QString::number(ui->LE_MMdpPolicier->text().toInt());
     qry.prepare("SELECT * FROM policier where cin_policier=:cin");
     qry.bindValue(0, cin_string);
     if(qry.exec()) {
@@ -2160,7 +2171,7 @@ void PoliceStation::on_B_MConfirmerPolicier_clicked()
         amende.setPrenom_policier(ui->LE_MPrenomPolicier->text());
         amende.setGrade_policier(ui->LE_MGradePolicier->text());
         amende.setMail_policier(ui->LE_MMailPolicier->text());
-        amende.setMdp_policier(ui->LE_MMdpPolicier->text());
+        amende.setMdp_policier(ui->LE_MMdpPolicier->text().toInt());
         amende.setSecteur_policier(ui->LE_MSecteurPolicier->text());
         if(amende.modifier_policier()) {
             ui->comboBoxCin->setModel(policier.listCin_policier());
@@ -2640,17 +2651,7 @@ void PoliceStation::on_B_BackToMenu_7_clicked()
 
 void PoliceStation::on_signup_clicked()
 {
-    bool confirm_pwd=ui->signupmdp->text()==ui->signupCmdp->text();
 
-       if (log->sign_up(ui->signupmail->text(),ui->signupmdp->text()) && confirm_pwd)
-       {
-           ui->stackedWidget->setCurrentIndex(1);
-           ui->signupmail->clear();
-           ui->signupmdp->clear();
-           ui->signupCmdp->clear();
-       }
-       else
-           QMessageBox::warning(this,tr("Inscription"),tr("Erreur d'insciption"));
 }
 
 void PoliceStation::on_sliderprogress_sliderMoved(int position)
@@ -2699,4 +2700,24 @@ void PoliceStation::on_B_PolicierParticipants_clicked()
 void PoliceStation::on_B_RetourMiss_clicked()
 {
     ui->stackedWidget->setCurrentIndex(23);
+}
+
+void PoliceStation::on_pushButton_6_clicked()
+{
+    N.notifications_mdpoubl();
+    QString code=log->code_generator();
+if(log->update_mpd_reset(ui->lineEdit_Mail->text(),code)){
+    Smtp* smtp = new Smtp("policestaion2021@gmail.com","Mokki3211", "smtp.gmail.com");
+        smtp->sendMail("policestaion2021@gmail.com", ui->lineEdit_Mail->text() , ui->lineEdit_3->text(),"Votre Code est :"+code);
+}
+}
+
+void PoliceStation::on_pushButton_8_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void PoliceStation::on_pushButton_10_clicked()
+{
+
 }

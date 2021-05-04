@@ -101,3 +101,35 @@ void notification::notifications_pdfservice()
     notifyIcon->show();
     notifyIcon->showMessage("PDF enregistré .Prêt à être imprimer ","Nouveau citoyen ajouté ",QSystemTrayIcon::Information,15000);
 }
+void notification::notifications_connection()
+{
+
+    QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+
+    notifyIcon->show();
+    notifyIcon->showMessage("Vous êtes Connecté ","Bienvenue ",QSystemTrayIcon::Information,15000);
+}
+void notification::notifications_deconnection()
+{
+
+    QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+
+    notifyIcon->show();
+    notifyIcon->showMessage("Déconnexion "," ",QSystemTrayIcon::Information,15000);
+}
+void notification::notifications_prob()
+{
+
+    QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+
+    notifyIcon->show();
+    notifyIcon->showMessage("Erreur ","Verifiez votre adresse mail ou mot de passe ",QSystemTrayIcon::Information,15000);
+}
+void notification::notifications_mdpoubl()
+{
+
+    QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+
+    notifyIcon->show();
+    notifyIcon->showMessage("Vérifier votre boite mail ","un code est envoyé par mail pour récuperer votre compte ",QSystemTrayIcon::Information,15000);
+}

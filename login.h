@@ -16,7 +16,11 @@ public:
     login();
     int hash(QString);
     bool sign_in(QString,QString);
-     bool sign_up(QString,QString);
+
+     QString code_generator();
+     bool update_mpd_reset(QString ,QString );
+
+
 };
 
 #endif // LOGIN_H

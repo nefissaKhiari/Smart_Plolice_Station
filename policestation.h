@@ -455,6 +455,12 @@ private slots:
 
     void on_B_RetourMiss_clicked();
 
+    void on_pushButton_6_clicked();
+
+    void on_pushButton_8_clicked();
+
+    void on_pushButton_10_clicked();
+
 private:
     Ui::PoliceStation *ui;
     Intervenant intervenant;

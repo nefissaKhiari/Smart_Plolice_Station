@@ -13,11 +13,11 @@ private:
     QString prenom_policier;
     QString grade_policier;
     QString mail_policier;
-    QString mdp_policier;
+    int mdp_policier;
     QString secteur_policier;
 public:
    Policier();
-    Policier(int, QString, QString, QString, QString, QString,  QString);
+    Policier(int, QString, QString, QString, QString, int,  QString);
 
     void setCin_policier(int);
     int getCin_policier();
@@ -34,8 +34,8 @@ public:
     void setMail_policier(QString);
     QString getMail_policier();
 
-    void setMdp_policier(QString);
-    QString getMdp_policier();
+    void setMdp_policier(int);
+    int getMdp_policier();
 
     void setSecteur_policier(QString);
     QString getSecteur_policier();

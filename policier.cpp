@@ -5,10 +5,10 @@
 #include <QString>
 
 Policier::Policier() {
-    CIN_policier=0;  nom_policier="";  prenom_policier="";  grade_policier="";   mail_policier="";   mdp_policier="";  secteur_policier="";
+    CIN_policier=0;  nom_policier="";  prenom_policier="";  grade_policier="";   mail_policier="";   mdp_policier=0;  secteur_policier="";
 }
 
-Policier::Policier(int CIN_policier, QString nom_policier, QString prenom_policier, QString grade_policier , QString mail_policier, QString mdp_policier,  QString secteur_policier)
+Policier::Policier(int CIN_policier, QString nom_policier, QString prenom_policier, QString grade_policier , QString mail_policier, int mdp_policier,  QString secteur_policier)
 {
      this->CIN_policier=CIN_policier;
      this->nom_policier=nom_policier;
@@ -35,8 +35,8 @@ QString Policier::getGrade_policier() { return grade_policier; }
 void Policier::setMail_policier(QString mail_policier) { this->mail_policier=mail_policier; }
 QString Policier::getMail_policier() { return mail_policier; }
 
-void Policier::setMdp_policier(QString mdp_policier) { this->mdp_policier=mdp_policier; }
-QString Policier::getMdp_policier() { return mdp_policier; }
+void Policier::setMdp_policier(int mdp_policier) { this->mdp_policier=mdp_policier; }
+int Policier::getMdp_policier() { return mdp_policier; }
 
 
 void Policier::setSecteur_policier(QString secteur_policier) { this->secteur_policier=secteur_policier; }
@@ -63,15 +63,16 @@ QString Policier::getSecteur_policier() { return secteur_policier; }
 bool Policier::ajouter_policier() {
     QSqlQuery query;
     QString cin_policier_string = QString::number(CIN_policier);
+    QString mdp_policier_string = QString::number(mdp_policier);
     query.prepare("INSERT INTO policier ( cin_policier, nom_policier , prenom_policier, grade_policier, mail_policier, mdp_policier,  secteur_policier )"
  "VALUES ( :cin_policier, :nom_policier,:prenom_policier,:grade_policier, :mail_policier, :mdp_policier, :secteur_policier)");
 
-    query.bindValue(0, CIN_policier);
+    query.bindValue(0, cin_policier_string);
     query.bindValue(1, nom_policier);
     query.bindValue(2, prenom_policier);
     query.bindValue(3, grade_policier);
     query.bindValue(4, mail_policier);
-    query.bindValue(5, mdp_policier);
+    query.bindValue(5, mdp_policier_string);
     query.bindValue(7, secteur_policier);
     return query.exec();
 }
@@ -80,13 +81,14 @@ bool Policier::ajouter_policier() {
 bool Policier::modifier_policier() {
     QSqlQuery query;
     QString cin_policier_string = QString::number(CIN_policier);
+    QString mdp_policier_string = QString::number(mdp_policier);
     query.prepare("UPDATE policier set nom_policier=:nom_policier, prenom_policier=:prenom_policier, grade_policier=:grade_policier, mail_policier=:mail_policier, mdp_policier=:mdp_policier, secteur_policier=:secteur_policier where cin_policier=:cin_policier");
     query.bindValue(7, cin_policier_string);
     query.bindValue(0, nom_policier);
     query.bindValue(1, prenom_policier);
     query.bindValue(2, grade_policier);
     query.bindValue(3, mail_policier);
-    query.bindValue(4, mdp_policier);
+    query.bindValue(4, mdp_policier_string);
     query.bindValue(6, secteur_policier);
     return query.exec();
 }

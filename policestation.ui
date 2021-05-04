@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>47</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="LogIn">
      <widget class="QToolButton" name="toolButton_14">
@@ -190,7 +190,7 @@ QPushButton:hover{
         <rect>
          <x>50</x>
          <y>370</y>
-         <width>421</width>
+         <width>301</width>
          <height>32</height>
         </rect>
        </property>
@@ -234,6 +234,53 @@ QPushButton:hover{
        </property>
        <property name="text">
         <string>Mot de passe ici :</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_6">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>380</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Mdp Oublie</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_Alertemdp">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>410</y>
+         <width>521</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;
+font-size: 10px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_AlerteMail">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>290</y>
+         <width>521</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;
+font-size: 10px;</string>
+       </property>
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </widget>
@@ -434,9 +481,9 @@ QPushButton:hover{
       <widget class="QLabel" name="time">
        <property name="geometry">
         <rect>
-         <x>60</x>
+         <x>30</x>
          <y>23</y>
-         <width>151</width>
+         <width>201</width>
          <height>31</height>
         </rect>
        </property>
@@ -3711,7 +3758,7 @@ background: transparent;;</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1207</width>
+         <width>1200</width>
          <height>1498</height>
         </rect>
        </property>
@@ -14311,7 +14358,7 @@ background: transparent;;</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1207</width>
+         <width>1200</width>
          <height>1498</height>
         </rect>
        </property>
@@ -17702,6 +17749,19 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        </property>
       </widget>
      </widget>
+     <widget class="QPushButton" name="pushButton_8">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>10</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Retour</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page_4">
      <widget class="QPushButton" name="B_RetourMiss">
@@ -17797,7 +17857,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
      <x>0</x>
      <y>0</y>
      <width>1500</width>
-     <height>20</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>23</number>
+     <number>47</number>
     </property>
     <widget class="QWidget" name="LogIn">
      <widget class="QToolButton" name="toolButton_14">
@@ -245,7 +245,7 @@ QPushButton:hover{
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>640</y>
+        <y>656</y>
         <width>231</width>
         <height>51</height>
        </rect>
@@ -258,7 +258,7 @@ QPushButton:hover{
       <property name="geometry">
        <rect>
         <x>1220</x>
-        <y>640</y>
+        <y>656</y>
         <width>231</width>
         <height>51</height>
        </rect>
@@ -386,19 +386,6 @@ QPushButton:hover{
         </size>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton">
-       <property name="geometry">
-        <rect>
-         <x>650</x>
-         <y>20</y>
-         <width>51</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
      </widget>
      <widget class="QToolButton" name="toolButton_15">
       <property name="geometry">
@@ -429,10 +416,10 @@ QPushButton:hover{
      <widget class="QFrame" name="frame58">
       <property name="geometry">
        <rect>
-        <x>1210</x>
-        <y>20</y>
-        <width>171</width>
-        <height>51</height>
+        <x>1190</x>
+        <y>40</y>
+        <width>261</width>
+        <height>61</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -447,8 +434,8 @@ QPushButton:hover{
       <widget class="QLabel" name="time">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>9</y>
+         <x>60</x>
+         <y>23</y>
          <width>151</width>
          <height>31</height>
         </rect>
@@ -465,14 +452,32 @@ font: 75 20pt &quot;MS Shell Dlg 2&quot;;</string>
      <widget class="QPushButton" name="date_3">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>10</y>
+        <x>1190</x>
+        <y>20</y>
         <width>261</width>
         <height>41</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton:hover{
+	background: red;
+}</string>
+      </property>
       <property name="text">
        <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>20</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Options</string>
       </property>
      </widget>
     </widget>
@@ -3706,8 +3711,8 @@ background: transparent;;</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1200</width>
-         <height>1502</height>
+         <width>1207</width>
+         <height>1498</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -4875,8 +4880,8 @@ QComboBox::drop-down {
       </property>
       <property name="geometry">
        <rect>
-        <x>1270</x>
-        <y>10</y>
+        <x>1260</x>
+        <y>60</y>
         <width>200</width>
         <height>200</height>
        </rect>
@@ -4906,9 +4911,9 @@ QComboBox::drop-down {
      <widget class="QPushButton" name="qrcodeb">
       <property name="geometry">
        <rect>
-        <x>1300</x>
-        <y>220</y>
-        <width>151</width>
+        <x>1280</x>
+        <y>270</y>
+        <width>161</width>
         <height>41</height>
        </rect>
       </property>
@@ -8474,7 +8479,7 @@ QPushButton:hover {
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>180</y>
+        <y>150</y>
         <width>741</width>
         <height>531</height>
        </rect>
@@ -8644,9 +8649,9 @@ QPushButton:hover {
       <property name="geometry">
        <rect>
         <x>900</x>
-        <y>270</y>
+        <y>400</y>
         <width>461</width>
-        <height>391</height>
+        <height>281</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -8662,7 +8667,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>143</x>
-         <y>20</y>
+         <y>-10</y>
          <width>171</width>
          <height>61</height>
         </rect>
@@ -8686,7 +8691,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>150</y>
+         <y>110</y>
          <width>191</width>
          <height>31</height>
         </rect>
@@ -8702,7 +8707,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>300</y>
+         <y>220</y>
          <width>331</width>
          <height>41</height>
         </rect>
@@ -8719,7 +8724,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>150</y>
+         <y>110</y>
          <width>191</width>
          <height>31</height>
         </rect>
@@ -8732,7 +8737,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>210</y>
+         <y>160</y>
          <width>151</width>
          <height>41</height>
         </rect>
@@ -8755,7 +8760,7 @@ QPushButton:hover {
        <property name="geometry">
         <rect>
          <x>250</x>
-         <y>210</y>
+         <y>160</y>
          <width>151</width>
          <height>41</height>
         </rect>
@@ -8777,10 +8782,10 @@ QPushButton:hover {
       <widget class="QPushButton" name="export_excel_2">
        <property name="geometry">
         <rect>
-         <x>80</x>
-         <y>90</y>
-         <width>291</width>
-         <height>31</height>
+         <x>70</x>
+         <y>50</y>
+         <width>331</width>
+         <height>41</height>
         </rect>
        </property>
        <property name="text">
@@ -8821,65 +8826,97 @@ QPushButton:hover {
        </size>
       </property>
      </widget>
-     <widget class="QPushButton" name="export_excel_3">
+     <widget class="QFrame" name="frame_59">
       <property name="geometry">
        <rect>
-        <x>1210</x>
-        <y>190</y>
-        <width>201</width>
-        <height>31</height>
+        <x>900</x>
+        <y>150</y>
+        <width>461</width>
+        <height>241</height>
        </rect>
       </property>
-      <property name="text">
-       <string>Envoyer via mail</string>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
       </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>:/Recources/Images/ascending-sort.png</normaloff>:/Recources/Images/ascending-sort.png</iconset>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
       </property>
-      <property name="iconSize">
-       <size>
-        <width>18</width>
-        <height>18</height>
-       </size>
-      </property>
+      <widget class="QPushButton" name="export_excel_3">
+       <property name="geometry">
+        <rect>
+         <x>250</x>
+         <y>190</y>
+         <width>201</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Envoyer via mail</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>:/Recources/Images/ascending-sort.png</normaloff>:/Recources/Images/ascending-sort.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>18</width>
+         <height>18</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="plainTextEdit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>40</y>
+         <width>441</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: white;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_ConfigAffaire_5">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>0</y>
+         <width>321</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>century gothic</family>
+         <pointsize>-1</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string>Signalisation d'un problème</string>
+       </property>
+      </widget>
      </widget>
-     <widget class="QPlainTextEdit" name="plainTextEdit">
+     <widget class="QPushButton" name="B_PolicierParticipants">
       <property name="geometry">
        <rect>
-        <x>960</x>
-        <y>60</y>
-        <width>451</width>
-        <height>131</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background: white;</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="L_ConfigAffaire_5">
-      <property name="geometry">
-       <rect>
-        <x>1030</x>
-        <y>10</y>
-        <width>391</width>
+        <x>850</x>
+        <y>100</y>
+        <width>511</width>
         <height>41</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <family>century gothic</family>
-        <pointsize>-1</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background: transparent;
-color: black;</string>
-      </property>
       <property name="text">
-       <string>Signalisation d'un problème</string>
+       <string>la répartition des policiers pour chaque mission</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>:/resources/images/back-arrow.png</normaloff>:/resources/images/back-arrow.png</iconset>
       </property>
      </widget>
     </widget>
@@ -14274,8 +14311,8 @@ background: transparent;;</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1200</width>
-         <height>1502</height>
+         <width>1207</width>
+         <height>1498</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -17666,32 +17703,92 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
       </widget>
      </widget>
     </widget>
-   </widget>
-   <widget class="QPushButton" name="date">
-    <property name="geometry">
-     <rect>
-      <x>690</x>
-      <y>660</y>
-      <width>261</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="date_2">
-    <property name="geometry">
-     <rect>
-      <x>710</x>
-      <y>660</y>
-      <width>261</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
+    <widget class="QWidget" name="page_4">
+     <widget class="QPushButton" name="B_RetourMiss">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>30</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Retour</string>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="toolButton_73">
+      <property name="geometry">
+       <rect>
+        <x>697</x>
+        <y>90</y>
+        <width>121</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>:/resources/images/auto.png</normaloff>:/resources/images/auto.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>64</width>
+        <height>64</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_60">
+      <property name="geometry">
+       <rect>
+        <x>382</x>
+        <y>150</y>
+        <width>751</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QTableView" name="T_AffFourT">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>80</y>
+         <width>731</width>
+         <height>431</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background :white;
+background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee );
+selection-background-color:QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #FF0000, stop: 1 #FF5F5F,stop: 0.5 #FEAAAA,stop: 1 #eee);
+QTableView::item:focus{selection-background-color: red;}
+QScrollBar:vertical{ width: 20px; background: none; /* only these sort effect about width ...*/}
+QScrollBar::handle:vertical{ border: 3px solid #5E749C;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee ); width: 25px; min-height: 20px; max-height: 25px; /*these sort no effect*/ }
+QScrollBar::add-page:vertical {border: 3px solid red;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  red; /* adding width: xx px; sorting no effect .. why? */}
+QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  green; /* adding width: xx px; sorting no effect .. why? */ }</string>
+       </property>
+       <attribute name="horizontalHeaderCascadingSectionResizes">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>142</number>
+       </attribute>
+      </widget>
+     </widget>
+     <zorder>B_RetourMiss</zorder>
+     <zorder>frame_60</zorder>
+     <zorder>toolButton_73</zorder>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -17700,7 +17797,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
      <x>0</x>
      <y>0</y>
      <width>1500</width>
-     <height>26</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

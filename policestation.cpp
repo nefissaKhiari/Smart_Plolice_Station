@@ -2644,16 +2644,11 @@ void PoliceStation::on_signup_clicked()
 
        if (log->sign_up(ui->signupmail->text(),ui->signupmdp->text()) && confirm_pwd)
        {
-
            ui->stackedWidget->setCurrentIndex(1);
-
-
-
            ui->signupmail->clear();
            ui->signupmdp->clear();
            ui->signupCmdp->clear();
        }
-
        else
            QMessageBox::warning(this,tr("Inscription"),tr("Erreur d'insciption"));
 }
@@ -2670,28 +2665,38 @@ void PoliceStation::on_slidervolume_sliderMoved(int position)
 
 void PoliceStation::on_pushButton_3_clicked()
 {
-player->setMedia(QUrl::fromLocalFile("/Users/myria/Desktop/new/Smart_Plolice_Station_2A19/cassette-player-button-3.wav"));
-player->play();
-qDebug()<<player->errorString();
+    player->setMedia(QUrl::fromLocalFile("/Users/myria/Desktop/new/Smart_Plolice_Station_2A19/cassette-player-button-3.wav"));
+    player->play();
+    qDebug()<<player->errorString();
 }
 
 void PoliceStation::on_pushButton_5_clicked()
 {
-player->stop();
+    player->stop();
 }
 
 void PoliceStation::on_positionChanged(qint64 position)
 {
-ui->sliderprogress->setValue(position);
+    ui->sliderprogress->setValue(position);
 }
 
 void PoliceStation::on_durationChanged(qint64 position)
 {
-ui->sliderprogress->setMaximum(position);
+    ui->sliderprogress->setMaximum(position);
 }
 
 void PoliceStation::on_pushButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(46);
+}
 
+void PoliceStation::on_B_PolicierParticipants_clicked()
+{
+    ui->T_AffFourT->setModel(m_tmp.affectAll());
+    ui->stackedWidget->setCurrentIndex(47);
+}
+
+void PoliceStation::on_B_RetourMiss_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(23);
 }

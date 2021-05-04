@@ -444,10 +444,16 @@ private slots:
     void on_pushButton_3_clicked();
 
     void on_pushButton_5_clicked();
+
     void on_positionChanged(qint64 position);
+
     void on_durationChanged(qint64 position);
 
     void on_pushButton_clicked();
+
+    void on_B_PolicierParticipants_clicked();
+
+    void on_B_RetourMiss_clicked();
 
 private:
     Ui::PoliceStation *ui;

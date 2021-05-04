@@ -61,7 +61,6 @@ QSqlQueryModel * missions::affichern()
 {
     QSqlQueryModel *model = new QSqlQueryModel;
     model->setQuery("SELECT id FROM missions");
-
     return model;
 }
 
@@ -104,9 +103,6 @@ QSqlQueryModel* missions::rechercher(QString rechercher,QString by) {
     return model;
 }
 
-
-
-
 QSqlQueryModel* missions::Trierm(QString tri) {
     QSqlQueryModel* model = new QSqlQueryModel();
     if(tri=="nom") {
@@ -119,5 +115,11 @@ QSqlQueryModel* missions::Trierm(QString tri) {
         model->setQuery("SELECT * FROM missions ORDER BY description ");
     }
 
+    return model;
+}
+
+QSqlQueryModel * missions::affectAll(){
+    QSqlQueryModel *model = new QSqlQueryModel;
+    model->setQuery("SELECT p.cin_policier, p.nom_policier, p.prenom_policier, m.nom, v.matricule FROM missions m INNER JOIN affectations a ON a.id_mission = m.id INNER JOIN vehicules v ON v.matricule = a.id_vehicule INNER JOIN policier p ON v.cin_policier = p.cin_policier");
     return model;
 }

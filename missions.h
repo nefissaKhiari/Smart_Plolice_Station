@@ -30,12 +30,13 @@ public:
 
 
     bool ajouter();
-    QSqlQueryModel*    afficher();
+    QSqlQueryModel* afficher();
     bool supprimer(int);
     bool modifier(int, QString, QDate, QString, QString );
     QSqlQueryModel* rechercher(QString,QString);
-    QSqlQueryModel*    affichern();
+    QSqlQueryModel* affichern();
     QSqlQueryModel* Trierm(QString);
+    QSqlQueryModel* affectAll();
 
 private:
     QString  nom, localisation,description;

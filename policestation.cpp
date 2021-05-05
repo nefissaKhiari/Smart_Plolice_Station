@@ -2123,20 +2123,21 @@ void PoliceStation::on_B_AConfirmerPolicier_clicked()
 
 void PoliceStation::on_B_SupprimerPolicier_clicked()
 {
-    QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression de l'Amende?", QMessageBox::Yes | QMessageBox::No);
-    if(reply == QMessageBox::Yes) {
-        amende.setId_amende(ui->CB_IDAmende->currentText().toInt());
-        if(amende.supprimer_amende(amende.getId_amende())) {
-            qDebug() << "Suppression Complet";
-            ui->T_Amende->setModel(amende.afficher_amende());
-            ui->CB_IDAmende->setModel(amende.listId_amende());
-            INFORMER(ui->ALERT_M,"SUPPRESSION AVEC SUCCEES",3000);
-        }
-        else {
-            QMessageBox::critical(nullptr, QObject::tr("Nope"),
-                        QObject::tr("Suppression a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
-        }
-    }
+
+     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression du Policier?", QMessageBox::Yes | QMessageBox::No);
+     if(reply == QMessageBox::Yes) {
+         policier.setCin_policier(ui->comboBoxCin->currentText().toInt());
+         if(policier.supprimer_policier(policier.getCin_policier())) {
+             qDebug() << "Suppression Complet";
+             ui->T_Policier->setModel(policier.afficher_policier());
+             ui->comboBoxCin->setModel(policier. listCin_policier());
+             INFORMER(ui->ALERT_P,"SUPPRESSION AVEC SUCCEES",3000);
+         }
+         else {
+             QMessageBox::critical(nullptr, QObject::tr("Nope"),
+                         QObject::tr("Suppression a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
+         }
+     }
 }
 
 void PoliceStation::on_B_ModifierPolicier_clicked()

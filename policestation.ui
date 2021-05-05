@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>11</number>
+     <number>38</number>
     </property>
     <widget class="QWidget" name="LogIn">
      <widget class="QToolButton" name="toolButton_14">
@@ -3758,8 +3758,8 @@ background: transparent;;</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1200</width>
-         <height>1502</height>
+         <width>1204</width>
+         <height>1498</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -14431,8 +14431,8 @@ background: transparent;;</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1200</width>
-         <height>1502</height>
+         <width>1204</width>
+         <height>1498</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -18027,7 +18027,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
      <x>0</x>
      <y>0</y>
      <width>1500</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

@@ -11,9 +11,10 @@ private:
     QString etat;
     int poid;
     QString nom;
+    int CIN_policier;
 public:
     Equipement();
-    Equipement(int,int,QString,QString,int,QString);
+    Equipement(int,int,QString,QString,int,QString,int);
 
     void setReference(int);
     int getReference();
@@ -39,6 +40,8 @@ public:
 
     QSqlQueryModel* afficher();
     QSqlQueryModel* listRef();
+    QSqlQueryModel* listCIN();
+    QSqlQueryModel* afficherAffectation();
 
     QSqlQueryModel* Trier(QString);
     QSqlQueryModel* Chercher(QString,QString);

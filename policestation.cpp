@@ -39,17 +39,17 @@ void PoliceStation::INFORMER(QLabel *label, QString message, int duration){
 
 void PoliceStation::on_B_Connecter_clicked()
 {
-qDebug()<< log->hash(ui->lineEdit_MDP->text());
-    if (log->sign_in(ui->lineEdit_Mail->text(),ui->lineEdit_MDP->text()))
-            {
+//qDebug()<< log->hash(ui->lineEdit_MDP->text());
+    //if (log->sign_in(ui->lineEdit_Mail->text(),ui->lineEdit_MDP->text()))
+            //{
                 ui->stackedWidget->setCurrentIndex(1);
-                ui->lineEdit_Mail->clear();
-                ui->lineEdit_MDP->clear();
-                N.notifications_connection();
-    }else{
+               // ui->lineEdit_Mail->clear();
+                //ui->lineEdit_MDP->clear();
+                //N.notifications_connection();
+   /* }else{
 
        N.notifications_prob();
-    }
+    }*/
 }
 
 void PoliceStation::on_B_Deconnecte_clicked()
@@ -867,6 +867,7 @@ void PoliceStation::on_B_BackToGestions_5_clicked()
 
 void PoliceStation::on_B_AjouterEquipement_clicked()
 {
+    ui->CB_CIN_Policier->setModel(equipement.listCIN());
     ui->LE_AReferenceEquipement->clear();
     ui->LE_AQuantiteEquipement->clear();
     ui->LE_ATailleEquipement->clear();
@@ -893,6 +894,7 @@ void PoliceStation::on_B_AConfirmerEquipement_clicked()
    int poid = ui->LE_APoidEquipement->text().toInt();
    QString poid_l=ui->LE_APoidEquipement->text();
    QString nom = ui->LE_ANomEquipement->text();
+   int CIN_policier=ui->CB_CIN_Policier->currentText().toInt();
    if(ref_l.length()!=9) {
        ref_b = false;
        ui->AAlerteRef->setText("Il faut 9 charactere de facon XXXXXXXXXX");
@@ -962,7 +964,7 @@ void PoliceStation::on_B_AConfirmerEquipement_clicked()
    if(overAll) {
        QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout de l'equipement?", QMessageBox::Yes | QMessageBox::No);
        if(reply == QMessageBox::Yes) {
-           Equipement equipement(reference, quantite, taille, etat, poid, nom);
+           Equipement equipement(reference, quantite, taille, etat, poid, nom, CIN_policier);
            if(equipement.ajouter()) {
                ui->CB_IDEquipement->setModel(equipement.listRef());
                ui->T_Equipement->setModel(equipement.afficher());
@@ -1003,6 +1005,7 @@ void PoliceStation::on_B_ModifierEquipement_clicked()
     qry.bindValue(0, ref_string);
     if(qry.exec()) {
         while(qry.next()) {
+            ui->CB_CIN_Policier_2->setModel(equipement.listCIN());
             ui->LE_MReference->setText(qry.value(0).toString());
             ui->LE_MQuantiteEquipement->setText(qry.value(1).toString());
             ui->LE_MTailleEquipement->setText(qry.value(2).toString());
@@ -1029,7 +1032,8 @@ void PoliceStation::on_B_MConfirmerEquipement_clicked()
         QString etat = ui->LE_MEtatEquipement->text();
         int poid = ui->LE_MPoidEquipement->text().toInt();
         QString nom = ui->LE_MNomEquipement->text();
-        Equipement equipement(reference, quantite, taille, etat, poid, nom);
+        int CIN_policier=ui->CB_CIN_Policier_2->currentText().toInt();
+        Equipement equipement(reference, quantite, taille, etat, poid, nom, CIN_policier);
         if(equipement.modifier()) {
             ui->CB_IDEquipement->setModel(equipement.listRef());
             ui->T_Equipement->setModel(equipement.afficher());
@@ -2720,4 +2724,15 @@ void PoliceStation::on_pushButton_8_clicked()
 void PoliceStation::on_pushButton_10_clicked()
 {
 
+}
+
+void PoliceStation::on_B_AjouterEquipement_2_clicked()
+{
+    ui->T_AFF_Equipement->setModel(equipement.afficherAffectation());
+    ui->stackedWidget->setCurrentIndex(48);
+}
+
+void PoliceStation::on_B_AjouterEquipement_3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(11);
 }

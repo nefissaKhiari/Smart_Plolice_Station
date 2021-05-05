@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>11</number>
     </property>
     <widget class="QWidget" name="LogIn">
      <widget class="QToolButton" name="toolButton_14">
@@ -3759,7 +3759,7 @@ background: transparent;;</string>
          <x>0</x>
          <y>0</y>
          <width>1200</width>
-         <height>1498</height>
+         <height>1502</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -4981,6 +4981,26 @@ QComboBox::drop-down {
        </size>
       </property>
      </widget>
+     <widget class="QPushButton" name="B_AjouterEquipement_2">
+      <property name="geometry">
+       <rect>
+        <x>840</x>
+        <y>110</y>
+        <width>341</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="text">
+       <string>l'affectation des equipements</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>:/ressource/image/add.png</normaloff>:/ressource/image/add.png</iconset>
+      </property>
+     </widget>
      <zorder>frame_14</zorder>
      <zorder>frame_15</zorder>
      <zorder>frame_16</zorder>
@@ -4988,15 +5008,16 @@ QComboBox::drop-down {
      <zorder>toolButton_19</zorder>
      <zorder>QRcode</zorder>
      <zorder>qrcodeb</zorder>
+     <zorder>B_AjouterEquipement_2</zorder>
     </widget>
     <widget class="QWidget" name="Ajouter_equipement">
      <widget class="QFrame" name="frame_17">
       <property name="geometry">
        <rect>
         <x>430</x>
-        <y>110</y>
+        <y>60</y>
         <width>641</width>
-        <height>561</height>
+        <height>621</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -5184,7 +5205,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>380</x>
-         <y>500</y>
+         <y>560</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -5268,7 +5289,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>100</x>
-         <y>500</y>
+         <y>560</y>
          <width>171</width>
          <height>41</height>
         </rect>
@@ -5380,12 +5401,38 @@ QComboBox::drop-down {
         <string/>
        </property>
       </widget>
+      <widget class="QLabel" name="L_ACIN_Policier">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>510</y>
+         <width>391</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string>Policier Associer a cette equipement:</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="CB_CIN_Policier">
+       <property name="geometry">
+        <rect>
+         <x>410</x>
+         <y>510</y>
+         <width>191</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
      </widget>
      <widget class="QToolButton" name="toolButton_21">
       <property name="geometry">
        <rect>
         <x>690</x>
-        <y>50</y>
+        <y>0</y>
         <width>121</width>
         <height>121</height>
        </rect>
@@ -5413,9 +5460,9 @@ QComboBox::drop-down {
       <property name="geometry">
        <rect>
         <x>430</x>
-        <y>110</y>
+        <y>60</y>
         <width>641</width>
-        <height>531</height>
+        <height>591</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -5600,7 +5647,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>380</x>
-         <y>480</y>
+         <y>540</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -5684,7 +5731,7 @@ QComboBox::drop-down {
        <property name="geometry">
         <rect>
          <x>110</x>
-         <y>480</y>
+         <y>540</y>
          <width>171</width>
          <height>41</height>
         </rect>
@@ -5700,12 +5747,38 @@ QComboBox::drop-down {
          <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
        </property>
       </widget>
+      <widget class="QLabel" name="L_ACIN_Policier_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>490</y>
+         <width>391</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string>Policier Associer a cette equipement:</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="CB_CIN_Policier_2">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>490</y>
+         <width>191</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
      </widget>
      <widget class="QToolButton" name="toolButton_23">
       <property name="geometry">
        <rect>
         <x>690</x>
-        <y>50</y>
+        <y>0</y>
         <width>121</width>
         <height>121</height>
        </rect>
@@ -14359,7 +14432,7 @@ background: transparent;;</string>
          <x>0</x>
          <y>0</y>
          <width>1200</width>
-         <height>1498</height>
+         <height>1502</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -17848,6 +17921,103 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
      <zorder>B_RetourMiss</zorder>
      <zorder>frame_60</zorder>
      <zorder>toolButton_73</zorder>
+    </widget>
+    <widget class="QWidget" name="page_5">
+     <widget class="QPushButton" name="B_AjouterEquipement_3">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>30</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>retour</string>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_61">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>90</y>
+        <width>741</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QTableView" name="T_AFF_Equipement">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>721</width>
+         <height>421</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QTableView {border: 2px solid red;text-align: top;padding: 4px;border-radius: 7px;border-bottom-left-radius: 7px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee );width: 15px;selection-background-color:QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #FF0000, stop: 1 #FF5F5F,stop: 0.5 #FEAAAA,stop: 1 #eee);selection-color: black;}
+QTableView::item:focus{selection-background-color: red;}
+QScrollBar:vertical{ width: 20px; background: none; /* only these sort effect about width ...*/}
+QScrollBar::handle:vertical{ border: 3px solid #5E749C;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee ); width: 25px; min-height: 20px; max-height: 25px; /*these sort no effect*/ }
+QScrollBar::add-page:vertical {border: 3px solid red;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  red; /* adding width: xx px; sorting no effect .. why? */}
+QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  green; /* adding width: xx px; sorting no effect .. why? */ }</string>
+       </property>
+       <attribute name="horizontalHeaderCascadingSectionResizes">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>115</number>
+       </attribute>
+      </widget>
+      <widget class="QLabel" name="labelmessage_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>301</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QToolButton" name="toolButton_74">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>30</y>
+        <width>121</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>:/ressource/image/police-walkie-talkie.png</normaloff>:/ressource/image/police-walkie-talkie.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>64</width>
+        <height>64</height>
+       </size>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>

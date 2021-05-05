@@ -461,6 +461,10 @@ private slots:
 
     void on_pushButton_10_clicked();
 
+    void on_B_AjouterEquipement_2_clicked();
+
+    void on_B_AjouterEquipement_3_clicked();
+
 private:
     Ui::PoliceStation *ui;
     Intervenant intervenant;

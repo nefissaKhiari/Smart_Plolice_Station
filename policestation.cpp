@@ -2112,14 +2112,11 @@ void PoliceStation::on_B_AConfirmerPolicier_clicked()
             if(policier.ajouter_policier()) {
                 Smtp* smtp = new Smtp("policestaion2021@gmail.com", "Mokki3211", "smtp.gmail.com", 465);
                              connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
-
-
                           smtp->sendMail("policestaion2021@gmail.com", ui->LE_AMailPolicier->text() , "confirmation d'ajout",msg);
-
-
                 ui->comboBoxCin->setModel(policier.listCin_policier());
                 ui->T_Policier->setModel(policier.afficher_policier());
                 INFORMER(ui->ALERT_P,"AJOUT AVEC SUCCEES",3000);
+                policier.addToHistory("Ajout du " ,"policier",  QString::number(cin_policier));
                 ui->stackedWidget->setCurrentIndex(38);
             }
             else {
@@ -2133,12 +2130,14 @@ void PoliceStation::on_B_SupprimerPolicier_clicked()
 
      QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression du Policier?", QMessageBox::Yes | QMessageBox::No);
      if(reply == QMessageBox::Yes) {
+         int cin_policier = ui->comboBoxCin->currentText().toInt();
          policier.setCin_policier(ui->comboBoxCin->currentText().toInt());
          if(policier.supprimer_policier(policier.getCin_policier())) {
              qDebug() << "Suppression Complet";
              ui->T_Policier->setModel(policier.afficher_policier());
              ui->comboBoxCin->setModel(policier. listCin_policier());
              INFORMER(ui->ALERT_P,"SUPPRESSION AVEC SUCCEES",3000);
+             policier.addToHistory("Suppression du " ,"policier",  QString::number(cin_policier));
          }
          else {
              QMessageBox::critical(nullptr, QObject::tr("Nope"),
@@ -2178,6 +2177,7 @@ void PoliceStation::on_B_MConfirmerPolicier_clicked()
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la modification", "Confirmer la modification du Policier?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         Policier amende;
+        int cin_policier = ui->comboBoxCin->currentText().toInt();
         amende.setCin_policier(ui->comboBoxCin->currentText().toInt());
         amende.setNom_policier(ui->LE_MNomPolicier->text());
         amende.setPrenom_policier(ui->LE_MPrenomPolicier->text());
@@ -2189,6 +2189,7 @@ void PoliceStation::on_B_MConfirmerPolicier_clicked()
             ui->comboBoxCin->setModel(policier.listCin_policier());
             ui->T_Policier->setModel(policier.afficher_policier());
             INFORMER(ui->ALERT_P,"MODIFICATION AVEC SUCCEES",3000);
+            policier.addToHistory("Modification du " ,"policier",  QString::number(cin_policier));
             ui->stackedWidget->setCurrentIndex(38);
         }
         else {
@@ -2314,6 +2315,7 @@ void PoliceStation::on_B_AConfirmerAmende_clicked()
             ui->T_Amende->setModel(amende.afficher_amende());
             ui->CB_IDAmende->setModel(amende.listId_amende());
             INFORMER(ui->ALERT_M,"AJOUT AVEC SUCCEES",3000);
+            policier.addToHistory("Ajout d' " ,"amende",  QString::number(id_amende));
             ui->stackedWidget->setCurrentIndex(41);
         }
         else {
@@ -2337,6 +2339,7 @@ void PoliceStation::on_B_SupprimerAmende_clicked()
             ui->T_Amende->setModel(amende.afficher_amende());
             ui->CB_IDAmende->setModel(amende.listId_amende());
             INFORMER(ui->ALERT_M,"SUPPRESSION AVEC SUCCEES",3000);
+            policier.addToHistory("Suppression d' " ,"amende",  QString::number(ui->CB_IDAmende->currentText().toInt()));
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"),
@@ -2385,8 +2388,9 @@ void PoliceStation::on_B_MConfirmerAmende_clicked()
         if(amende.modifier_amende()) {
             ui->T_Amende->setModel(amende.afficher_amende());
             ui->CB_IDAmende->setModel(amende.listId_amende());
-            ui->stackedWidget->setCurrentIndex(41);
             INFORMER(ui->ALERT_M,"MODIFICATION AVEC SUCCEES",3000);
+            policier.addToHistory("Modification d' " ,"amende",  QString::number(ui->LE_MIDAmende->text().toInt()));
+            ui->stackedWidget->setCurrentIndex(41);
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("La modification a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -2764,4 +2768,25 @@ void PoliceStation::on_repart_clicked()
 {
     ui->T_AffePS->setModel(C.affectjoint());
     ui->stackedWidget->setCurrentIndex(50);
+}
+
+void PoliceStation::on_B_historique_clicked()
+{
+    ui->listhistorique->setModel( policier.afficherHistorique(ui));
+    ui->stackedWidget->setCurrentIndex(51);
+}
+
+void PoliceStation::on_combo_action_currentIndexChanged(const QString &arg1)
+{
+    ui->listhistorique->setModel( policier.afficherHistorique(ui));
+}
+
+void PoliceStation::on_comboBox_mp_currentIndexChanged(const QString &arg1)
+{
+    ui->listhistorique->setModel( policier.afficherHistorique(ui));
+}
+
+void PoliceStation::on_B_Retouuuur_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(37);
 }

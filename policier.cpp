@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QObject>
 #include <QString>
+#include "ui_policestation.h"
 
 Policier::Policier() {
     CIN_policier=0;  nom_policier="";  prenom_policier="";  grade_policier="";   mail_policier="";   mdp_policier=0;  secteur_policier="";
@@ -83,13 +84,13 @@ bool Policier::modifier_policier() {
     QString cin_policier_string = QString::number(CIN_policier);
     QString mdp_policier_string = QString::number(mdp_policier);
     query.prepare("UPDATE policier set nom_policier=:nom_policier, prenom_policier=:prenom_policier, grade_policier=:grade_policier, mail_policier=:mail_policier, mdp_policier=:mdp_policier, secteur_policier=:secteur_policier where cin_policier=:cin_policier");
-    query.bindValue(7, cin_policier_string);
+    query.bindValue(6, cin_policier_string);
     query.bindValue(0, nom_policier);
     query.bindValue(1, prenom_policier);
     query.bindValue(2, grade_policier);
     query.bindValue(3, mail_policier);
     query.bindValue(4, mdp_policier_string);
-    query.bindValue(6, secteur_policier);
+    query.bindValue(5, secteur_policier);
     return query.exec();
 }
 
@@ -179,4 +180,61 @@ QSqlQueryModel* Policier::Trier_policier(QString tri) {
      QSqlQueryModel* model = new QSqlQueryModel();
      model->setQuery("SELECT CIN_policier FROM policier");
      return model;
+ }
+
+ void Policier::addToHistory(QString action, QString type, QString CIN_policier)
+ {
+
+
+
+     QSqlQuery query;
+     QString date=QDateTime::currentDateTime().toString("dddd, dd MMMM yyyy");
+     QString date1=QDateTime::currentDateTime().toString("dd/MM/yy");
+     QString time=QDateTime::currentDateTime().toString("hh:mm");
+     QString activity;
+
+     activity="\n    "+date1+"   -   "+time+" \t    "+ action +" "+type+"  cin_policier:  "+CIN_policier+" \n";
+
+           query.prepare("INSERT INTO history (activity) VALUES (:activity)");
+           query.bindValue(":activity", activity);
+
+     query.exec();
+ }
+
+ QSqlQueryModel* Policier::afficherHistorique(Ui::PoliceStation*ui)
+ {
+     QSqlQueryModel * model=new QSqlQueryModel();
+     QSqlQuery query;
+     QString historyType="";
+     switch (ui->combo_action->currentIndex())
+     {
+     case 0:  historyType="";break;
+     case 1:  historyType="Ajout";break;
+     case 2:  historyType="Modification";break;
+     case 3:  historyType="Suppression";break;
+     }
+     QString historymp="";
+     switch (ui->comboBox_mp->currentIndex())
+     {
+     case 0:  historymp="";break;
+     case 1:  historymp="policier";break;
+     case 2:  historymp="amende";break;
+
+     }
+     query.prepare("SELECT activity FROM history where activity like '%"+historyType+"%' and  activity like '%"+historymp+"%'");
+          query.exec();
+          model->setQuery(query);
+     return model;
+ }
+
+ bool Policier::supprimerhistory(QString date,QString type,QString mp)
+ {
+   QSqlQuery query ;
+   query.prepare("DELETE FROM HISTORY WHERE ACTIVITY like '%"+date+"%' and ACTIVITY like '%"+type+"%' and ACTIVITY like '%"+mp+"%'");
+
+   if(query.exec())
+   {
+               return query.exec();
+   }
+   else return false;
  }

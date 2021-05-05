@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QSqlQueryModel>
+#include "ui_policestation.h"
 
 
 class Policier
@@ -51,7 +52,11 @@ public:
     QSqlQueryModel* Chercher_policier1(QString );
     QSqlQueryModel* Chercher_policier2( QString );
     QSqlQueryModel* Exporter_policier_excel();
-  QSqlQueryModel* listId();
+    QSqlQueryModel* listId();
+
+  QSqlQueryModel* afficherHistorique(Ui::PoliceStation*ui);
+  void addToHistory(QString action, QString type, QString CIN_policier);
+  bool supprimerhistory(QString date, QString type ,QString mp) ;
 
 };
 

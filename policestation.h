@@ -473,6 +473,14 @@ private slots:
 
     void on_repart_clicked();
 
+    void on_B_historique_clicked();
+
+    void on_combo_action_currentIndexChanged(const QString &arg1);
+
+    void on_comboBox_mp_currentIndexChanged(const QString &arg1);
+
+    void on_B_Retouuuur_clicked();
+
 private:
     Ui::PoliceStation *ui;
     Intervenant intervenant;

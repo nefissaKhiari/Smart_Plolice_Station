@@ -113,3 +113,46 @@ QSqlQueryModel* Envoyer_sms_amende(QString)
 {
 
 }
+
+
+
+void Amende::addToHistory(QString action, QString type, QString id)
+{
+
+
+
+    QSqlQuery query;
+    QString date=QDateTime::currentDateTime().toString("dddd, dd MMMM yyyy");
+    QString date1=QDateTime::currentDateTime().toString("dd/MM/yy");
+    QString time=QDateTime::currentDateTime().toString("hh:mm");
+    QString activity;
+
+    activity="\n    "+date1+"   -   "+time+" \t    "+ action +" "+type+" d'identifiant:  "+id+" \n";
+
+          query.prepare("INSERT INTO history (activity) VALUES (:activity)");
+          query.bindValue(":activity", activity);
+
+    query.exec(); }
+
+
+//afficher historique
+
+QSqlQueryModel* Amende::afficherHistorique(Ui::GestionAmende *ui)
+{
+    QSqlQueryModel * model=new QSqlQueryModel();
+    QSqlQuery query;
+    QString historyType="";
+    switch (ui->combo_action->currentIndex())
+    {
+    case 1:  historyType="Ajout";break;
+    case 2:  historyType="Modification";break;
+    case 3:  historyType="Suppression";break;
+    }
+        if (ui->combo_action->currentIndex()==0)
+            query.prepare("SELECT activity FROM history   ");
+        else
+         query.prepare("SELECT activity FROM history where activity like '%"+historyType+"%'  ");
+         query.exec();
+         model->setQuery(query);
+    return model;
+}

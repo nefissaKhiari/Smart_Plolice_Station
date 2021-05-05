@@ -1,4 +1,4 @@
-#ifndef CALCULATOR_H
+/*#ifndef CALCULATOR_H
 #define CALCULATOR_H
 
 #include <QMainWindow>
@@ -35,3 +35,4 @@ private slots :
 };
 
 #endif // CALCULATOR_H
+*/

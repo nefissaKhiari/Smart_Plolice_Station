@@ -81,7 +81,6 @@ void GestionAmende::on_B_AConfirmerPolicier_clicked()
             ui->T_Policier->setModel(policier.afficher_policier());
             ui->stackedWidget->setCurrentIndex(1);
             INFORMER(ui->ALERT_P,"AJOUT AVEC SUCCEES",3000);
-
             ui->LE_ACin->setText("");
             ui->LE_ANomPolicier->setText("");
             ui->LE_APrenomPolicier->setText("");
@@ -90,7 +89,7 @@ void GestionAmende::on_B_AConfirmerPolicier_clicked()
             ui->LE_AMdpPolicier->setText("");
             ui->LE_APhotoPolicier->setText("");
              ui->LE_ASecteurPolicier->setText("");
-
+              policier.addToHistory("Ajout du " ,"policier",  QString::number(cin_policier));
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -261,6 +260,10 @@ void GestionAmende::on_B_AConfirmerAmende_clicked()
             ui->LE_ALieuAmende->setText("");
             ui->LE_ADateAmende->setText("");
             ui->LE_ACINpolicier->setText("");
+
+
+            amende.addToHistory("Ajout du " ,"Amende",  QString::number(id_amende));
+            ui->listhistorique->setModel( amende.afficherHistorique(ui));
         }
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -466,5 +469,18 @@ void GestionAmende::on_B_imprimer_clicked()
 
 
 
+void GestionAmende::on_B_historique_clicked()
+{
+            ui->listhistorique->setModel( policier.afficherHistorique(ui));
+            ui->stackedWidget->setCurrentIndex(7);
+}
 
+void GestionAmende::on_combo_action_currentIndexChanged(const QString &arg1)
+{
+    ui->listhistorique->setModel( policier.afficherHistorique(ui));
+}
 
+void GestionAmende::on_comboBox_mp_currentIndexChanged(const QString &arg1)
+{
+    ui->listhistorique->setModel( policier.afficherHistorique(ui));
+}

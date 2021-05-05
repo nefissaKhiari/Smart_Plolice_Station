@@ -91,9 +91,11 @@ private slots:
 
  void on_B_imprimer_clicked();
 
+ void on_B_historique_clicked();
 
+ void on_combo_action_currentIndexChanged(const QString &arg1);
 
-
+ void on_comboBox_mp_currentIndexChanged(const QString &arg1);
 
 private:
     Ui::GestionAmende *ui;

@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QSqlQueryModel>
+#include "ui_gestionamende.h"
 
 
 class Amende
@@ -50,6 +51,9 @@ public:
     QSqlQueryModel* listId_amende();
 
     QSqlQueryModel* Envoyer_sms_amende(QString);
+
+    QSqlQueryModel* afficherHistorique(Ui::GestionAmende *ui);
+    void addToHistory(QString action, QString type, QString id);
 
 
 

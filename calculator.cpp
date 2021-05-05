@@ -1,4 +1,4 @@
-#include "calculator.h"
+/*#include "calculator.h"
 #include "ui_calculator.h"
 
 // Holds current value of calculation
@@ -39,4 +39,4 @@ Calculator::Calculator(QWidget *parent) :
         // When the button is released call num_pressed()
         connect(numButtons[i], SIGNAL(released()), this,
                 SLOT(NumPressed()));
-    }
+    }*/

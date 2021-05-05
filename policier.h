@@ -3,7 +3,7 @@
 
 #include <QString>
 #include <QSqlQueryModel>
-
+#include "ui_gestionamende.h"
 
 class Policier
 {
@@ -57,6 +57,10 @@ public:
     QSqlQueryModel* Exporter_policier_excel();
 
 
+
+    QSqlQueryModel* afficherHistorique(Ui::GestionAmende*ui);
+    void addToHistory(QString action, QString type, QString CIN_policier);
+    bool supprimerhistory(QString date, QString type ,QString mp) ;
 };
 
 #endif // POLICIER_H

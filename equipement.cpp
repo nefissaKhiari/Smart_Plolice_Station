@@ -7,9 +7,9 @@ Equipement::Equipement()
 {
 reference=0; quantite=0;taille="";etat="";poid=0;nom="";
 }
-Equipement :: Equipement(int reference,int quantite, QString taille, QString etat, int poid, QString nom)
+Equipement :: Equipement(int reference,int quantite, QString taille, QString etat, int poid, QString nom, int CIN_policier )
 {
-    this->reference=reference;  this->quantite=quantite;  this->taille=taille;  this->etat=etat;  this->poid=poid;  this->nom=nom;
+    this->reference=reference;  this->quantite=quantite;  this->taille=taille;  this->etat=etat;  this->poid=poid;  this->nom=nom; this->CIN_policier=CIN_policier;
 }
 void Equipement::setReference(int reference) { this->reference=reference; }
 int Equipement::getReference() { return reference; }
@@ -34,13 +34,15 @@ bool Equipement::ajouter() {
     QString ref_string = QString::number(reference);
     QString poid_string = QString::number(poid);
     QString quantite_string = QString::number(quantite);
-    query.prepare("INSERT INTO equipement(reference, quantite, taille, etat, poid, nom)" "VALUES (:reference, :quantite, :taille, :etat, :poid, :nom)");
+    QString cin_policier_string = QString::number(CIN_policier);
+    query.prepare("INSERT INTO equipement(reference, quantite, taille, etat, poid, nom, cin_policier)" "VALUES (:reference, :quantite, :taille, :etat, :poid, :nom, :cin_policier)");
     query.bindValue(0, ref_string);
     query.bindValue(1, quantite_string);
     query.bindValue(2, taille);
     query.bindValue(3, etat);
     query.bindValue(4, poid_string);
     query.bindValue(5, nom);
+    query.bindValue(6, cin_policier_string);
     return query.exec();
 }
 
@@ -123,4 +125,13 @@ QSqlQueryModel* Equipement::listRef() {
     model->setQuery("SELECT reference FROM equipement");
     return model;
 }
-
+QSqlQueryModel* Equipement::afficherAffectation() {
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery("SELECT p.cin_policier, e.nom, e.reference, m.etat FROM maintenance m INNER JOIN equipement e ON m.reference = e.reference INNER JOIN policier p ON p.cin_policier = e.cin_policier");
+    return model;
+}
+QSqlQueryModel* Equipement::listCIN() {
+    QSqlQueryModel* model = new QSqlQueryModel();
+    model->setQuery("SELECT cin_policier FROM policier");
+    return model;
+}

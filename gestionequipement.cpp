@@ -44,6 +44,7 @@ void GestionEquipement::on_B_GestionEquipement_clicked()
 void GestionEquipement::on_B_AjouterEquipement_clicked()
 {
     song->play();
+    ui->CB_CIN_Policier->setModel(equipement.listCIN());
     ui->AAlerteRef->setText("");
     ui->AAlerteQuantite->setText("");
     ui->AAlerteEtat->setText("");
@@ -160,6 +161,7 @@ void GestionEquipement::on_B_AConfirmerEquipement_clicked()
 
     int poid = ui->LE_APoidEquipement->text().toInt();
     QString poid_l=ui->LE_APoidEquipement->text();
+    int CIN_policier=ui->CB_CIN_Policier->currentText().toInt();
 
     QString nom = ui->LE_ANomEquipement->text();
     if(ref_l.length()!=9) {
@@ -239,7 +241,7 @@ void GestionEquipement::on_B_AConfirmerEquipement_clicked()
     if(overAll) {
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout de l'equipement?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
-        Equipement equipement(reference, quantite, taille, etat, poid, nom);
+        Equipement equipement(reference, quantite, taille, etat, poid, nom, CIN_policier);
         if(equipement.ajouter()) {
             ui->CB_IDEquipement->setModel(equipement.listRef());
             ui->T_Equipement->setModel(equipement.afficher());
@@ -274,7 +276,7 @@ void GestionEquipement::on_B_MConfirmerEquipement_clicked()
         QString etat = ui->LE_MEtatEquipement->text();
         int poid = ui->LE_MPoidEquipement->text().toInt();
         QString nom = ui->LE_MNomEquipement->text();
-        Equipement equipement(reference, quantite, taille, etat, poid, nom);
+        Equipement equipement(reference, quantite, taille, etat, poid, nom,NULL);
         if(equipement.modifier()) {
             ui->CB_IDEquipement->setModel(equipement.listRef());
             ui->T_Equipement->setModel(equipement.afficher());
@@ -560,4 +562,16 @@ void GestionEquipement::on_save_clicked()
     out << text;
     file.flush();
     file.close();
+}
+
+void GestionEquipement::on_B_AjouterEquipement_3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void GestionEquipement::on_B_AjouterEquipement_2_clicked()
+{
+    ui->T_AFF_Equipement->setModel(equipement.afficherAffectation());
+    ui->stackedWidget->setCurrentIndex(9);
+
 }

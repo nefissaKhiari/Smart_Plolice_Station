@@ -99,6 +99,10 @@ private slots:
 
     void on_save_clicked();
 
+    void on_B_AjouterEquipement_3_clicked();
+
+    void on_B_AjouterEquipement_2_clicked();
+
 private:
     Ui::GestionEquipement *ui;
     Equipement equipement;

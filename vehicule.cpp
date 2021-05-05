@@ -146,3 +146,4 @@ QSqlQueryModel* vehicule::rechercherv(QString rechercherv,QString by) {
 
     return model;
 }
+

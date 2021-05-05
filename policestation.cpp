@@ -1,6 +1,6 @@
 #include "policestation.h"
 #include "ui_policestation.h"
-
+#include <QQuickItem>
 using namespace qrcodegen;
 PoliceStation::PoliceStation(QWidget *parent)
     : QMainWindow(parent)
@@ -21,6 +21,11 @@ PoliceStation::PoliceStation(QWidget *parent)
     player = new QMediaPlayer(this);
     connect(player, &QMediaPlayer::positionChanged , this ,&PoliceStation::on_positionChanged);
     connect(player, &QMediaPlayer::durationChanged , this ,&PoliceStation::on_durationChanged);
+    ui->quickWidget->setSource(QUrl(QStringLiteral("qrc:/map.qml")));
+    ui->quickWidget->show();
+    auto obj= ui->quickWidget->rootObject();
+    connect(this , SIGNAL(setCenter(QVariant,QVariant)), obj,SLOT(setCenter(QVariant,QVariant)));
+    emit setCenter(25.000, 50.000);
 }
 
 PoliceStation::~PoliceStation()
@@ -540,6 +545,7 @@ void PoliceStation::on_B_GestionVehicule_2_clicked()
 {
     ui->T_Vehicules_2->setModel(v_tmp.afficher());
     ui->CB_IDVehicule_2->setModel(v_tmp.afficherm());
+    ui->cb_pv->setModel(policier.listId());
     ui->stackedWidget->setCurrentIndex(20);
 }
 
@@ -575,7 +581,7 @@ void PoliceStation::on_B_AjouterVehicule_2_clicked()
     ui->LE_ANbplacesVehicule_2->clear();
     ui->LE_ACouleurVehicule_2->clear();
     ui->LE_AQuantiteVehicule_2->clear();
-    ui->LE_ACinVehicule_2->clear();
+    ui->cb_pv->clear();
     ui->stackedWidget->setCurrentIndex(21);
 }
 
@@ -595,7 +601,7 @@ void PoliceStation::on_B_AConfirmerVehicule_2_clicked()
     QString quantitel = ui->LE_AQuantiteVehicule_2->text();
     int nb_places = ui->LE_ANbplacesVehicule_2->text().toInt();
     QString nb_placesl = ui->LE_ANbplacesVehicule_2->text();
-    int CIN_policier = ui->LE_ACinVehicule_2->text().toInt();
+    int CIN_policier=ui->cb_pv->currentText().toInt();
     if(matriculel.length() < 3) {
         matricule_B = false;
         ui->matriculealert_2->setText("Il faut 3 characteres de facon XXX");
@@ -691,6 +697,7 @@ void PoliceStation::on_B_ModifierVehicule_2_clicked()
             ui->LE_MCouleurVehicule_2->setText(query.value(3).toString());
             ui->LE_MNbplacesVehicule_2->setText(query.value(4).toString());
             ui->LE_MCinVehicule_2->setText(query.value(5).toString());
+
         }
 
     }
@@ -2713,7 +2720,7 @@ void PoliceStation::on_pushButton_6_clicked()
     QString code=log->code_generator();
 if(log->update_mpd_reset(ui->lineEdit_Mail->text(),code)){
     Smtp* smtp = new Smtp("policestaion2021@gmail.com","Mokki3211", "smtp.gmail.com");
-        smtp->sendMail("policestaion2021@gmail.com", ui->lineEdit_Mail->text() , ui->lineEdit_3->text(),"Votre Code est :"+code);
+        smtp->sendMail("policestaion2021@gmail.com", ui->lineEdit_Mail->text() , "Récupération de votre compte","Veuillez saisir le code dans le champs du mot de passe.\nVotre Code est :"+code);
 }
 }
 
@@ -2736,4 +2743,25 @@ void PoliceStation::on_B_AjouterEquipement_2_clicked()
 void PoliceStation::on_B_AjouterEquipement_3_clicked()
 {
     ui->stackedWidget->setCurrentIndex(11);
+}
+
+void PoliceStation::on_pushButton_11_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(28);
+}
+
+void PoliceStation::on_map_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(49);
+}
+
+void PoliceStation::on_ret_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(28);
+}
+
+void PoliceStation::on_repart_clicked()
+{
+    ui->T_AffePS->setModel(C.affectjoint());
+    ui->stackedWidget->setCurrentIndex(50);
 }

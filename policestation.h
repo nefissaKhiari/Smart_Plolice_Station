@@ -465,6 +465,14 @@ private slots:
 
     void on_B_AjouterEquipement_3_clicked();
 
+    void on_pushButton_11_clicked();
+
+    void on_map_clicked();
+
+    void on_ret_clicked();
+
+    void on_repart_clicked();
+
 private:
     Ui::PoliceStation *ui;
     Intervenant intervenant;
@@ -485,5 +493,7 @@ private:
     QTimer *timer;
     login *log;
     QMediaPlayer* player;
+signals:
+    void setCenter(QVariant , QVariant);
 };
 #endif // POLICESTATION_H

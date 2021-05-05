@@ -2,7 +2,7 @@ QT       += core gui sql charts network multimedia multimediawidgets axcontainer
 
 
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets  quickwidgets
 
 CONFIG += c++11
 
@@ -77,4 +77,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    qml.qrc \
     translation.qrc

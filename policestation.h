@@ -23,6 +23,7 @@
 #include "infraction.h"
 #include "affectation.h"
 #include "login.h"
+#include "poubelle.h"
 //****
 #include <QDialog>
 #include <QUrl>
@@ -539,6 +540,12 @@ private slots:
 
     void on_pushButton_12_clicked();
 
+    void on_Poubelle_clicked();
+
+    void on_vider_corbeille_clicked();
+
+    void on_EQ_retour_clicked();
+
 private:
     Ui::PoliceStation *ui;
     Intervenant intervenant;
@@ -562,6 +569,7 @@ private:
     Detenu detenu;
     Infraction infraction;
     Affectation affectation;
+    Poubelle poubelle;
 signals:
     void setCenter(QVariant , QVariant);
 };

@@ -988,15 +988,43 @@ void PoliceStation::on_B_AConfirmerEquipement_clicked()
 void PoliceStation::on_B_SupprimerEquipement_clicked()
 {
     Equipement equipement;
+    int reference;
+    int quantite;
+    QString taille;
+    QString etat;
+    int poid;
+    QString nom;
+    int CIN_policier;
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression de l'equipement?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         equipement.setReference(ui->CB_IDEquipement->currentText().toInt());
+        QSqlQuery qry;
+        QString ref_string = QString::number(ui->CB_IDEquipement->currentText().toInt());
+        qry.prepare("SELECT * FROM equipement where reference= :reference");
+        qry.bindValue(0, ref_string);
+        if(qry.exec()) {
+            while(qry.next()) {
+                reference=qry.value(0).toInt();
+                quantite=qry.value(1).toInt();
+                taille=qry.value(2).toString();
+                etat=qry.value(3).toString();
+                poid=qry.value(4).toInt();
+                nom=qry.value(5).toString();
+                CIN_policier=qry.value(6).toInt();
+
+            }
+        }
+        qDebug()<<reference <<CIN_policier;
+        Poubelle poubelle (reference,quantite,taille,etat,poid,nom,CIN_policier );
+
         if(equipement.supprimer(equipement.getReference())) {
             qDebug() << "Suppression Complet";
+            poubelle.ajouter();
             ui->T_Equipement->setModel(equipement.afficher());
             ui->CB_IDEquipement->setModel(equipement.listRef());
             INFORMER(ui->labelmessage,"Equipement suprimer",3000);
         }
+
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"),
                         QObject::tr("Suppression a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -3116,4 +3144,21 @@ void PoliceStation::on_B_ConfirmerAffectation_clicked()
 void PoliceStation::on_pushButton_12_clicked()
 {
     ui->stackedWidget->setCurrentIndex(55);
+}
+
+void PoliceStation::on_Poubelle_clicked()
+{
+    ui->T_Equipemen_suprime->setModel(poubelle.afficherPoubelle());
+    ui->stackedWidget->setCurrentIndex(61);
+}
+
+void PoliceStation::on_vider_corbeille_clicked()
+{
+    poubelle.supprimer();
+  ui->T_Equipemen_suprime->setModel(poubelle.afficherPoubelle());
+}
+
+void PoliceStation::on_EQ_retour_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(11);
 }

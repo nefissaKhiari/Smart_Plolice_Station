@@ -35,6 +35,7 @@ SOURCES += \
     notification.cpp \
     policestation.cpp \
     policier.cpp \
+    poubelle.cpp \
     service.cpp \
     smtp.cpp \
     vehicule.cpp
@@ -63,6 +64,7 @@ HEADERS += \
     notification.h \
     policestation.h \
     policier.h \
+    poubelle.h \
     service.h \
     smtp.h \
     vehicule.h

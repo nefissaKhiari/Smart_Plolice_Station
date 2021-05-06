@@ -1,7 +1,5 @@
 QT       += core gui sql charts network multimedia multimediawidgets axcontainer serialport printsupport widgets concurrent
 
-
-
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets  quickwidgets
 
 CONFIG += c++11

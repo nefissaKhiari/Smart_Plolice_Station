@@ -546,6 +546,8 @@ private slots:
 
     void on_EQ_retour_clicked();
 
+    void on_B_Theme_clicked();
+
 private:
     Ui::PoliceStation *ui;
     Intervenant intervenant;

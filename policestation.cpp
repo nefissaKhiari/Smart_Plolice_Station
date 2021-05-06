@@ -2735,8 +2735,7 @@ void PoliceStation::on_pushButton_8_clicked()
 
 void PoliceStation::on_pushButton_10_clicked()
 {
-    ui->T_Detenu_2->setModel(detenu.affectAll());
-    ui->stackedWidget->setCurrentIndex(60);
+
 }
 
 void PoliceStation::on_B_AjouterEquipement_2_clicked()
@@ -2852,7 +2851,6 @@ void PoliceStation::on_B_AjouterDetenus_clicked()
     ui->LE_APrenomDetenus->clear();
     ui->LE_ANationalitelDetenus->clear();
     ui->DE_AHistoriqueDetenus->clear();
-    ui->CB_APolicierResponsable->setModel(policier.listCin_policier());
     ui->stackedWidget->setCurrentIndex(56);
 }
 
@@ -2873,8 +2871,7 @@ void PoliceStation::on_B_AConfirmerDetenus_clicked()
         QString historique = ui->DE_AHistoriqueDetenus->toPlainText();
         QDate dn = ui->DE_ADateNaissDetenus->date();
         QDate da = ui->DE_ADateArrestDetenus->date();
-        int cin_policier = ui->CB_APolicierResponsable->currentText().toInt();
-        Detenu detenu(cin, nom, prenom, nationalite, dn, da, historique, danger, cin_policier);
+        Detenu detenu(cin, nom, prenom, nationalite, dn, da, historique, danger);
         if(detenu.ajouter()) {
             ui->T_Detenu->setModel(detenu.afficher());
             ui->CB_IDDetenus->setModel(detenu.listId());
@@ -3111,9 +3108,4 @@ void PoliceStation::on_B_ConfirmerAffectation_clicked()
         msgBox.setText("Ajout avec succés.");
          ui->T_Affectation->setModel(affectation.afficherA());
     }
-}
-
-void PoliceStation::on_pushButton_12_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(55);
 }

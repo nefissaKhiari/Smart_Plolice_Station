@@ -537,8 +537,6 @@ private slots:
 
     void on_B_ConfirmerAffectation_clicked();
 
-    void on_pushButton_12_clicked();
-
 private:
     Ui::PoliceStation *ui;
     Intervenant intervenant;

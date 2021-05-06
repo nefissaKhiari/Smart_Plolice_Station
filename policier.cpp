@@ -195,7 +195,7 @@ QSqlQueryModel* Policier::Trier_policier(QString tri) {
 
      activity="\n    "+date1+"   -   "+time+" \t    "+ action +" "+type+"  cin_policier:  "+CIN_policier+" \n";
 
-           query.prepare("INSERT INTO history (activity) VALUES (:activity)");
+           query.prepare("INSERT INTO hiistory (activity) VALUES (:activity)");
            query.bindValue(":activity", activity);
 
      query.exec();
@@ -221,7 +221,7 @@ QSqlQueryModel* Policier::Trier_policier(QString tri) {
      case 2:  historymp="amende";break;
 
      }
-     query.prepare("SELECT activity FROM history where activity like '%"+historyType+"%' and  activity like '%"+historymp+"%'");
+     query.prepare("SELECT activity FROM hiistory where activity like '%"+historyType+"%' and  activity like '%"+historymp+"%'");
           query.exec();
           model->setQuery(query);
      return model;
@@ -230,7 +230,7 @@ QSqlQueryModel* Policier::Trier_policier(QString tri) {
  bool Policier::supprimerhistory(QString date,QString type,QString mp)
  {
    QSqlQuery query ;
-   query.prepare("DELETE FROM HISTORY WHERE ACTIVITY like '%"+date+"%' and ACTIVITY like '%"+type+"%' and ACTIVITY like '%"+mp+"%'");
+   query.prepare("DELETE FROM HIISTORY WHERE ACTIVITY like '%"+date+"%' and ACTIVITY like '%"+type+"%' and ACTIVITY like '%"+mp+"%'");
 
    if(query.exec())
    {

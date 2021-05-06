@@ -50,7 +50,7 @@ public:
     QSqlQueryModel* listId();
     QSqlQueryModel* rechercher(QString,QString);
     QSqlQueryModel* Trier(QString);
-    QSqlQueryModel *affectjoint();
+
 
 private:
     int id;

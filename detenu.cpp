@@ -8,8 +8,8 @@ Detenu::Detenu()
     nom=""; prenom=""; nationalite=""; historique=""; niveau_danger="";
 }
 
-Detenu::Detenu(int cin, QString nom, QString prenom, QString natioanlite, QDate date_naissance, QDate date_arrest, QString historique, QString niveau_danger) {
-    this->id=cin; this->nom=nom; this->prenom=prenom;  this->date_naiss=date_naissance; this->date_arrest=date_arrest;  this->nationalite=natioanlite;  this->historique=historique;  this->niveau_danger=niveau_danger;
+Detenu::Detenu(int cin, QString nom, QString prenom, QString natioanlite, QDate date_naissance, QDate date_arrest, QString historique, QString niveau_danger, int cin_policier) {
+    this->id=cin; this->nom=nom; this->prenom=prenom;  this->date_naiss=date_naissance; this->date_arrest=date_arrest;  this->nationalite=natioanlite;  this->historique=historique;  this->niveau_danger=niveau_danger; this->cin_policier=cin_policier;
 }
 
 void Detenu::setId(int id) { this->id=id; }
@@ -38,7 +38,8 @@ QDate Detenu::getDa() { return date_arrest; }
 
 bool Detenu::ajouter() {
     QSqlQuery query;
-    query.prepare("INSERT INTO detenus (cin, nom, prenom, date_naissance, nationalite, date_arrest, historique, niveau_danger)" "VALUES (:cin, :nom, :prenom, :date_naissance, :nationalite, :date_arrest, :historique, :niveau_danger)");
+    QString cin_string = QString::number(cin_policier);
+    query.prepare("INSERT INTO detenus (cin, nom, prenom, date_naissance, nationalite, date_arrest, historique, niveau_danger, cin_policier)" "VALUES (:cin, :nom, :prenom, :date_naissance, :nationalite, :date_arrest, :historique, :niveau_danger, :cin_policier)");
     query.bindValue(0, id);
     query.bindValue(1, nom);
     query.bindValue(2, prenom);
@@ -47,6 +48,7 @@ bool Detenu::ajouter() {
     query.bindValue(5, date_arrest);
     query.bindValue(6, historique);
     query.bindValue(7, niveau_danger);
+    query.bindValue(8, cin_string);
     return query.exec();
 }
 
@@ -109,5 +111,11 @@ QSqlQueryModel* Detenu::Trier(QString tri) {
     else if(tri=="Prenom") {
         model->setQuery("SELECT * FROM detenus ORDER BY prenom ASC");
     }
+    return model;
+}
+
+QSqlQueryModel * Detenu::affectAll(){
+    QSqlQueryModel *model = new QSqlQueryModel;
+    model->setQuery("SELECT p.cin_policier, d.cin, i.nom, i.type FROM policier p INNER JOIN detenus d ON d.cin_policier = p.cin_policier INNER JOIN daffectations da ON d.cin = da.cin_detenu INNER JOIN infractions i ON i.id = da.id_infraction");
     return model;
 }

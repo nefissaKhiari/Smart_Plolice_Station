@@ -18,7 +18,7 @@
 }
 
 #PoliceStation{
-	background: url(:/Recources/Images/background.PNG);
+	background: url(:/ressource/image/background.PNG);
 }
 
 QLabel{
@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>59</number>
+     <number>28</number>
     </property>
     <widget class="QWidget" name="LogIn">
      <widget class="QToolButton" name="toolButton_14">
@@ -115,8 +115,8 @@ QPushButton:hover{
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>:/Recources/images/user.png</normaloff>:/Recources/images/user.png</iconset>
+       <iconset resource="ressources.qrc">
+        <normaloff>:/ressource/image/police-walkie-talkie.png</normaloff>:/ressource/image/police-walkie-talkie.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -301,19 +301,6 @@ font-size: 10px;</string>
        <string>Deconnecter</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_7">
-      <property name="geometry">
-       <rect>
-        <x>1220</x>
-        <y>656</y>
-        <width>231</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Profile</string>
-      </property>
-     </widget>
      <widget class="QFrame" name="frame_12">
       <property name="geometry">
        <rect>
@@ -423,8 +410,8 @@ font-size: 10px;</string>
         <string> Google</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/Recources/Images/google.png</normaloff>:/Recources/Images/google.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/search.png</normaloff>:/ressource/image/search.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -3758,7 +3745,7 @@ background: transparent;;</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1207</width>
+         <width>1200</width>
          <height>1498</height>
         </rect>
        </property>
@@ -4112,7 +4099,7 @@ background: transparent;
        <string>Retour</string>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="ressources.qrc">
         <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
       </property>
      </widget>
@@ -4185,7 +4172,7 @@ background: transparent;
         <string/>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/police-walkie-talkie.png</normaloff>:/ressource/image/police-walkie-talkie.png</iconset>
        </property>
        <property name="iconSize">
@@ -4211,7 +4198,7 @@ background: transparent;
         <string/>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/tools.png</normaloff>:/ressource/image/tools.png</iconset>
        </property>
        <property name="iconSize">
@@ -4238,7 +4225,7 @@ background: transparent;
        <string/>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="ressources.qrc">
         <normaloff>:/ressource/image/icon.png</normaloff>:/ressource/image/icon.png</iconset>
       </property>
       <property name="iconSize">
@@ -4299,7 +4286,7 @@ font: 75 20pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="ressources.qrc">
         <normaloff>:/ressource/image/police-walkie-talkie.png</normaloff>:/ressource/image/police-walkie-talkie.png</iconset>
       </property>
       <property name="iconSize">
@@ -4383,7 +4370,7 @@ font: 75 20pt &quot;MS Shell Dlg 2&quot;;</string>
         <string> Ajouter Equipement</string>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/add.png</normaloff>:/ressource/image/add.png</iconset>
        </property>
       </widget>
@@ -4473,7 +4460,7 @@ QComboBox::drop-down {
         <string>Modifier</string>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/edit.png</normaloff>:/ressource/image/edit.png</iconset>
        </property>
        <property name="iconSize">
@@ -4499,7 +4486,7 @@ QComboBox::drop-down {
         <string>Supprimer</string>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/trash.png</normaloff>:/ressource/image/trash.png</iconset>
        </property>
        <property name="iconSize">
@@ -4566,6 +4553,19 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        </property>
        <property name="text">
         <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="Poubelle">
+       <property name="geometry">
+        <rect>
+         <x>660</x>
+         <y>20</y>
+         <width>61</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>P</string>
        </property>
       </widget>
      </widget>
@@ -4741,7 +4741,7 @@ QPushButton:hover {
         <string>Trier</string>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/ascending-sort.png</normaloff>:/ressource/image/ascending-sort.png</iconset>
        </property>
        <property name="iconSize">
@@ -4806,7 +4806,7 @@ QPushButton:hover {
         <string/>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/close.png</normaloff>:/ressource/image/close.png</iconset>
        </property>
       </widget>
@@ -4917,7 +4917,7 @@ QComboBox::drop-down {
        <string>Retour</string>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="ressources.qrc">
         <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
       </property>
      </widget>
@@ -4971,7 +4971,7 @@ QComboBox::drop-down {
        <string>QR Code</string>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="ressources.qrc">
         <normaloff>:/ressource/image/trash.png</normaloff>:/ressource/image/trash.png</iconset>
       </property>
       <property name="iconSize">
@@ -4997,7 +4997,7 @@ QComboBox::drop-down {
        <string>l'affectation des equipements</string>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="ressources.qrc">
         <normaloff>:/ressource/image/add.png</normaloff>:/ressource/image/add.png</iconset>
       </property>
      </widget>
@@ -5217,7 +5217,7 @@ QComboBox::drop-down {
         <string> Ajouter</string>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/confirm.png</normaloff>:/ressource/image/confirm.png</iconset>
        </property>
        <property name="iconSize">
@@ -5301,7 +5301,7 @@ QComboBox::drop-down {
         <string>annuler</string>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
        </property>
       </widget>
@@ -5444,7 +5444,7 @@ QComboBox::drop-down {
        <string/>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="ressources.qrc">
         <normaloff>:/ressource/image/police-walkie-talkie.png</normaloff>:/ressource/image/police-walkie-talkie.png</iconset>
       </property>
       <property name="iconSize">
@@ -5659,7 +5659,7 @@ QComboBox::drop-down {
         <string> Modifier</string>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/confirm.png</normaloff>:/ressource/image/confirm.png</iconset>
        </property>
        <property name="iconSize">
@@ -5743,7 +5743,7 @@ QComboBox::drop-down {
         <string>annuler</string>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
        </property>
       </widget>
@@ -5790,7 +5790,7 @@ QComboBox::drop-down {
        <string/>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="ressources.qrc">
         <normaloff>:/ressource/image/police-walkie-talkie.png</normaloff>:/ressource/image/police-walkie-talkie.png</iconset>
       </property>
       <property name="iconSize">
@@ -5831,7 +5831,7 @@ QComboBox::drop-down {
        <string>Retour</string>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="ressources.qrc">
         <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
       </property>
      </widget>
@@ -5909,7 +5909,7 @@ QComboBox::drop-down {
         <string> Ajouter une maintenance</string>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/add.png</normaloff>:/ressource/image/add.png</iconset>
        </property>
       </widget>
@@ -5999,7 +5999,7 @@ QComboBox::drop-down {
         <string>Modifier</string>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/edit.png</normaloff>:/ressource/image/edit.png</iconset>
        </property>
        <property name="iconSize">
@@ -6025,7 +6025,7 @@ QComboBox::drop-down {
         <string>Suprimer</string>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/close.png</normaloff>:/ressource/image/close.png</iconset>
        </property>
        <property name="iconSize">
@@ -6092,7 +6092,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <string/>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="ressources.qrc">
         <normaloff>:/ressource/image/tools.png</normaloff>:/ressource/image/tools.png</iconset>
       </property>
       <property name="iconSize">
@@ -6115,7 +6115,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <string>notes</string>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="ressources.qrc">
         <normaloff>:/ressource/image/add-file.png</normaloff>:/ressource/image/add-file.png</iconset>
       </property>
       <property name="iconSize">
@@ -6143,7 +6143,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <string/>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="ressources.qrc">
         <normaloff>:/ressource/image/tools.png</normaloff>:/ressource/image/tools.png</iconset>
       </property>
       <property name="iconSize">
@@ -6256,7 +6256,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         <string> Ajouter</string>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/confirm.png</normaloff>:/ressource/image/confirm.png</iconset>
        </property>
        <property name="iconSize">
@@ -6340,7 +6340,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         <string>annuler</string>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
        </property>
       </widget>
@@ -6395,7 +6395,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <string/>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="ressources.qrc">
         <normaloff>:/ressource/image/tools.png</normaloff>:/ressource/image/tools.png</iconset>
       </property>
       <property name="iconSize">
@@ -6508,7 +6508,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         <string> Modifier</string>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/confirm.png</normaloff>:/ressource/image/confirm.png</iconset>
        </property>
        <property name="iconSize">
@@ -6608,7 +6608,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         <string>annuler</string>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
        </property>
       </widget>
@@ -6817,7 +6817,7 @@ color:black;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/add-file.png</normaloff>:/ressource/image/add-file.png</iconset>
        </property>
        <property name="iconSize">
@@ -6843,7 +6843,7 @@ color:black;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/paste.png</normaloff>:/ressource/image/paste.png</iconset>
        </property>
        <property name="iconSize">
@@ -6869,7 +6869,7 @@ color:black;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/duplicate.png</normaloff>:/ressource/image/duplicate.png</iconset>
        </property>
        <property name="iconSize">
@@ -6895,7 +6895,7 @@ color:black;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/scissors.png</normaloff>:/ressource/image/scissors.png</iconset>
        </property>
        <property name="iconSize">
@@ -6921,7 +6921,7 @@ color:black;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/floppy-disk.png</normaloff>:/ressource/image/floppy-disk.png</iconset>
        </property>
        <property name="iconSize">
@@ -6947,7 +6947,7 @@ color:black;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/folder.png</normaloff>:/ressource/image/folder.png</iconset>
        </property>
        <property name="iconSize">
@@ -6973,7 +6973,7 @@ color:black;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/file.png</normaloff>:/ressource/image/file.png</iconset>
        </property>
        <property name="iconSize">
@@ -6999,7 +6999,7 @@ color:black;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/refreshing.png</normaloff>:/ressource/image/refreshing.png</iconset>
        </property>
        <property name="iconSize">
@@ -7025,7 +7025,7 @@ color:black;</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
        </property>
        <property name="iconSize">
@@ -7052,7 +7052,7 @@ background:black</string>
         <string/>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="ressources.qrc">
          <normaloff>:/ressource/image/back.png</normaloff>:/ressource/image/back.png</iconset>
        </property>
        <property name="iconSize">
@@ -7529,9 +7529,7 @@ font: 75 20pt &quot;MS Shell Dlg 2&quot;;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background :white;
-background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee );
-selection-background-color:QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #FF0000, stop: 1 #FF5F5F,stop: 0.5 #FEAAAA,stop: 1 #eee);
+        <string notr="true">QTableView {border: 2px solid red;text-align: top;padding: 4px;border-radius: 7px;border-bottom-left-radius: 7px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee );width: 15px;selection-background-color:QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #FF0000, stop: 1 #FF5F5F,stop: 0.5 #FEAAAA,stop: 1 #eee);selection-color: black;}
 QTableView::item:focus{selection-background-color: red;}
 QScrollBar:vertical{ width: 20px; background: none; /* only these sort effect about width ...*/}
 QScrollBar::handle:vertical{ border: 3px solid #5E749C;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee ); width: 25px; min-height: 20px; max-height: 25px; /*these sort no effect*/ }
@@ -9828,9 +9826,7 @@ QPushButton:hover {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background :white;
-background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee );
-selection-background-color:QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #FF0000, stop: 1 #FF5F5F,stop: 0.5 #FEAAAA,stop: 1 #eee);
+        <string notr="true">QTableView {border: 2px solid red;text-align: top;padding: 4px;border-radius: 7px;border-bottom-left-radius: 7px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee );width: 15px;selection-background-color:QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #FF0000, stop: 1 #FF5F5F,stop: 0.5 #FEAAAA,stop: 1 #eee);selection-color: black;}
 QTableView::item:focus{selection-background-color: red;}
 QScrollBar:vertical{ width: 20px; background: none; /* only these sort effect about width ...*/}
 QScrollBar::handle:vertical{ border: 3px solid #5E749C;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee ); width: 25px; min-height: 20px; max-height: 25px; /*these sort no effect*/ }
@@ -9962,8 +9958,8 @@ QPushButton:hover {
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>:/ressources/image/icon.png</normaloff>:/ressources/image/icon.png</iconset>
+       <iconset resource="ressources.qrc">
+        <normaloff>:/ressource/image/systeme-de-population.png</normaloff>:/ressource/image/systeme-de-population.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -10052,8 +10048,8 @@ QPushButton:hover {
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/systeme-de-population.png</normaloff>:/ressources/image/systeme-de-population.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/systeme-de-population.png</normaloff>:/ressource/image/systeme-de-population.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -10078,8 +10074,8 @@ QPushButton:hover {
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/support.png</normaloff>:/ressources/image/support.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/support.png</normaloff>:/ressource/image/support.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -10144,8 +10140,8 @@ font: 75 20pt &quot;MS Shell Dlg 2&quot;;</string>
        <string>Retour</string>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>:/ressources/image/back-arrow.png</normaloff>:/ressources/image/back-arrow.png</iconset>
+       <iconset resource="ressources.qrc">
+        <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
       </property>
      </widget>
      <widget class="QToolButton" name="toolButton_32">
@@ -10161,8 +10157,8 @@ font: 75 20pt &quot;MS Shell Dlg 2&quot;;</string>
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>:/ressources/image/systeme-de-population.png</normaloff>:/ressources/image/systeme-de-population.png</iconset>
+       <iconset resource="ressources.qrc">
+        <normaloff>:/ressource/image/person-silhouette.png</normaloff>:/ressource/image/person-silhouette.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -10225,6 +10221,10 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="text">
         <string>Statistiques</string>
        </property>
+       <property name="icon">
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/trend.png</normaloff>:/ressource/image/trend.png</iconset>
+       </property>
       </widget>
       <widget class="QPushButton" name="excel">
        <property name="geometry">
@@ -10237,6 +10237,10 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        </property>
        <property name="text">
         <string>Excel</string>
+       </property>
+       <property name="icon">
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/excel.png</normaloff>:/ressource/image/excel.png</iconset>
        </property>
       </widget>
      </widget>
@@ -10641,8 +10645,8 @@ QPushButton:hover {
         <string> Ajouter un citoyen</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/add.png</normaloff>:/ressources/image/add.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/add.png</normaloff>:/ressource/image/add.png</iconset>
        </property>
       </widget>
       <widget class="QComboBox" name="CB_IDCitoyen">
@@ -10728,8 +10732,8 @@ QComboBox::drop-down {
         <string>Accéder au Profile</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/person-silhouette.png</normaloff>:/ressources/image/person-silhouette.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/person-silhouette.png</normaloff>:/ressource/image/person-silhouette.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -10765,25 +10769,11 @@ QComboBox::drop-down {
        </property>
       </widget>
      </widget>
-     <widget class="QPushButton" name="repart">
-      <property name="geometry">
-       <rect>
-        <x>980</x>
-        <y>110</y>
-        <width>381</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Répartition de citoyens </string>
-      </property>
-     </widget>
      <zorder>B_BackToGestions_6</zorder>
      <zorder>frame_25</zorder>
      <zorder>frame_26</zorder>
      <zorder>frame_27</zorder>
      <zorder>toolButton_32</zorder>
-     <zorder>repart</zorder>
     </widget>
     <widget class="QWidget" name="Ajouter_citoyen">
      <widget class="QFrame" name="frame_28">
@@ -10976,8 +10966,8 @@ QComboBox::drop-down {
         <string> Ajouter</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/confirm.png</normaloff>:/ressources/image/confirm.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/confirm.png</normaloff>:/ressource/image/confirm.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -11002,8 +10992,8 @@ QComboBox::drop-down {
         <string> Annuler</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/close.png</normaloff>:/ressources/image/close.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/close.png</normaloff>:/ressource/image/close.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -11534,8 +11524,8 @@ QComboBox::drop-down {
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>:/ressources/image/systeme-de-population.png</normaloff>:/ressources/image/systeme-de-population.png</iconset>
+       <iconset resource="ressources.qrc">
+        <normaloff>:/ressource/image/person-silhouette.png</normaloff>:/ressource/image/person-silhouette.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -11747,8 +11737,8 @@ B_MConfirmerCitoyen:pressed{
         <string>Confirmer</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/confirm.png</normaloff>:/ressources/image/confirm.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/confirm.png</normaloff>:/ressource/image/confirm.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -11773,8 +11763,8 @@ B_MConfirmerCitoyen:pressed{
         <string> Annuler</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/close.png</normaloff>:/ressources/image/close.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/close.png</normaloff>:/ressource/image/close.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -12294,8 +12284,8 @@ QComboBox::drop-down {
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>:/ressources/image/systeme-de-population.png</normaloff>:/ressources/image/systeme-de-population.png</iconset>
+       <iconset resource="ressources.qrc">
+        <normaloff>:/ressource/image/person-silhouette.png</normaloff>:/ressource/image/person-silhouette.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -12322,8 +12312,8 @@ QComboBox::drop-down {
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>:/ressources/image/systeme-de-population.png</normaloff>:/ressources/image/systeme-de-population.png</iconset>
+       <iconset resource="ressources.qrc">
+        <normaloff>:/ressource/image/person-silhouette.png</normaloff>:/ressource/image/person-silhouette.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -12573,8 +12563,8 @@ QComboBox::drop-down {
         <string>Modifier</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/edit.png</normaloff>:/ressources/image/edit.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/edit.png</normaloff>:/ressource/image/edit.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -12599,8 +12589,8 @@ QComboBox::drop-down {
         <string>Supprimer</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/close.png</normaloff>:/ressources/image/close.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/trash.png</normaloff>:/ressource/image/trash.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -12755,8 +12745,8 @@ QComboBox::drop-down {
         <string>Envoyer Mail</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/edit.png</normaloff>:/ressources/image/edit.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/edit.png</normaloff>:/ressource/image/edit.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -12813,8 +12803,8 @@ QComboBox::drop-down {
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>:/ressources/image/support.png</normaloff>:/ressources/image/support.png</iconset>
+       <iconset resource="ressources.qrc">
+        <normaloff>:/ressource/image/support.png</normaloff>:/ressource/image/support.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -12990,8 +12980,8 @@ QPushButton:hover {
         <string>Trier</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/ascending-sort.png</normaloff>:/ressources/image/ascending-sort.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/ascending-sort.png</normaloff>:/ressource/image/ascending-sort.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -13138,8 +13128,8 @@ QPushButton:hover {
         <string/>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/close.png</normaloff>:/ressources/image/close.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/close.png</normaloff>:/ressource/image/close.png</iconset>
        </property>
       </widget>
      </widget>
@@ -13156,8 +13146,8 @@ QPushButton:hover {
        <string>Retour</string>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>:/ressources/image/back-arrow.png</normaloff>:/ressources/image/back-arrow.png</iconset>
+       <iconset resource="ressources.qrc">
+        <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
       </property>
      </widget>
      <widget class="QFrame" name="frame_32">
@@ -13231,8 +13221,8 @@ QPushButton:hover {
         <string> Ajouter un service</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/add.png</normaloff>:/ressources/image/add.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/add.png</normaloff>:/ressource/image/add.png</iconset>
        </property>
       </widget>
       <widget class="QComboBox" name="CB_IDService">
@@ -13318,8 +13308,8 @@ QComboBox::drop-down {
         <string>Modifier</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/edit.png</normaloff>:/ressources/image/edit.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/edit.png</normaloff>:/ressource/image/edit.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -13341,8 +13331,8 @@ QComboBox::drop-down {
         <string>Supprimer</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/edit.png</normaloff>:/ressources/image/edit.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/trash.png</normaloff>:/ressource/image/trash.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -13404,8 +13394,8 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         <string>PDF</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/pdf-file.png</normaloff>:/ressources/image/pdf-file.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/pdf-file.png</normaloff>:/ressource/image/pdf-file.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -13438,8 +13428,8 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>:/ressources/image/support.png</normaloff>:/ressources/image/support.png</iconset>
+       <iconset resource="ressources.qrc">
+        <normaloff>:/ressource/image/support.png</normaloff>:/ressource/image/support.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -13596,8 +13586,8 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         <string> Ajouter</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/confirm.png</normaloff>:/ressources/image/confirm.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/confirm.png</normaloff>:/ressource/image/confirm.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -13619,8 +13609,8 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
         <string> Annuler</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/close.png</normaloff>:/ressources/image/close.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/close.png</normaloff>:/ressource/image/close.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -13912,8 +13902,8 @@ QComboBox::drop-down {
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>:/ressources/image/support.png</normaloff>:/ressources/image/support.png</iconset>
+       <iconset resource="ressources.qrc">
+        <normaloff>:/ressource/image/systeme-de-population.png</normaloff>:/ressource/image/systeme-de-population.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -14064,8 +14054,8 @@ QComboBox::drop-down {
         <string> Modifier</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/confirm.png</normaloff>:/ressources/image/confirm.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/confirm.png</normaloff>:/ressource/image/confirm.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -14087,8 +14077,8 @@ QComboBox::drop-down {
         <string> Annuler</string>
        </property>
        <property name="icon">
-        <iconset>
-         <normaloff>:/ressources/image/close.png</normaloff>:/ressources/image/close.png</iconset>
+        <iconset resource="ressources.qrc">
+         <normaloff>:/ressource/image/close.png</normaloff>:/ressource/image/close.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -14250,8 +14240,8 @@ QComboBox::drop-down {
        <string>Profil Citoyen</string>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>:/ressources/image/back-arrow.png</normaloff>:/ressources/image/back-arrow.png</iconset>
+       <iconset resource="ressources.qrc">
+        <normaloff>:/ressource/image/back-arrow.png</normaloff>:/ressource/image/back-arrow.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -14415,8 +14405,8 @@ QComboBox::drop-down {
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>:/ressources/image/add-property.png</normaloff>:/ressources/image/add-property.png</iconset>
+       <iconset resource="ressources.qrc">
+        <normaloff>:/ressource/image/add-property.png</normaloff>:/ressource/image/add-property.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -14461,7 +14451,7 @@ background: transparent;;</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1207</width>
+         <width>1200</width>
          <height>1498</height>
         </rect>
        </property>
@@ -17982,8 +17972,8 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
      <widget class="QFrame" name="frame_61">
       <property name="geometry">
        <rect>
-        <x>300</x>
-        <y>90</y>
+        <x>380</x>
+        <y>110</y>
         <width>741</width>
         <height>531</height>
        </rect>
@@ -18041,8 +18031,8 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
      <widget class="QToolButton" name="toolButton_74">
       <property name="geometry">
        <rect>
-        <x>610</x>
-        <y>30</y>
+        <x>690</x>
+        <y>50</y>
         <width>121</width>
         <height>121</height>
        </rect>
@@ -18051,7 +18041,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <string/>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="ressources.qrc">
         <normaloff>:/ressource/image/police-walkie-talkie.png</normaloff>:/ressource/image/police-walkie-talkie.png</iconset>
       </property>
       <property name="iconSize">
@@ -18066,7 +18056,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
      <widget class="QQuickWidget" name="quickWidget">
       <property name="geometry">
        <rect>
-        <x>499</x>
+        <x>420</x>
         <y>89</y>
         <width>671</width>
         <height>541</height>
@@ -18079,9 +18069,9 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
      <widget class="QPushButton" name="pushButton_11">
       <property name="geometry">
        <rect>
-        <x>290</x>
-        <y>20</y>
-        <width>101</width>
+        <x>50</x>
+        <y>30</y>
+        <width>121</width>
         <height>41</height>
        </rect>
       </property>
@@ -18104,7 +18094,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <string/>
       </property>
       <property name="icon">
-       <iconset>
+       <iconset resource="ressources.qrc">
         <normaloff>:/ressource/image/police-walkie-talkie.png</normaloff>:/ressource/image/police-walkie-talkie.png</iconset>
       </property>
       <property name="iconSize">
@@ -20046,11 +20036,25 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        </attribute>
       </widget>
      </widget>
+     <widget class="QPushButton" name="pushButton_10">
+      <property name="geometry">
+       <rect>
+        <x>850</x>
+        <y>110</y>
+        <width>511</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Les policiers responsables a chaque Detenu</string>
+      </property>
+     </widget>
      <zorder>frame_67</zorder>
      <zorder>frame_68</zorder>
      <zorder>B_BackToGestions_12</zorder>
      <zorder>frame_69</zorder>
      <zorder>toolButton_82</zorder>
+     <zorder>pushButton_10</zorder>
     </widget>
     <widget class="QWidget" name="Ajouter_detenu">
      <widget class="QToolButton" name="toolButton_83">
@@ -20101,7 +20105,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>270</x>
-         <y>57</y>
+         <y>70</y>
          <width>231</width>
          <height>41</height>
         </rect>
@@ -20125,7 +20129,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>170</y>
+         <y>180</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -20141,7 +20145,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>320</y>
+         <y>300</y>
          <width>171</width>
          <height>31</height>
         </rect>
@@ -20173,7 +20177,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>290</x>
-         <y>170</y>
+         <y>180</y>
          <width>341</width>
          <height>31</height>
         </rect>
@@ -20212,7 +20216,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>430</x>
-         <y>580</y>
+         <y>570</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -20238,7 +20242,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>160</x>
-         <y>580</y>
+         <y>570</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -20290,7 +20294,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>270</y>
+         <y>260</y>
          <width>151</width>
          <height>31</height>
         </rect>
@@ -20306,7 +20310,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>290</x>
-         <y>320</y>
+         <y>300</y>
          <width>341</width>
          <height>31</height>
         </rect>
@@ -20316,7 +20320,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>290</x>
-         <y>270</y>
+         <y>260</y>
          <width>341</width>
          <height>31</height>
         </rect>
@@ -20329,7 +20333,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>370</y>
+         <y>340</y>
          <width>191</width>
          <height>31</height>
         </rect>
@@ -20345,7 +20349,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>290</x>
-         <y>370</y>
+         <y>340</y>
          <width>341</width>
          <height>31</height>
         </rect>
@@ -20355,7 +20359,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>480</y>
+         <y>460</y>
          <width>191</width>
          <height>31</height>
         </rect>
@@ -20371,7 +20375,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>240</x>
-         <y>480</y>
+         <y>460</y>
          <width>391</width>
          <height>87</height>
         </rect>
@@ -20384,7 +20388,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>420</y>
+         <y>380</y>
          <width>201</width>
          <height>31</height>
         </rect>
@@ -20400,7 +20404,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>290</x>
-         <y>420</y>
+         <y>380</y>
          <width>341</width>
          <height>31</height>
         </rect>
@@ -20430,7 +20434,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>120</y>
+         <y>140</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -20446,13 +20450,39 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>290</x>
-         <y>120</y>
+         <y>140</y>
          <width>341</width>
          <height>31</height>
         </rect>
        </property>
        <property name="placeholderText">
         <string>CIN...</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_ADescAffaire_10">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>420</y>
+         <width>341</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string>Policier responsable du detenu :</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="CB_APolicierResponsable">
+       <property name="geometry">
+        <rect>
+         <x>420</x>
+         <y>420</y>
+         <width>211</width>
+         <height>31</height>
+        </rect>
        </property>
       </widget>
      </widget>
@@ -20508,7 +20538,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>265</x>
-         <y>57</y>
+         <y>80</y>
          <width>241</width>
          <height>41</height>
         </rect>
@@ -20532,7 +20562,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>170</y>
+         <y>180</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -20548,7 +20578,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>320</y>
+         <y>300</y>
          <width>171</width>
          <height>31</height>
         </rect>
@@ -20580,7 +20610,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>300</x>
-         <y>170</y>
+         <y>180</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -20697,7 +20727,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>270</y>
+         <y>260</y>
          <width>151</width>
          <height>31</height>
         </rect>
@@ -20713,7 +20743,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>300</x>
-         <y>320</y>
+         <y>300</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -20723,7 +20753,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>300</x>
-         <y>270</y>
+         <y>260</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -20736,7 +20766,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>370</y>
+         <y>340</y>
          <width>191</width>
          <height>31</height>
         </rect>
@@ -20752,7 +20782,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>300</x>
-         <y>370</y>
+         <y>340</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -20791,7 +20821,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>420</y>
+         <y>380</y>
          <width>201</width>
          <height>31</height>
         </rect>
@@ -20807,7 +20837,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>300</x>
-         <y>420</y>
+         <y>380</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -20840,7 +20870,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>300</x>
-         <y>120</y>
+         <y>140</y>
          <width>351</width>
          <height>31</height>
         </rect>
@@ -20853,7 +20883,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        <property name="geometry">
         <rect>
          <x>70</x>
-         <y>120</y>
+         <y>140</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -20863,6 +20893,32 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        </property>
        <property name="text">
         <string>CIN :</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="L_ADescAffaire_11">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>420</y>
+         <width>341</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string>Policier responsable du detenu :</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="LE_PolicierResponsable">
+       <property name="geometry">
+        <rect>
+         <x>420</x>
+         <y>420</y>
+         <width>181</width>
+         <height>31</height>
+        </rect>
        </property>
       </widget>
      </widget>
@@ -21188,6 +21244,203 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
      <zorder>frame_73</zorder>
      <zorder>toolButton_87</zorder>
     </widget>
+    <widget class="QWidget" name="Jointure_detenu">
+     <widget class="QToolButton" name="toolButton_88">
+      <property name="geometry">
+       <rect>
+        <x>690</x>
+        <y>80</y>
+        <width>121</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>:/recource/images/detenu.png</normaloff>:/recource/images/detenu.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>64</width>
+        <height>64</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_74">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>140</y>
+        <width>741</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QTableView" name="T_Detenu_2">
+       <property name="geometry">
+        <rect>
+         <x>14</x>
+         <y>90</y>
+         <width>711</width>
+         <height>421</height>
+        </rect>
+       </property>
+       <property name="cursor" stdset="0">
+        <cursorShape>ArrowCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QTableView {border: 2px solid red;text-align: top;padding: 4px;border-radius: 7px;border-bottom-left-radius: 7px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee );width: 15px;selection-background-color:QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #FF0000, stop: 1 #FF5F5F,stop: 0.5 #FEAAAA,stop: 1 #eee);selection-color: black;}
+QTableView::item:focus{selection-background-color: red;}
+QScrollBar:vertical{ width: 20px; background: none; /* only these sort effect about width ...*/}
+QScrollBar::handle:vertical{ border: 3px solid #5E749C;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee ); width: 25px; min-height: 20px; max-height: 25px; /*these sort no effect*/ }
+QScrollBar::add-page:vertical {border: 3px solid red;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  red; /* adding width: xx px; sorting no effect .. why? */}
+QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  green; /* adding width: xx px; sorting no effect .. why? */ }</string>
+       </property>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>170</number>
+       </attribute>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="pushButton_12">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>30</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Retour</string>
+      </property>
+     </widget>
+     <zorder>frame_74</zorder>
+     <zorder>toolButton_88</zorder>
+     <zorder>pushButton_12</zorder>
+    </widget>
+    <widget class="QWidget" name="poubelle">
+     <widget class="QPushButton" name="EQ_retour">
+      <property name="geometry">
+       <rect>
+        <x>52</x>
+        <y>40</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>retour</string>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="toolButton_89">
+      <property name="geometry">
+       <rect>
+        <x>640</x>
+        <y>30</y>
+        <width>121</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="ressources.qrc">
+        <normaloff>:/ressource/image/police-walkie-talkie.png</normaloff>:/ressource/image/police-walkie-talkie.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>64</width>
+        <height>64</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_75">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>90</y>
+        <width>741</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QTableView" name="T_Equipemen_suprime">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>90</y>
+         <width>721</width>
+         <height>421</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QTableView {border: 2px solid red;text-align: top;padding: 4px;border-radius: 7px;border-bottom-left-radius: 7px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee );width: 15px;selection-background-color:QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #FF0000, stop: 1 #FF5F5F,stop: 0.5 #FEAAAA,stop: 1 #eee);selection-color: black;}
+QTableView::item:focus{selection-background-color: red;}
+QScrollBar:vertical{ width: 20px; background: none; /* only these sort effect about width ...*/}
+QScrollBar::handle:vertical{ border: 3px solid #5E749C;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee ); width: 25px; min-height: 20px; max-height: 25px; /*these sort no effect*/ }
+QScrollBar::add-page:vertical {border: 3px solid red;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  red; /* adding width: xx px; sorting no effect .. why? */}
+QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  green; /* adding width: xx px; sorting no effect .. why? */ }</string>
+       </property>
+       <attribute name="horizontalHeaderCascadingSectionResizes">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>115</number>
+       </attribute>
+      </widget>
+      <widget class="QLabel" name="labelmessage_4">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>301</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: transparent;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="vider_corbeille">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>50</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>vider</string>
+       </property>
+      </widget>
+     </widget>
+     <zorder>EQ_retour</zorder>
+     <zorder>frame_75</zorder>
+     <zorder>toolButton_89</zorder>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -21196,7 +21449,7 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
      <x>0</x>
      <y>0</y>
      <width>1500</width>
-     <height>20</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
@@ -21209,6 +21462,8 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
    <header location="global">QtQuickWidgets/QQuickWidget</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="ressources.qrc"/>
+ </resources>
  <connections/>
 </ui>

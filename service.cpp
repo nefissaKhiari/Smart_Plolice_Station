@@ -112,4 +112,8 @@ QSqlQueryModel* Service::Trier(QString tri) {
 
     return model;
 }
-
+QSqlQueryModel * Service::affectjoint(){
+    QSqlQueryModel *model = new QSqlQueryModel;
+    model->setQuery("SELECT p.cin_policier, s.libelle,c.nom FROM citoyens c INNER JOIN services s ON c.id = s.id_citoyen INNER JOIN policier p ON p.cin_policier = s.cin_policier");
+    return model;
+}

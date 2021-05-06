@@ -7,7 +7,9 @@ PoliceStation::PoliceStation(QWidget *parent)
     , ui(new Ui::PoliceStation)
 {
     ui->setupUi(this);
+
     ui->stackedWidget->setCurrentIndex(0);
+
 
     ui->LE_ACinIntervenant->setValidator(new QIntValidator(1, 99999999, this));
     ui->LE_ADureeService->setValidator(new QIntValidator(1, 999, this));
@@ -26,6 +28,7 @@ PoliceStation::PoliceStation(QWidget *parent)
     auto obj= ui->quickWidget->rootObject();
     connect(this , SIGNAL(setCenter(QVariant,QVariant)), obj,SLOT(setCenter(QVariant,QVariant)));
     emit setCenter(25.000, 50.000);
+    son=new QSound(":/ressource/image/cassette-playerbutton-3.wav");
 }
 
 PoliceStation::~PoliceStation()
@@ -43,77 +46,77 @@ void PoliceStation::INFORMER(QLabel *label, QString message, int duration){
 }
 
 void PoliceStation::on_B_Connecter_clicked()
-{
-//qDebug()<< log->hash(ui->lineEdit_MDP->text());
-    //if (log->sign_in(ui->lineEdit_Mail->text(),ui->lineEdit_MDP->text()))
-            //{
+{ son->play();
+qDebug()<< log->hash(ui->lineEdit_MDP->text());
+    if (log->sign_in(ui->lineEdit_Mail->text(),ui->lineEdit_MDP->text()))
+            {
                 ui->stackedWidget->setCurrentIndex(1);
-               // ui->lineEdit_Mail->clear();
-                //ui->lineEdit_MDP->clear();
-                //N.notifications_connection();
-   /* }else{
+                ui->lineEdit_Mail->clear();
+                ui->lineEdit_MDP->clear();
+                N.notifications_connection();
+   }else{
 
        N.notifications_prob();
-    }*/
+    }
 }
 
 void PoliceStation::on_B_Deconnecte_clicked()
-{
+{ son->play();
     ui->stackedWidget->setCurrentIndex(0);
     N.notifications_deconnection();
 }
 
 void PoliceStation::on_B_AffaireJuri_clicked()
-{
+{ son->play();
     ui->stackedWidget->setCurrentIndex(2);
 }
 
 void PoliceStation::on_B_BackToMenu_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
 void PoliceStation::on_B_Vehic_clicked()
-{
+{ son->play();
     ui->stackedWidget->setCurrentIndex(19);
 }
 
 void PoliceStation::on_B_Equip_clicked()
-{
+{ son->play();
     ui->stackedWidget->setCurrentIndex(10);
 }
 
 void PoliceStation::on_B_BackToMenu_2_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
 void PoliceStation::on_B_BackToMenu_4_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
 void PoliceStation::on_B_GestionIntervenant_clicked()
-{
+{son->play();
     ui->T_Intervenants->setModel(intervenant.afficher());
     ui->CB_IDIntervenant->setModel(intervenant.listCin());
     ui->stackedWidget->setCurrentIndex(3);
 }
 
 void PoliceStation::on_B_GestioAffaire_clicked()
-{
+{son->play();
     ui->T_Affaire->setModel(affaire.afficher());
     ui->CB_IDAffaire->setModel(affaire.listId());
     ui->stackedWidget->setCurrentIndex(6);
 }
 
 void PoliceStation::on_B_BackToGestions_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(2);
 }
 
 void PoliceStation::on_B_Statistics_clicked()
-{
+{son->play();
     /********************* BEGIN : Donut->Nationalite *********************/
     QSqlQuery qry;
     int Autres=intervenant.NatA();
@@ -245,12 +248,12 @@ void PoliceStation::on_B_Statistics_clicked()
 }
 
 void PoliceStation::on_B_BackToGestions_3_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(3);
 }
 
 void PoliceStation::on_B_ModifierIntervenant_clicked()
-{
+{son->play();
     QSqlQuery qry;
     QString cin_string = QString::number(ui->CB_IDIntervenant->currentText().toInt());
     qry.prepare("SELECT * FROM intervenant where cin=:cin");
@@ -269,7 +272,7 @@ void PoliceStation::on_B_ModifierIntervenant_clicked()
 }
 
 void PoliceStation::on_B_AjouterIntervenant_clicked()
-{
+{son->play();
     ui->L_ACinIntAlert->clear();
     ui->L_ANomIntAlert->clear();
     ui->L_APrenomIntAlert->clear();
@@ -280,7 +283,7 @@ void PoliceStation::on_B_AjouterIntervenant_clicked()
 }
 
 void PoliceStation::on_B_SupprimerIntervenant_clicked()
-{
+{son->play();
     Intervenant intervenantS;
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression du l'intervenant?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
@@ -302,7 +305,7 @@ void PoliceStation::on_B_SupprimerIntervenant_clicked()
 }
 
 void PoliceStation::on_B_AConfirmerIntervenant_clicked()
-{
+{son->play();
     /*************** BEGIN : Controle de Saisir L'ajout d'Intervenant ***************/
     bool overAll = false, cin_B, nom_B, prenom_B; //mail_B
     int cin = ui->LE_ACinIntervenant->text().toInt();
@@ -380,17 +383,17 @@ void PoliceStation::on_B_AConfirmerIntervenant_clicked()
 }
 
 void PoliceStation::on_B_AAnnulerIntervenant_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(3);
 }
 
 void PoliceStation::on_B_MAnuulerIntervenant_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(3);
 }
 
 void PoliceStation::on_B_MConfirmerIntervenant_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la modification", "Confirmer la modification du l'intervenant?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         Intervenant affaire;
@@ -413,36 +416,36 @@ void PoliceStation::on_B_MConfirmerIntervenant_clicked()
 }
 
 void PoliceStation::on_B_Trier_clicked()
-{
+{son->play();
     QString Tri = ui->CB_TriIntervenant->currentText();
     ui->T_Intervenants->setModel(intervenant.Trier(Tri));
 }
 
 void PoliceStation::on_LE_ChercherPrenom_textChanged(const QString &arg1)
-{
+{son->play();
     QString by = ui->CB_ChercherIntervenant->currentText();
     ui->T_Intervenants->setModel(intervenant.Chercher(arg1, by));
 }
 
 void PoliceStation::on_B_ResetTableIntervenant_clicked()
-{
+{son->play();
     ui->LE_ChercherPrenom->clear();
     ui->T_Intervenants->setModel(intervenant.afficher());
 }
 
 void PoliceStation::on_B_Chat_clicked()
-{
+{son->play();
     MessengerClient MS;
     MS.exec();
 }
 
 void PoliceStation::on_B_BackToGestions_2_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(2);
 }
 
 void PoliceStation::on_B_ModifierAffaire_clicked()
-{
+{son->play();
     QSqlQuery qry;
     QString id_string = QString::number(ui->CB_IDAffaire->currentText().toInt());
     qry.prepare("SELECT * FROM affaires where id=:id");
@@ -460,7 +463,7 @@ void PoliceStation::on_B_ModifierAffaire_clicked()
 }
 
 void PoliceStation::on_B_AjouterAffaire_clicked()
-{
+{son->play();
     ui->LE_ATypeAffaire->clear();
     ui->LE_ALocalAffaire->clear();
     ui->TE_ADescAffaire->clear();
@@ -471,7 +474,7 @@ void PoliceStation::on_B_AjouterAffaire_clicked()
 }
 
 void PoliceStation::on_B_SupprimerAffaire_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression du l'affaire?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         affaire.setId(ui->CB_IDAffaire->currentText().toInt());
@@ -489,12 +492,12 @@ void PoliceStation::on_B_SupprimerAffaire_clicked()
 }
 
 void PoliceStation::on_B_AAnnulerAffaire_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(6);
 }
 
 void PoliceStation::on_B_AConfirmerAffaire_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout du l'affaire?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         int intervenant = ui->CB_ACinIntAffaire->currentText().toInt();
@@ -516,12 +519,12 @@ void PoliceStation::on_B_AConfirmerAffaire_clicked()
 }
 
 void PoliceStation::on_B_MAnnulerAffaire_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(6);
 }
 
 void PoliceStation::on_B_MConfirmerAffaire_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la modification", "Confirmer la modification du l'affaire?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         affaire.setId(ui->CB_IDAffaire->currentText().toInt());
@@ -542,7 +545,7 @@ void PoliceStation::on_B_MConfirmerAffaire_clicked()
 }
 
 void PoliceStation::on_B_GestionVehicule_2_clicked()
-{
+{son->play();
     ui->T_Vehicules_2->setModel(v_tmp.afficher());
     ui->CB_IDVehicule_2->setModel(v_tmp.afficherm());
     ui->cb_pv->setModel(policier.listId());
@@ -550,14 +553,14 @@ void PoliceStation::on_B_GestionVehicule_2_clicked()
 }
 
 void PoliceStation::on_B_GestionMission_3_clicked()
-{
+{son->play();
     ui->T_Mission_2->setModel(m_tmp.afficher());
     ui->CB_IDMission_2->setModel(m_tmp.affichern());
     ui->stackedWidget->setCurrentIndex(23);
 }
 
 void PoliceStation::on_B_GestionMission_4_clicked()
-{
+{son->play();
     ui->CB_IDAffVeh_2->setModel(v_tmp.afficherm());
     ui->CB_IDAffMiss_2->setModel(m_tmp.affichern());
     ui->T_Affectation_2->setModel(a_tmp.afficherA());
@@ -565,17 +568,17 @@ void PoliceStation::on_B_GestionMission_4_clicked()
 }
 
 void PoliceStation::on_B_BackToGestions_9_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(19);
 }
 
 void PoliceStation::on_B_BackToGestions_10_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(19);
 }
 
 void PoliceStation::on_B_AjouterVehicule_2_clicked()
-{
+{son->play();
     ui->LE_AMarqueVehicule_2->clear();
     ui->LE_AMatriculeVehicule_2->clear();
     ui->LE_ANbplacesVehicule_2->clear();
@@ -586,12 +589,12 @@ void PoliceStation::on_B_AjouterVehicule_2_clicked()
 }
 
 void PoliceStation::on_B_AAnnulerVehicule_2_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(20);
 }
 
 void PoliceStation::on_B_AConfirmerVehicule_2_clicked()
-{
+{son->play();
     bool overAll = false, matricule_B, marque_B, couleur_B, quantite_B,nb_places_B;
     int matricule = ui->LE_AMatriculeVehicule_2->text().toInt();
     QString matriculel = ui->LE_AMatriculeVehicule_2->text();
@@ -682,7 +685,7 @@ void PoliceStation::on_B_AConfirmerVehicule_2_clicked()
 }
 
 void PoliceStation::on_B_ModifierVehicule_2_clicked()
-{
+{son->play();
     QString matricule = ui->CB_IDVehicule_2->currentText();
     ui->LE_MMatriculeVehicule_2->setText(matricule);
     QSqlQuery query;
@@ -705,7 +708,7 @@ void PoliceStation::on_B_ModifierVehicule_2_clicked()
 }
 
 void PoliceStation::on_B_SupprimerVehicule_2_clicked()
-{
+{son->play();
     int matricule = ui->CB_IDVehicule_2->currentText().toInt();
     QMessageBox msgbox;
     bool test=v_tmp.supprimer(matricule);
@@ -726,12 +729,12 @@ void PoliceStation::on_B_SupprimerVehicule_2_clicked()
 }
 
 void PoliceStation::on_B_MAnuulerVehicule_2_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(20);
 }
 
 void PoliceStation::on_B_MConfirmerVehicule_2_clicked()
-{
+{son->play();
     int matricule = ui->CB_IDVehicule_2->currentText().toInt();
     QString marque = ui->LE_MMarqueVehicule_2->text();
     QString couleur = ui->LE_MCouleurVehicule_2->text();
@@ -752,31 +755,31 @@ void PoliceStation::on_B_MConfirmerVehicule_2_clicked()
 }
 
 void PoliceStation::on_B_Trier_6_clicked()
-{
+{son->play();
     QString Tri = ui->comboBox_4->currentText();
     ui->T_Vehicules_2->setModel(v_tmp.Trier(Tri));
 }
 
 void PoliceStation::on_molka_2_textChanged(const QString &arg1)
-{
+{son->play();
     QString by=ui->rr_2->currentText();
     ui->T_Vehicules_2->setModel(v_tmp.rechercherv(arg1,by));
 }
 
 void PoliceStation::on_annulerv_2_clicked()
-{
+{son->play();
     ui->molka_2->clear();
     ui->T_Vehicules_2->setModel(v_tmp.afficher());
 }
 
 void PoliceStation::on_annulerM_2_clicked()
-{
+{son->play();
     ui->lineEdit_2->clear();
     ui->T_Mission_2->setModel(m_tmp.afficher());
 }
 
 void PoliceStation::on_B_Statistics_3_clicked()
-{
+{son->play();
     QPrinter printer (QPrinter::PrinterResolution);
     QPrintDialog dlg(&printer,this);
     if (dlg.exec() == QDialog::Rejected) {
@@ -849,31 +852,31 @@ void PoliceStation::on_B_Statistics_3_clicked()
 }
 
 void PoliceStation::on_B_GestionEquipement_clicked()
-{
+{son->play();
     ui->CB_IDEquipement->setModel(equipement.listRef());
     ui->T_Equipement->setModel(equipement.afficher());
     ui->stackedWidget->setCurrentIndex(11);
 }
 
 void PoliceStation::on_B_GestionMaintenance_clicked()
-{
+{son->play();
     ui->CB_IDMaintenance->setModel(maintenance.listId());
     ui->T_Maintenance->setModel(maintenance.afficher());
     ui->stackedWidget->setCurrentIndex(14);
 }
 
 void PoliceStation::on_B_BackToGestions_4_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(10);
 }
 
 void PoliceStation::on_B_BackToGestions_5_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(10);
 }
 
 void PoliceStation::on_B_AjouterEquipement_clicked()
-{
+{son->play();
     ui->CB_CIN_Policier->setModel(equipement.listCIN());
     ui->LE_AReferenceEquipement->clear();
     ui->LE_AQuantiteEquipement->clear();
@@ -885,12 +888,12 @@ void PoliceStation::on_B_AjouterEquipement_clicked()
 }
 
 void PoliceStation::on_B_BackToGestionEquipement_3_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(11);
 }
 
 void PoliceStation::on_B_AConfirmerEquipement_clicked()
-{
+{son->play();
    bool overAll = false, ref_b, quantite_b, taille_B, etat_B,poid_B ,nom_B ;
    int reference = ui->LE_AReferenceEquipement->text().toInt();
    QString ref_l=ui->LE_AReferenceEquipement->text();
@@ -986,17 +989,45 @@ void PoliceStation::on_B_AConfirmerEquipement_clicked()
 }
 
 void PoliceStation::on_B_SupprimerEquipement_clicked()
-{
+{son->play();
     Equipement equipement;
+    int reference;
+    int quantite;
+    QString taille;
+    QString etat;
+    int poid;
+    QString nom;
+    int CIN_policier;
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression de l'equipement?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         equipement.setReference(ui->CB_IDEquipement->currentText().toInt());
+        QSqlQuery qry;
+        QString ref_string = QString::number(ui->CB_IDEquipement->currentText().toInt());
+        qry.prepare("SELECT * FROM equipement where reference= :reference");
+        qry.bindValue(0, ref_string);
+        if(qry.exec()) {
+            while(qry.next()) {
+                reference=qry.value(0).toInt();
+                quantite=qry.value(1).toInt();
+                taille=qry.value(2).toString();
+                etat=qry.value(3).toString();
+                poid=qry.value(4).toInt();
+                nom=qry.value(5).toString();
+                CIN_policier=qry.value(6).toInt();
+
+            }
+        }
+        qDebug()<<reference <<CIN_policier;
+        Poubelle poubelle (reference,quantite,taille,etat,poid,nom,CIN_policier );
+
         if(equipement.supprimer(equipement.getReference())) {
             qDebug() << "Suppression Complet";
+            poubelle.ajouter();
             ui->T_Equipement->setModel(equipement.afficher());
             ui->CB_IDEquipement->setModel(equipement.listRef());
             INFORMER(ui->labelmessage,"Equipement suprimer",3000);
         }
+
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"),
                         QObject::tr("Suppression a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -1005,7 +1036,7 @@ void PoliceStation::on_B_SupprimerEquipement_clicked()
 }
 
 void PoliceStation::on_B_ModifierEquipement_clicked()
-{
+{son->play();
     QSqlQuery qry;
     QString ref_string = QString::number(ui->CB_IDEquipement->currentText().toInt());
     qry.prepare("SELECT * FROM equipement where reference= :reference");
@@ -1025,12 +1056,12 @@ void PoliceStation::on_B_ModifierEquipement_clicked()
 }
 
 void PoliceStation::on_B_BackToGestionsEquipement_4_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(11);
 }
 
 void PoliceStation::on_B_MConfirmerEquipement_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer modification de l'equipement?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         int reference = ui->LE_MReference->text().toInt();
@@ -1055,37 +1086,37 @@ void PoliceStation::on_B_MConfirmerEquipement_clicked()
 }
 
 void PoliceStation::on_B_Trier_2_clicked()
-{
+{son->play();
     QString Tri = ui->CB_TriEquipement->currentText();
     ui->T_Equipement->setModel(equipement.Trier(Tri));
 }
 
 void PoliceStation::on_LE_ChercherReference_textChanged(const QString &arg1)
-{
+{son->play();
     QString by = ui->CB_RechercheEquipement->currentText();
     ui->T_Equipement->setModel(equipement.Chercher(arg1, by));
 }
 
 void PoliceStation::on_B_ResetTableEquipement_clicked()
-{
+{son->play();
     ui->LE_ChercherReference->clear();
     ui->T_Equipement->setModel(equipement.afficher());
 }
 
 void PoliceStation::on_B_AjouterMaintenance_clicked()
-{
+{son->play();
     ui->LE_ACout->clear();
     ui->Cb_AMaintenance->setModel(equipement.listRef());
     ui->stackedWidget->setCurrentIndex(15);
 }
 
 void PoliceStation::on_B_BackToGestionMaintenance_5_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(14);
 }
 
 void PoliceStation::on_B_AConfirmerMaintenance_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout de l'equipement au maintenance?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         QDate date = ui->dateEditDebut_2->date();
@@ -1105,7 +1136,7 @@ void PoliceStation::on_B_AConfirmerMaintenance_clicked()
 }
 
 void PoliceStation::on_B_SupprimerMaintenance_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la fixation de l'equipement?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         maintenance.setIdmaintenance(ui->CB_IDMaintenance->currentText().toInt());
@@ -1122,7 +1153,7 @@ void PoliceStation::on_B_SupprimerMaintenance_clicked()
 }
 
 void PoliceStation::on_B_ModifierMaintenance_clicked()
-{
+{son->play();
     QSqlQuery qry;
     QString id_string = QString::number(ui->CB_IDMaintenance->currentText().toInt());
     qry.prepare("SELECT * FROM maintenance where idmaintenance=:idmaintenance");
@@ -1140,12 +1171,12 @@ void PoliceStation::on_B_ModifierMaintenance_clicked()
 }
 
 void PoliceStation::on_B_BackToGestionmaintenance_6_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(14);
 }
 
 void PoliceStation::on_B_MConfirmerMaintenance_clicked()
-{
+{son->play();
     QSqlQuery qry;
     QString etatp;
     QString id_string = QString::number(ui->CB_IDMaintenance->currentText().toInt());
@@ -1180,19 +1211,19 @@ void PoliceStation::on_B_MConfirmerMaintenance_clicked()
 }
 
 void PoliceStation::on_statestique_3_clicked()
-{
+{son->play();
     ui->text->clear();
     ui->stackedWidget->setCurrentIndex(18);
 }
 
 void PoliceStation::on_New_File_clicked()
-{
+{son->play();
     file_path="";
     ui->text->setText("");
 }
 
 void PoliceStation::on_New_Folder_clicked()
-{
+{son->play();
     QString file_name=QFileDialog::getOpenFileName(this,"choisir le fichier");
     QFile file(file_name);
     file_path=file_name;
@@ -1208,7 +1239,7 @@ void PoliceStation::on_New_Folder_clicked()
 }
 
 void PoliceStation::on_Edit_clicked()
-{
+{son->play();
     QFile file(file_path);
     if(!file.open(QFile::WriteOnly | QFile::Text))
     {
@@ -1224,7 +1255,7 @@ void PoliceStation::on_Edit_clicked()
 }
 
 void PoliceStation::on_save_clicked()
-{
+{son->play();
     QString file_name=QFileDialog::getSaveFileName(this,"choisir le fichier");
     QFile file(file_name);
     file_path=file_name;
@@ -1242,37 +1273,37 @@ void PoliceStation::on_save_clicked()
 }
 
 void PoliceStation::on_Cut_clicked()
-{
+{son->play();
     ui->text->cut();
 }
 
 void PoliceStation::on_copy_clicked()
-{
+{son->play();
     ui->text->copy();
 }
 
 void PoliceStation::on_paste_clicked()
-{
+{son->play();
     ui->text->paste();
 }
 
 void PoliceStation::on_refresh_clicked()
-{
+{son->play();
     ui->text->redo();
 }
 
 void PoliceStation::on_controlZ_clicked()
-{
+{son->play();
     ui->text->undo();
 }
 
 void PoliceStation::on_FBack_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(14);
 }
 
 void PoliceStation::on_statestique_clicked()
-{
+{son->play();
     int fixer=maintenance.sfixer();
     int nonfixer=maintenance.snfixer();
     qDebug()<<fixer;
@@ -1308,19 +1339,19 @@ void PoliceStation::on_statestique_clicked()
 }
 
 void PoliceStation::on_pushButton_9_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(14);
 }
 
 void PoliceStation::on_B_GestionCitoyen_clicked()
-{
+{son->play();
     ui->T_Citoyens ->setModel(C.afficher());
     ui->CB_IDCitoyen ->setModel(C.listId());
     ui->stackedWidget->setCurrentIndex(28);
 }
 
 void PoliceStation::on_B_GestioService_clicked()
-{
+{son->play();
     ui->T_Service ->setModel(S.afficher());
     ui->CB_IDService->setModel(S.listId());
     ui->CB_NomCitoyen->setModel(C.listId());
@@ -1330,17 +1361,17 @@ void PoliceStation::on_B_GestioService_clicked()
 }
 
 void PoliceStation::on_B_BackToGestions_6_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(27);
 }
 
 void PoliceStation::on_B_BackToGestions_7_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(27);
 }
 
 void PoliceStation::on_B_AjouterCitoyen_clicked()
-{
+{son->play();
     //ui->LE_ANomCitoyen ->clear();
     //ui->LE_APrenomCitoyen ->clear();
     //ui->LE_ALieuNaissCit->clear();
@@ -1353,12 +1384,12 @@ void PoliceStation::on_B_AjouterCitoyen_clicked()
 }
 
 void PoliceStation::on_B_AAnnulerCitoyen_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(28);
 }
 
 void PoliceStation::on_B_AConfirmerCitoyen_clicked()
-{
+{son->play();
     bool overAll = false, nom_B,prenom_B ;
 
     QString nom = ui->LE_ANomCitoyen->text();
@@ -1426,7 +1457,7 @@ void PoliceStation::on_B_AConfirmerCitoyen_clicked()
 }
 
 void PoliceStation::on_B_AccederProfil_clicked()
-{
+{son->play();
     QSqlQuery qry;
     QString id_string = QString::number(ui->CB_IDCitoyen->currentText().toInt());
     qry.prepare("SELECT * FROM citoyens where id=:id");
@@ -1449,7 +1480,7 @@ void PoliceStation::on_B_AccederProfil_clicked()
 }
 
 void PoliceStation::on_B_SupprimerCitoyen_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression du lcitoyen?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         C.setid(ui->CB_IDCitoyen ->currentText().toInt());
@@ -1468,7 +1499,7 @@ void PoliceStation::on_B_SupprimerCitoyen_clicked()
 }
 
 void PoliceStation::on_B_MConfirmerCitoyen_2_clicked()
-{
+{son->play();
     QSqlQuery qry;
     QString id_string = QString::number(ui->CB_IDCitoyen->currentText().toInt());
     qry.prepare("SELECT * FROM citoyens where id=:id");
@@ -1491,12 +1522,12 @@ void PoliceStation::on_B_MConfirmerCitoyen_2_clicked()
 }
 
 void PoliceStation::on_B_MAnnulerCitoyen_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(31);
 }
 
 void PoliceStation::on_B_MConfirmerCitoyen_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la modification", "Confirmer la modification du citoyen?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         Citoyen C;
@@ -1537,7 +1568,7 @@ qDebug() << C.getdatenaiss();
 }
 
 void PoliceStation::on_B_EnvoyeMail_clicked()
-{
+{son->play();
     QSqlQuery qry;
     QString id_string = QString::number(ui->CB_IDCitoyen->currentText().toInt());
     qry.prepare("SELECT * FROM citoyens where id=:id");
@@ -1551,12 +1582,12 @@ void PoliceStation::on_B_EnvoyeMail_clicked()
 }
 
 void PoliceStation::on_B_returnCitoyen_3_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(31);
 }
 
 void PoliceStation::on_pushButton_2_clicked()
-{
+{son->play();
     Smtp* smtp = new Smtp("myriam.brahmi@esprit.tn",ui->mdp->text(), "smtp.gmail.com");
     connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
     if( !files.isEmpty() )
@@ -1568,7 +1599,7 @@ void PoliceStation::on_pushButton_2_clicked()
 }
 
 void PoliceStation::on_browseBtn_clicked()
-{
+{son->play();
     files.clear();
     QFileDialog dialog(this);
     dialog.setDirectory(QDir::homePath());
@@ -1582,7 +1613,7 @@ void PoliceStation::on_browseBtn_clicked()
 }
 
 void PoliceStation::on_B_Trier_3_clicked()
-{
+{son->play();
     QString Tri = ui->CB_Tricitoyen->currentText();
     ui->T_Citoyens->setModel(C.Trier(Tri));
 }
@@ -1594,23 +1625,23 @@ void PoliceStation::on_LE_recherche_textChanged(const QString &arg1)
 }
 
 void PoliceStation::on_B_ResetTableIntervenant_2_clicked()
-{
+{son->play();
     ui->LE_recherche->clear();
     ui->T_Citoyens ->setModel(C.afficher());
 }
 
 void PoliceStation::on_B_ServiceAdminis_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(27);
 }
 
 void PoliceStation::on_B_returnCitoyen_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(28);
 }
 
 void PoliceStation::on_B_AjouterService_clicked()
-{
+{son->play();
     //ui->LE_ATypeService ->clear();
     //ui->LE_ADureeService ->clear();
     //ui->LE_APapierService->clear();
@@ -1619,12 +1650,12 @@ void PoliceStation::on_B_AjouterService_clicked()
 }
 
 void PoliceStation::on_B_AAnnulerService_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(32);
 }
 
 void PoliceStation::on_B_ModifierService_clicked()
-{
+{son->play();
     QSqlQuery qry;
     QString id_string = QString::number(ui->CB_IDService->currentText().toInt());
     QString duree_string = QString::number(ui->LE_MDureeService->text().toInt());
@@ -1646,7 +1677,7 @@ void PoliceStation::on_B_ModifierService_clicked()
 }
 
 void PoliceStation::on_B_AConfirmerService_clicked()
-{
+{son->play();
     bool overAll = false, descrip_B;
        QString libelle = ui->LE_ATypeService->text();
        int duree = ui->LE_ADureeService->text().toInt();
@@ -1692,12 +1723,12 @@ QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de
 }
 
 void PoliceStation::on_B_MAnnulerService_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(32);
 }
 
 void PoliceStation::on_B_MConfirmerService_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la modification", "Confirmer la modification du service?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         Service S;
@@ -1730,7 +1761,7 @@ qDebug()<<S.getdescription();
 }
 
 void PoliceStation::on_B_SupprimerService_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression du service?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         S.setid(ui->CB_IDService->currentText().toInt());
@@ -1748,25 +1779,25 @@ void PoliceStation::on_B_SupprimerService_clicked()
 }
 
 void PoliceStation::on_B_TrierS_clicked()
-{
+{son->play();
     QString Tri = ui->CB_TriService->currentText();
     ui->T_Service->setModel(S.Trier(Tri));
 }
 
 void PoliceStation::on_LE_rechercheS_textChanged(const QString &arg1)
-{
+{son->play();
     QString by=ui->CB_rechercheS->currentText();
     ui->T_Service->setModel(S.rechercher(arg1,by));
 }
 
 void PoliceStation::on_B_ResetTableIntervenant_3_clicked()
-{
+{son->play();
     ui->LE_rechercheS->clear();
     ui->T_Service ->setModel(S.afficher());
 }
 
 void PoliceStation::on_pdf_clicked()
-{
+{son->play();
     QPrinter printer (QPrinter::PrinterResolution);
     QPrintDialog dlg(&printer,this);
     if (dlg.exec() == QDialog::Rejected)
@@ -1838,7 +1869,7 @@ void PoliceStation::on_pdf_clicked()
 }
 
 void PoliceStation::on_B_AjouterMission_2_clicked()
-{
+{son->play();
     ui->LE_ANomMission_2->clear();
     ui->LE_ALocalMission_2->clear();
     ui->TE_ADescMission_2->clear();
@@ -1846,12 +1877,12 @@ void PoliceStation::on_B_AjouterMission_2_clicked()
 }
 
 void PoliceStation::on_B_AAnnulerMission_2_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(23);
 }
 
 void PoliceStation::on_B_AConfirmerMission_2_clicked()
-{
+{son->play();
     int id=0;
     QString nom = ui->LE_ANomMission_2->text();
     QDate datem = ui->dateEdit_3->date();
@@ -1876,7 +1907,7 @@ void PoliceStation::on_B_AConfirmerMission_2_clicked()
 }
 
 void PoliceStation::on_B_ModifierMission_2_clicked()
-{
+{son->play();
     int id = ui->CB_IDMission_2->currentText().toInt();
     QSqlQuery query;
     query.prepare("SELECT * from missions where id = :id");
@@ -1895,12 +1926,12 @@ void PoliceStation::on_B_ModifierMission_2_clicked()
 }
 
 void PoliceStation::on_B_MAnnulerMission_2_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(23);
 }
 
 void PoliceStation::on_B_MConfirmerMission_2_clicked()
-{
+{son->play();
     int id = ui->CB_IDMission_2->currentText().toInt();
     QString nom = ui->LE_MNomMission_2->text();
     QDate datem = ui->dateEdit_4->date();
@@ -1921,7 +1952,7 @@ void PoliceStation::on_B_MConfirmerMission_2_clicked()
 }
 
 void PoliceStation::on_B_SupprimerMission_2_clicked()
-{
+{son->play();
     int id = ui->CB_IDMission_2->currentText().toInt();
     QMessageBox msgbox;
     bool test=m_tmp.supprimer(id);
@@ -1942,19 +1973,19 @@ void PoliceStation::on_B_SupprimerMission_2_clicked()
 }
 
 void PoliceStation::on_B_Trier_7_clicked()
-{
+{son->play();
     QString Tri = ui->comboBox_6->currentText();
     ui->T_Mission_2->setModel(m_tmp.Trierm(Tri));
 }
 
 void PoliceStation::on_lineEdit_2_textChanged(const QString &arg1)
-{
+{son->play();
     QString by=ui->comboBox_5->currentText();
      ui->T_Mission_2->setModel(m_tmp.rechercher(arg1,by));
 }
 
 void PoliceStation::on_export_excel_2_clicked()
-{
+{son->play();
     QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
                                                         tr("Excel Files (*.xls)"));
     if (fileName.isEmpty())
@@ -1973,30 +2004,30 @@ void PoliceStation::on_export_excel_2_clicked()
 }
 
 void PoliceStation::on_B_Trier_8_clicked()
-{
+{son->play();
     QString Tri = ui->cc_2->currentText();
     ui->T_Affectation_2->setModel(a_tmp.Triera(Tri));
 }
 
 void PoliceStation::on_annulera_2_clicked()
-{
+{son->play();
     ui->cc_2->clear();
     ui->T_Affectation_2->setModel(a_tmp.afficherA());
 }
 
 void PoliceStation::on_recherchera_2_textChanged(const QString &arg1)
-{
+{son->play();
     QString by=ui->lineedit_2->currentText();
     ui->T_Affectation_2->setModel(a_tmp.recherchera(arg1,by));
 }
 
 void PoliceStation::on_B_BackToGestions_11_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(19);
 }
 
 void PoliceStation::on_B_ConfirmerAffectation_2_clicked()
-{
+{son->play();
     int id_M = ui->CB_IDAffMiss_2->currentText().toInt();
     int matricule_V = ui->CB_IDAffVeh_2->currentText().toInt();
     QMessageBox msgBox;
@@ -2010,7 +2041,7 @@ void PoliceStation::on_B_ConfirmerAffectation_2_clicked()
 }
 
 void PoliceStation::on_supprimera_2_clicked()
-{
+{son->play();
     int id_M = ui->CB_IDAffMiss_2->currentText().toInt();
     int matricule_V = ui->CB_IDAffVeh_2->currentText().toInt();
     QMessageBox msgbox;
@@ -2038,46 +2069,46 @@ void PoliceStation::on_supprimera_2_clicked()
 }
 
 void PoliceStation::on_B_BackToMenu_3_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
 void PoliceStation::on_B_Amende_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(37);
 }
 
 void PoliceStation::on_B_BackToMenu_5_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
 void PoliceStation::on_B_GestionPolicier_clicked()
-{
+{son->play();
     ui->T_Policier->setModel(policier.afficher_policier());
     ui->comboBoxCin->setModel(policier.listCin_policier());
     ui->stackedWidget->setCurrentIndex(38);
 }
 
 void PoliceStation::on_B_GestionAmende_2_clicked()
-{
+{son->play();
     ui->T_Amende->setModel(amende.afficher_amende());
     ui->CB_IDAmende->setModel(amende.listId_amende());
     ui->stackedWidget->setCurrentIndex(41);
 }
 
 void PoliceStation::on_B_BackToGestionAmende_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(37);
 }
 
 void PoliceStation::on_B_BackToGestionPolicier_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(37);
 }
 
 void PoliceStation::on_B_AjouterPolicier_clicked()
-{
+{son->play();
     ui->LE_ACin->clear();
     ui->LE_ANomPolicier->clear();
     ui->LE_APrenomPolicier->clear();
@@ -2089,12 +2120,12 @@ void PoliceStation::on_B_AjouterPolicier_clicked()
 }
 
 void PoliceStation::on_B_AAnnulerPolicier_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(38);
 }
 
 void PoliceStation::on_B_AConfirmerPolicier_clicked()
-{
+{son->play();
     QString msg;
 
         QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout du Policier?", QMessageBox::Yes | QMessageBox::No);
@@ -2108,25 +2139,34 @@ void PoliceStation::on_B_AConfirmerPolicier_clicked()
             QString secteur_policier = ui->LE_ASecteurPolicier->text();
             Policier policier(cin_policier, nom_policier, prenom_policier, grade_policier, mail_policier, mdp_policier, secteur_policier);
             msg="monsieur "+policier.getNom_policier()+" , Nous sommes heureux de vous avoir en tant que nouveau policier parmis nous    ";
-
+           if(log->email_exist(mail_policier)){
+               QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("cette adresse mail existe.\n" "Cliquer Ok."), QMessageBox::Ok);}
+        else{
             if(policier.ajouter_policier()) {
+
                 Smtp* smtp = new Smtp("policestaion2021@gmail.com", "Mokki3211", "smtp.gmail.com", 465);
                              connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+
+
                           smtp->sendMail("policestaion2021@gmail.com", ui->LE_AMailPolicier->text() , "confirmation d'ajout",msg);
+
+
                 ui->comboBoxCin->setModel(policier.listCin_policier());
                 ui->T_Policier->setModel(policier.afficher_policier());
                 INFORMER(ui->ALERT_P,"AJOUT AVEC SUCCEES",3000);
                 policier.addToHistory("Ajout du " ,"policier",  QString::number(cin_policier));
-                ui->stackedWidget->setCurrentIndex(38);
-            }
+
+                ui->stackedWidget->setCurrentIndex(38);}
+
             else {
                 QMessageBox::critical(nullptr, QObject::tr("Nope"), QObject::tr("L'ajout a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
             }
         }
 }
+}
 
 void PoliceStation::on_B_SupprimerPolicier_clicked()
-{
+{son->play();
 
      QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression du Policier?", QMessageBox::Yes | QMessageBox::No);
      if(reply == QMessageBox::Yes) {
@@ -2147,7 +2187,7 @@ void PoliceStation::on_B_SupprimerPolicier_clicked()
 }
 
 void PoliceStation::on_B_ModifierPolicier_clicked()
-{
+{son->play();
     QSqlQuery qry;
     QString cin_string = QString::number(ui->comboBoxCin->currentText().toInt());
     QString mdp_policier_string = QString::number(ui->LE_MMdpPolicier->text().toInt());
@@ -2168,12 +2208,12 @@ void PoliceStation::on_B_ModifierPolicier_clicked()
 }
 
 void PoliceStation::on_B_MAnuulerPolicier_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(38);
 }
 
 void PoliceStation::on_B_MConfirmerPolicier_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la modification", "Confirmer la modification du Policier?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         Policier amende;
@@ -2199,13 +2239,13 @@ void PoliceStation::on_B_MConfirmerPolicier_clicked()
 }
 
 void PoliceStation::on_B_Trier_4_clicked()
-{
+{son->play();
     QString Tri = ui->CB_TriPolicier->currentText();
     ui->T_Policier->setModel(policier.Trier_policier(Tri));
 }
 
 void PoliceStation::on_B_Recherche_clicked()
-{
+{son->play();
     QString nom_policier =ui->LE_ChercherNom->text();
     QString prenom_policier = ui->LE_ChercherPrenom->text();
     if (nom_policier != ""){
@@ -2217,14 +2257,14 @@ void PoliceStation::on_B_Recherche_clicked()
 }
 
 void PoliceStation::on_B_ResetTablePolicier_clicked()
-{
+{son->play();
     ui->LE_ChercherNom->clear();
     ui->LE_ChercherPrenom->clear();
     ui->T_Policier->setModel(policier.afficher_policier());
 }
 
 void PoliceStation::on_B_imprimer_clicked()
-{
+{son->play();
     QString strStream;
     QTextStream out(&strStream);
     const int rowCount = ui->T_Policier->model()->rowCount();
@@ -2267,7 +2307,7 @@ void PoliceStation::on_B_imprimer_clicked()
 }
 
 void PoliceStation::on_B_Excel_clicked()
-{
+{son->play();
     QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
                                                         tr("Excel Files (*.xls)"));
     if (fileName.isEmpty())
@@ -2287,7 +2327,7 @@ void PoliceStation::on_B_Excel_clicked()
 }
 
 void PoliceStation::on_B_AjouterAmende_clicked()
-{
+{son->play();
     ui->LE_AIDAmende->clear();
     ui->LE_ATypeAmende->clear();
     ui->LE_APrixAmende->clear();
@@ -2300,7 +2340,7 @@ void PoliceStation::on_B_AjouterAmende_clicked()
 }
 
 void PoliceStation::on_B_AConfirmerAmende_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout de l'Amende?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         int id_amende = ui->LE_AIDAmende->text().toInt();
@@ -2325,12 +2365,12 @@ void PoliceStation::on_B_AConfirmerAmende_clicked()
 }
 
 void PoliceStation::on_B_AAnnulerAmende_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(41);
 }
 
 void PoliceStation::on_B_SupprimerAmende_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression de l'Amende?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         amende.setId_amende(ui->CB_IDAmende->currentText().toInt());
@@ -2349,7 +2389,7 @@ void PoliceStation::on_B_SupprimerAmende_clicked()
 }
 
 void PoliceStation::on_B_ModifierAmende_clicked()
-{
+{son->play();
     QSqlQuery qry;
     QString id_string = QString::number(ui->CB_IDAmende->currentText().toInt());
     qry.prepare("SELECT * FROM amende where id_amende=:id_amende");
@@ -2370,12 +2410,12 @@ void PoliceStation::on_B_ModifierAmende_clicked()
 }
 
 void PoliceStation::on_B_MAnnulerAmende_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(41);
 }
 
 void PoliceStation::on_B_MConfirmerAmende_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la modification", "Confirmer la modification de l'Amende?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         amende.setId_amende(ui->LE_MIDAmende->text().toInt());
@@ -2399,18 +2439,18 @@ void PoliceStation::on_B_MConfirmerAmende_clicked()
 }
 
 void PoliceStation::on_B_calculator_clicked()
-{
+{son->play();
     Calc cl;
     cl.exec();
 }
 
 void PoliceStation::on_pushButton_4_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(28);
 }
 
 void PoliceStation::on_statistics_clicked()
-{
+{son->play();
     QSqlQuery qry;
     int Autres=C.ProfA();
     int Em=C.ProfEm();
@@ -2526,7 +2566,7 @@ void PoliceStation::on_statistics_clicked()
 }
 
 void PoliceStation::on_excel_clicked()
-{
+{son->play();
     QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
                                                         tr("Excel Files (*.xls)"));
         if (fileName.isEmpty())
@@ -2549,7 +2589,7 @@ void PoliceStation::on_excel_clicked()
 }
 
 void PoliceStation::myFunction()
-{
+{son->play();
     QTime time = QTime::currentTime();
     QString time_text =time.toString("hh : mm : ss");
     ui->time->setText(time_text);
@@ -2561,14 +2601,14 @@ void PoliceStation::myFunction()
 }
 
 void PoliceStation::on_export_excel_3_clicked()
-{
+{son->play();
     Smtp* smtp = new Smtp("molka.elabed@esprit.tn", "123mokki321", "smtp.gmail.com", 465);
         smtp->sendMail("molka.elabed@esprit.tn", "molka.elabed@esprit.tn" , "Signalisation Problème" ,ui->plainTextEdit->toPlainText());
         ui->plainTextEdit->clear();
 }
 
 void PoliceStation::on_statistics_2_clicked()
-{
+{son->play();
     QSqlQuery qry;
     int Autres=intervenant.NatA();
     int Tn=intervenant.NatTn();
@@ -2609,7 +2649,7 @@ void PoliceStation::on_statistics_2_clicked()
 }
 
 void PoliceStation::on_qrcodeb_clicked()
-{
+{son->play();
     int tabequipement=ui->T_Equipement->currentIndex().row();
     QVariant idd=ui->T_Equipement->model()->data(ui->T_Equipement->model()->index(tabequipement,0));
     int id= idd.toInt();
@@ -2644,23 +2684,23 @@ void PoliceStation::on_qrcodeb_clicked()
 }
 
 void PoliceStation::on_B_Google_clicked()
-{
+{son->play();
     QString link="http://www.google.com";
     QDesktopServices::openUrl(QUrl(link));
 }
 
 void PoliceStation::on_B_Detenu_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(44);
 }
 
 void PoliceStation::on_B_BackToMenu_6_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
 void PoliceStation::on_B_BackToMenu_7_clicked()
-{
+{son->play();
     Cam xcam;
     xcam.exec();
 }
@@ -2671,55 +2711,55 @@ void PoliceStation::on_signup_clicked()
 }
 
 void PoliceStation::on_sliderprogress_sliderMoved(int position)
-{
+{son->play();
    player->setPosition(position);
 }
 
 void PoliceStation::on_slidervolume_sliderMoved(int position)
-{
+{son->play();
   player->setVolume(position);
 }
 
 void PoliceStation::on_pushButton_3_clicked()
-{
+{son->play();
     player->setMedia(QUrl::fromLocalFile("/Users/myria/Desktop/new/Smart_Plolice_Station_2A19/cassette-player-button-3.wav"));
     player->play();
     qDebug()<<player->errorString();
 }
 
 void PoliceStation::on_pushButton_5_clicked()
-{
+{son->play();
     player->stop();
 }
 
 void PoliceStation::on_positionChanged(qint64 position)
-{
+{son->play();
     ui->sliderprogress->setValue(position);
 }
 
 void PoliceStation::on_durationChanged(qint64 position)
-{
+{son->play();
     ui->sliderprogress->setMaximum(position);
 }
 
 void PoliceStation::on_pushButton_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(46);
 }
 
 void PoliceStation::on_B_PolicierParticipants_clicked()
-{
+{son->play();
     ui->T_AffFourT->setModel(m_tmp.affectAll());
     ui->stackedWidget->setCurrentIndex(47);
 }
 
 void PoliceStation::on_B_RetourMiss_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(23);
 }
 
 void PoliceStation::on_pushButton_6_clicked()
-{
+{son->play();
     N.notifications_mdpoubl();
     QString code=log->code_generator();
 if(log->update_mpd_reset(ui->lineEdit_Mail->text(),code)){
@@ -2729,84 +2769,85 @@ if(log->update_mpd_reset(ui->lineEdit_Mail->text(),code)){
 }
 
 void PoliceStation::on_pushButton_8_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(1);
 }
 
 void PoliceStation::on_pushButton_10_clicked()
-{
-
+{son->play();
+    ui->T_Detenu_2->setModel(detenu.affectAll());
+    ui->stackedWidget->setCurrentIndex(60);
 }
 
 void PoliceStation::on_B_AjouterEquipement_2_clicked()
-{
+{son->play();
     ui->T_AFF_Equipement->setModel(equipement.afficherAffectation());
     ui->stackedWidget->setCurrentIndex(48);
 }
 
 void PoliceStation::on_B_AjouterEquipement_3_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(11);
 }
 
 void PoliceStation::on_pushButton_11_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(28);
 }
 
 void PoliceStation::on_map_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(49);
 }
 
 void PoliceStation::on_ret_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(28);
 }
 
 void PoliceStation::on_repart_clicked()
-{
-    ui->T_AffePS->setModel(C.affectjoint());
+{son->play();
+    ui->T_AffePS->setModel(S.affectjoint());
     ui->stackedWidget->setCurrentIndex(50);
 }
 
 void PoliceStation::on_B_historique_clicked()
-{
+{son->play();
     ui->listhistorique->setModel( policier.afficherHistorique(ui));
     ui->stackedWidget->setCurrentIndex(51);
 }
 
 void PoliceStation::on_combo_action_currentIndexChanged(const QString &arg1)
-{
+{son->play();
     ui->listhistorique->setModel( policier.afficherHistorique(ui));
 }
 
 void PoliceStation::on_comboBox_mp_currentIndexChanged(const QString &arg1)
-{
+{son->play();
     ui->listhistorique->setModel( policier.afficherHistorique(ui));
 }
 
 void PoliceStation::on_B_Retouuuur_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(37);
 }
 
 void PoliceStation::on_B_GestionInfraction_clicked()
-{
+{son->play();
     ui->T_Infraction->setModel(infraction.afficher());
     ui->CB_IDIntervenant_2->setModel(infraction.listId());
     ui->stackedWidget->setCurrentIndex(52);
 }
 
 void PoliceStation::on_B_GestioDetenus_clicked()
-{
+{son->play();
     ui->T_Detenu->setModel(detenu.afficher());
     ui->CB_IDDetenus->setModel(detenu.listId());
     ui->stackedWidget->setCurrentIndex(55);
 }
 
 void PoliceStation::on_B_GestionMission_2_clicked()
-{
+{son->play();
     ui->CB_CinDetAffectation->setModel(detenu.listId());
     ui->CB_IDInfAffectation->setModel(infraction.listId());
     ui->T_Affectation->setModel(affectation.afficherA());
@@ -2814,22 +2855,22 @@ void PoliceStation::on_B_GestionMission_2_clicked()
 }
 
 void PoliceStation::on_B_BackToGestions_12_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(44);
 }
 
 void PoliceStation::on_B_BackToGestions_8_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(44);
 }
 
 void PoliceStation::on_B_BackToGestions_14_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(44);
 }
 
 void PoliceStation::on_B_SupprimerDetenus_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression du l'affaire?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         detenu.setId(ui->CB_IDDetenus->currentText().toInt());
@@ -2845,22 +2886,23 @@ void PoliceStation::on_B_SupprimerDetenus_clicked()
 }
 
 void PoliceStation::on_B_AjouterDetenus_clicked()
-{
+{son->play();
     ui->LE_ACinDetenus->clear();
     ui->LE_ANomDetenus->clear();
     ui->LE_APrenomDetenus->clear();
     ui->LE_ANationalitelDetenus->clear();
     ui->DE_AHistoriqueDetenus->clear();
+    ui->CB_APolicierResponsable->setModel(policier.listCin_policier());
     ui->stackedWidget->setCurrentIndex(56);
 }
 
 void PoliceStation::on_B_AAnnulerDetenus_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(55);
 }
 
 void PoliceStation::on_B_AConfirmerDetenus_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout du l'affaire?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         int cin = ui->LE_ACinDetenus->text().toInt();
@@ -2871,7 +2913,8 @@ void PoliceStation::on_B_AConfirmerDetenus_clicked()
         QString historique = ui->DE_AHistoriqueDetenus->toPlainText();
         QDate dn = ui->DE_ADateNaissDetenus->date();
         QDate da = ui->DE_ADateArrestDetenus->date();
-        Detenu detenu(cin, nom, prenom, nationalite, dn, da, historique, danger);
+        int cin_policier = ui->CB_APolicierResponsable->currentText().toInt();
+        Detenu detenu(cin, nom, prenom, nationalite, dn, da, historique, danger, cin_policier);
         if(detenu.ajouter()) {
             ui->T_Detenu->setModel(detenu.afficher());
             ui->CB_IDDetenus->setModel(detenu.listId());
@@ -2884,7 +2927,7 @@ void PoliceStation::on_B_AConfirmerDetenus_clicked()
 }
 
 void PoliceStation::on_B_ModifierDetenus_clicked()
-{
+{son->play();
     QSqlQuery qry;
     QString id_string = QString::number(ui->CB_IDDetenus->currentText().toInt());
     qry.prepare("SELECT * FROM detenus where cin=:id");
@@ -2905,30 +2948,30 @@ void PoliceStation::on_B_ModifierDetenus_clicked()
 }
 
 void PoliceStation::on_B_MAnnulerDetenus_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(55);
 }
 
 void PoliceStation::on_B_Trier_5_clicked()
-{
+{son->play();
     QString Tri = ui->CB_TriInfr_2->currentText();
     ui->T_Detenu->setModel(detenu.Trier(Tri));
 }
 
 void PoliceStation::on_B_ResetTableIntervenant_4_clicked()
-{
+{son->play();
     ui->LE_Chercher_2->clear();
     ui->T_Detenu->setModel(detenu.afficher());
 }
 
 void PoliceStation::on_LE_Chercher_2_textChanged(const QString &arg1)
-{
+{son->play();
     QString by = ui->CB_ChercherInfr_2->currentText();
     ui->T_Detenu->setModel(detenu.Chercher(arg1, by));
 }
 
 void PoliceStation::on_B_MConfirmerDetenus_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la modification", "Confirmer la modification du l'affaire?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         detenu.setId(ui->CB_IDDetenus->currentText().toInt());
@@ -2951,7 +2994,7 @@ void PoliceStation::on_B_MConfirmerDetenus_clicked()
 }
 
 void PoliceStation::on_B_SupprimerIntervenant_2_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression du l'affaire?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         infraction.setId(ui->CB_IDIntervenant_2->currentText().toInt());
@@ -2967,14 +3010,14 @@ void PoliceStation::on_B_SupprimerIntervenant_2_clicked()
 }
 
 void PoliceStation::on_B_AjouterInfraction_clicked()
-{
+{son->play();
     ui->LE_ANomInfraction->clear();
     ui->CB_ADetInfraction->setModel(detenu.listId());
     ui->stackedWidget->setCurrentIndex(53);
 }
 
 void PoliceStation::on_B_AConfirmerInfraction_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de l'ajout", "Confirmer l'ajout du l'affaire?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         QString nom = ui->LE_ANomInfraction->text();
@@ -2995,12 +3038,12 @@ void PoliceStation::on_B_AConfirmerInfraction_clicked()
 }
 
 void PoliceStation::on_B_AAnnulerInfraction_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(52);
 }
 
 void PoliceStation::on_B_ModifierIntervenant_2_clicked()
-{
+{son->play();
     QSqlQuery qry;
     QString id_string = QString::number(ui->CB_IDIntervenant_2->currentText().toInt());
     qry.prepare("SELECT * FROM infractions where id=:id");
@@ -3018,7 +3061,7 @@ void PoliceStation::on_B_ModifierIntervenant_2_clicked()
 }
 
 void PoliceStation::on_B_Statistics_2_clicked()
-{
+{son->play();
     QSqlQuery qry;
     int dis=infraction.dis();
     int as=infraction.as();
@@ -3066,17 +3109,17 @@ void PoliceStation::on_B_Statistics_2_clicked()
 }
 
 void PoliceStation::on_B_BackToGestions_13_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(52);
 }
 
 void PoliceStation::on_B_MAnnulerInfraction_clicked()
-{
+{son->play();
     ui->stackedWidget->setCurrentIndex(52);
 }
 
 void PoliceStation::on_B_MConfirmerInfraction_clicked()
-{
+{son->play();
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la modification", "Confirmer la modification du l'affaire?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         infraction.setId(ui->CB_IDIntervenant_2->currentText().toInt());
@@ -3097,7 +3140,7 @@ void PoliceStation::on_B_MConfirmerInfraction_clicked()
 
 
 void PoliceStation::on_B_ConfirmerAffectation_clicked()
-{
+{son->play();
     int id = ui->CB_IDInfAffectation->currentText().toInt();
     int cin = ui->CB_CinDetAffectation->currentText().toInt();
     QMessageBox msgBox;
@@ -3108,4 +3151,26 @@ void PoliceStation::on_B_ConfirmerAffectation_clicked()
         msgBox.setText("Ajout avec succés.");
          ui->T_Affectation->setModel(affectation.afficherA());
     }
+}
+
+void PoliceStation::on_pushButton_12_clicked()
+{son->play();
+    ui->stackedWidget->setCurrentIndex(55);
+}
+
+void PoliceStation::on_Poubelle_clicked()
+{son->play();
+    ui->T_Equipemen_suprime->setModel(poubelle.afficherPoubelle());
+    ui->stackedWidget->setCurrentIndex(61);
+}
+
+void PoliceStation::on_vider_corbeille_clicked()
+{son->play();
+    poubelle.supprimer();
+  ui->T_Equipemen_suprime->setModel(poubelle.afficherPoubelle());
+}
+
+void PoliceStation::on_EQ_retour_clicked()
+{son->play();
+     ui->stackedWidget->setCurrentIndex(11);
 }

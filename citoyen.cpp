@@ -355,8 +355,3 @@ int Citoyen::SO() {
 
     return r;
 }
-QSqlQueryModel * Citoyen::affectjoint(){
-    QSqlQueryModel *model = new QSqlQueryModel;
-    model->setQuery("SELECT p.CIN_policier, p.nom_policier, p.prenom_policier, c.nom, s.libelle FROM citoyens c INNER JOIN policier p ON s.id_policier = p.CIN_policier");
-    return model;
-}

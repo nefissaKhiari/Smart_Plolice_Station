@@ -32,6 +32,7 @@ public:
      QSqlQueryModel* listNom();
        QSqlQueryModel* rechercher(QString,QString);
         QSqlQueryModel* Trier(QString);
+        QSqlQueryModel *affectjoint();
 private:
     int id , id_citoyen,id_policier,duree;
     QString libelle  , papiers_necess, description;

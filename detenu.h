@@ -15,9 +15,10 @@ private:
     QDate date_arrest;
     QString historique ;
     QString niveau_danger;
+    int cin_policier;
 public:
     Detenu();
-    Detenu(int, QString, QString, QString, QDate, QDate, QString, QString);
+    Detenu(int, QString, QString, QString, QDate, QDate, QString, QString, int);
 
     void setId(int);
     int getId();
@@ -52,6 +53,8 @@ public:
 
     QSqlQueryModel* Trier(QString);
     QSqlQueryModel* Chercher(QString,QString);
+
+    QSqlQueryModel* affectAll();
 };
 
 #endif // DETENU_H

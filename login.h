@@ -19,7 +19,7 @@ public:
 
      QString code_generator();
      bool update_mpd_reset(QString ,QString );
-
+bool email_exist(QString );
 
 };
 

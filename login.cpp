@@ -51,3 +51,13 @@ bool login::update_mpd_reset(QString uname,QString code)
     return qry.exec();
 }
 
+bool login::email_exist(QString uname)
+{
+    QSqlQuery qry;
+    qry.prepare("SELECT * FROM policier WHERE mail_policier=:mail_policier ");
+    qry.bindValue(":mail_policier",uname);
+
+
+    return qry.exec() && qry.next();
+
+}

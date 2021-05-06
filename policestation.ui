@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>56</number>
     </property>
     <widget class="QWidget" name="LogIn">
      <widget class="QToolButton" name="toolButton_14">
@@ -284,92 +284,8 @@ font-size: 10px;</string>
        </property>
       </widget>
      </widget>
-     <widget class="QFrame" name="frame_76">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>480</y>
-        <width>251</width>
-        <height>201</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QRadioButton{
-color: white;
-}</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QLabel" name="label_20">
-       <property name="geometry">
-        <rect>
-         <x>90</x>
-         <y>10</y>
-         <width>81</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>-1</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background: transparent;</string>
-       </property>
-       <property name="text">
-        <string>Theme</string>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="RB_Default">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>70</y>
-         <width>84</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Defaut</string>
-       </property>
-      </widget>
-      <widget class="QRadioButton" name="RB_Light">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>120</y>
-         <width>84</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Light</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="B_Theme">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>160</y>
-         <width>101</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Changer</string>
-       </property>
-      </widget>
-     </widget>
      <zorder>frame_11</zorder>
      <zorder>toolButton_14</zorder>
-     <zorder>frame_76</zorder>
     </widget>
     <widget class="QWidget" name="Menu">
      <widget class="QPushButton" name="B_Deconnecte">
@@ -4650,19 +4566,6 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
        </property>
        <property name="text">
         <string/>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="Poubelle">
-       <property name="geometry">
-        <rect>
-         <x>660</x>
-         <y>20</y>
-         <width>61</width>
-         <height>61</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>P</string>
        </property>
       </widget>
      </widget>
@@ -21430,119 +21333,6 @@ QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 
      <zorder>frame_74</zorder>
      <zorder>toolButton_88</zorder>
      <zorder>pushButton_12</zorder>
-    </widget>
-    <widget class="QWidget" name="poubelle">
-     <widget class="QPushButton" name="EQ_retour">
-      <property name="geometry">
-       <rect>
-        <x>52</x>
-        <y>40</y>
-        <width>151</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>retour</string>
-      </property>
-     </widget>
-     <widget class="QToolButton" name="toolButton_89">
-      <property name="geometry">
-       <rect>
-        <x>640</x>
-        <y>30</y>
-        <width>121</width>
-        <height>121</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>:/ressource/image/police-walkie-talkie.png</normaloff>:/ressource/image/police-walkie-talkie.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>64</width>
-        <height>64</height>
-       </size>
-      </property>
-     </widget>
-     <widget class="QFrame" name="frame_75">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>90</y>
-        <width>741</width>
-        <height>531</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QTableView" name="T_Equipemen_suprime">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>90</y>
-         <width>721</width>
-         <height>421</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QTableView {border: 2px solid red;text-align: top;padding: 4px;border-radius: 7px;border-bottom-left-radius: 7px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee );width: 15px;selection-background-color:QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #FF0000, stop: 1 #FF5F5F,stop: 0.5 #FEAAAA,stop: 1 #eee);selection-color: black;}
-QTableView::item:focus{selection-background-color: red;}
-QScrollBar:vertical{ width: 20px; background: none; /* only these sort effect about width ...*/}
-QScrollBar::handle:vertical{ border: 3px solid #5E749C;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0,stop: 0 #fff, stop: 1 #eee,stop: 0.5 #ddd,stop: 1 #eee ); width: 25px; min-height: 20px; max-height: 25px; /*these sort no effect*/ }
-QScrollBar::add-page:vertical {border: 3px solid red;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  red; /* adding width: xx px; sorting no effect .. why? */}
-QScrollBar::sub-page:vertical {border: 3px solid green;text-align: top;padding: 4px;border-radius: 5px; border-bottom-left-radius: 5px;background:  green; /* adding width: xx px; sorting no effect .. why? */ }</string>
-       </property>
-       <attribute name="horizontalHeaderCascadingSectionResizes">
-        <bool>false</bool>
-       </attribute>
-       <attribute name="horizontalHeaderDefaultSectionSize">
-        <number>115</number>
-       </attribute>
-      </widget>
-      <widget class="QLabel" name="labelmessage_4">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>20</y>
-         <width>301</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background: transparent;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="vider_corbeille">
-       <property name="geometry">
-        <rect>
-         <x>630</x>
-         <y>50</y>
-         <width>93</width>
-         <height>28</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>vider</string>
-       </property>
-      </widget>
-     </widget>
-     <zorder>EQ_retour</zorder>
-     <zorder>frame_75</zorder>
-     <zorder>toolButton_89</zorder>
     </widget>
    </widget>
   </widget>

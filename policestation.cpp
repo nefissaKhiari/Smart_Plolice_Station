@@ -9,7 +9,6 @@ PoliceStation::PoliceStation(QWidget *parent)
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
 
-    ui->RB_Default->setChecked(true);
     ui->LE_ACinIntervenant->setValidator(new QIntValidator(1, 99999999, this));
     ui->LE_ADureeService->setValidator(new QIntValidator(1, 999, this));
     ui->mdp->setEchoMode(QLineEdit::Password);
@@ -989,43 +988,15 @@ void PoliceStation::on_B_AConfirmerEquipement_clicked()
 void PoliceStation::on_B_SupprimerEquipement_clicked()
 {
     Equipement equipement;
-    int reference;
-    int quantite;
-    QString taille;
-    QString etat;
-    int poid;
-    QString nom;
-    int CIN_policier;
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmation de la suppression", "Confirmer la suppression de l'equipement?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes) {
         equipement.setReference(ui->CB_IDEquipement->currentText().toInt());
-        QSqlQuery qry;
-        QString ref_string = QString::number(ui->CB_IDEquipement->currentText().toInt());
-        qry.prepare("SELECT * FROM equipement where reference= :reference");
-        qry.bindValue(0, ref_string);
-        if(qry.exec()) {
-            while(qry.next()) {
-                reference=qry.value(0).toInt();
-                quantite=qry.value(1).toInt();
-                taille=qry.value(2).toString();
-                etat=qry.value(3).toString();
-                poid=qry.value(4).toInt();
-                nom=qry.value(5).toString();
-                CIN_policier=qry.value(6).toInt();
-
-            }
-        }
-        qDebug()<<reference <<CIN_policier;
-        Poubelle poubelle (reference,quantite,taille,etat,poid,nom,CIN_policier );
-
         if(equipement.supprimer(equipement.getReference())) {
             qDebug() << "Suppression Complet";
-            poubelle.ajouter();
             ui->T_Equipement->setModel(equipement.afficher());
             ui->CB_IDEquipement->setModel(equipement.listRef());
             INFORMER(ui->labelmessage,"Equipement suprimer",3000);
         }
-
         else {
             QMessageBox::critical(nullptr, QObject::tr("Nope"),
                         QObject::tr("Suppression a échoué.\n" "Cliquer Ok."), QMessageBox::Ok);
@@ -3145,93 +3116,4 @@ void PoliceStation::on_B_ConfirmerAffectation_clicked()
 void PoliceStation::on_pushButton_12_clicked()
 {
     ui->stackedWidget->setCurrentIndex(55);
-}
-
-void PoliceStation::on_Poubelle_clicked()
-{
-    ui->T_Equipemen_suprime->setModel(poubelle.afficherPoubelle());
-    ui->stackedWidget->setCurrentIndex(61);
-}
-
-void PoliceStation::on_vider_corbeille_clicked()
-{
-    poubelle.supprimer();
-  ui->T_Equipemen_suprime->setModel(poubelle.afficherPoubelle());
-}
-
-void PoliceStation::on_EQ_retour_clicked()
-{
-     ui->stackedWidget->setCurrentIndex(11);
-}
-
-void PoliceStation::on_B_Theme_clicked()
-{
-    if(ui->RB_Light->isChecked()) {
-        //this->setStyleSheet("QTextEdit{	font-size: 18px;background: red;border: 1px solid #717072;color: white;}");
-
-        QList<QPushButton *> butts = this->findChildren<QPushButton *>();
-        for (int i=0; i<butts.size();i++)
-        {
-            butts.at(i)->setStyleSheet("QPushButton { font-size: 24px; background: white;	border-radius: 10px; }"
-            "QPushButton:hover{ background: #BBBBBB;}");
-        }
-
-        QList<QFrame *> frames = this->findChildren<QFrame *>();
-        for (int i=0; i<frames.size();i++)
-        {
-            frames.at(i)->setStyleSheet("QFrame { background: rgba(111, 111, 111, 0.8); border-radius: 15px;} }");
-        }
-
-        QList<QStackedWidget *> tabs = this->findChildren<QStackedWidget *>();
-        for (int i=0; i<tabs.size();i++)
-        {
-            tabs.at(i)->setStyleSheet("QStackedWidget { background-color:  transparent;}");
-        }
-
-        QList<QToolButton *> tools = this->findChildren<QToolButton *>();
-        for (int i=0; i<tools.size();i++)
-        {
-            tools.at(i)->setStyleSheet("QToolButton{ font-size: 24px; background: white; border-radius: 60px; } #toolButton_12{border-radius:30px;}");
-        }
-
-        QList<QLabel *> labels = this->findChildren<QLabel *>();
-        for (int i=0; i<labels.size();i++)
-        {
-            labels.at(i)->setStyleSheet("QLabel{background: transparent;}");
-        }
-    }
-    else if(ui->RB_Default->isChecked()) {
-        //this->setStyleSheet("QTextEdit{	font-size: 18px;background: red;border: 1px solid #717072;color: white;}");
-
-        QList<QPushButton *> butts = this->findChildren<QPushButton *>();
-        for (int i=0; i<butts.size();i++)
-        {
-            butts.at(i)->setStyleSheet("QPushButton { font-size: 24px; background: red;	border-radius: 10px; }"
-            "QPushButton:hover{ background: #ff9999;}");
-        }
-
-        QList<QFrame *> frames = this->findChildren<QFrame *>();
-        for (int i=0; i<frames.size();i++)
-        {
-            frames.at(i)->setStyleSheet("QFrame { background: rgba(0, 0, 0, 0.8); border-radius: 15px;} }");
-        }
-
-        QList<QStackedWidget *> tabs = this->findChildren<QStackedWidget *>();
-        for (int i=0; i<tabs.size();i++)
-        {
-            tabs.at(i)->setStyleSheet("QStackedWidget { background-color:  transparent;}");
-        }
-
-        QList<QToolButton *> tools = this->findChildren<QToolButton *>();
-        for (int i=0; i<tools.size();i++)
-        {
-            tools.at(i)->setStyleSheet("QToolButton{ font-size: 24px; background: red; border-radius: 60px; } #toolButton_12{border-radius:30px;}");
-        }
-
-        QList<QLabel *> labels = this->findChildren<QLabel *>();
-        for (int i=0; i<labels.size();i++)
-        {
-            labels.at(i)->setStyleSheet("QLabel{background: transparent;}");
-        }
-    }
 }

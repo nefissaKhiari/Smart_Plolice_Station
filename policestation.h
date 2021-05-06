@@ -19,6 +19,9 @@
 #include "amende.h"
 #include "policier.h"
 #include "calc.h"
+#include "detenu.h"
+#include "infraction.h"
+#include "affectation.h"
 #include "login.h"
 //****
 #include <QDialog>
@@ -481,6 +484,59 @@ private slots:
 
     void on_B_Retouuuur_clicked();
 
+    void on_B_GestionInfraction_clicked();
+
+    void on_B_GestioDetenus_clicked();
+
+    void on_B_GestionMission_2_clicked();
+
+    void on_B_BackToGestions_12_clicked();
+
+    void on_B_BackToGestions_8_clicked();
+
+    void on_B_BackToGestions_14_clicked();
+
+    void on_B_SupprimerDetenus_clicked();
+
+    void on_B_AjouterDetenus_clicked();
+
+    void on_B_AAnnulerDetenus_clicked();
+
+    void on_B_AConfirmerDetenus_clicked();
+
+    void on_B_ModifierDetenus_clicked();
+
+    void on_B_MAnnulerDetenus_clicked();
+
+    void on_B_Trier_5_clicked();
+
+    void on_B_ResetTableIntervenant_4_clicked();
+
+    void on_LE_Chercher_2_textChanged(const QString &arg1);
+
+    void on_B_MConfirmerDetenus_clicked();
+
+    void on_B_SupprimerIntervenant_2_clicked();
+
+    void on_B_AjouterInfraction_clicked();
+
+    void on_B_AConfirmerInfraction_clicked();
+
+    void on_B_AAnnulerInfraction_clicked();
+
+    void on_B_ModifierIntervenant_2_clicked();
+
+    void on_B_Statistics_2_clicked();
+
+    void on_B_BackToGestions_13_clicked();
+
+    void on_B_MAnnulerInfraction_clicked();
+
+    void on_B_MConfirmerInfraction_clicked();
+
+
+    void on_B_ConfirmerAffectation_clicked();
+
 private:
     Ui::PoliceStation *ui;
     Intervenant intervenant;
@@ -501,6 +557,9 @@ private:
     QTimer *timer;
     login *log;
     QMediaPlayer* player;
+    Detenu detenu;
+    Infraction infraction;
+    Affectation affectation;
 signals:
     void setCenter(QVariant , QVariant);
 };

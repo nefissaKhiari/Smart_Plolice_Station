@@ -13,15 +13,18 @@ CONFIG += c++11
 SOURCES += \
     QrCode.cpp \
     affaire.cpp \
+    affectation.cpp \
     affectations.cpp \
     amende.cpp \
     calc.cpp \
     cam.cpp \
     citoyen.cpp \
     connection.cpp \
+    detenu.cpp \
     equipement.cpp \
     excel.cpp \
     exceli.cpp \
+    infraction.cpp \
     intervenant.cpp \
     login.cpp \
     main.cpp \
@@ -39,15 +42,18 @@ SOURCES += \
 HEADERS += \
     QrCode.hpp \
     affaire.h \
+    affectation.h \
     affectations.h \
     amende.h \
     calc.h \
     cam.h \
     citoyen.h \
     connection.h \
+    detenu.h \
     equipement.h \
     excel.h \
     exceli.h \
+    infraction.h \
     intervenant.h \
     login.h \
     maintenance.h \

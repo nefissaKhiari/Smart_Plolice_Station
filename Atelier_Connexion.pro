@@ -14,8 +14,9 @@ QT       += network
 QT       += core gui sql charts
 QT       += core gui axcontainer
 QT       += core gui sql
+QT       += core gui multimedia
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets  quickwidgets
 
 TARGET = Atelier_Connexion
 TEMPLATE = app
@@ -61,4 +62,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    qml.qrc \
     ressources.qrc

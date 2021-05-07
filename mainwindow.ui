@@ -99,7 +99,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>11</number>
     </property>
     <widget class="QWidget" name="Gestions">
      <widget class="QPushButton" name="B_BackToMenu">
@@ -218,6 +218,19 @@ QPushButton:hover{
         </size>
        </property>
       </widget>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="geometry">
+        <rect>
+         <x>540</x>
+         <y>20</y>
+         <width>131</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Option</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QToolButton" name="toolButton_2">
       <property name="geometry">
@@ -245,14 +258,17 @@ QPushButton:hover{
        </size>
       </property>
      </widget>
-     <widget class="QFrame" name="frame_23">
+     <widget class="QFrame" name="frame58">
       <property name="geometry">
        <rect>
-        <x>929</x>
-        <y>30</y>
-        <width>261</width>
-        <height>80</height>
+        <x>1050</x>
+        <y>20</y>
+        <width>211</width>
+        <height>51</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(255, 0, 0)</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -260,22 +276,18 @@ QPushButton:hover{
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QLabel" name="time">
+      <widget class="QLabel" name="time_2">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>20</y>
-         <width>211</width>
-         <height>51</height>
+         <x>10</x>
+         <y>9</y>
+         <width>191</width>
+         <height>31</height>
         </rect>
        </property>
-       <property name="font">
-        <font>
-         <pointsize>-1</pointsize>
-        </font>
-       </property>
        <property name="styleSheet">
-        <string notr="true">background:transparent;</string>
+        <string notr="true">color: black;
+font: 75 20pt &quot;MS Shell Dlg 2&quot;;</string>
        </property>
        <property name="text">
         <string/>
@@ -557,6 +569,19 @@ QComboBox::drop-down {
        </property>
        <property name="styleSheet">
         <string notr="true">background: white;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_6">
+       <property name="geometry">
+        <rect>
+         <x>360</x>
+         <y>10</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>MAP</string>
        </property>
       </widget>
      </widget>
@@ -7207,6 +7232,139 @@ background: transparent;
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="page_2">
+     <widget class="QFrame" name="frame_58">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>190</y>
+        <width>491</width>
+        <height>371</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QSlider" name="sliderprogress">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>110</y>
+         <width>181</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QSlider" name="slidervolume">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>190</y>
+         <width>181</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="value">
+        <number>99</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_4">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>280</y>
+         <width>141</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>start</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_5">
+       <property name="geometry">
+        <rect>
+         <x>272</x>
+         <y>280</y>
+         <width>141</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>stop</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>100</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:transparent;</string>
+       </property>
+       <property name="text">
+        <string>Progress</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_19">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>180</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:transparent;</string>
+       </property>
+       <property name="text">
+        <string>Volume</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_3">
+     <widget class="QQuickWidget" name="quickWidget">
+      <property name="geometry">
+       <rect>
+        <x>499</x>
+        <y>89</y>
+        <width>771</width>
+        <height>541</height>
+       </rect>
+      </property>
+      <property name="resizeMode">
+       <enum>QQuickWidget::SizeRootObjectToView</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_7">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>20</y>
+        <width>121</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Retour</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -7230,6 +7388,13 @@ background: transparent;
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QQuickWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">QtQuickWidgets/QQuickWidget</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="ressources.qrc"/>
  </resources>

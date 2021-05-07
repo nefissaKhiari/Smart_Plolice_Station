@@ -18,6 +18,9 @@
 #include <QPieSeries>
 #include <QPieSlice>
 #include<QTimer>
+#include <QMediaPlayer>
+#include<QDebug>
+#include <QDialog>
 namespace Ui {
 class MainWindow;
 }
@@ -103,6 +106,22 @@ private slots:
     void on_pushButton_clicked();
     void myFunction();
 
+    void on_pushButton_3_clicked();
+
+    void on_sliderprogress_sliderMoved(int position);
+
+    void on_slidervolume_sliderMoved(int position);
+
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_5_clicked();
+    void on_durationChanged(qint64 position);
+void on_positionChanged(qint64 position);
+
+void on_pushButton_6_clicked();
+
+void on_pushButton_7_clicked();
+
 private:
     Ui::MainWindow *ui;
     Citoyen C;
@@ -111,6 +130,9 @@ private:
    QStringList files;
      QSound* son;
      QTimer *timer;
+     QMediaPlayer* player;
+signals:
+    void setCenter(QVariant , QVariant);
 };
 
 #endif // MAINWINDOW_H

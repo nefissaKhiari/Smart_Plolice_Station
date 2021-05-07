@@ -51,6 +51,7 @@
 #include<excel.h>
 #include <QTimer>
 #include <QDateTime>
+#include <QQuickItem>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -63,6 +64,14 @@ MainWindow::MainWindow(QWidget *parent) :
 timer=new QTimer(this);
 connect(timer,SIGNAL(timeout()),this,SLOT(myFunction()));
 timer->start(1000);
+player = new QMediaPlayer(this);
+connect(player, &QMediaPlayer::positionChanged , this ,&MainWindow::on_positionChanged);
+connect(player, &QMediaPlayer::durationChanged , this ,&MainWindow::on_durationChanged);
+ui->quickWidget->setSource(QUrl(QStringLiteral("qrc:/map.qml")));
+ui->quickWidget->show();
+auto obj= ui->quickWidget->rootObject();
+connect(this , SIGNAL(setCenter(QVariant,QVariant)), obj,SLOT(setCenter(QVariant,QVariant)));
+emit setCenter(25.000, 50.000);
 }
 
 MainWindow::~MainWindow()
@@ -863,5 +872,52 @@ void MainWindow::myFunction()
 
     QTime time = QTime::currentTime();
     QString time_text =time.toString("hh : mm : ss");
-    ui->time->setText(time_text);
+    ui->time_2->setText(time_text);
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(10);
+}
+
+void MainWindow::on_sliderprogress_sliderMoved(int position)
+{
+  player->setPosition(position);
+}
+
+void MainWindow::on_slidervolume_sliderMoved(int position)
+{
+    player->setVolume(position);
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    player->setMedia(QUrl::fromLocalFile("/Users/myria/Desktop/Smart_Plolice_Station_2A19/cassette-player-button-3.wav"));
+    player->play();
+    qDebug()<<player->errorString();
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    player->stop();
+}
+
+void MainWindow::on_durationChanged(qint64 position)
+{
+    ui->sliderprogress->setMaximum(position);
+}
+
+void MainWindow::on_positionChanged(qint64 position)
+{
+    ui->sliderprogress->setValue(position);
+}
+
+void MainWindow::on_pushButton_6_clicked()
+{    son->play();
+     ui->stackedWidget->setCurrentIndex(11);
+}
+
+void MainWindow::on_pushButton_7_clicked()
+{    son->play();
+     ui->stackedWidget->setCurrentIndex(1);
 }
